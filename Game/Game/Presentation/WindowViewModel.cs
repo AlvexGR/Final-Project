@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using Game.Presentation;
 
 namespace Game.Presentation
@@ -54,6 +56,8 @@ namespace Game.Presentation
         }
         public CornerRadius WindowCornerRaius { get { return new CornerRadius(WindowRadius); } }
 
+        public int TitleHeight { get; set; } = 30;
+        public GridLength TitleHeightGridLength { get { return new GridLength(TitleHeight + ResizeBorder); } }
         #endregion
 
         #region Constructor
@@ -69,7 +73,15 @@ namespace Game.Presentation
                 OnPropertyChanged(nameof(WindowRadius));
                 OnPropertyChanged(nameof(WindowCornerRaius));
             };
+
+            MinimizeWindow = new RelayCommand(() => myWindow.WindowState = WindowState.Minimized);
+            CloseWindow = new RelayCommand(() => myWindow.Close());
         }
+        #endregion
+
+        #region Commands
+        public ICommand MinimizeWindow { set; get; }
+        public ICommand CloseWindow { set; get; }
         #endregion
 
     }

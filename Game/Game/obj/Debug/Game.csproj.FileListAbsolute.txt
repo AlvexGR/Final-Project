@@ -31,3 +31,4 @@ D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\Fielder.dll
 D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\PropertyChanged.dll
 D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\Fielder.xml
 D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\PropertyChanged.xml
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\GeneratedInternalTypeHelper.g.cs
