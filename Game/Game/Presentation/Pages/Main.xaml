@@ -7,6 +7,39 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
       Title="Main">
+    <Page.Resources>
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Background" Value="{StaticResource LetterOrangeBrush}"/>
+            <Setter Property="Foreground" Value="{StaticResource ForegroundVeryDarkBrush}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ButtonBase}">
+                        <Border x:Name="border" 
+                            CornerRadius="10"
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            Background="{TemplateBinding Background}" 
+                            SnapsToDevicePixels="True">
+                            <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsDefaulted" Value="True">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource LetterBlueBrush}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FFADB2B5"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#FF838383"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
     <StackPanel>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -14,19 +47,19 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="1" Margin="20 80 50 0">
-                <Button Content="THEO CHU DE" Margin="0 0 0 50" Height="65"/>
-                <Button Content="THEO CHU DE" Margin="0 0 0 50" Height="65"/>
-                <Button Content="THEO CHU DE" Margin="0 0 0 50" Height="65"/>
+                <Button Content="THEO CHỦ ĐỀ" Margin="0 0 0 50" Height="65" FontSize="18"/>
+                <Button Content="KHÔNG THEO CHỦ ĐỀ" Margin="0 0 0 50" Height="65" FontSize="18"/>
+                <Button Content="DANH SÁCH TỪ VỰNG" Margin="0 0 0 50" Height="65" FontSize="18"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0" Margin="0 0 2 0">
-                        <Button Content="THEO CHU DE" Height="30" Margin="0 0 0 5"/>
-                        <Button Content="THEO CHU DE" Height="30"/>
+                        <Button Content="LỊCH SỬ" Height="30" Margin="0 0 0 5" FontSize="14"/>
+                        <Button Content="CÀI ĐẶT" Height="30" FontSize="14"/>
                     </StackPanel>
-                    <Button x:Name="btnExit" Content="THOAT" Grid.Column="1"  Margin="2 0 0 0" Height="65"/>
+                    <Button x:Name="btnExit" Content="THOÁT" Grid.Column="1"  Margin="2 0 0 0" Height="65" FontSize="18" Click="btnExit_Click"/>
                 </Grid>
 
             </StackPanel>
