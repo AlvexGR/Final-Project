@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game.Controller
 {
-    class HistoryManagement
+    public class HistoryManagement
     {
     }
 }
