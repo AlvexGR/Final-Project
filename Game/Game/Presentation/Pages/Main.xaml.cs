@@ -18,7 +18,7 @@ namespace Game.Presentation.Pages
     /// <summary>
     /// Interaction logic for Main.xaml
     /// </summary>
-    public partial class Main : Page
+    public partial class Main : BasePage
     {
         public Main()
         {
@@ -29,6 +29,11 @@ namespace Game.Presentation.Pages
         {
             Application.Current.ShutdownMode = ShutdownMode.OnExplicitShutdown;
             Application.Current.Shutdown();
+        }
+
+        private void btnTheme_Click(object sender, RoutedEventArgs e)
+        {
+            this.AnimateOut();
         }
     }
 }

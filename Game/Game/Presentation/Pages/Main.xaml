@@ -1,4 +1,4 @@
-﻿<Page x:Class="Game.Presentation.Pages.Main"
+﻿<local:BasePage x:Class="Game.Presentation.Pages.Main"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -23,12 +23,20 @@
                             <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="Button.IsDefaulted" Value="True">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-                            </Trigger>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource LetterBlueBrush}"/>
-                            </Trigger>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="Blue" Duration="0:0:0.2" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="Orange" Duration="0:0:0.2" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
                             <Trigger Property="IsEnabled" Value="False">
                                 <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="#FFADB2B5"/>
@@ -47,22 +55,22 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="1" Margin="20 80 50 0">
-                <Button Content="THEO CHỦ ĐỀ" Margin="0 0 0 50" Height="65" FontSize="18"/>
-                <Button Content="KHÔNG THEO CHỦ ĐỀ" Margin="0 0 0 50" Height="65" FontSize="18"/>
-                <Button Content="DANH SÁCH TỪ VỰNG" Margin="0 0 0 50" Height="65" FontSize="18"/>
+                <Button x:Name="btnTheme" Content="THEO CHỦ ĐỀ" Margin="0 0 0 50" Height="65" FontSize="18" FontWeight="Bold" FontFamily="Arial" Click="btnTheme_Click"/>
+                <Button Content="KHÔNG THEO CHỦ ĐỀ" Margin="0 0 0 50" Height="65" FontSize="18" FontWeight="Bold" FontFamily="Arial"/>
+                <Button Content="DANH SÁCH TỪ VỰNG" Margin="0 0 0 50" Height="65" FontSize="18" FontWeight="Bold" FontFamily="Arial"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0" Margin="0 0 2 0">
-                        <Button Content="LỊCH SỬ" Height="30" Margin="0 0 0 5" FontSize="14"/>
-                        <Button Content="CÀI ĐẶT" Height="30" FontSize="14"/>
+                        <Button Content="LỊCH SỬ" Height="30" Margin="0 0 0 5" FontSize="14" FontWeight="Bold" FontFamily="Arial"/>
+                        <Button Content="CÀI ĐẶT" Height="30" FontSize="14" FontWeight="Bold" FontFamily="Arial"/>
                     </StackPanel>
-                    <Button x:Name="btnExit" Content="THOÁT" Grid.Column="1"  Margin="2 0 0 0" Height="65" FontSize="18" Click="btnExit_Click"/>
+                    <Button x:Name="btnExit" Content="THOÁT" Grid.Column="1"  Margin="2 0 0 0" Height="65" FontSize="18" Click="btnExit_Click" FontWeight="Bold" FontFamily="Arial"/>
                 </Grid>
 
             </StackPanel>
         </Grid>
     </StackPanel>
-</Page>
+</local:BasePage>
