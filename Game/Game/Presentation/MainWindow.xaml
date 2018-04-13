@@ -9,7 +9,7 @@
         x:Name="wndMain"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
-        Title="Game học tiếng anh cho trẻ em" Height="600" Width="800" ResizeMode="NoResize">
+        Title="Game học tiếng Anh cho trẻ em" Height="600" Width="800" ResizeMode="NoResize">
 
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">
@@ -48,9 +48,22 @@
                                             <!--Button-->
                                             <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
+                                        
+                                        <!--Icon-->
                                         <Button Style="{StaticResource SystemIconButton}">
                                             <Image Source="/Images/Logo/135077.png"/>
                                         </Button>
+                                        
+                                        <!--Title-->
+                                        <Viewbox Grid.Column="1" Margin="0">
+                                            <TextBlock Style="{StaticResource HeaderText}" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Title, FallbackValue='Game học tiếng Anh cho trẻ em'}"/>
+                                        </Viewbox>
+                                        
+                                        <!--Window Buttons-->
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                            <Button Style="{StaticResource WindowControlButton}" Content="_"/>
+                                            <Button Style="{StaticResource WindowCloseButton}" Content="X"/>
+                                        </StackPanel>
                                     </Grid>
                                 </Grid>
                             </Grid>
