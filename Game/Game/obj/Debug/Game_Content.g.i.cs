@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("135077_oq2_icon.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/background/background6.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/background/background7.jpg")]
 
 

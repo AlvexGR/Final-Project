@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Game.Presentation;
+using Game.AppPage;
 
 namespace Game.Presentation
 {
@@ -26,9 +27,11 @@ namespace Game.Presentation
         #endregion
 
         #region Public properties
-        public int ResizeBorder { get; set; } = 6; //size of the resize border around the window
+        public int ResizeBorder { get; set; } = 6;
 
         public Thickness ResizeBorderThickness { get { return new Thickness(ResizeBorder + OuterMarginSize); } }
+
+        public Thickness InnerContentPadding { get; set; } = new Thickness(0);
 
         public int OuterMarginSize
         {
@@ -58,6 +61,9 @@ namespace Game.Presentation
 
         public int TitleHeight { get; set; } = 30;
         public GridLength TitleHeightGridLength { get { return new GridLength(TitleHeight + ResizeBorder); } }
+
+        public AppPage.AppPage CurrentPage { set; get; } = AppPage.AppPage.MainPage;
+
         #endregion
 
         #region Constructor

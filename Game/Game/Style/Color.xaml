@@ -16,4 +16,20 @@
     <Color x:Key="ForegroundLight">#efefef</Color>
     <SolidColorBrush x:Key="ForegroundLightBrush" Color="{StaticResource ForegroundLight}"/>
 
+    <Color x:Key="LetterRed">#ff0000</Color>
+    <SolidColorBrush x:Key="LetterRedBrush" Color="{StaticResource LetterRed}"/>
+    <Color x:Key="LetterBlue">#0040ff</Color>
+    <SolidColorBrush x:Key="LetterBlueBrush" Color="{StaticResource LetterBlue}"/>
+    <Color x:Key="LetterGreen">#00ff00</Color>
+    <SolidColorBrush x:Key="LetterGreenBrush" Color="{StaticResource LetterGreen}"/>
+    <Color x:Key="LetterYellow">#ffff00</Color>
+    <SolidColorBrush x:Key="LetterYellowBrush" Color="{StaticResource LetterYellow}"/>
+    <Color x:Key="LetterOrange">#ff8000</Color>
+    <SolidColorBrush x:Key="LetterOrangeBrush" Color="{StaticResource LetterOrange}"/>
+    <Color x:Key="LetterPink">#ff00bf</Color>
+    <SolidColorBrush x:Key="LetterPinkBrush" Color="{StaticResource LetterPink}"/>
+
+    <Color x:Key="ButtonColor">#0040ff</Color>
+    <SolidColorBrush x:Key="ButtonColorBrush" Color="{StaticResource ButtonColor}"/>
+
 </ResourceDictionary>

@@ -9,7 +9,7 @@
         x:Name="wndMain"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
-        Title="Game học tiếng Anh cho trẻ em" Height="600" Width="800" ResizeMode="NoResize">
+        Title="Louder" Height="600" Width="800" ResizeMode="NoResize">
 
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">
@@ -20,6 +20,8 @@
                         <Border Padding="{Binding OuterMarginSizeThickness, FallbackValue=10}">
                             <!--Main window-->
                             <Grid>
+                                <!--Opacity Mask for Corner-->
+                                <Border x:Name="Container" Background="{StaticResource BackgroundLightBrush}" CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}" />
                                 <Border CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}" Background="{Binding ForegroundLightBrush, FallbackValue=White}">
                                     <Border.Effect>
                                         <DropShadowEffect ShadowDepth="0" Opacity="0.2"/>
@@ -27,13 +29,14 @@
                                 </Border>
 
                                 <Grid>
+                                    <!--Corner clipping-->
+                                    <Grid.OpacityMask>
+                                        <VisualBrush Visual="{Binding ElementName=Container}"/>
+                                    </Grid.OpacityMask>
                                     <Grid.RowDefinitions>
                                         <!--Title Bar-->
                                         <RowDefinition Height="{Binding TitleHeightGridLength, FallbackValue=42}"/>
-                                        
-                                        <!--Drop Shadow-->
-                                        <RowDefinition Height="Auto"/>
-                                        
+
                                         <!--Window Contents-->
                                         <RowDefinition Height="*"/>
                                         
@@ -48,23 +51,35 @@
                                             <!--Button-->
                                             <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
-                                        
+
                                         <!--Icon-->
                                         <Button Style="{StaticResource SystemIconButton}">
                                             <Image Source="/Images/Logo/135077.png"/>
                                         </Button>
-                                        
+
                                         <!--Title-->
-                                        <Viewbox Grid.Column="1" Margin="0">
-                                            <TextBlock Style="{StaticResource HeaderText}" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Title, FallbackValue='Game học tiếng Anh cho trẻ em'}"/>
+                                        <Viewbox Grid.Column="0" Grid.ColumnSpan="3" Margin="5">
+                                            <StackPanel>
+                                                <TextBlock FontFamily="{StaticResource LatoBold}">
+                                                    <Run Text="L" Foreground="{StaticResource LetterOrangeBrush}"/><Run Text="O" Foreground="{StaticResource LetterOrangeBrush}"/><Run Text="U" Foreground="{StaticResource LetterOrangeBrush}"/><Run Text="D" Foreground="{StaticResource LetterOrangeBrush}"/><Run Text="E" Foreground="{StaticResource LetterOrangeBrush}"/><Run Text="R" Foreground="{StaticResource LetterOrangeBrush}"/>
+                                                </TextBlock>
+                                            </StackPanel>
                                         </Viewbox>
-                                        
+
                                         <!--Window Buttons-->
                                         <StackPanel Grid.Column="2" Orientation="Horizontal">
-                                            <Button Style="{StaticResource WindowControlButton}" Content="_"/>
-                                            <Button Style="{StaticResource WindowCloseButton}" Content="X"/>
+                                            <Button Command="{Binding MinimizeWindow}" Style="{StaticResource WindowControlButton}" Content="_"/>
+                                            <Button Command="{Binding CloseWindow}" Style="{StaticResource WindowCloseButton}" Content="X"/>
                                         </StackPanel>
                                     </Grid>
+
+                                    <!-- Page content -->
+                                    <Border Grid.Row="1" Padding="{Binding InnerContentPadding}">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="/Images/Background/background6.jpg"/>
+                                        </Border.Background>
+                                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                                    </Border>
                                 </Grid>
                             </Grid>
                         </Border>
@@ -80,40 +95,9 @@
             GlassFrameThickness="0"
             />
     </WindowChrome.WindowChrome>
-    
-    
-    <StackPanel Background="#3498db">
-        <TextBlock Text="Welcome"/>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0" Margin="50 80 20 0">
-                <TextBlock Text="Welcome to Louder" Height="100" Background="#eee"/>
-
-            </StackPanel>
-
-            <StackPanel Grid.Column="1" Margin="20 80 50 0">
-                <Button Content="THEO CHU DE" Margin="0 0 0 50" Height="65"/>
-                <Button Content="THEO CHU DE" Margin="0 0 0 50" Height="65"/>
-                <Button Content="THEO CHU DE" Margin="0 0 0 50" Height="65"/>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0" Margin="0 0 2 0">
-                        <Button Content="THEO CHU DE" Height="30" Margin="0 0 0 5"/>
-                        <Button Content="THEO CHU DE" Height="30"/>
-                    </StackPanel>
-                    <Button x:Name="btnExit" Content="THOAT" Grid.Column="1"  Margin="2 0 0 0" Height="65" Click="btnExit_Click"/>
-                </Grid>
-
-            </StackPanel>
-        </Grid>
 
 
-
-    </StackPanel>
+    <Grid>
+        <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:AppPageValueConverter}}"/>
+    </Grid>
 </Window>

@@ -20,6 +20,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
     <!--System Icon Button-->
     <Style TargetType="{x:Type Button}" x:Key="SystemIconButton" BasedOn="{StaticResource Hoverless}">
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
@@ -61,4 +62,5 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    
 </ResourceDictionary>
