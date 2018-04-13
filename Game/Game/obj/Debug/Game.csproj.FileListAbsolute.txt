@@ -1,0 +1,15 @@
+D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\Game.exe.config
+D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\Game.exe
+D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\Game.pdb
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.csprojResolveAssemblyReference.cache
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\MainWindow.g.cs
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\App.g.cs
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game_MarkupCompile.cache
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game_MarkupCompile.lref
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\MainWindow.baml
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.g.resources
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.Properties.Resources.resources
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.csproj.GenerateResource.cache
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.exe
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.pdb
