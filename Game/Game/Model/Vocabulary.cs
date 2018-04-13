@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game.Model
 {
-    class Vocabulary : Theme
+    public class Vocabulary : Theme
     {
         private int id;
         private int definition;

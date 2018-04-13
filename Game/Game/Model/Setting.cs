@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game.Model
 {
-    class Setting
+    public class Setting
     {
         private int volume;
         private int fontSize;

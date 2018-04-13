@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game.Model
 {
-    class PlayHistory
+    public class PlayHistory
     {
         private int id;
         private DateTime date;

@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Game.Model;
+using Game.Presentation;
 namespace Game
 {
     /// <summary>
@@ -23,11 +24,12 @@ namespace Game
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new WindowViewModel(this);
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
     }
 }

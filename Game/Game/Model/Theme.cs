@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game.Model
 {
-    class Theme
+    public class Theme
     {
         private int themeId;
         private string themeName;

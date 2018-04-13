@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game.Model
 {
-    class Background
+    public class Background
     {
         private int id;
         private string path;

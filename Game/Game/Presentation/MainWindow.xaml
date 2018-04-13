@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Game"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800">
+        WindowStyle="None"
+        x:Name="wndMain"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Title="Louder" Height="600" Width="800">
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            ResizeBorderThickness="{Binding ResizeBorderThickness}"
+            />
+    </WindowChrome.WindowChrome>
+    
+    
     <StackPanel Background="#3498db">
+        <TextBlock Text="Welcome"/>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
