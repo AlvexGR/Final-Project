@@ -33,7 +33,12 @@ namespace Game.Presentation.Pages
 
         private void btnTheme_Click(object sender, RoutedEventArgs e)
         {
-            this.AnimateOut();
+            AnimateOutToLeft();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AnimateOutToRight();
         }
     }
 }

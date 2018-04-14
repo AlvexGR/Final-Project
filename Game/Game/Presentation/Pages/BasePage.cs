@@ -10,16 +10,20 @@ namespace Game.Presentation.Pages
     public class BasePage: Page
     {
         #region Public Properties
-        public PageAnimation PageLoadAnimation { set; get; } = PageAnimation.SlideFromRight;
+        public PageAnimation PageLoadAnimationFromRight { set; get; } = PageAnimation.SlideFromRight;
 
-        public PageAnimation PageUnloadAnimation { set; get; } = PageAnimation.SlideToLeft;
+        public PageAnimation PageLoadAnimationFromLeft { set; get; } = PageAnimation.SlideFromLeft;
 
-        public float SlideSeconds { set; get; } = 0.5f;
+        public PageAnimation PageUnloadAnimationToLeft { set; get; } = PageAnimation.SlideToLeft;
+
+        public PageAnimation PageUnloadAnimationToRight { set; get; } = PageAnimation.SlideToRight;
+
+        public float SlideSeconds { set; get; } = 0.8f;
         #endregion
 
         public BasePage()
         {
-            if(PageLoadAnimation != PageAnimation.None)
+            if(PageLoadAnimationFromRight != PageAnimation.None || PageLoadAnimationFromLeft != PageAnimation.None)
             {
                 Visibility = Visibility.Collapsed;
             }
@@ -29,16 +33,16 @@ namespace Game.Presentation.Pages
 
         private async void BasePage_Loaded(object sender, RoutedEventArgs e)
         {
-            await AnimateIn();
+            await AnimateInFromRight();
         }
 
-        public async Task AnimateIn()
+        public async Task AnimateInFromRight()
         {
-            if (PageLoadAnimation == PageAnimation.None)
+            if (PageLoadAnimationFromRight == PageAnimation.None)
             {
                 return;
             }
-            switch(PageLoadAnimation)
+            switch(PageLoadAnimationFromRight)
             {
                 case PageAnimation.SlideFromRight:
                     await this.SlideFromRight(SlideSeconds);
@@ -46,16 +50,45 @@ namespace Game.Presentation.Pages
             }
         }
 
-        public async Task AnimateOut()
+        public async Task AnimateInFromLeft()
         {
-            if (PageUnloadAnimation == PageAnimation.None)
+            if (PageLoadAnimationFromLeft == PageAnimation.None)
             {
                 return;
             }
-            switch (PageUnloadAnimation)
+            switch(PageLoadAnimationFromLeft)
+            {
+                case PageAnimation.SlideFromLeft:
+                    await this.SlideFromLeft(SlideSeconds);
+                    break;
+            }
+        }
+
+
+        public async Task AnimateOutToLeft()
+        {
+            if (PageUnloadAnimationToLeft == PageAnimation.None)
+            {
+                return;
+            }
+            switch (PageUnloadAnimationToLeft)
             {
                 case PageAnimation.SlideToLeft:
                     await this.SlideToLeft(SlideSeconds);
+                    break;
+            }
+        }
+
+        public async Task AnimateOutToRight()
+        {
+            if (PageUnloadAnimationToRight == PageAnimation.None)
+            {
+                return;
+            }
+            switch (PageUnloadAnimationToRight)
+            {
+                case PageAnimation.SlideToRight:
+                    await this.SlideToRight(SlideSeconds);
                     break;
             }
         }
