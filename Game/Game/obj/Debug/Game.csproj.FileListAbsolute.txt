@@ -34,3 +34,44 @@ D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.csproj.C
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.exe
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.pdb
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.csprojResolveAssemblyReference.cache
+F:\Final Assignment\Final-Project\Game\Game\bin\Debug\Game.exe.config
+F:\Final Assignment\Final-Project\Game\Game\bin\Debug\Game.exe
+F:\Final Assignment\Final-Project\Game\Game\bin\Debug\Game.pdb
+F:\Final Assignment\Final-Project\Game\Game\bin\Debug\Fielder.dll
+F:\Final Assignment\Final-Project\Game\Game\bin\Debug\MaterialDesignColors.dll
+F:\Final Assignment\Final-Project\Game\Game\bin\Debug\MaterialDesignThemes.Wpf.dll
+F:\Final Assignment\Final-Project\Game\Game\bin\Debug\Microsoft.Windows.Shell.dll
+F:\Final Assignment\Final-Project\Game\Game\bin\Debug\PropertyChanged.dll
+F:\Final Assignment\Final-Project\Game\Game\bin\Debug\Fielder.xml
+F:\Final Assignment\Final-Project\Game\Game\bin\Debug\MaterialDesignColors.pdb
+F:\Final Assignment\Final-Project\Game\Game\bin\Debug\MaterialDesignThemes.Wpf.pdb
+F:\Final Assignment\Final-Project\Game\Game\bin\Debug\MaterialDesignThemes.Wpf.xml
+F:\Final Assignment\Final-Project\Game\Game\bin\Debug\Microsoft.Windows.Shell.pdb
+F:\Final Assignment\Final-Project\Game\Game\bin\Debug\PropertyChanged.xml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Game.csprojResolveAssemblyReference.cache
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\MainWindow.g.cs
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\Main.g.cs
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\App.g.cs
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\GeneratedInternalTypeHelper.g.cs
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Game_MarkupCompile.cache
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Game_MarkupCompile.lref
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\App.baml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\MainWindow.baml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\Main.baml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Style\Text.baml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Style\Window.baml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Style\Button.baml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Style\Color.baml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Style\Font.baml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Game.g.resources
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Game.Properties.Resources.resources
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Game.csproj.GenerateResource.Cache
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Game.exe
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Game.pdb
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\Selection.g.cs
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\Setting.g.cs
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\History.g.cs
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\History.baml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\Selection.baml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\Setting.baml
