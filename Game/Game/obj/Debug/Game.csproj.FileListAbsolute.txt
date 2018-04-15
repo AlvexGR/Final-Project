@@ -53,6 +53,7 @@ D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\MaterialDesig
 D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\MaterialDesignThemes.Wpf.xml
 D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\Microsoft.Windows.Shell.pdb
 D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\PropertyChanged.xml
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.csprojResolveAssemblyReference.cache
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\MainWindow.g.cs
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\History.g.cs
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\Main.g.cs
