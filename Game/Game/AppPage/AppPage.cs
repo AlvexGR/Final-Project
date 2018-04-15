@@ -4,5 +4,6 @@
     {
         MainPage = 0,
         NoThemeSelectionPage = 1,
+        HistoryPage = 2,
     }
 }
