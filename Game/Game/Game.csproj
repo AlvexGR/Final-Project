@@ -77,6 +77,8 @@
     <Compile Include="Animation\PageAnimation.cs" />
     <Compile Include="Animation\PageAnimations.cs" />
     <Compile Include="Animation\StoryboardHelpers.cs" />
+    <Compile Include="AttachedProperties\BaseAttachedProperty.cs" />
+    <Compile Include="AttachedProperties\RemoveNavigationFrameHistory.cs" />
     <Compile Include="Presentation\Pages\BasePage.cs" />
     <Compile Include="Presentation\Pages\History.xaml.cs">
       <DependentUpon>History.xaml</DependentUpon>
@@ -96,6 +98,9 @@
     <Compile Include="Presentation\ViewModels\SelectionViewModel.cs" />
     <Compile Include="Presentation\ViewModels\MainViewModel.cs" />
     <Compile Include="Presentation\ViewModels\RelayParameterizedCommand.cs" />
+    <Compile Include="UserControls\PageHost.xaml.cs">
+      <DependentUpon>PageHost.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ValueConverter\AppPageValueConverter.cs" />
     <Compile Include="ValueConverter\BaseValueConverter.cs" />
     <Page Include="Presentation\MainWindow.xaml">
@@ -150,6 +155,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Style\Font.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PageHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

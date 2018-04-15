@@ -91,7 +91,7 @@
 
     <Grid>
         <Frame x:Name="MainFrame" 
-               NavigationUIVisibility="Hidden"
+                local:RemoveNavigationFrameHistory.Value="True"
                Content="{Binding CurrentPage, Converter={local:AppPageValueConverter}}"/>
     </Grid>
 </Window>

@@ -59,6 +59,7 @@ D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\NoThemeSelection.g.cs
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\Setting.g.cs
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\ThemeSelection.g.cs
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\UserControls\PageHost.g.cs
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\App.g.cs
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game_MarkupCompile.cache
@@ -73,6 +74,7 @@ D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Style\Button.baml
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Style\Color.baml
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Style\Font.baml
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\UserControls\PageHost.baml
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.g.resources
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.Properties.Resources.resources
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.csproj.GenerateResource.cache
@@ -80,4 +82,3 @@ D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.csproj.C
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.csproj.CopyComplete
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.exe
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.pdb
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.csprojResolveAssemblyReference.cache
