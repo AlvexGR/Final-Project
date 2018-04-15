@@ -16,6 +16,10 @@ namespace Game
                     return new Selection();
                 case AppPage.AppPage.HistoryPage:
                     return new History();
+                case AppPage.AppPage.SettingPage:
+                    return new Setting();
+                case AppPage.AppPage.ThemeSelectionPage:
+                    return new ThemeSelection();
                 default:
                     Debugger.Break();
                     return null;
