@@ -21,8 +21,6 @@ D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game_MarkupCo
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\App.baml
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\MainWindow.baml
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\Main.baml
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Style\Text.baml
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Style\Window.baml
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Style\Button.baml
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Style\Color.baml
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Style\Font.baml

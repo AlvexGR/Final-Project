@@ -13,7 +13,6 @@ namespace Game.Presentation
     {
         #region Private properties
         private Window myWindow;
-
         private int myOutterMarginSize = 10;
         #endregion
 
@@ -23,6 +22,19 @@ namespace Game.Presentation
         public Thickness ResizeBorderThickness { get { return new Thickness(ResizeBorder + myOutterMarginSize); } }
 
         public Thickness InnerContentPadding { get; set; } = new Thickness(0);
+
+        public int OuterMarginSize
+        {
+            get
+            {
+                return myWindow.WindowState == WindowState.Maximized ? 0 : myOutterMarginSize;
+            }
+            set
+            {
+                myOutterMarginSize = value;
+            }
+        }
+        public Thickness OuterMarginSizeThickness { get { return new Thickness(OuterMarginSize); } }
 
         public int TitleHeight { get; set; } = 30;
         public GridLength TitleHeightGridLength { get { return new GridLength(TitleHeight + ResizeBorder); } }
@@ -39,6 +51,8 @@ namespace Game.Presentation
             myWindow.StateChanged += (sender, e) =>
             {
                 OnPropertyChanged(nameof(ResizeBorderThickness));
+                OnPropertyChanged(nameof(OuterMarginSize));
+                OnPropertyChanged(nameof(OuterMarginSizeThickness));
             };
 
             MinimizeWindow = new RelayCommand(() => myWindow.WindowState = WindowState.Minimized);

@@ -16,71 +16,78 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Window}">
-                        <!--Main window-->
-                        <Grid>
-                            <!--Opacity Mask for Corner-->
-                            <Border x:Name="Container" Background="{StaticResource BackgroundLightBrush}" CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}" />
-                            <Border Background="{Binding ForegroundLightBrush, FallbackValue=White}">
-                                <Border.Effect>
-                                    <DropShadowEffect ShadowDepth="0" Opacity="0.2"/>
-                                </Border.Effect>
-                            </Border>
-
+                        <!--Outer border-->
+                        <Border Padding="{Binding OuterMarginSizeThickness, FallbackValue=10}">
+                            <!--Main window-->
                             <Grid>
-                                <Grid.RowDefinitions>
-                                    <!--Title Bar-->
-                                    <RowDefinition Height="{Binding TitleHeightGridLength, FallbackValue=42}"/>
-
-                                    <!--Window Contents-->
-                                    <RowDefinition Height="*"/>
-
-                                </Grid.RowDefinitions>
-                                <!--Title Bar-->
-                                <Grid Grid.Column="0" Panel.ZIndex="1">
-                                    <Grid.ColumnDefinitions>
-                                        <!--Icon-->
-                                        <ColumnDefinition Width="Auto"/>
-                                        <!--Title-->
-                                        <ColumnDefinition Width="*"/>
-                                        <!--Button-->
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <!--Icon-->
-                                    <Button Style="{StaticResource SystemIconButton}">
-                                        <Image Source="/Images/Logo/135077.png"/>
-                                    </Button>
-
-                                    <!--Title-->
-                                    <Viewbox Grid.Column="0" Grid.ColumnSpan="3" Margin="5">
-                                        <StackPanel>
-                                            <TextBlock FontFamily="Arial">
-                                                    <Run Text="L" Foreground="{StaticResource LetterOrangeBrush}"/><Run Text="O" Foreground="{StaticResource LetterOrangeBrush}"/><Run Text="U" Foreground="{StaticResource LetterOrangeBrush}"/><Run Text="D" Foreground="{StaticResource LetterOrangeBrush}"/><Run Text="E" Foreground="{StaticResource LetterOrangeBrush}"/><Run Text="R" Foreground="{StaticResource LetterOrangeBrush}"/>
-                                            </TextBlock>
-                                        </StackPanel>
-                                    </Viewbox>
-
-                                    <!--Window Buttons-->
-                                    <StackPanel Grid.Column="2" Orientation="Horizontal">
-                                        <Button Command="{Binding MinimizeWindow}" Style="{StaticResource WindowControlButton}" Content="_"/>
-                                        <Button Command="{Binding CloseWindow}" Style="{StaticResource WindowCloseButton}" Content="X"/>
-                                    </StackPanel>
-                                </Grid>
-
-                                <!-- Page content -->
-                                <Border Grid.Row="1" Padding="{Binding InnerContentPadding}">
-                                    <Border.Background>
-                                        <ImageBrush ImageSource="/Images/Background/background6.jpg"/>
-                                    </Border.Background>
-                                    <ContentPresenter Content="{TemplateBinding Content}"/>
+                                <!--Opacity Mask for Corner-->
+                                <Border x:Name="Container" Background="{StaticResource BackgroundLightBrush}"/>
+                                <Border Background="{Binding ForegroundLightBrush, FallbackValue=White}">
                                 </Border>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <!--Title Bar-->
+                                        <RowDefinition Height="{Binding TitleHeightGridLength, FallbackValue=42}"/>
+
+                                        <!--Window Contents-->
+                                        <RowDefinition Height="*"/>
+                                        
+                                    </Grid.RowDefinitions>
+                                    <!--Title Bar-->
+                                    <Grid Grid.Column="0" Panel.ZIndex="1">
+                                        <Grid.ColumnDefinitions>
+                                            <!--Icon-->
+                                            <ColumnDefinition Width="Auto"/>
+                                            <!--Title-->
+                                            <ColumnDefinition Width="*"/>
+                                            <!--Button-->
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <!--Icon-->
+                                        <Button Style="{StaticResource SystemIconButton}">
+                                            <Image Source="/Images/Logo/135077.png"/>
+                                        </Button>
+
+                                        <!--Title-->
+                                        <Viewbox Grid.Column="0" Grid.ColumnSpan="3" Margin="5">
+                                            <StackPanel>
+                                                <TextBlock FontFamily="Arial">
+                                                    <Run Text="L" Foreground="{StaticResource LetterOrangeBrush}"/><Run Text="O" Foreground="{StaticResource LetterOrangeBrush}"/><Run Text="U" Foreground="{StaticResource LetterOrangeBrush}"/><Run Text="D" Foreground="{StaticResource LetterOrangeBrush}"/><Run Text="E" Foreground="{StaticResource LetterOrangeBrush}"/><Run Text="R" Foreground="{StaticResource LetterOrangeBrush}"/>
+                                                </TextBlock>
+                                            </StackPanel>
+                                        </Viewbox>
+
+                                        <!--Window Buttons-->
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                            <Button Command="{Binding MinimizeWindow}" Style="{StaticResource WindowControlButton}" Content="_"/>
+                                            <Button Command="{Binding CloseWindow}" Style="{StaticResource WindowCloseButton}" Content="X"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <!-- Page content -->
+                                    <Border Grid.Row="1" Padding="{Binding InnerContentPadding}">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="/Images/Background/background6.jpg"/>
+                                        </Border.Background>
+                                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                                    </Border>
+                                </Grid>
                             </Grid>
-                        </Grid>
+                        </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
     </Window.Resources>
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            ResizeBorderThickness="{Binding ResizeBorderThickness}"
+            CaptionHeight="{Binding TitleHeight}"
+            GlassFrameThickness="0"
+            />
+    </WindowChrome.WindowChrome>
 
     <Grid>
         <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:AppPageValueConverter}}"/>

@@ -27,14 +27,14 @@
                             <EventTrigger RoutedEvent="MouseEnter">
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <ColorAnimation To="Blue" Duration="0:0:0.2" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color"/>
+                                        <ColorAnimation To="Blue" Duration="0:0:0" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
                             <EventTrigger RoutedEvent="MouseLeave">
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <ColorAnimation To="Orange" Duration="0:0:0.2" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color"/>
+                                        <ColorAnimation To="Orange" Duration="0:0:0" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
