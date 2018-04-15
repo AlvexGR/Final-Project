@@ -34,7 +34,7 @@ namespace Game.Presentation
 
         public async Task GoToNoTheme()
         {
-            ((WindowViewModel)((MainWindow)System.Windows.Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.NoThemeSelectionPage;
+            ((WindowViewModel)((MainWindow)System.Windows.Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.MainPage;
             await Task.Delay(1000);
         }
 
