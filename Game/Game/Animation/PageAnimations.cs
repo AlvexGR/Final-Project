@@ -10,9 +10,9 @@ namespace Game.Animation
         {
             var sb = new Storyboard();
 
-            sb.AddFadeIn(seconds * 2);
+            sb.AddFadeIn(seconds);
 
-            sb.AddSlideFromRight(seconds * 2, page.WindowWidth);
+            sb.AddSlideFromRight(seconds, page.WindowWidth);
 
             sb.Begin(page);
 
@@ -25,9 +25,9 @@ namespace Game.Animation
         {
             var sb = new Storyboard();
 
-            sb.AddFadeIn(seconds * 2);
+            sb.AddFadeIn(seconds);
 
-            sb.AddSlideFromLeft(seconds * 2, page.WindowWidth);
+            sb.AddSlideFromLeft(seconds, page.WindowWidth);
 
             sb.Begin(page);
 
@@ -42,7 +42,7 @@ namespace Game.Animation
 
             sb.AddFadeOut(seconds);
 
-            sb.AddSlideToLeft(seconds * 3, page.WindowWidth);
+            sb.AddSlideToLeft(seconds, page.WindowWidth);
           
             sb.Begin(page);
 
@@ -57,7 +57,7 @@ namespace Game.Animation
 
             sb.AddFadeOut(seconds);
 
-            sb.AddSlideToRight(seconds * 3, page.WindowWidth);
+            sb.AddSlideToRight(seconds, page.WindowWidth);
 
             sb.Begin(page);
 

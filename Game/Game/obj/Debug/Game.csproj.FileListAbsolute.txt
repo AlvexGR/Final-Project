@@ -1,37 +1,3 @@
-D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\Game.exe.config
-D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\Game.exe
-D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\Game.pdb
-D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\Fielder.dll
-D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\MaterialDesignColors.dll
-D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\MaterialDesignThemes.Wpf.dll
-D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\Microsoft.Windows.Shell.dll
-D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\PropertyChanged.dll
-D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\Fielder.xml
-D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\MaterialDesignColors.pdb
-D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\MaterialDesignThemes.Wpf.pdb
-D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\MaterialDesignThemes.Wpf.xml
-D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\Microsoft.Windows.Shell.pdb
-D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\PropertyChanged.xml
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\MainWindow.g.cs
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\Main.g.cs
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\App.g.cs
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\GeneratedInternalTypeHelper.g.cs
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game_MarkupCompile.cache
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game_MarkupCompile.lref
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\App.baml
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\MainWindow.baml
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\Main.baml
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Style\Button.baml
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Style\Color.baml
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Style\Font.baml
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.g.resources
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.Properties.Resources.resources
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.csproj.GenerateResource.cache
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.csproj.CopyComplete
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.exe
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.pdb
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.csprojResolveAssemblyReference.cache
 F:\Final Assignment\Final-Project\Game\Game\bin\Debug\Game.exe.config
 F:\Final Assignment\Final-Project\Game\Game\bin\Debug\Game.exe
 F:\Final Assignment\Final-Project\Game\Game\bin\Debug\Game.pdb
@@ -73,11 +39,45 @@ F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\History
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\History.baml
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\Selection.baml
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\Setting.baml
+D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\Game.exe.config
+D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\Game.exe
+D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\Game.pdb
+D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\Fielder.dll
+D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\MaterialDesignColors.dll
+D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\Microsoft.Windows.Shell.dll
+D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\PropertyChanged.dll
+D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\Fielder.xml
+D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\MaterialDesignColors.pdb
+D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\Microsoft.Windows.Shell.pdb
+D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\PropertyChanged.xml
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\MainWindow.g.cs
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\History.g.cs
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\Setting.g.cs
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\History.baml
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\Setting.baml
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\Main.g.cs
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\NoThemeSelection.g.cs
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\Setting.g.cs
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\ThemeSelection.g.cs
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\App.g.cs
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game_MarkupCompile.cache
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game_MarkupCompile.lref
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\App.baml
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\MainWindow.baml
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\History.baml
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\Main.baml
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\NoThemeSelection.baml
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\Setting.baml
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\ThemeSelection.baml
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Style\Button.baml
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Style\Color.baml
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Style\Font.baml
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.g.resources
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.Properties.Resources.resources
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.csproj.GenerateResource.cache
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.csproj.CopyComplete
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.exe
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.pdb
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.csprojResolveAssemblyReference.cache

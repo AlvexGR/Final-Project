@@ -35,7 +35,7 @@ namespace Game.Presentation
         public async Task GoToNoTheme()
         {
             ((WindowViewModel)((MainWindow)System.Windows.Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.NoThemeSelectionPage;
-            await Task.Delay(1000);
+            await Task.Delay(1);
         }
 
         public async Task GoToVocabularyList()

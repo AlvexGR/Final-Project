@@ -51,7 +51,7 @@ namespace Game.Presentation.Pages
             }
 
             Loaded += BasePage_Loaded;
-            ViewModel = new VM();
+            DataContext = new VM();
         }
 
         private async void BasePage_Loaded(object sender, RoutedEventArgs e)

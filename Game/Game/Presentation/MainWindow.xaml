@@ -90,6 +90,8 @@
     </WindowChrome.WindowChrome>
 
     <Grid>
-        <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:AppPageValueConverter}}"/>
+        <Frame x:Name="MainFrame" 
+               NavigationUIVisibility="Hidden"
+               Content="{Binding CurrentPage, Converter={local:AppPageValueConverter}}"/>
     </Grid>
 </Window>
