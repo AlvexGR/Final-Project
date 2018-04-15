@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-F:\Final Assignment\Final-Project\Game\Game\obj\Debug\
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\
 Game
 none
 false
 DEBUG;TRACE
-F:\Final Assignment\Final-Project\Game\Game\App.xaml
+D:\Information Technology\Final Project\Source\Game\Game\App.xaml
 10-276751972
 
-32992046143
-18-1288298886
+351818320589
+181376415845
 Presentation\MainWindow.xaml;Presentation\Pages\History.xaml;Presentation\Pages\Main.xaml;Presentation\Pages\Selection.xaml;Presentation\Pages\Setting.xaml;Style\Text.xaml;Style\Window.xaml;Style\Button.xaml;Style\Color.xaml;Style\Font.xaml;
 
-True
+False
 

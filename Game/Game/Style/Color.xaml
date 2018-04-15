@@ -29,7 +29,4 @@
     <Color x:Key="LetterPink">#ff00bf</Color>
     <SolidColorBrush x:Key="LetterPinkBrush" Color="{StaticResource LetterPink}"/>
 
-    <Color x:Key="ButtonColor">#0040ff</Color>
-    <SolidColorBrush x:Key="ButtonColorBrush" Color="{StaticResource ButtonColor}"/>
-
 </ResourceDictionary>

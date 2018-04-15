@@ -18,11 +18,12 @@ namespace Game.Presentation.Pages
     /// <summary>
     /// Interaction logic for Selection.xaml
     /// </summary>
-    public partial class Selection : Page
+    public partial class Selection : BasePage<SelectionViewModel>
     {
         public Selection()
         {
             InitializeComponent();
         }
+
     }
 }

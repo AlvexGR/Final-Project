@@ -90,6 +90,9 @@
     <Compile Include="Presentation\Pages\Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\ViewModels\SelectionViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\MainViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\RelayParameterizedCommand.cs" />
     <Compile Include="ValueConverter\AppPageValueConverter.cs" />
     <Compile Include="ValueConverter\BaseValueConverter.cs" />
     <Page Include="Presentation\MainWindow.xaml">
@@ -110,7 +113,7 @@
     <Compile Include="Model\Setting.cs" />
     <Compile Include="Model\Theme.cs" />
     <Compile Include="Model\Vocabulary.cs" />
-    <Compile Include="Presentation\BaseViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\BaseViewModel.cs" />
     <Compile Include="Presentation\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -153,8 +156,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Presentation\RelayCommand.cs" />
-    <Compile Include="Presentation\WindowViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\RelayCommand.cs" />
+    <Compile Include="Presentation\ViewModels\WindowViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

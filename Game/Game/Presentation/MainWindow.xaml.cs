@@ -24,6 +24,7 @@ namespace Game
         public MainWindow()
         {
             InitializeComponent();
+
             DataContext = new WindowViewModel(this);
         }
     }

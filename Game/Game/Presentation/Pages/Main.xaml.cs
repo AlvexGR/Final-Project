@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game.Presentation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace Game.Presentation.Pages
     /// <summary>
     /// Interaction logic for Main.xaml
     /// </summary>
-    public partial class Main : BasePage
+    public partial class Main : BasePage<MainViewModel>
     {
         public Main()
         {
@@ -29,16 +30,6 @@ namespace Game.Presentation.Pages
         {
             Application.Current.ShutdownMode = ShutdownMode.OnExplicitShutdown;
             Application.Current.Shutdown();
-        }
-
-        private void btnTheme_Click(object sender, RoutedEventArgs e)
-        {
-            AnimateOutToLeft();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            AnimateOutToRight();
         }
     }
 }

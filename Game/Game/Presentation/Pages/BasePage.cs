@@ -7,8 +7,13 @@ using System.Windows.Media.Animation;
 
 namespace Game.Presentation.Pages
 {
-    public class BasePage: Page
+    public class BasePage<VM>: Page
+        where VM: BaseViewModel, new()
     {
+        #region Private Properties
+        private VM myViewModel;
+        #endregion
+
         #region Public Properties
         public PageAnimation PageLoadAnimationFromRight { set; get; } = PageAnimation.SlideFromRight;
 
@@ -19,6 +24,23 @@ namespace Game.Presentation.Pages
         public PageAnimation PageUnloadAnimationToRight { set; get; } = PageAnimation.SlideToRight;
 
         public float SlideSeconds { set; get; } = 0.8f;
+
+        public VM ViewModel { get; set; }
+
+        public VM MyViewModel
+        {
+            get => myViewModel;
+            set
+            {
+                if(myViewModel == value)
+                {
+                    return;
+                }
+
+                myViewModel = value;
+                DataContext = myViewModel;
+            }
+        }
         #endregion
 
         public BasePage()
@@ -29,6 +51,7 @@ namespace Game.Presentation.Pages
             }
 
             Loaded += BasePage_Loaded;
+            DataContext = new VM();
         }
 
         private async void BasePage_Loaded(object sender, RoutedEventArgs e)

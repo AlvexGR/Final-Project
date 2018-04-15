@@ -12,6 +12,8 @@ namespace Game
             {
                 case AppPage.AppPage.MainPage:
                     return new Main();
+                case AppPage.AppPage.NoThemeSelectionPage:
+                    return new Selection();
                 default:
                     Debugger.Break();
                     return null;

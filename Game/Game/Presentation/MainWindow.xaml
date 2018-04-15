@@ -22,7 +22,7 @@
                             <Grid>
                                 <!--Opacity Mask for Corner-->
                                 <Border x:Name="Container" Background="{StaticResource BackgroundLightBrush}" CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}" />
-                                <Border CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}" Background="{Binding ForegroundLightBrush, FallbackValue=White}">
+                                <Border Background="{Binding ForegroundLightBrush, FallbackValue=White}">
                                     <Border.Effect>
                                         <DropShadowEffect ShadowDepth="0" Opacity="0.2"/>
                                     </Border.Effect>
@@ -30,9 +30,9 @@
 
                                 <Grid>
                                     <!--Corner clipping-->
-                                    <Grid.OpacityMask>
+                                    <!--<Grid.OpacityMask>
                                         <VisualBrush Visual="{Binding ElementName=Container}"/>
-                                    </Grid.OpacityMask>
+                                    </Grid.OpacityMask> -->
                                     <Grid.RowDefinitions>
                                         <!--Title Bar-->
                                         <RowDefinition Height="{Binding TitleHeightGridLength, FallbackValue=42}"/>
