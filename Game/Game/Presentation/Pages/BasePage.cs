@@ -7,11 +7,18 @@ using System.Windows.Media.Animation;
 
 namespace Game.Presentation.Pages
 {
-    public class BasePage<VM>: Page
-        where VM: BaseViewModel, new()
+    public class BasePage : Page
     {
-        #region Private Properties
-        private VM myViewModel;
+        #region Constructor
+        public BasePage()
+        {
+            if (PageLoadAnimationFromRight != PageAnimation.None || PageLoadAnimationFromLeft != PageAnimation.None)
+            {
+                Visibility = Visibility.Collapsed;
+            }
+
+            Loaded += BasePage_Loaded;
+        } 
         #endregion
 
         #region Public Properties
@@ -25,38 +32,21 @@ namespace Game.Presentation.Pages
 
         public float SlideSeconds { set; get; } = 0.8f;
 
-        public VM ViewModel { get; set; }
+        public bool ShouldAnimateOut { set; get; }
 
-        public VM MyViewModel
-        {
-            get => myViewModel;
-            set
-            {
-                if(myViewModel == value)
-                {
-                    return;
-                }
-
-                myViewModel = value;
-                DataContext = myViewModel;
-            }
-        }
         #endregion
 
-        public BasePage()
-        {
-            if(PageLoadAnimationFromRight != PageAnimation.None || PageLoadAnimationFromLeft != PageAnimation.None)
-            {
-                Visibility = Visibility.Collapsed;
-            }
-
-            Loaded += BasePage_Loaded;
-            DataContext = new VM();
-        }
-
+        #region Animations
         private async void BasePage_Loaded(object sender, RoutedEventArgs e)
         {
-            await AnimateInFromRight();
+            if(ShouldAnimateOut)
+            {
+                await AnimateOutToLeft();
+            }
+            else
+            {
+                await AnimateInFromRight();
+            }
         }
 
         public async Task AnimateInFromRight()
@@ -65,7 +55,7 @@ namespace Game.Presentation.Pages
             {
                 return;
             }
-            switch(PageLoadAnimationFromRight)
+            switch (PageLoadAnimationFromRight)
             {
                 case PageAnimation.SlideFromRight:
                     await this.SlideFromRight(SlideSeconds);
@@ -79,7 +69,7 @@ namespace Game.Presentation.Pages
             {
                 return;
             }
-            switch(PageLoadAnimationFromLeft)
+            switch (PageLoadAnimationFromLeft)
             {
                 case PageAnimation.SlideFromLeft:
                     await this.SlideFromLeft(SlideSeconds);
@@ -114,6 +104,41 @@ namespace Game.Presentation.Pages
                     await this.SlideToRight(SlideSeconds);
                     break;
             }
+        } 
+        #endregion
+    }
+
+    public class BasePage<VM> : BasePage
+        where VM: BaseViewModel, new()
+    {
+        #region Private Properties
+        private VM myViewModel;
+        #endregion
+
+        #region Public Properties
+
+        public VM MyViewModel
+        {
+            get => myViewModel;
+            set
+            {
+                if(myViewModel == value)
+                {
+                    return;
+                }
+
+                myViewModel = value;
+                DataContext = myViewModel;
+            }
         }
+        #endregion
+
+        #region Constructor
+        public BasePage()
+        {
+            DataContext = new VM();
+        } 
+        #endregion
+
     }
 }

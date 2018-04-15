@@ -50,7 +50,7 @@
         </Style>
     </Page.Resources>
     <StackPanel>
-        <Grid>
+        <Grid Height="600">
             <StackPanel Margin="250 80 250 110">
                 <Button x:Name="btnTheme" Command="{Binding ThemeCommand}" Content="THEO CHỦ ĐỀ" Margin="0 0 0 40" Height="65" FontSize="18" FontFamily="Arial"/>
                 <Button x:Name="btnNoThemes" Command="{Binding NoThemeCommand}" Content="KHÔNG THEO CHỦ ĐỀ" Margin="0 0 0 40" Height="65" FontSize="18" FontFamily="Arial"/>
