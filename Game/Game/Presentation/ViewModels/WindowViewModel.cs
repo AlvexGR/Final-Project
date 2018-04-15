@@ -14,48 +14,15 @@ namespace Game.Presentation
         #region Private properties
         private Window myWindow;
 
-        /// <summary>
-        /// Margin around the window
-        /// </summary>
         private int myOutterMarginSize = 10;
-        /// <summary>
-        /// Radius of the edges of the window
-        /// </summary>
-        private int myWindowRadius = 10;
         #endregion
 
         #region Public properties
         public int ResizeBorder { get; set; } = 6;
 
-        public Thickness ResizeBorderThickness { get { return new Thickness(ResizeBorder + OuterMarginSize); } }
+        public Thickness ResizeBorderThickness { get { return new Thickness(ResizeBorder + myOutterMarginSize); } }
 
         public Thickness InnerContentPadding { get; set; } = new Thickness(0);
-
-        public int OuterMarginSize
-        {
-            get
-            {
-                return myWindow.WindowState == WindowState.Maximized ? 0 : myOutterMarginSize;
-            }
-            set
-            {
-                myOutterMarginSize = value;
-            }
-        }
-        public Thickness OuterMarginSizeThickness { get { return new Thickness(OuterMarginSize); } }
-
-        public int WindowRadius
-        {
-            get
-            {
-                return myWindow.WindowState == WindowState.Maximized ? 0 : myWindowRadius;
-            }
-            set
-            {
-                myWindowRadius = value;
-            }
-        }
-        public CornerRadius WindowCornerRaius { get { return new CornerRadius(WindowRadius); } }
 
         public int TitleHeight { get; set; } = 30;
         public GridLength TitleHeightGridLength { get { return new GridLength(TitleHeight + ResizeBorder); } }
@@ -72,10 +39,6 @@ namespace Game.Presentation
             myWindow.StateChanged += (sender, e) =>
             {
                 OnPropertyChanged(nameof(ResizeBorderThickness));
-                OnPropertyChanged(nameof(OuterMarginSize));
-                OnPropertyChanged(nameof(OuterMarginSizeThickness));
-                OnPropertyChanged(nameof(WindowRadius));
-                OnPropertyChanged(nameof(WindowCornerRaius));
             };
 
             MinimizeWindow = new RelayCommand(() => myWindow.WindowState = WindowState.Minimized);
