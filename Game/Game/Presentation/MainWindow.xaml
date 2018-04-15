@@ -54,7 +54,7 @@
                                     <!--Title-->
                                     <Viewbox Grid.Column="0" Grid.ColumnSpan="3" Margin="5">
                                         <StackPanel>
-                                            <TextBlock FontFamily="{StaticResource LatoBold}">
+                                            <TextBlock FontFamily="Arial">
                                                     <Run Text="L" Foreground="{StaticResource LetterOrangeBrush}"/><Run Text="O" Foreground="{StaticResource LetterOrangeBrush}"/><Run Text="U" Foreground="{StaticResource LetterOrangeBrush}"/><Run Text="D" Foreground="{StaticResource LetterOrangeBrush}"/><Run Text="E" Foreground="{StaticResource LetterOrangeBrush}"/><Run Text="R" Foreground="{StaticResource LetterOrangeBrush}"/>
                                             </TextBlock>
                                         </StackPanel>

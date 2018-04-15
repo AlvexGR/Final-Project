@@ -2,16 +2,13 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Game.Style"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <FontFamily x:Key="LatoRegular">pack://application;,,,/Font/#Lato Regular</FontFamily>
-    <FontFamily x:Key="LatoThin">pack://application;,,,/Font/#Lato Thin</FontFamily>
-    <FontFamily x:Key="LatoBold">pack://application;,,,/Font/#Lato Bold</FontFamily>
-    
+
     <Style TargetType="{x:Type Control}" x:Key="BaseStyle">
-        <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
+        <Setter Property="FontFamily" Value="Arial"/>
     </Style>
 
     <Style TargetType="{x:Type TextBlock}" x:Key="BaseTextBlockStyle">
-        <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
+        <Setter Property="FontFamily" Value="Arial"/>
     </Style>
 
     <system:Double x:Key="FontSizeRegular">20</system:Double>
@@ -22,4 +19,5 @@
     <Style TargetType="{x:Type Label}" BasedOn="{StaticResource BaseStyle}"/>
     <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseStyle}"/>
     <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlockStyle}"/>
+    
 </ResourceDictionary>

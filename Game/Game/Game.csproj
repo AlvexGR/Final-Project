@@ -84,11 +84,14 @@
     <Compile Include="Presentation\Pages\Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Pages\Selection.xaml.cs">
-      <DependentUpon>Selection.xaml</DependentUpon>
+    <Compile Include="Presentation\Pages\NoThemeSelection.xaml.cs">
+      <DependentUpon>NoThemeSelection.xaml</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Pages\Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Pages\ThemeSelection.xaml.cs">
+      <DependentUpon>ThemeSelection.xaml</DependentUpon>
     </Compile>
     <Compile Include="Presentation\ViewModels\SelectionViewModel.cs" />
     <Compile Include="Presentation\ViewModels\MainViewModel.cs" />
@@ -126,11 +129,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Presentation\Pages\Selection.xaml">
+    <Page Include="Presentation\Pages\NoThemeSelection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Presentation\Pages\Setting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Pages\ThemeSelection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -175,24 +182,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="Font\Lato-Black.ttf" />
-    <Resource Include="Font\Lato-BlackItalic.ttf" />
-    <Resource Include="Font\Lato-Bold.ttf" />
-    <Resource Include="Font\Lato-BoldItalic.ttf" />
-    <Resource Include="Font\Lato-Hairline.ttf" />
-    <Resource Include="Font\Lato-HairlineItalic.ttf" />
-    <Resource Include="Font\Lato-Heavy.ttf" />
-    <Resource Include="Font\Lato-HeavyItalic.ttf" />
-    <Resource Include="Font\Lato-Italic.ttf" />
-    <Resource Include="Font\Lato-Light.ttf" />
-    <Resource Include="Font\Lato-LightItalic.ttf" />
-    <Resource Include="Font\Lato-Medium.ttf" />
-    <Resource Include="Font\Lato-MediumItalic.ttf" />
-    <Resource Include="Font\Lato-Regular.ttf" />
-    <Resource Include="Font\Lato-Semibold.ttf" />
-    <Resource Include="Font\Lato-SemiboldItalic.ttf" />
-    <Resource Include="Font\Lato-Thin.ttf" />
-    <Resource Include="Font\Lato-ThinItalic.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -246,6 +235,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Button\button1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Button\back_button.png" />
+    <Resource Include="Images\Button\back_button2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.3.0.3\build\Fody.targets" Condition="Exists('..\packages\Fody.3.0.3\build\Fody.targets')" />

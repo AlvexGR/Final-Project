@@ -76,8 +76,10 @@ F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\History
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\Selection.baml
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\Setting.baml
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\History.g.cs
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\Selection.g.cs
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\Setting.g.cs
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\History.baml
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\Selection.baml
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\Setting.baml
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\NoThemeSelection.g.cs
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\ThemeSelection.g.cs
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\NoThemeSelection.baml
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\ThemeSelection.baml
