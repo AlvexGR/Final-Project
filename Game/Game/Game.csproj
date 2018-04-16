@@ -39,6 +39,12 @@
     <ApplicationIcon>135077_Oq2_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Fielder, Version=1.2.0.0, Culture=neutral, PublicKeyToken=409b3227471b0f0d, processorArchitecture=MSIL">
       <HintPath>..\packages\Fielder.Fody.1.2.0\lib\net452\Fielder.dll</HintPath>
     </Reference>
@@ -55,6 +61,7 @@
       <HintPath>..\packages\PropertyChanged.Fody.2.5.3\lib\net452\PropertyChanged.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -79,6 +86,12 @@
     <Compile Include="Animation\StoryboardHelpers.cs" />
     <Compile Include="AttachedProperties\BaseAttachedProperty.cs" />
     <Compile Include="AttachedProperties\RemoveNavigationFrameHistory.cs" />
+    <Compile Include="Migrations\201804161255452_init.cs" />
+    <Compile Include="Migrations\201804161255452_init.Designer.cs">
+      <DependentUpon>201804161255452_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\MainDb.cs" />
     <Compile Include="Presentation\Pages\BasePage.cs" />
     <Compile Include="Presentation\Pages\History.xaml.cs">
       <DependentUpon>History.xaml</DependentUpon>
@@ -192,6 +205,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201804161255452_init.resx">
+      <DependentUpon>201804161255452_init.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

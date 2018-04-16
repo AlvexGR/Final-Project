@@ -22,8 +22,6 @@ F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Game_MarkupCompile.lref
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\App.baml
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\MainWindow.baml
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\Main.baml
-F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Style\Text.baml
-F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Style\Window.baml
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Style\Button.baml
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Style\Color.baml
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Style\Font.baml
@@ -33,11 +31,9 @@ F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Game.csproj.GenerateResour
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Game.exe
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Game.pdb
-F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\Selection.g.cs
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\Setting.g.cs
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\History.g.cs
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\History.baml
-F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\Selection.baml
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\Setting.baml
 D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\Game.exe.config
 D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\Game.exe
@@ -86,3 +82,17 @@ D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.pdb
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game_Content.g.cs
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\VocabularyList.g.cs
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\VocabularyList.baml
+F:\Final Assignment\Final-Project\Game\Game\bin\Debug\EntityFramework.dll
+F:\Final Assignment\Final-Project\Game\Game\bin\Debug\EntityFramework.SqlServer.dll
+F:\Final Assignment\Final-Project\Game\Game\bin\Debug\EntityFramework.xml
+F:\Final Assignment\Final-Project\Game\Game\bin\Debug\EntityFramework.SqlServer.xml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\NoThemeSelection.g.cs
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\ThemeSelection.g.cs
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\VocabularyList.g.cs
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\UserControls\PageHost.g.cs
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Game_Content.g.cs
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\NoThemeSelection.baml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\ThemeSelection.baml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\VocabularyList.baml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\UserControls\PageHost.baml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Game.Migrations.init.resources

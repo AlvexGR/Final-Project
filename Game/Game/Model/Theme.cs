@@ -8,19 +8,23 @@ namespace Game.Model
 {
     public class Theme
     {
-        private int themeId;
-        private string themeName;
-        private List<Vocabulary> Vocabularies;
+        //private int themeId;
+        //private string themeName;
+        //private List<Vocabulary> Vocabularies;
 
-        public Theme(int themeId, string themeName, List<Vocabulary> vocabularies)
-        {
-            this.themeId = themeId;
-            this.themeName = themeName;
-            Vocabularies = vocabularies;
-        }
+        //public Theme(int themeId, string themeName, List<Vocabulary> vocabularies)
+        //{
+        //    this.themeId = themeId;
+        //    this.themeName = themeName;
+        //    Vocabularies = vocabularies;
+        //}
 
-        public int ThemeId { get => themeId; set => themeId = value; }
-        public string ThemeName { get => themeName; set => themeName = value; }
-        internal List<Vocabulary> Vocabularies1 { get => Vocabularies; set => Vocabularies = value; }
+        //public int ThemeId { get => themeId; set => themeId = value; }
+        //public string ThemeName { get => themeName; set => themeName = value; }
+        //internal List<Vocabulary> Vocabularies1 { get => Vocabularies; set => Vocabularies = value; }
+
+        public int Id { get; set; }
+        public string Name { get; set; }
+
     }
 }

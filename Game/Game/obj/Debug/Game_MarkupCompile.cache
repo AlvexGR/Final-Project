@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\
 Game
 none
 false
 DEBUG;TRACE
-D:\Information Technology\Final Project\Source\Game\Game\App.xaml
+F:\Final Assignment\Final-Project\Game\Game\App.xaml
 11-1181022733
 3-1497164618
-42-1898309202
-181376415845
+46-1075626745
+211592899410
 Presentation\MainWindow.xaml;Presentation\Pages\History.xaml;Presentation\Pages\Main.xaml;Presentation\Pages\NoThemeSelection.xaml;Presentation\Pages\Setting.xaml;Presentation\Pages\ThemeSelection.xaml;Presentation\Pages\VocabularyList.xaml;Style\Button.xaml;Style\Color.xaml;Style\Font.xaml;UserControls\PageHost.xaml;
 
 False
