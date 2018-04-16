@@ -13,7 +13,7 @@ namespace Game
                 case AppPage.AppPage.MainPage:
                     return new Main();
                 case AppPage.AppPage.NoThemeSelectionPage:
-                    return new Selection();
+                    return new NoThemeSelection();
                 case AppPage.AppPage.HistoryPage:
                     return new History();
                 case AppPage.AppPage.SettingPage:

@@ -95,12 +95,13 @@
     <Compile Include="Presentation\Pages\ThemeSelection.xaml.cs">
       <DependentUpon>ThemeSelection.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\ViewModels\SelectionViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\NoThemeSelectionViewModel.cs" />
     <Compile Include="Presentation\ViewModels\MainViewModel.cs" />
     <Compile Include="Presentation\ViewModels\RelayParameterizedCommand.cs" />
     <Compile Include="UserControls\PageHost.xaml.cs">
       <DependentUpon>PageHost.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\PageStack.cs" />
     <Compile Include="ValueConverter\AppPageValueConverter.cs" />
     <Compile Include="ValueConverter\BaseValueConverter.cs" />
     <Page Include="Presentation\MainWindow.xaml">

@@ -30,23 +30,44 @@ namespace Game.Presentation.Pages
 
         public PageAnimation PageUnloadAnimationToRight { set; get; } = PageAnimation.SlideToRight;
 
-        public float SlideSeconds { set; get; } = 0.8f;
+        public float SlideSeconds { set; get; } = 0.4f;
 
-        public bool ShouldAnimateOut { set; get; }
+        public bool isLoadFromRight { set; get; }
 
+        public bool isLoadBack { set; get; }
+
+        public bool isUnloadToRight { set; get; }
+
+        public bool isUnloadToLeft { set; get; }
+
+        public bool firstTime { set; get; }
+    
         #endregion
 
         #region Animations
         private async void BasePage_Loaded(object sender, RoutedEventArgs e)
         {
-            if(ShouldAnimateOut)
-            {
-                await AnimateOutToLeft();
-            }
-            else
+            if(firstTime)
             {
                 await AnimateInFromRight();
             }
+            if(isLoadFromRight)
+            {
+                await AnimateInFromRight();
+            }
+            if(isLoadBack)
+            {
+                await AnimateInFromLeft();
+            }
+            if(isUnloadToRight)
+            {
+                await AnimateOutToRight();
+            }
+            if(isUnloadToLeft)
+            {
+                await AnimateOutToLeft();
+            }
+            isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
         }
 
         public async Task AnimateInFromRight()

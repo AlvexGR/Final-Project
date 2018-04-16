@@ -27,9 +27,10 @@ namespace Game.Presentation
         }
         #endregion
 
+        #region Async Methods
         public async Task GoToTheme()
         {
-
+            await Task.Delay(1);
         }
 
         public async Task GoToNoTheme()
@@ -40,17 +41,18 @@ namespace Game.Presentation
 
         public async Task GoToVocabularyList()
         {
-
+            await Task.Delay(1);
         }
 
         public async Task GoToSetting()
         {
-
+            await Task.Delay(1);
         }
 
         public async Task GoToHistory()
         {
-
-        }
+            await Task.Delay(1);
+        } 
+        #endregion
     }
 }

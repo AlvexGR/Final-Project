@@ -26,10 +26,21 @@ namespace Game.Presentation.Pages
             InitializeComponent();
         }
 
+        private void ResetAnimationStatus()
+        {
+            isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
+        }
+
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.ShutdownMode = ShutdownMode.OnExplicitShutdown;
             Application.Current.Shutdown();
+        }
+
+        private void btnNoThemes_Click(object sender, RoutedEventArgs e)
+        {
+            ResetAnimationStatus();
+            isUnloadToLeft = true;
         }
     }
 }

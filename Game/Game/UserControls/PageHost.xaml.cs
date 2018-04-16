@@ -31,29 +31,39 @@ namespace Game.UserControls
         #endregion
 
         #region Property Changed Events
+        
         private static void CurrentPagePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             // Get the frame
-            var oldPageFrame = (d as PageHost).OldPage;
-            var newPageFrame = (d as PageHost).NewPage;
-
-            // Store the current page content as the old page
-            var oldPageContent = newPageFrame.Content;
-
-            // Remove current page from new page frame
-            newPageFrame.Content = null;
-
-            // Move the previous page into the old page frame
-            oldPageFrame.Content = oldPageContent;
-
-            // Animate out the previous page
-            if(oldPageContent is BasePage oldPage)
+            var curPageFrame = (d as PageHost).CurPage;
+            var tmpPageFrame = (d as PageHost).TmpPage;
+            var newPage = (BasePage)e.NewValue;
+            var curPage = (BasePage)curPageFrame.Content;
+ 
+            if (curPageFrame.Content is null) // first loaded
             {
-                oldPage.ShouldAnimateOut = true;
+                newPage.firstTime = true;
+                curPageFrame.Content = newPage;
+                return;
             }
 
-            // Set the new page content
-            newPageFrame.Content = e.NewValue;
+            // Go back to previous page
+            if(curPage.isUnloadToRight)
+            {
+                tmpPageFrame.Content = curPage;
+                var prePage = PageStack.pageStack.Pop();
+                prePage.isLoadBack = true;
+                curPageFrame.Content = prePage;
+            }
+
+            // Go to new Page
+            if(curPage.isUnloadToLeft)
+            {
+                tmpPageFrame.Content = curPage;
+                PageStack.pageStack.Push((BasePage)curPageFrame.Content);
+                newPage.isLoadFromRight = true;
+                curPageFrame.Content = newPage;
+            }
         }
         #endregion
     }
