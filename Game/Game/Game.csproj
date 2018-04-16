@@ -195,9 +195,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\Logo\bigbang_Wbd_icon.ico" />
   </ItemGroup>
@@ -243,6 +241,23 @@
   <ItemGroup>
     <Resource Include="Images\Button\back_button.png" />
     <Resource Include="Images\Button\back_button2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Audios\Background Audios\At The Fair - The Green Orbs.mp3" />
+    <Content Include="Audios\Background Audios\Bubble Bath - The Green Orbs.mp3" />
+    <Content Include="Audios\Background Audios\Buddy - Bensound.mp3" />
+    <Content Include="Audios\Background Audios\Cartoon - Nicolai Heidlas.mp3" />
+    <Content Include="Audios\Background Audios\Cute - Bensound.mp3" />
+    <Content Include="Audios\Background Audios\Funny Song - Bensound.mp3" />
+    <Content Include="Audios\Background Audios\Mr. Turtle - The Green Orbs.mp3" />
+    <Content Include="Audios\Background Audios\NoWay2 - PeriTune.mp3" />
+    <Content Include="Audios\Background Audios\Ponies and Balloons.mp3" />
+    <Content Include="Audios\Background Audios\Rainy Day Games - The Green Orbs.mp3" />
+    <Content Include="Audios\Background Audios\Sunday Morning - Nicolai Heidlas.mp3" />
+    <Content Include="Audios\Background Audios\Walk - Ikson.mp3" />
+    <Content Include="Audios\Sound Effects\click.mp3" />
+    <Content Include="Audios\Sound Effects\Typing.mp3" />
+    <Content Include="Audios\Sound Effects\Typing2.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.3.0.3\build\Fody.targets" Condition="Exists('..\packages\Fody.3.0.3\build\Fody.targets')" />

@@ -8,8 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("audios/sound%20effects/click.mp3")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("audios/sound%20effects/typing.mp3")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("audios/sound%20effects/typing2.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("noway2%20-%20peritune.mp3")]
 
 

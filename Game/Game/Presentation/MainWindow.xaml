@@ -33,7 +33,7 @@
 
                                         <!--Window Contents-->
                                         <RowDefinition Height="*"/>
-                                        
+
                                     </Grid.RowDefinitions>
                                     <!--Title Bar-->
                                     <Grid Grid.Column="0" Panel.ZIndex="1">
