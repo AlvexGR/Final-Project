@@ -84,3 +84,5 @@ D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.csproj.C
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.exe
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.pdb
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game_Content.g.cs
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\VocabularyList.g.cs
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\VocabularyList.baml

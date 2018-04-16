@@ -18,11 +18,22 @@ namespace Game.Presentation.Pages
     /// <summary>
     /// Interaction logic for ThemeSelection.xaml
     /// </summary>
-    public partial class ThemeSelection : Page
+    public partial class ThemeSelection : BasePage<ThemeSelectionViewModel>
     {
         public ThemeSelection()
         {
             InitializeComponent();
+        }
+
+        private void ResetAnimationStatus()
+        {
+            isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
+        }
+
+        private void btnGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            ResetAnimationStatus();
+            isUnloadToRight = true;
         }
     }
 }

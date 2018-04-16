@@ -95,6 +95,11 @@
     <Compile Include="Presentation\Pages\ThemeSelection.xaml.cs">
       <DependentUpon>ThemeSelection.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\Pages\VocabularyList.xaml.cs">
+      <DependentUpon>VocabularyList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ViewModels\ThemeSelectionModel.cs" />
+    <Compile Include="Presentation\ViewModels\VocabularyListViewModel.cs" />
     <Compile Include="Presentation\ViewModels\HistoryViewModel.cs" />
     <Compile Include="Presentation\ViewModels\SettingViewModel.cs" />
     <Compile Include="Presentation\ViewModels\NoThemeSelectionViewModel.cs" />
@@ -149,6 +154,10 @@
     <Page Include="Presentation\Pages\ThemeSelection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Pages\VocabularyList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Style\Button.xaml">
       <Generator>MSBuild:Compile</Generator>

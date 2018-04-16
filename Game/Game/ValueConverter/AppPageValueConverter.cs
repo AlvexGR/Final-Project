@@ -20,6 +20,8 @@ namespace Game
                     return new Setting();
                 case AppPage.AppPage.ThemeSelectionPage:
                     return new ThemeSelection();
+                case AppPage.AppPage.VocabularyListPage:
+                    return new VocabularyList();
                 default:
                     Debugger.Break();
                     return null;

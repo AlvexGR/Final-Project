@@ -18,11 +18,22 @@ namespace Game.Presentation.Pages
     /// <summary>
     /// Interaction logic for VocabularyList.xaml
     /// </summary>
-    public partial class VocabularyList : Page
+    public partial class VocabularyList : BasePage<VocabularyListViewModel>
     {
         public VocabularyList()
         {
             InitializeComponent();
+        }
+
+        private void ResetAnimationStatus()
+        {
+            isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
+        }
+
+        private void btnGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            ResetAnimationStatus();
+            isUnloadToRight = true;
         }
     }
 }
