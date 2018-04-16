@@ -7,6 +7,6 @@
         HistoryPage = 2,
         SettingPage = 3,
         ThemeSelectionPage = 4,
-        VocabularyList = 5,
+        VocabularyListPage = 5,
     }
 }

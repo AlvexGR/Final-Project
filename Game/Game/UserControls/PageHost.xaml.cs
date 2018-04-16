@@ -1,4 +1,5 @@
-﻿using Game.Presentation.Pages;
+﻿using Game.Presentation;
+using Game.Presentation.Pages;
 using System;
 using System.Threading.Tasks;
 using System.Windows;
@@ -39,7 +40,6 @@ namespace Game.UserControls
             var tmpPageFrame = (d as PageHost).TmpPage;
             var newPage = (BasePage)e.NewValue;
             var curPage = (BasePage)curPageFrame.Content;
- 
             if (curPageFrame.Content is null) // first loaded
             {
                 newPage.firstTime = true;

@@ -45,7 +45,7 @@ namespace Game.Presentation
 
         public async Task GoToVocabularyList()
         {
-            ((WindowViewModel)((MainWindow)System.Windows.Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.VocabularyList;
+            ((WindowViewModel)((MainWindow)System.Windows.Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.VocabularyListPage;
             await Task.Delay(1);
         }
 

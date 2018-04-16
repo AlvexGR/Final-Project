@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Game.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Game.Presentation
@@ -11,21 +13,22 @@ namespace Game.Presentation
     {
         
         #region Public Properties
-        public ICommand MainCommand { set; get; }
+        public ICommand PreviousCommand { set; get; }
 
         #endregion
 
         #region Constructor
         public SettingViewModel()
         {
-            MainCommand = new RelayCommand(async() => await GoToMain());
+            PreviousCommand = new RelayCommand(async() => await GoToPrevious());
         }
         #endregion
 
         #region Async Methods
-        public async Task GoToMain()
+        public async Task GoToPrevious()
         {
-            ((WindowViewModel)((MainWindow)System.Windows.Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.MainPage;
+            var pageName = GetNameOfObject.GetName(PageStack.pageStack.Peek().ToString()) + "Page";
+            ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = (AppPage.AppPage)Enum.Parse(typeof(AppPage.AppPage), pageName);
             await Task.Delay(1);
         }
         #endregion
