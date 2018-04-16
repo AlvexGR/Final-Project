@@ -42,5 +42,29 @@ namespace Game.Presentation.Pages
             ResetAnimationStatus();
             isUnloadToLeft = true;
         }
+
+        private void btnSetting_Click(object sender, RoutedEventArgs e)
+        {
+            ResetAnimationStatus();
+            isUnloadToLeft = true;
+        }
+
+        private void btnHistory_Click(object sender, RoutedEventArgs e)
+        {
+            ResetAnimationStatus();
+            isUnloadToLeft = true;
+        }
+
+        private void btnTheme_Click(object sender, RoutedEventArgs e)
+        {
+            ResetAnimationStatus();
+            isUnloadToLeft = true;
+        }
+
+        private void btnVocabularyList_Click(object sender, RoutedEventArgs e)
+        {
+            ResetAnimationStatus();
+            isUnloadToLeft = true;
+        }
     }
 }

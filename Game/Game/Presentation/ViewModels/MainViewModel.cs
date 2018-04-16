@@ -24,12 +24,16 @@ namespace Game.Presentation
         {
             ThemeCommand = new RelayCommand(async() => await GoToTheme());
             NoThemeCommand = new RelayCommand(async() => await GoToNoTheme());
+            SettingCommand = new RelayCommand(async () => await GoToSetting());
+            HistoryCommand = new RelayCommand(async () => await GoToHistory());
+            VocabularyListCommand = new RelayCommand(async () => await GoToVocabularyList());
         }
         #endregion
 
         #region Async Methods
         public async Task GoToTheme()
         {
+            ((WindowViewModel)((MainWindow)System.Windows.Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.ThemeSelectionPage;
             await Task.Delay(1);
         }
 
@@ -41,16 +45,19 @@ namespace Game.Presentation
 
         public async Task GoToVocabularyList()
         {
+            ((WindowViewModel)((MainWindow)System.Windows.Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.VocabularyList;
             await Task.Delay(1);
         }
 
         public async Task GoToSetting()
         {
+            ((WindowViewModel)((MainWindow)System.Windows.Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.SettingPage;
             await Task.Delay(1);
         }
 
         public async Task GoToHistory()
         {
+            ((WindowViewModel)((MainWindow)System.Windows.Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.HistoryPage;
             await Task.Delay(1);
         } 
         #endregion

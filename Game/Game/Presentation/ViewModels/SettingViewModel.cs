@@ -7,30 +7,27 @@ using System.Windows.Input;
 
 namespace Game.Presentation
 {
-    public class NoThemeSelectionViewModel : BaseViewModel
+    public class SettingViewModel : BaseViewModel
     {
-
+        
         #region Public Properties
-
         public ICommand MainCommand { set; get; }
 
         #endregion
 
         #region Constructor
-        public NoThemeSelectionViewModel()
+        public SettingViewModel()
         {
-            MainCommand = new RelayCommand(async () => await GoToMain());
+            MainCommand = new RelayCommand(async() => await GoToMain());
         }
-
         #endregion
 
         #region Async Methods
-        private async Task GoToMain()
+        public async Task GoToMain()
         {
             ((WindowViewModel)((MainWindow)System.Windows.Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.MainPage;
             await Task.Delay(1);
-        } 
+        }
         #endregion
-
     }
 }

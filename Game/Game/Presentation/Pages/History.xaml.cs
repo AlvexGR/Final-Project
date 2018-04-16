@@ -18,11 +18,22 @@ namespace Game.Presentation.Pages
     /// <summary>
     /// Interaction logic for History.xaml
     /// </summary>
-    public partial class History : Page
+    public partial class History : BasePage<HistoryViewModel>
     {
         public History()
         {
             InitializeComponent();
+        }
+
+        private void ResetAnimationStatus()
+        {
+            isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
+        }
+
+        private void btnGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            ResetAnimationStatus();
+            isUnloadToRight = true;
         }
     }
 }

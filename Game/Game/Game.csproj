@@ -95,6 +95,8 @@
     <Compile Include="Presentation\Pages\ThemeSelection.xaml.cs">
       <DependentUpon>ThemeSelection.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\ViewModels\HistoryViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\SettingViewModel.cs" />
     <Compile Include="Presentation\ViewModels\NoThemeSelectionViewModel.cs" />
     <Compile Include="Presentation\ViewModels\MainViewModel.cs" />
     <Compile Include="Presentation\ViewModels\RelayParameterizedCommand.cs" />
