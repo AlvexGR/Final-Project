@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Game.Model;
 
 namespace Game.Presentation.Pages
 {
@@ -20,9 +21,13 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class VocabularyList : BasePage<VocabularyListViewModel>
     {
+        MainDb db;
         public VocabularyList()
         {
             InitializeComponent();
+            db = new MainDb();
+            lbxVocabularies.ItemsSource = db.Words.ToList();
+            
         }
 
         private void ResetAnimationStatus()
