@@ -40,5 +40,20 @@ namespace Game.Presentation.Pages
             ResetAnimationStatus();
             isUnloadToRight = true;
         }
+
+        private void rdAllWords_Checked(object sender, RoutedEventArgs e)
+        {
+            lbxVocabularies.ItemsSource = db.Words.ToList();
+        }
+
+        private void rdKnownWords_Checked(object sender, RoutedEventArgs e)
+        {
+            lbxVocabularies.ItemsSource = db.Words.Where(x=>x.IsLearned).ToList();
+        }
+
+        private void rdUnknownWords_Checked(object sender, RoutedEventArgs e)
+        {
+            lbxVocabularies.ItemsSource = db.Words.Where(x => !x.IsLearned).ToList();
+        }
     }
 }
