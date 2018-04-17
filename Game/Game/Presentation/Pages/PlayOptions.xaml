@@ -6,12 +6,19 @@
       xmlns:local="clr-namespace:Game.Presentation.Pages"
       xmlns:viewModel="clr-namespace:Game.Presentation"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="800"
       Title="PlayOptions">
 
     <StackPanel>
         <Grid Height="600">
-
+            <StackPanel Margin="250 80 250 30">
+                <Button Content="HỌC TỪ" Style="{StaticResource NormalButton}" Height="60" FontFamily="Arial" FontSize="18" Margin="0 0 0 30"/>
+                <Button Content="NGHE VÀ CHỌN HÌNH" Style="{StaticResource NormalButton}" Height="60" FontFamily="Arial" FontSize="18" Margin="0 0 0 30"/>
+                <Button Content="NGHE VÀ CHỌN TỪ" Style="{StaticResource NormalButton}" Height="60" FontFamily="Arial" FontSize="18" Margin="0 0 0 30"/>
+                <Button Content="HỌC THUỘC LÒNG" Style="{StaticResource NormalButton}" Height="60" FontFamily="Arial" FontSize="18" Margin="0 0 0 30"/>
+                <Button Content="CHỌN TỪ THEO CHỦ ĐỀ" Style="{StaticResource NormalButton}" Height="60" FontFamily="Arial" FontSize="18"/>
+            </StackPanel>
+            <Button x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" Style="{StaticResource NormalButton}" Content="TRỞ LẠI" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="100" Height="70" FontSize="18"/>
         </Grid>
     </StackPanel>
 </local:BasePage>
