@@ -14,7 +14,7 @@ namespace Game.Presentation
         
         #region Public Properties
         public ICommand PreviousCommand { set; get; }
-        public ICommand NextCommand { set; get; }
+        public ICommand PlayOptionsCommand { set; get; }
 
         #endregion
 
@@ -22,7 +22,7 @@ namespace Game.Presentation
         public ThemeSelectionViewModel()
         {
             PreviousCommand = new RelayCommand(async() => await GoToPrevious());
-            NextCommand = new RelayCommand(async () => await GoToNext());
+            PlayOptionsCommand = new RelayCommand(async () => await GoToPlayOptions());
         }
         #endregion
 
@@ -34,9 +34,9 @@ namespace Game.Presentation
             await Task.Delay(1);
         }
 
-        public async Task GoToNext()
+        public async Task GoToPlayOptions()
         {
-            
+            ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.PlayOptionsPage;
             await Task.Delay(1);
         }
         #endregion

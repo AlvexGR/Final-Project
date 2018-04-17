@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,21 @@ namespace Game.Presentation.Pages
         public PlayOptions()
         {
             InitializeComponent();
+            if(!GetData.isTheme)
+            {
+                btnWordSelectionOnTheme.IsEnabled = false;
+            }
+        }
+
+        private void ResetAnimationStatus()
+        {
+            isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
+        }
+
+        private void btnGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            ResetAnimationStatus();
+            isUnloadToRight = true;
         }
     }
 }
