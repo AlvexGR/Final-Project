@@ -26,7 +26,7 @@ namespace Game.Presentation.Pages
             InitializeComponent();
             if(!GetData.isTheme)
             {
-                btnWordSelectionOnTheme.IsEnabled = false;
+                btnSelectingWordOnTheme.IsEnabled = false;
             }
         }
 
