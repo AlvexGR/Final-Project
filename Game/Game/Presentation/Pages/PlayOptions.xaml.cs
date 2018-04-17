@@ -26,7 +26,11 @@ namespace Game.Presentation.Pages
             InitializeComponent();
             if(!GetData.isTheme)
             {
-                btnSelectingWordOnTheme.IsEnabled = false;
+                btnSelectingWordOnTheme.Visibility = Visibility.Hidden;
+            }
+            if(GetData.isManual)
+            {
+
             }
         }
 

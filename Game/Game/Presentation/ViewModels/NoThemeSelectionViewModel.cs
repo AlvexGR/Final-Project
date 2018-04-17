@@ -15,6 +15,8 @@ namespace Game.Presentation
         #region Public Properties
 
         public ICommand PreviousCommand { set; get; }
+        public ICommand RandomCommand { set; get; }
+        public ICommand ManualCommand { set; get; }
 
         #endregion
 
@@ -22,6 +24,8 @@ namespace Game.Presentation
         public NoThemeSelectionViewModel()
         {
             PreviousCommand = new RelayCommand(async () => await GoToPrevious());
+            RandomCommand = new RelayCommand(async () => await GoToPlayOptions());
+            ManualCommand = new RelayCommand(async () => await GoToPrevious());
         }
 
         #endregion
@@ -31,6 +35,12 @@ namespace Game.Presentation
         {
             var pageName = GetNameOfObject.GetName(PageStack.pageStack.Peek().ToString()) + "Page";
             ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = (AppPage.AppPage)Enum.Parse(typeof(AppPage.AppPage), pageName);
+            await Task.Delay(1);
+        }
+
+        public async Task GoToPlayOptions()
+        {
+            ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.PlayOptionsPage;
             await Task.Delay(1);
         }
         #endregion

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,6 +37,21 @@ namespace Game.Presentation.Pages
         {
             ResetAnimationStatus();
             isUnloadToRight = true;
+        }
+
+        private void btnRandom_Click(object sender, RoutedEventArgs e)
+        {
+            ResetAnimationStatus();
+            isUnloadToLeft = true;
+            GetData.isTheme = false;
+        }
+
+        private void btnManual_Click(object sender, RoutedEventArgs e)
+        {
+            ResetAnimationStatus();
+            isUnloadToLeft = true;
+            GetData.isTheme = false;
+            GetData.isManual = true;
         }
     }
 }
