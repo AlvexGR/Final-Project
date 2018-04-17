@@ -8,5 +8,6 @@
         SettingPage = 3,
         ThemeSelectionPage = 4,
         VocabularyListPage = 5,
+        PlayOptionsPage = 6
     }
 }

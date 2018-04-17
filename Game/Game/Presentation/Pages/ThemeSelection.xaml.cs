@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Game.Model;
+using Game.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,15 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class ThemeSelection : BasePage<ThemeSelectionViewModel>
     {
+        private MainDb db = new MainDb();
         public ThemeSelection()
         {
             InitializeComponent();
+            List<Theme> lst = db.Themes.ToList();
+            foreach(var thm in lst)
+            {
+                lvTheme.Items.Add(thm.Name);
+            }
         }
 
         private void ResetAnimationStatus()

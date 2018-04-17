@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace Game.Presentation
 {
-    public class ThemeSelectionViewModel : BaseViewModel
+    public class PlayOptionsViewModel : BaseViewModel
     {
         
         #region Public Properties
@@ -18,7 +18,7 @@ namespace Game.Presentation
         #endregion
 
         #region Constructor
-        public ThemeSelectionViewModel()
+        public PlayOptionsViewModel()
         {
             PreviousCommand = new RelayCommand(async() => await GoToPrevious());
         }

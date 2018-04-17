@@ -96,3 +96,10 @@ F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\ThemeSe
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\VocabularyList.baml
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\UserControls\PageHost.baml
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Game.Migrations.init.resources
+D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\EntityFramework.dll
+D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\EntityFramework.SqlServer.dll
+D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\EntityFramework.xml
+D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\EntityFramework.SqlServer.xml
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.Migrations.init.resources
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\PlayOptions.g.cs
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\PlayOptions.baml
