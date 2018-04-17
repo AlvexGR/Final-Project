@@ -103,3 +103,5 @@ D:\Information Technology\Final Project\Source\Game\Game\bin\Debug\EntityFramewo
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Game.Migrations.init.resources
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\PlayOptions.g.cs
 D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\PlayOptions.baml
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\WordSelection.g.cs
+D:\Information Technology\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\WordSelection.baml

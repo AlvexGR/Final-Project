@@ -115,6 +115,10 @@
     <Compile Include="Presentation\Pages\VocabularyList.xaml.cs">
       <DependentUpon>VocabularyList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\Pages\WordSelection.xaml.cs">
+      <DependentUpon>WordSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ViewModels\WordSelectionViewModel.cs" />
     <Compile Include="Presentation\ViewModels\PlayOptionsViewModel.cs" />
     <Compile Include="Presentation\ViewModels\ThemeSelectionViewModel.cs" />
     <Compile Include="Presentation\ViewModels\VocabularyListViewModel.cs" />
@@ -181,6 +185,10 @@
     <Page Include="Presentation\Pages\VocabularyList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Pages\WordSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Style\Button.xaml">
       <Generator>MSBuild:Compile</Generator>

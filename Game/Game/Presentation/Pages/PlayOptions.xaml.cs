@@ -28,10 +28,6 @@ namespace Game.Presentation.Pages
             {
                 btnSelectingWordOnTheme.Visibility = Visibility.Hidden;
             }
-            if(GetData.isManual)
-            {
-
-            }
         }
 
         private void ResetAnimationStatus()

@@ -17,16 +17,14 @@ using System.Windows.Shapes;
 namespace Game.Presentation.Pages
 {
     /// <summary>
-    /// Interaction logic for Selection.xaml
+    /// Interaction logic for WordSelection.xaml
     /// </summary>
-    public partial class NoThemeSelection : BasePage<NoThemeSelectionViewModel>
+    public partial class WordSelection : BasePage<WordSelectionViewModel>
     {
-        #region Constructor
-        public NoThemeSelection()
+        public WordSelection()
         {
             InitializeComponent();
         }
-        #endregion
 
         private void ResetAnimationStatus()
         {
@@ -39,18 +37,10 @@ namespace Game.Presentation.Pages
             isUnloadToRight = true;
         }
 
-        private void btnRandom_Click(object sender, RoutedEventArgs e)
+        private void btnNext_Click(object sender, RoutedEventArgs e)
         {
             ResetAnimationStatus();
             isUnloadToLeft = true;
-            GetData.isTheme = false;
-        }
-
-        private void btnManual_Click(object sender, RoutedEventArgs e)
-        {
-            ResetAnimationStatus();
-            isUnloadToLeft = true;
-            GetData.isTheme = false;
         }
     }
 }

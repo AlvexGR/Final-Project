@@ -9,23 +9,21 @@ using System.Windows.Input;
 
 namespace Game.Presentation
 {
-    public class NoThemeSelectionViewModel : BaseViewModel
+    public class WordSelectionViewModel : BaseViewModel
     {
 
         #region Public Properties
 
         public ICommand PreviousCommand { set; get; }
-        public ICommand RandomCommand { set; get; }
-        public ICommand ManualCommand { set; get; }
+        public ICommand PlayOptionsCommand { set; get; }
 
         #endregion
 
         #region Constructor
-        public NoThemeSelectionViewModel()
+        public WordSelectionViewModel()
         {
             PreviousCommand = new RelayCommand(async () => await GoToPrevious());
-            RandomCommand = new RelayCommand(async () => await GoToPlayOptions());
-            ManualCommand = new RelayCommand(async () => await GoToWordSelection());
+            PlayOptionsCommand = new RelayCommand(async () => await GoToPlayOptions());
         }
 
         #endregion
@@ -41,12 +39,6 @@ namespace Game.Presentation
         public async Task GoToPlayOptions()
         {
             ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.PlayOptionsPage;
-            await Task.Delay(1);
-        }
-
-        public async Task GoToWordSelection()
-        {
-            ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.WordSelectionPage;
             await Task.Delay(1);
         }
         #endregion
