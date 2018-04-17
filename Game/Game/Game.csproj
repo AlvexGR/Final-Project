@@ -124,7 +124,7 @@
     <Compile Include="Presentation\ViewModels\MainViewModel.cs" />
     <Compile Include="Presentation\ViewModels\RelayParameterizedCommand.cs" />
     <Compile Include="UserControls\GetNameOfObject.cs" />
-    <Compile Include="UserControls\ListOfWords.cs" />
+    <Compile Include="UserControls\GetData.cs" />
     <Compile Include="UserControls\PageHost.xaml.cs">
       <DependentUpon>PageHost.xaml</DependentUpon>
     </Compile>

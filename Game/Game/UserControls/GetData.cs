@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Game.UserControls
 {
-    public static class ListOfWords
+    public static class GetData
     {
         public static List<Vocabulary> wordList = new List<Vocabulary>();
     }
