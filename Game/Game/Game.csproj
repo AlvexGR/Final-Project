@@ -106,14 +106,35 @@
     <Compile Include="Presentation\Pages\PlayOptions.xaml.cs">
       <DependentUpon>PlayOptions.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\Pages\Result.xaml.cs">
+      <DependentUpon>Result.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Pages\SelectingPictureOnListening.xaml.cs">
+      <DependentUpon>SelectingPictureOnListening.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Pages\SelectingWordOnListening.xaml.cs">
+      <DependentUpon>SelectingWordOnListening.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Pages\SelectingWordOnTheme.xaml.cs">
+      <DependentUpon>SelectingWordOnTheme.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\Pages\Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Pages\ThemeSelection.xaml.cs">
       <DependentUpon>ThemeSelection.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\Pages\TypingWord.xaml.cs">
+      <DependentUpon>TypingWord.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\Pages\VocabularyList.xaml.cs">
       <DependentUpon>VocabularyList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Pages\WordDetail.xaml.cs">
+      <DependentUpon>WordDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Pages\WordReview.xaml.cs">
+      <DependentUpon>WordReview.xaml</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Pages\WordSelection.xaml.cs">
       <DependentUpon>WordSelection.xaml</DependentUpon>
@@ -174,6 +195,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Presentation\Pages\Result.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Pages\SelectingPictureOnListening.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Pages\SelectingWordOnListening.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Pages\SelectingWordOnTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Presentation\Pages\Setting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -182,7 +219,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Presentation\Pages\TypingWord.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Presentation\Pages\VocabularyList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Pages\WordDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Pages\WordReview.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -385,6 +434,8 @@
     <Content Include="Audios\Vocabulary Pronunciations\vet.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\watermelon.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\write.mp3" />
+    <Resource Include="Images\Button\audio.jpg" />
+    <Resource Include="Images\Button\lookup.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.3.0.3\build\Fody.targets" Condition="Exists('..\packages\Fody.3.0.3\build\Fody.targets')" />

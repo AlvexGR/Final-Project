@@ -165,3 +165,17 @@ D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Game.csproj.Cor
 D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Game.csproj.CopyComplete
 D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Game.exe
 D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Game.pdb
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\Result.g.cs
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\SelectingPictureOnListening.g.cs
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\SelectingWordOnListening.g.cs
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\SelectingWordOnTheme.g.cs
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\TypingWord.g.cs
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\WordDetail.g.cs
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\WordReview.g.cs
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\Result.baml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\SelectingPictureOnListening.baml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\SelectingWordOnListening.baml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\SelectingWordOnTheme.baml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\TypingWord.baml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\WordDetail.baml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\WordReview.baml

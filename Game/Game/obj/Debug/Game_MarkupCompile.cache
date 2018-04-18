@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\
 Game
 none
 false
 DEBUG;TRACE
-D:\Software Engineering\Final Project\Source\Game\Game\App.xaml
-13-1835443169
+F:\Final Assignment\Final-Project\Game\Game\App.xaml
+20-181797350
 961279424883
-51-491750243
-22-1002501063
-Presentation\MainWindow.xaml;Presentation\Pages\History.xaml;Presentation\Pages\Main.xaml;Presentation\Pages\NoThemeSelection.xaml;Presentation\Pages\PlayOptions.xaml;Presentation\Pages\Setting.xaml;Presentation\Pages\ThemeSelection.xaml;Presentation\Pages\VocabularyList.xaml;Presentation\Pages\WordSelection.xaml;Style\Button.xaml;Style\Color.xaml;Style\Font.xaml;UserControls\PageHost.xaml;
+58-1405759512
+22-1052481662
+Presentation\MainWindow.xaml;Presentation\Pages\History.xaml;Presentation\Pages\Main.xaml;Presentation\Pages\NoThemeSelection.xaml;Presentation\Pages\PlayOptions.xaml;Presentation\Pages\Result.xaml;Presentation\Pages\SelectingPictureOnListening.xaml;Presentation\Pages\SelectingWordOnListening.xaml;Presentation\Pages\SelectingWordOnTheme.xaml;Presentation\Pages\Setting.xaml;Presentation\Pages\ThemeSelection.xaml;Presentation\Pages\TypingWord.xaml;Presentation\Pages\VocabularyList.xaml;Presentation\Pages\WordDetail.xaml;Presentation\Pages\WordReview.xaml;Presentation\Pages\WordSelection.xaml;Style\Button.xaml;Style\Color.xaml;Style\Font.xaml;UserControls\PageHost.xaml;
 
 False
 

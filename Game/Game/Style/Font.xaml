@@ -9,6 +9,7 @@
 
     <Style TargetType="{x:Type TextBlock}" x:Key="BaseTextBlockStyle">
         <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="FontSize" Value="18"/>
     </Style>
 
     <system:Double x:Key="FontSizeRegular">20</system:Double>
@@ -18,6 +19,7 @@
     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}"/>
     <Style TargetType="{x:Type Label}" BasedOn="{StaticResource BaseStyle}"/>
     <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseStyle}"/>
-    <Style x:Key="TextBlockStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlockStyle}"/>
+    <Style x:Key="NormalTextblock" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlockStyle}"/>
+    
     
 </ResourceDictionary>
