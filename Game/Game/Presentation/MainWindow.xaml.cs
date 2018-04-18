@@ -21,11 +21,13 @@ namespace Game
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MainDb db = new MainDb();
         public MainWindow()
         {
             InitializeComponent();
 
             DataContext = new WindowViewModel(this);
+            var justForLoading = db.Themes.ToList(); // nothing to do with the main function
         }
     }
 }

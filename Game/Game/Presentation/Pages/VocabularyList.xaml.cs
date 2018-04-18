@@ -21,13 +21,12 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class VocabularyList : BasePage<VocabularyListViewModel>
     {
-        MainDb db;
+        private MainDb db;
         public VocabularyList()
         {
             InitializeComponent();
             db = new MainDb();
             lbxVocabularies.ItemsSource = db.Words.ToList();
-            
         }
 
         private void ResetAnimationStatus()

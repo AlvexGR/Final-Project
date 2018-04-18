@@ -23,16 +23,10 @@ namespace Game.Presentation.Pages
     public partial class ThemeSelection : BasePage<ThemeSelectionViewModel>
     {
         private MainDb db = new MainDb();
-        private Dictionary<string, int> idx = new Dictionary<string, int>();
         public ThemeSelection()
         {
             InitializeComponent();
-            List<Theme> lst = db.Themes.ToList();
-            foreach(var thm in lst)
-            {
-                lvTheme.Items.Add(thm.Name);
-                idx[thm.Name] = thm.Id;
-            }
+            lbxTheme.ItemsSource = db.Themes.ToList();
         }
 
         private void ResetAnimationStatus()
@@ -50,8 +44,12 @@ namespace Game.Presentation.Pages
         {
             ResetAnimationStatus();
             isUnloadToLeft = true;
-            GetData.curTheme = idx[lvTheme.SelectedItem.ToString()];
             GetData.isTheme = true;
+        }
+
+        private void lbxTheme_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int id = ((Theme)lbxTheme.SelectedItem).Id;
         }
     }
 }

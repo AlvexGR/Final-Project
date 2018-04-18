@@ -39,7 +39,7 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <CheckBox IsChecked="{Binding IsLearned}" Grid.Column="0"/>
-                                <TextBlock Text="{Binding EnglishWord}" Margin="5 0 0 0" Grid.Column="1" FontSize="17" />
+                                <TextBlock Text="{Binding EnglishWord}" Margin="5 0 0 0" Grid.Column="1" FontSize="18" FontFamily="Arial"/>
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
