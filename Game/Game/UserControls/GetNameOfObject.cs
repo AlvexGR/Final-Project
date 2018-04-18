@@ -10,7 +10,7 @@ namespace Game.UserControls
     {
         public static string GetName(string s)
         {
-            List<string> lst = s.Split('.').ToList<string>();
+            List<string> lst = s.Split('.').ToList();
             return lst[lst.Count - 1];
         }
     }

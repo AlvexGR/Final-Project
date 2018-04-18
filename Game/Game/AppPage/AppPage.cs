@@ -10,6 +10,12 @@
         VocabularyListPage = 5,
         PlayOptionsPage = 6,
         WordSelectionPage = 7,
-
+        WordDetailPage = 8,
+        ResultPage = 9,
+        WordReviewPage = 10,
+        SelectingWordOnListeningPage = 11,
+        SelectingPictureOnListeningPage = 12,
+        TypingWordPage = 13,
+        SelectingWordOnThemePage = 14
     }
 }
