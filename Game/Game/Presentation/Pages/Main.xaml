@@ -12,9 +12,9 @@
     <StackPanel>
         <Grid Height="600">
             <StackPanel Margin="250 80 250 110">
-                <Button Style="{StaticResource NormalButton}" x:Name="btnTheme" Command="{Binding ThemeCommand}" Content="THEO CHỦ ĐỀ" Margin="0 0 0 40" Height="65" FontSize="18" FontFamily="Arial" Click="btnTheme_Click"/>
-                <Button Style="{StaticResource NormalButton}" x:Name="btnNoThemes" Command="{Binding NoThemeCommand}" Content="KHÔNG THEO CHỦ ĐỀ" Margin="0 0 0 40" Height="65" FontSize="18" FontFamily="Arial" Click="btnNoThemes_Click"/>
-                <Button Style="{StaticResource NormalButton}" x:Name="btnVocabularyList" Command="{Binding VocabularyListCommand}" Content="DANH SÁCH TỪ VỰNG" Margin="0 0 0 40" Height="65" FontSize="18" FontFamily="Arial" Click="btnVocabularyList_Click"/>
+                <Button Style="{StaticResource NormalButton}" x:Name="btnTheme" Command="{Binding ThemeCommand}" Content="CHƠI" Margin="0 0 0 40" Height="65" FontSize="18" FontFamily="Arial" Click="btnTheme_Click"/>
+                <Button Style="{StaticResource NormalButton}" x:Name="btnNoThemes" Command="{Binding NoThemeCommand}" Content="TUỲ CHỌN" Margin="0 0 0 40" Height="65" FontSize="18" FontFamily="Arial" Click="btnNoThemes_Click"/>
+                <Button Style="{StaticResource NormalButton}" x:Name="btnVocabularyList" Command="{Binding VocabularyListCommand}" Content="TỪ VỰNG" Margin="0 0 0 40" Height="65" FontSize="18" FontFamily="Arial" Click="btnVocabularyList_Click"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>

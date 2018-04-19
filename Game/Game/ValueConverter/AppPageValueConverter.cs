@@ -26,6 +26,8 @@ namespace Game
                     return new PlayOptions();
                 case AppPage.AppPage.WordSelectionPage:
                     return new WordSelection();
+                case AppPage.AppPage.WordReviewPage:
+                    return new WordReview();
                 default:
                     Debugger.Break();
                     return null;

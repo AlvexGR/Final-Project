@@ -40,7 +40,7 @@ namespace Game.Presentation.Pages
             isUnloadToRight = true;
         }
 
-        private void btnNext_Click(object sender, RoutedEventArgs e)
+        private void btnStart_Click(object sender, RoutedEventArgs e)
         {
             ResetAnimationStatus();
             isUnloadToLeft = true;

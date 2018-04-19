@@ -179,3 +179,17 @@ F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\Selecti
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\TypingWord.baml
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\WordDetail.baml
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\WordReview.baml
+D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\Result.g.cs
+D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\SelectingPictureOnListening.g.cs
+D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\SelectingWordOnListening.g.cs
+D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\SelectingWordOnTheme.g.cs
+D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\TypingWord.g.cs
+D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\WordDetail.g.cs
+D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\WordReview.g.cs
+D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\Result.baml
+D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\SelectingPictureOnListening.baml
+D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\SelectingWordOnListening.baml
+D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\SelectingWordOnTheme.baml
+D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\TypingWord.baml
+D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\WordDetail.baml
+D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\WordReview.baml

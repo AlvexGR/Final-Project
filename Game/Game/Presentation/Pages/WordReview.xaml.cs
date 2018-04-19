@@ -18,11 +18,22 @@ namespace Game.Presentation.Pages
     /// <summary>
     /// Interaction logic for WordReview.xaml
     /// </summary>
-    public partial class WordReview : Page
+    public partial class WordReview : BasePage<WordReviewViewModel>
     {
         public WordReview()
         {
             InitializeComponent();
+        }
+
+        private void ResetAnimationStatus()
+        {
+            isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
+        }
+
+        private void btnGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            ResetAnimationStatus();
+            isUnloadToRight = true;
         }
     }
 }

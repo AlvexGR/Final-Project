@@ -40,5 +40,11 @@ namespace Game.Presentation.Pages
             ResetAnimationStatus();
             isUnloadToRight = true;
         }
+
+        private void btnWordReview_Click(object sender, RoutedEventArgs e)
+        {
+            ResetAnimationStatus();
+            isUnloadToLeft = true;
+        }
     }
 }
