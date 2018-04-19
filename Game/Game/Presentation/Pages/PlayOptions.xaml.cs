@@ -60,5 +60,10 @@ namespace Game.Presentation.Pages
             ResetAnimationStatus();
             isUnloadToLeft = true;
         }
+
+        private void btnRandom_Click(object sender, RoutedEventArgs e)
+        {
+            randomizeListOfWord();
+        }
     }
 }
