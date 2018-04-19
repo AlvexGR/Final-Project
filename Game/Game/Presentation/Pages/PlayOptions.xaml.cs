@@ -31,10 +31,6 @@ namespace Game.Presentation.Pages
                 btnSelectingWordOnTheme.Visibility = Visibility.Hidden;
                 GetData.wordListTotal = db.Words.ToList();
             }
-            else
-            {
-                GetData.wordListTotal = db.Words.Where(x => x.Theme.Id == GetData.curTheme).ToList();
-            }
         }
 
         private void ResetAnimationStatus()
@@ -48,11 +44,21 @@ namespace Game.Presentation.Pages
             isUnloadToRight = true;
         }
 
+        private void randomizeListOfWord()
+        {
+            var rnd = new Random();
+            GetData.wordListTotal = GetData.wordListTotal.OrderBy(item => rnd.Next()).ToList();
+            GetData.wordList.Clear();
+            for (int i = 0; i < 5; i++)
+            {
+                GetData.wordList.Add(GetData.wordListTotal[i]);
+            }
+        }
+
         private void btnWordReview_Click(object sender, RoutedEventArgs e)
         {
             ResetAnimationStatus();
             isUnloadToLeft = true;
-            GetData.wordList = GetData.wordListTotal;
         }
     }
 }

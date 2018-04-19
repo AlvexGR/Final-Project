@@ -46,6 +46,14 @@ namespace Game.Presentation.Pages
             isUnloadToLeft = true;
             GetData.isTheme = true;
             GetData.curTheme = ((Theme)lbxTheme.SelectedItem).Id;
+            GetData.wordListTotal = db.Words.Where(x => x.Theme.Id == GetData.curTheme).ToList();
+            var rnd = new Random();
+            GetData.wordListTotal = GetData.wordListTotal.OrderBy(item => rnd.Next()).ToList();
+            GetData.wordList.Clear();
+            for (int i = 0; i < 5; i++)
+            {
+                GetData.wordList.Add(GetData.wordListTotal[i]);
+            }
         }
     }
 }

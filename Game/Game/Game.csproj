@@ -166,10 +166,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="AppPage\AppPage.cs" />
-    <Compile Include="Controller\HistoryManagement.cs" />
-    <Compile Include="Controller\SettingManagement.cs" />
-    <Compile Include="Controller\ThemeManagement.cs" />
-    <Compile Include="Controller\VocabularyManagement.cs" />
     <Compile Include="Model\Background.cs" />
     <Compile Include="Model\PlayHistory.cs" />
     <Compile Include="Model\Setting.cs" />
@@ -435,6 +431,10 @@
     <Content Include="Audios\Vocabulary Pronunciations\vet.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\watermelon.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\write.mp3" />
+    <Resource Include="Images\Leaderboard or History\images.png" />
+    <Resource Include="Images\Leaderboard or History\leaderboard-300x300.png" />
+    <Resource Include="Images\Leaderboard or History\leaderboard-3dbec42ce8478cfd-512x512.png" />
+    <Resource Include="Images\Leaderboard or History\Leaderboard-Regular.png" />
     <Resource Include="Images\Button\arrow_left.png" />
     <Resource Include="Images\Button\arrow_right.png" />
     <Resource Include="Images\Button\audio.png" />
