@@ -64,8 +64,9 @@
 
     <!--Normal Buttons-->
     <Style x:Key="NormalButton" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}">
-        <Setter Property="Background" Value="{StaticResource LetterOrangeBrush}"/>
+        <Setter Property="Background" Value="Orange"/>
         <Setter Property="Foreground" Value="{StaticResource ForegroundVeryDarkBrush}"/>
+        <Setter Property="FontSize" Value="18"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
@@ -166,9 +167,6 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <!--<Border Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}">
-                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </Border>-->
                     <Image Source="/Images/Button/back_button.png"/>
                 </ControlTemplate>
             </Setter.Value>
@@ -182,10 +180,20 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <!--<Border Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}">
-                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </Border>-->
                     <Image Source="/Images/Button/next_button.png"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Finish Button-->
+    <Style TargetType="{x:Type Button}" x:Key="FinishButton">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Image Source="/Images/Button/finish.png"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -215,9 +223,6 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <!--<Border Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}">
-                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </Border>-->
                     <Image Source="/Images/Leaderboard or History/history.png"/>
                 </ControlTemplate>
             </Setter.Value>
@@ -228,8 +233,8 @@
     <Style TargetType="{x:Type Button}" x:Key="RandomButton">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <!--<Setter Property="Height" Value="50"/>
-        <Setter Property="Width" Value="70"/>-->
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Width" Value="50"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">

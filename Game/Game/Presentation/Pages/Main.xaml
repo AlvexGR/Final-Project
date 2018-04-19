@@ -22,24 +22,12 @@
                 <Button Style="{StaticResource NormalButton}" x:Name="btnTheme" Command="{Binding ThemeCommand}" Content="CHƠI" Margin="0 0 0 40" Height="65" FontSize="18" FontFamily="Arial" Click="btnTheme_Click"/>
                 <Button Style="{StaticResource NormalButton}" x:Name="btnNoThemes" Command="{Binding NoThemeCommand}" Content="TUỲ CHỌN" Margin="0 0 0 40" Height="65" FontSize="18" FontFamily="Arial" Click="btnNoThemes_Click"/>
                 <Button Style="{StaticResource NormalButton}" x:Name="btnVocabularyList" Command="{Binding VocabularyListCommand}" Content="TỪ VỰNG" Margin="0 0 0 40" Height="65" FontSize="18" FontFamily="Arial" Click="btnVocabularyList_Click"/>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0" Margin="0 0 2 0">
-                        <Button Style="{StaticResource NormalButton}" Command="{Binding HistoryCommand}" x:Name="btnHistory" Content="LỊCH SỬ" Height="30" Margin="0 0 0 5" FontSize="14" FontFamily="Arial" Click="btnHistory_Click"/>
-                        <Button Style="{StaticResource NormalButton}" Command="{Binding SettingCommand}" x:Name="btnSetting" Content="CÀI ĐẶT" Height="30" FontSize="14" FontFamily="Arial" Click="btnSetting_Click"/>
-                    </StackPanel>
-                    <Button Style="{StaticResource NormalButton}" x:Name="btnExit" Content="THOÁT" Grid.Column="1"  Margin="2 0 0 0" Height="65" FontSize="18" Click="btnExit_Click" FontFamily="Arial"/>
-                </Grid>
+                <Button Style="{StaticResource NormalButton}" x:Name="btnExit" Content="THOÁT" Grid.Column="1"  Margin="2 0 0 0" Height="65" FontSize="18" Click="btnExit_Click" FontFamily="Arial"/>
             </StackPanel>
             <StackPanel Grid.Column="4" Margin="0 200 20 0">
                 <Button Style="{StaticResource SettingsButton}" Margin="0 0 0 20" />
                 <Button Style="{StaticResource HistoryButton}"/>
             </StackPanel>
-
-
         </Grid>
     </StackPanel>
 </local:BasePage>

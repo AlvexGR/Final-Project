@@ -47,7 +47,9 @@ namespace Game.Presentation.Pages
         private void randomizeListOfWord()
         {
             var rnd = new Random();
-            GetData.wordListTotal = GetData.wordListTotal.OrderBy(item => rnd.Next()).ToList();
+            int d=0;
+            GetData.wordListTotal = GetData.wordListTotal.OrderBy(item => d = rnd.Next()).ToList();
+            if (GetData.isTheme) GetData.wordListTotal = GetData.wordListTotal.Where(x => x.Theme.Id == GetData.curTheme).ToList();
             GetData.wordList.Clear();
             for (int i = 0; i < 5; i++)
             {
@@ -64,6 +66,12 @@ namespace Game.Presentation.Pages
         private void btnRandom_Click(object sender, RoutedEventArgs e)
         {
             randomizeListOfWord();
+        }
+
+        private void btnSelectingWordOnListening_Click(object sender, RoutedEventArgs e)
+        {
+            ResetAnimationStatus();
+            isUnloadToLeft = true;
         }
     }
 }

@@ -1,18 +1,14 @@
-﻿<Page x:Class="Game.Presentation.Pages.SelectingWordOnListening"
+﻿<local:BasePage x:TypeArguments="viewModel:SelectingWordOnListeningViewModel" x:Class="Game.Presentation.Pages.SelectingWordOnListening"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Game.Presentation.Pages"
+      xmlns:viewModel="clr-namespace:Game.Presentation"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
       Title="SelectingWordOnListening">
-    <!--<Page.Resources>
-        <Style TargetType="{x:Type Button}">
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="0"/>
-        </Style>
-    </Page.Resources>-->
+
     <StackPanel>
         <Grid Height="600">
             <StackPanel Margin="170 150 170 100">
@@ -25,18 +21,19 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Button Content="A."  Margin="0 0 20 20" Height="50" FontSize="18" Style="{StaticResource NormalButton}"/>
-                    <Button Content="A." Margin="20 0 0 20" Grid.Column="1" Style="{StaticResource NormalButton}"/>
-                    <Button Content="A." Margin="0 0 20 20" Grid.Column="0" Grid.Row="1" Height="50" FontSize="18" Style="{StaticResource NormalButton}"/>
-                    <Button Content="A." Margin="20 0 0 20" Grid.Column="1" Grid.Row="1" Style="{StaticResource NormalButton}"/>
+                    <Button x:Name="btnA" Click="CheckAnswer"  Margin="0 0 20 20" Height="50" Style="{StaticResource NormalButton}"/>
+                    <Button x:Name="btnB" Click="CheckAnswer"  Margin="20 0 0 20" Grid.Column="1" Style="{StaticResource NormalButton}"/>
+                    <Button x:Name="btnC" Click="CheckAnswer"  Margin="0 0 20 20" Grid.Column="0" Grid.Row="1" Height="50" Style="{StaticResource NormalButton}"/>
+                    <Button x:Name="btnD" Click="CheckAnswer"  Margin="20 0 0 20" Grid.Column="1" Grid.Row="1" Style="{StaticResource NormalButton}"/>
                 </Grid>
-               
-                <Button Width="40" Height="40" HorizontalAlignment="Center" Margin="0 20">
+
+                <Button x:Name="btnPronoun" Click="btnPronoun_Click" Width="40" Height="40" HorizontalAlignment="Center" Margin="0 20">
                     <Image Source="/Images/Button/audio.png"/>
                 </Button>
-
+                <MediaElement x:Name="mePronoun" LoadedBehavior="Manual"/>
             </StackPanel>
-            <!--<Button x:Name="btnNext" Click="btnNext_Click"  Command="{Binding PlayOptionsCommand}" Style="{StaticResource NormalButton}" Content="TIẾP THEO" HorizontalAlignment="Left" Margin="626,450,0,0" VerticalAlignment="Top" Width="109" Height="70" FontSize="18"/>-->
+            <Button x:Name="btnNext" Click="btnNext_Click" Visibility="Hidden" Style="{StaticResource NextButton}" HorizontalAlignment="Left" Margin="626,450,0,0" VerticalAlignment="Top" Width="109" Height="70" FontSize="18"/>
+            <Button x:Name="btnFinish" Click="btnFinish_Click" Visibility="Hidden" Style="{StaticResource FinishButton}" HorizontalAlignment="Left" Margin="626,450,0,0" VerticalAlignment="Top" Width="109" Height="70" FontSize="18"/>
         </Grid>
     </StackPanel>
-</Page>
+</local:BasePage>

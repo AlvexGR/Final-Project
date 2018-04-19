@@ -28,6 +28,8 @@ namespace Game
                     return new WordSelection();
                 case AppPage.AppPage.WordReviewPage:
                     return new WordReview();
+                case AppPage.AppPage.SelectingWordOnListeningPage:
+                    return new SelectingWordOnListening();
                 default:
                     Debugger.Break();
                     return null;
