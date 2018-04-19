@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Game.Model;
+using Game.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,11 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class WordReview : BasePage<WordReviewViewModel>
     {
+        private int idx = 0;
         public WordReview()
         {
             InitializeComponent();
+            UpdateData();
         }
 
         private void ResetAnimationStatus()
@@ -34,6 +38,41 @@ namespace Game.Presentation.Pages
         {
             ResetAnimationStatus();
             isUnloadToRight = true;
+        }
+
+        private void UpdateData()
+        {
+            Vocabulary vc = GetData.wordList[idx];
+            tbxDefinition.Text = vc.Definition;
+            tbxEnglishWord.Text = vc.EnglishWord;
+            tbxSpelling.Text = vc.Spelling;
+            //wordImage.Source = new BitmapImage(new Uri(vc.Image, UriKind.Relative));
+            //mePronoun.Source = new Uri(vc.Pronunciation);
+        }
+
+        private void btnGoRight_Click(object sender, RoutedEventArgs e)
+        {
+            idx++;
+            if (idx == GetData.wordList.Count)
+            {
+                idx = 0;
+            }
+            UpdateData();
+        }
+
+        private void btnGoLeft_Click(object sender, RoutedEventArgs e)
+        {
+            idx--;
+            if (idx == -1)
+            {
+                idx = GetData.wordList.Count - 1;
+            }
+            UpdateData();
+        }
+
+        private void btnPronoun_Click(object sender, RoutedEventArgs e)
+        {
+            mePronoun.Play();
         }
     }
 }

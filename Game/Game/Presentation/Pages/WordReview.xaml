@@ -17,20 +17,21 @@
                     <ColumnDefinition Width="5*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button Margin="50 0 0 0" Style="{StaticResource TransparentButton}">
+                <Button Click="btnGoLeft_Click" x:Name="btnGoLeft" Margin="50 0 0 0" Style="{StaticResource TransparentButton}">
                     <Image Source="/Images/Button/arrow_left.png"/>
                 </Button>
-                <Button Margin="0 0 50 0" Style="{StaticResource TransparentButton}" Grid.Column="2">
+                <Button Click="btnGoRight_Click" x:Name="btnGoRight" Margin="0 0 50 0" Style="{StaticResource TransparentButton}" Grid.Column="2">
                     <Image Source="/Images/Button/arrow_right.png"/>
                 </Button>
                 <StackPanel Margin="0 50" Grid.Column="1">
-                    <Image Source="/Images/Background/background.jpg" Height="250"/>
-                    <TextBlock Text="House" Margin="0 10" HorizontalAlignment="Center" FontSize="25"/>
-                    <TextBlock Text="haʊs" Margin="0 10" HorizontalAlignment="Center" Style="{StaticResource NormalTextblock}"/>
-                    <TextBlock Text="Ngôi nhà" Margin="0 10" HorizontalAlignment="Center" Style="{StaticResource NormalTextblock}"/>
-                    <Button Width="40" Height="40" HorizontalAlignment="Center" Margin="0 20">
+                    <Image x:Name="wordImage" Height="250"/>
+                    <TextBlock x:Name="tbxEnglishWord" Margin="0 10" HorizontalAlignment="Center" FontSize="25"/>
+                    <TextBlock x:Name="tbxSpelling" Margin="0 10" HorizontalAlignment="Center" Style="{StaticResource NormalTextblock}"/>
+                    <TextBlock x:Name="tbxDefinition" Margin="0 10" HorizontalAlignment="Center" Style="{StaticResource NormalTextblock}"/>
+                    <Button Click="btnPronoun_Click" x:Name="btnPronoun" Width="40" Height="40" HorizontalAlignment="Center" Margin="0 20">
                         <Image Source="/Images/Button/audio.png"/>
                     </Button>
+                    <MediaElement x:Name="mePronoun" LoadedBehavior="Manual"/>
                 </StackPanel>
             </Grid>
             <Button x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" Style="{StaticResource NormalButton}" Content="TRỞ LẠI" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="100" Height="70"/>

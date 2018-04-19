@@ -45,11 +45,7 @@ namespace Game.Presentation.Pages
             ResetAnimationStatus();
             isUnloadToLeft = true;
             GetData.isTheme = true;
-        }
-
-        private void lbxTheme_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            int id = ((Theme)lbxTheme.SelectedItem).Id;
+            GetData.curTheme = ((Theme)lbxTheme.SelectedItem).Id;
         }
     }
 }
