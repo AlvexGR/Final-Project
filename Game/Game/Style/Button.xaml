@@ -218,7 +218,7 @@
                     <!--<Border Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}">
                         <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </Border>-->
-                    <Image Source="/Images/Button/history.png"/>
+                    <Image Source="/Images/Leaderboard or History/history.png"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -228,8 +228,8 @@
     <Style TargetType="{x:Type Button}" x:Key="RandomButton">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Height" Value="50"/>
-        <Setter Property="Width" Value="50"/>
+        <!--<Setter Property="Height" Value="50"/>
+        <Setter Property="Width" Value="70"/>-->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
