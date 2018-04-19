@@ -21,8 +21,8 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <Button x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" Style="{StaticResource NormalButton}" Content="TRỞ LẠI" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="100" Height="70" FontSize="18"/>
-            <Button x:Name="btnNext" Click="btnStart_Click"  Command="{Binding PlayOptionsCommand}" Style="{StaticResource NormalButton}" Content="BẮT ĐẦU" HorizontalAlignment="Left" Margin="616,450,0,0" VerticalAlignment="Top" Width="109" Height="70" FontSize="18"/>
+            <Button x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" Style="{StaticResource BackButton}" Content="TRỞ LẠI" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="100" Height="70" FontSize="18"/>
+            <Button x:Name="btnNext" Click="btnStart_Click"  Command="{Binding PlayOptionsCommand}" Style="{StaticResource NextButton}" Content="BẮT ĐẦU" HorizontalAlignment="Left" Margin="616,450,0,0" VerticalAlignment="Top" Width="109" Height="70" FontSize="18"/>
         </Grid>
     </StackPanel>
 </local:BasePage>

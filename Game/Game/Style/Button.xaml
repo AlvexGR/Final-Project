@@ -104,7 +104,7 @@
     </Style>
 
     <!--Back Buttons-->
-    <Style x:Key="BackButton" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}">
+    <!--<Style x:Key="BackButton" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="Background" Value="{StaticResource LetterOrangeBrush}"/>
         <Setter Property="Foreground" Value="{StaticResource ForegroundVeryDarkBrush}"/>
         <Setter Property="Template">
@@ -142,7 +142,7 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 
     <!--Transparent Button-->
     <Style TargetType="{x:Type Button}" x:Key="TransparentButton">
@@ -154,6 +154,38 @@
                     <Border Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}">
                         <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!--Back Button-->
+    <Style TargetType="{x:Type Button}" x:Key="BackButton">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <!--<Border Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>-->
+                    <Image Source="/Images/Button/back_button2.png"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Next Button-->
+    <Style TargetType="{x:Type Button}" x:Key="NextButton">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <!--<Border Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>-->
+                    <Image Source="/Images/Button/next_button.png"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
