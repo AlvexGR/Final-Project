@@ -332,7 +332,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Button\back_button.png" />
-    <Resource Include="Images\Button\back_button2.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Audios\Sound Effects\click.mp3" />
@@ -431,6 +430,18 @@
     <Content Include="Audios\Vocabulary Pronunciations\vet.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\watermelon.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\write.mp3" />
+    <Resource Include="Images\Word\cat.jpg" />
+    <Resource Include="Images\Word\cow.jpg" />
+    <Resource Include="Images\Word\dog.png" />
+    <Resource Include="Images\Word\elephant.jpg" />
+    <Resource Include="Images\Word\horse.jpg" />
+    <Resource Include="Images\Word\lion.jpg" />
+    <Resource Include="Images\Word\monkey.png" />
+    <Resource Include="Images\Word\mouse.jpg" />
+    <Resource Include="Images\Word\panda.jpg" />
+    <Resource Include="Images\Word\rabbit.jpg" />
+    <Resource Include="Images\Button\next_button.png" />
+    <Resource Include="Images\Button\back_button2.png" />
     <Resource Include="Images\Leaderboard or History\images.png" />
     <Resource Include="Images\Leaderboard or History\leaderboard-300x300.png" />
     <Resource Include="Images\Leaderboard or History\leaderboard-3dbec42ce8478cfd-512x512.png" />
