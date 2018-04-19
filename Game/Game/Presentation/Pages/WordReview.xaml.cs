@@ -23,6 +23,7 @@ namespace Game.Presentation.Pages
     public partial class WordReview : BasePage<WordReviewViewModel>
     {
         private int idx = 0;
+        private Vocabulary vc;
         public WordReview()
         {
             InitializeComponent();
@@ -42,12 +43,12 @@ namespace Game.Presentation.Pages
 
         private void UpdateData()
         {
-            Vocabulary vc = GetData.wordList[idx];
+            vc = GetData.wordList[idx];
             tbxDefinition.Text = vc.Definition;
             tbxEnglishWord.Text = vc.EnglishWord;
             tbxSpelling.Text = vc.Spelling;
-            //wordImage.Source = new BitmapImage(new Uri(vc.Image, UriKind.Relative));
-            //mePronoun.Source = new Uri(vc.Pronunciation);
+            wordImage.Source = new BitmapImage(new Uri(vc.Image, UriKind.Relative));
+            mePronoun.Source = null;
         }
 
         private void btnGoRight_Click(object sender, RoutedEventArgs e)
@@ -72,6 +73,7 @@ namespace Game.Presentation.Pages
 
         private void btnPronoun_Click(object sender, RoutedEventArgs e)
         {
+            mePronoun.Source = new Uri("../.." + vc.Pronunciation, UriKind.Relative);
             mePronoun.Play();
         }
     }
