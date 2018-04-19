@@ -34,7 +34,7 @@
                     <Button Style="{StaticResource NormalButton}" x:Name="btnExit" Content="THOÁT" Grid.Column="1"  Margin="2 0 0 0" Height="65" FontSize="18" Click="btnExit_Click" FontFamily="Arial"/>
                 </Grid>
             </StackPanel>
-            <StackPanel Grid.Column="4" Margin="0 200 0 0">
+            <StackPanel Grid.Column="4" Margin="0 200 20 0">
                 <Button Style="{StaticResource SettingsButton}" Margin="0 0 0 20" />
                 <Button Style="{StaticResource HistoryButton}"/>
             </StackPanel>
