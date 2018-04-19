@@ -12,7 +12,6 @@ F:\Final Assignment\Final-Project\Game\Game\bin\Debug\MaterialDesignThemes.Wpf.p
 F:\Final Assignment\Final-Project\Game\Game\bin\Debug\MaterialDesignThemes.Wpf.xml
 F:\Final Assignment\Final-Project\Game\Game\bin\Debug\Microsoft.Windows.Shell.pdb
 F:\Final Assignment\Final-Project\Game\Game\bin\Debug\PropertyChanged.xml
-F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Game.csprojResolveAssemblyReference.cache
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\MainWindow.g.cs
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\Main.g.cs
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\App.g.cs
@@ -193,3 +192,4 @@ D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Presentation\Pa
 D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\TypingWord.baml
 D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\WordDetail.baml
 D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\WordReview.baml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Game.csprojResolveAssemblyReference.cache

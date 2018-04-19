@@ -34,7 +34,7 @@
                     <MediaElement x:Name="mePronoun" LoadedBehavior="Manual"/>
                 </StackPanel>
             </Grid>
-            <Button x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" Style="{StaticResource NormalButton}" Content="TRỞ LẠI" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="100" Height="70"/>
+            <Button x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" Style="{StaticResource BackButton}" Content="TRỞ LẠI" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="100" Height="70"/>
         </Grid>
         
     </StackPanel>

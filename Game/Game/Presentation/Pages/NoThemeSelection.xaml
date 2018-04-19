@@ -14,7 +14,7 @@
                 <Button x:Name="btnRandom" Command="{Binding RandomCommand}" Click="btnRandom_Click" Style="{StaticResource NormalButton}" Content="TỪ VỰNG NGẪU NHIÊN" Height="65" Margin="0 0 0 70" FontFamily="Arial" FontSize="18"/>
                 <Button x:Name="btnManual" Command="{Binding ManualCommand}" Click="btnManual_Click" Style="{StaticResource NormalButton}" Content="TỪ VỰNG TỰ CHỌN" Height="65" Margin = "0 0 0 0" FontFamily="Arial" FontSize="18"/>
             </StackPanel>
-            <Button x:Name="btnGoBack" Click="btnGoBack_Click" Command="{Binding PreviousCommand}" Style="{StaticResource NormalButton}" Content="TRỞ LẠI" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="100" Height="70" FontSize="18"/>
+            <Button x:Name="btnGoBack" Click="btnGoBack_Click" Command="{Binding PreviousCommand}" Style="{StaticResource BackButton}" Content="TRỞ LẠI" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="100" Height="70" FontSize="18"/>
         </Grid>
     </StackPanel>
 </local:BasePage>

@@ -38,8 +38,8 @@
                     </ListBoxItem>
                 </ListBox>
             </StackPanel>
-            <Button x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" Style="{StaticResource NormalButton}" Content="TRỞ LẠI" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="100" Height="70" FontSize="18"/>
-            <Button x:Name="btnNext" Click="btnNext_Click"  Command="{Binding PlayOptionsCommand}" Style="{StaticResource NormalButton}" Content="TIẾP THEO" HorizontalAlignment="Left" Margin="626,450,0,0" VerticalAlignment="Top" Width="109" Height="70" FontSize="18"/>
+            <Button x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" Style="{StaticResource BackButton}" Content="TRỞ LẠI" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="100" Height="70" FontSize="18"/>
+            <Button x:Name="btnNext" Click="btnNext_Click"  Command="{Binding PlayOptionsCommand}" Style="{StaticResource NextButton}" Content="TIẾP THEO" HorizontalAlignment="Left" Margin="626,450,0,0" VerticalAlignment="Top" Width="109" Height="70" FontSize="18"/>
         </Grid>
     </StackPanel>
 </local:BasePage>
