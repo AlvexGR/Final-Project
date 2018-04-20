@@ -13,7 +13,7 @@
         <Grid Height="600">
             <StackPanel Margin="250 30 250 30">
                 <Button Command="{Binding WordReviewCommand}" x:Name="btnWordReview" Content="HỌC TỪ" Style="{StaticResource NormalButton}" Height="60" FontFamily="Arial" FontSize="18" Margin="0 0 0 30" Click="btnWordReview_Click"/>
-                <Button x:Name="btnSelectingPictureOnListening" Content="NGHE VÀ CHỌN HÌNH" Style="{StaticResource NormalButton}" Height="60" FontFamily="Arial" FontSize="18" Margin="0 0 0 30"/>
+                <Button Click="btnSelectingPictureOnListening_Click" Command="{Binding SelectingPictureOnListeningPageCommand}" x:Name="btnSelectingPictureOnListening" Content="NGHE VÀ CHỌN HÌNH" Style="{StaticResource NormalButton}" Height="60" FontFamily="Arial" FontSize="18" Margin="0 0 0 30"/>
                 <Button Click="btnSelectingWordOnListening_Click" Command="{Binding SelectingWordOnListeningPageCommand}" x:Name="btnSelectingWordOnListening" Content="NGHE VÀ CHỌN TỪ" Style="{StaticResource NormalButton}" Height="60" FontFamily="Arial" FontSize="18" Margin="0 0 0 30"/>
                 <Button x:Name="btnTypingWord" Content="HỌC THUỘC LÒNG" Style="{StaticResource NormalButton}" Height="60" FontFamily="Arial" FontSize="18" Margin="0 0 0 30"/>
                 <Button x:Name="btnSelectingWordOnTheme" Content="CHỌN TỪ THEO CHỦ ĐỀ" Style="{StaticResource NormalButton}" Height="60" FontFamily="Arial" FontSize="18" Margin="0 0 0 30"/>

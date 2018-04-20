@@ -27,7 +27,7 @@ namespace Game
             InitializeComponent();
 
             DataContext = new WindowViewModel(this);
-            //var justForLoading = db.Themes.ToList(); // nothing to do with the main function
+            var justForLoading = db.Themes.ToList(); // nothing to do with the main function
         }
     }
 }

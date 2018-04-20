@@ -16,6 +16,7 @@ namespace Game.Presentation
         public ICommand PreviousCommand { set; get; }
         public ICommand WordReviewCommand { set; get; }
         public ICommand SelectingWordOnListeningPageCommand { set; get; }
+        public ICommand SelectingPictureOnListeningPageCommand { set; get; }
         #endregion
 
         #region Constructor
@@ -24,6 +25,7 @@ namespace Game.Presentation
             PreviousCommand = new RelayCommand(async() => await GoToPrevious());
             WordReviewCommand = new RelayCommand(async () => await GoToWordReview());
             SelectingWordOnListeningPageCommand = new RelayCommand(async () => await GoToSelectingWordOnListening());
+            SelectingPictureOnListeningPageCommand = new RelayCommand(async () => await GoToSelectingPictureOnListening());
         }
         #endregion
 
@@ -44,6 +46,12 @@ namespace Game.Presentation
         public async Task GoToSelectingWordOnListening()
         {
             ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.SelectingWordOnListeningPage;
+            await Task.Delay(1);
+        }
+
+        public async Task GoToSelectingPictureOnListening()
+        {
+            ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.SelectingPictureOnListeningPage;
             await Task.Delay(1);
         }
         #endregion

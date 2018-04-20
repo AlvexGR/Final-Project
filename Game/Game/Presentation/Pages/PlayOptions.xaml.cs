@@ -83,5 +83,11 @@ namespace Game.Presentation.Pages
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
         }
+
+        private void btnSelectingPictureOnListening_Click(object sender, RoutedEventArgs e)
+        {
+            ResetAnimationStatus();
+            isUnloadToLeft = true;
+        }
     }
 }
