@@ -5,7 +5,6 @@
         <ResourceDictionary Source="Color.xaml"/>
         <ResourceDictionary Source="Font.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-    
     <!--Hoverless Button-->
     <Style TargetType="{x:Type Button}" x:Key="Hoverless">
         <Setter Property="Background" Value="Transparent"/>
@@ -53,7 +52,6 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
     <Style TargetType="{x:Type Button}" x:Key="WindowCloseButton" BasedOn="{StaticResource WindowControlButton}">
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
@@ -163,84 +161,128 @@
     
     <!--Back Button-->
     <Style TargetType="{x:Type Button}" x:Key="BackButton">
-        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Width" Value="50"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Opacity="0"/>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Image Source="/Images/Button/back_button.png"/>
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{x:Null}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <!--Next Button-->
     <Style TargetType="{x:Type Button}" x:Key="NextButton">
-        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Width" Value="50"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Opacity="0"/>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Image Source="/Images/Button/next_button.png"/>
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{x:Null}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <!--Finish Button-->
     <Style TargetType="{x:Type Button}" x:Key="FinishButton">
-        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Template">
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Width" Value="50"/>
+        <Setter Property="Background">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Image Source="/Images/Button/finish.png"/>
-                </ControlTemplate>
+                <SolidColorBrush Opacity="0"/>
             </Setter.Value>
         </Setter>
     </Style>
 
     <!--Settings Button-->
     <Style TargetType="{x:Type Button}" x:Key="SettingsButton">
-        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Height" Value="50"/>
         <Setter Property="Width" Value="50"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Opacity="0"/>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Image Source="/Images/Button/setting1.png"/>
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{x:Null}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <!--History Button-->
     <Style TargetType="{x:Type Button}" x:Key="HistoryButton">
-        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Height" Value="50"/>
         <Setter Property="Width" Value="50"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Opacity="0"/>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Image Source="/Images/Leaderboard or History/history.png"/>
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{x:Null}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <!--Random Button-->
     <Style TargetType="{x:Type Button}" x:Key="RandomButton">
-        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Height" Value="50"/>
         <Setter Property="Width" Value="50"/>
-        <Setter Property="Template">
+        <Setter Property="Background">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Image Source="/Images/Button/random3.png"/>
-                </ControlTemplate>
+                <SolidColorBrush Opacity="0"/>
             </Setter.Value>
         </Setter>
     </Style>

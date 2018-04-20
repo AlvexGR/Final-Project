@@ -66,5 +66,25 @@ namespace Game.Presentation.Pages
             ResetAnimationStatus();
             isUnloadToLeft = true;
         }
+
+        private void imgHistory_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgHistory.Source = new BitmapImage(new Uri("/Images/Leaderboard or History/trophy_on.png", UriKind.Relative));
+        }
+
+        private void imgHistory_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgHistory.Source = new BitmapImage(new Uri("/Images/Leaderboard or History/trophy.png", UriKind.Relative));
+        }
+
+        private void imgSetting_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgSetting.Source = new BitmapImage(new Uri("/Images/Button/setting_on.png", UriKind.Relative));
+        }
+
+        private void imgSetting_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgSetting.Source = new BitmapImage(new Uri("/Images/Button/setting.png", UriKind.Relative));
+        }
     }
 }

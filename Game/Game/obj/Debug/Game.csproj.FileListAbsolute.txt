@@ -85,7 +85,6 @@ D:\Software Engineering\Final Project\Source\Game\Game\bin\Debug\MaterialDesignT
 D:\Software Engineering\Final Project\Source\Game\Game\bin\Debug\MaterialDesignThemes.Wpf.xml
 D:\Software Engineering\Final Project\Source\Game\Game\bin\Debug\Microsoft.Windows.Shell.pdb
 D:\Software Engineering\Final Project\Source\Game\Game\bin\Debug\PropertyChanged.xml
-D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Game.csprojResolveAssemblyReference.cache
 D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Presentation\MainWindow.g.cs
 D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\History.g.cs
 D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Presentation\Pages\Main.g.cs
@@ -137,3 +136,4 @@ D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Game.csproj.Cor
 D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Game.csproj.CopyComplete
 D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Game.exe
 D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Game.pdb
+D:\Software Engineering\Final Project\Source\Game\Game\obj\Debug\Game.csprojResolveAssemblyReference.cache

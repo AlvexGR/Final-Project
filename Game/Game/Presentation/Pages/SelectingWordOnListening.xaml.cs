@@ -4,7 +4,9 @@ using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace Game.Presentation.Pages
 {
@@ -127,6 +129,16 @@ namespace Game.Presentation.Pages
             ResetAnimationStatus();
             isUnloadToRight = true;
             mePronoun.Source = null;
+        }
+
+        private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
+        }
+
+        private void imgBackButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
         }
     }
 }

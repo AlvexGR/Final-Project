@@ -46,7 +46,9 @@
                 </Button>
 
             </StackPanel>
-            <!--<Button x:Name="btnNext" Click="btnNext_Click"  Command="{Binding PlayOptionsCommand}" Style="{StaticResource NormalButton}" Content="TIẾP THEO" HorizontalAlignment="Left" Margin="626,450,0,0" VerticalAlignment="Top" Width="109" Height="70" FontSize="18"/>-->
+            <!--<Button Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="70" Height="70" FontSize="18">
+                <Image Source="/Images/Button/back_button.png"/>
+            </Button>-->
         </Grid>
     </StackPanel>
 </Page>

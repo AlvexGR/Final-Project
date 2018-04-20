@@ -17,11 +17,11 @@
                     <ColumnDefinition Width="5*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button Click="btnGoLeft_Click" x:Name="btnGoLeft" Margin="50 0 0 0" Style="{StaticResource TransparentButton}">
-                    <Image Source="/Images/Button/arrow_left.png"/>
+                <Button Click="btnGoLeft_Click" x:Name="btnGoLeft" Margin="50 0 0 0" Style="{StaticResource BackButton}">
+                    <Image x:Name="imgArrowLeft" Source="/Images/Button/arrow_left.png" MouseEnter="imgArrowLeft_MouseEnter" MouseLeave="imgArrowLeft_MouseLeave"/>
                 </Button>
-                <Button Click="btnGoRight_Click" x:Name="btnGoRight" Margin="0 0 50 0" Style="{StaticResource TransparentButton}" Grid.Column="2">
-                    <Image Source="/Images/Button/arrow_right.png"/>
+                <Button Click="btnGoRight_Click" x:Name="btnGoRight" Margin="0 0 50 0" Style="{StaticResource NextButton}" Grid.Column="2">
+                    <Image x:Name="imgArrowRight" Source="/Images/Button/arrow_right.png" MouseEnter="imgArrowRight_MouseEnter" MouseLeave="imgArrowRight_MouseLeave"/>
                 </Button>
                 <StackPanel Margin="0 50" Grid.Column="1">
                     <Image x:Name="wordImage" Height="250"/>
@@ -34,7 +34,9 @@
                     <MediaElement x:Name="mePronoun" LoadedBehavior="Manual"/>
                 </StackPanel>
             </Grid>
-            <Button x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" Style="{StaticResource BackButton}" Content="TRỞ LẠI" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="100" Height="70"/>
+            <Button Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="70" Height="70" FontSize="18">
+                <Image x:Name="imgBackButton" Source="/Images/Button/back_button.png" MouseEnter="imgBackButton_MouseEnter" MouseLeave="imgBackButton_MouseLeave"/>
+            </Button>
         </Grid>
         
     </StackPanel>

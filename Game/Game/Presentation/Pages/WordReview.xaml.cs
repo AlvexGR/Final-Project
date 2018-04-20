@@ -76,5 +76,35 @@ namespace Game.Presentation.Pages
             mePronoun.Source = new Uri("../.." + vc.Pronunciation, UriKind.Relative);
             mePronoun.Play();
         }
+
+        private void imgArrowRight_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgArrowRight.Source = new BitmapImage(new Uri("/Images/Button/arrow_right_on.png", UriKind.Relative));
+        }
+
+        private void imgArrowRight_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgArrowRight.Source = new BitmapImage(new Uri("/Images/Button/arrow_right.png", UriKind.Relative));
+        }
+
+        private void imgArrowLeft_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgArrowLeft.Source = new BitmapImage(new Uri("/Images/Button/arrow_left_on.png", UriKind.Relative));
+        }
+
+        private void imgArrowLeft_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgArrowLeft.Source = new BitmapImage(new Uri("/Images/Button/arrow_left.png", UriKind.Relative));
+        }
+
+        private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
+        }
+
+        private void imgBackButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
+        }
     }
 }

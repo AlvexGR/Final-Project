@@ -24,5 +24,16 @@ namespace Game.Presentation.Pages
         {
             InitializeComponent();
         }
+
+        //private void ResetAnimationStatus()
+        //{
+        //    isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
+        //}
+
+        //private void btnGoBack_Click(object sender, RoutedEventArgs e)
+        //{
+        //    ResetAnimationStatus();
+        //    isUnloadToRight = true;
+        //}
     }
 }

@@ -55,5 +55,25 @@ namespace Game.Presentation.Pages
                 GetData.wordList.Add(GetData.wordListTotal[i]);
             }
         }
+
+        private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
+        }
+
+        private void imgBackButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
+        }
+
+        private void imgNextButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/next_button_on.png", UriKind.Relative));
+        }
+
+        private void imgNextButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/next_button.png", UriKind.Relative));
+        }
     }
 }

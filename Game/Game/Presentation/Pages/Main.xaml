@@ -8,15 +8,13 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
       Title="Main">
-
     <StackPanel>
         <Grid Height="570">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="250"/>
                 <ColumnDefinition Width="300"/>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="70"/>
-                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition Width="110"/>
             </Grid.ColumnDefinitions>
             <StackPanel Margin="0 80 0 110" Grid.Column="1">
                 <Button Style="{StaticResource NormalButton}" x:Name="btnTheme" Command="{Binding ThemeCommand}" Content="CHƠI" Margin="0 0 0 40" Height="65" FontSize="18" FontFamily="Arial" Click="btnTheme_Click"/>
@@ -24,9 +22,13 @@
                 <Button Style="{StaticResource NormalButton}" x:Name="btnVocabularyList" Command="{Binding VocabularyListCommand}" Content="TỪ VỰNG" Margin="0 0 0 40" Height="65" FontSize="18" FontFamily="Arial" Click="btnVocabularyList_Click"/>
                 <Button Style="{StaticResource NormalButton}" x:Name="btnExit" Content="THOÁT" Grid.Column="1"  Margin="2 0 0 0" Height="65" FontSize="18" Click="btnExit_Click" FontFamily="Arial"/>
             </StackPanel>
-            <StackPanel Grid.Column="4" Margin="0 200 20 0">
-                <Button Style="{StaticResource SettingsButton}" Margin="0 0 0 20" />
-                <Button Style="{StaticResource HistoryButton}"/>
+            <StackPanel Grid.Column="3" Margin="00 200 20 0">
+                <Button Style="{StaticResource SettingsButton}" Margin="0 0 0 20" Height="70" Width="70">
+                    <Image x:Name="imgSetting" Source="/Images/Button/setting.png" MouseEnter="imgSetting_MouseEnter" MouseLeave="imgSetting_MouseLeave"/>
+                </Button>
+                <Button Style="{StaticResource HistoryButton}" Height="70" Width="70">
+                    <Image x:Name="imgHistory" Source="/Images/Leaderboard or History/trophy.png" Height="50" Width="50" MouseEnter="imgHistory_MouseEnter" MouseLeave="imgHistory_MouseLeave"/>
+                </Button>
             </StackPanel>
         </Grid>
     </StackPanel>

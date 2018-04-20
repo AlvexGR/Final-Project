@@ -19,7 +19,9 @@
                 <Button x:Name="btnSelectingWordOnTheme" Content="CHỌN TỪ THEO CHỦ ĐỀ" Style="{StaticResource NormalButton}" Height="60" FontFamily="Arial" FontSize="18" Margin="0 0 0 30"/>
                 <Button x:Name="btnRandom" Click="btnRandom_Click" Style="{StaticResource RandomButton}" />
             </StackPanel>
-            <Button x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" Style="{StaticResource BackButton}" Content="TRỞ LẠI" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="100" Height="70" FontSize="18"/>
+            <Button Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="70" Height="70" FontSize="18">
+                <Image x:Name="imgBackButton" Source="/Images/Button/back_button.png" MouseEnter="imgBackButton_MouseEnter" MouseLeave="imgBackButton_MouseLeave"/>
+            </Button>
         </Grid>
     </StackPanel>
 </local:BasePage>
