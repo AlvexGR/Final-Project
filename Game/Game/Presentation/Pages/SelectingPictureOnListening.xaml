@@ -22,10 +22,10 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="btnA" Click="CheckAnswer">
+                    <Button x:Name="btnA" Click="CheckAnswer" Style="{StaticResource SelectingPictureButton}" Background="{x:Null}">
                         <Image x:Name="imgA" Width="300" Height="150" />
                     </Button>
-                    <Button x:Name="btnB" Click="CheckAnswer" Grid.Column="1">
+                    <Button x:Name="btnB" Click="CheckAnswer" Grid.Column="1" Style="{StaticResource SelectingPictureButton}" Background="{x:Null}">
                         <Image x:Name="imgB" Width="300" Height="150"/>
                     </Button>
                 </Grid>
@@ -37,18 +37,18 @@
                     <Button x:Name="btnC" Click="CheckAnswer">
                         <Image x:Name="imgC" Width="300" Height="150" />
                     </Button>
-                    <Button x:Name="btnD" Click="CheckAnswer" Grid.Column="1">
+                    <Button x:Name="btnD" Click="CheckAnswer" Grid.Column="1" Style="{StaticResource SelectingPictureButton}" Background="{x:Null}">
                         <Image x:Name="imgD" Width="300" Height="150"/>
                     </Button>
                 </Grid>
-                <Button x:Name="btnPronoun" Click="btnPronoun_Click" Width="40" Height="40" HorizontalAlignment="Center" Margin="0 20">
+                <Button x:Name="btnPronoun" Click="btnPronoun_Click" Width="40" Height="40" HorizontalAlignment="Center" Margin="0 20" BorderBrush="{x:Null}" Background="{x:Null}">
                     <Image Source="/Images/Button/audio.png"/>
                 </Button>
                 <MediaElement x:Name="mePronoun" LoadedBehavior="Manual"/>
             </StackPanel>
-            
-            <Button x:Name="btnNext" Click="btnNext_Click" Visibility="Hidden" Style="{StaticResource NextButton}" HorizontalAlignment="Left" Margin="626,450,0,0" VerticalAlignment="Top" Width="109" Height="70" FontSize="18">
-                <Image x:Name="imgNextButton" Source="/Images/Button/next_button.png" MouseEnter="imgNextButton_MouseEnter" MouseLeave="imgNextButton_MouseLeave"/>
+
+            <Button x:Name="btnCorrect" Click="btnCorrect_Click" Visibility="Hidden" Style="{StaticResource NextButton}" HorizontalAlignment="Left" Margin="626,450,0,0" VerticalAlignment="Top" Width="109" Height="70" FontSize="18">
+                <Image x:Name="imgCorrectButton" Source="/Images/Button/correct.png" MouseEnter="imgCorrectButton_MouseEnter" MouseLeave="imgCorrectButton_MouseLeave"/>
             </Button>
             <Button x:Name="btnFinish" Click="btnFinish_Click" Visibility="Hidden" Style="{StaticResource FinishButton}" HorizontalAlignment="Left" Margin="626,450,0,0" VerticalAlignment="Top" Width="109" Height="70" FontSize="18"/>
             <Button Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="70" Height="70" FontSize="18">

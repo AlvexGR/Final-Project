@@ -43,36 +43,36 @@ namespace Game.Presentation.Pages
             {
                 imgA.Source = new BitmapImage(new Uri(rightAnswer.Image, UriKind.Relative));
 
-                imgB.Source = new BitmapImage(new Uri(otherWords[1].Image, UriKind.Relative));
-                imgC.Source = new BitmapImage(new Uri(otherWords[2].Image, UriKind.Relative));
-                imgD.Source = new BitmapImage(new Uri(otherWords[3].Image, UriKind.Relative));
+                imgB.Source = new BitmapImage(new Uri(otherWords[0].Image, UriKind.Relative));
+                imgC.Source = new BitmapImage(new Uri(otherWords[1].Image, UriKind.Relative));
+                imgD.Source = new BitmapImage(new Uri(otherWords[2].Image, UriKind.Relative));
             }
             else if (indexOfRightAnswer == 2)
             {
                 imgB.Source = new BitmapImage(new Uri(rightAnswer.Image, UriKind.Relative));
 
-                imgA.Source = new BitmapImage(new Uri(otherWords[1].Image, UriKind.Relative));
-                imgC.Source = new BitmapImage(new Uri(otherWords[2].Image, UriKind.Relative));
-                imgD.Source = new BitmapImage(new Uri(otherWords[3].Image, UriKind.Relative));
+                imgA.Source = new BitmapImage(new Uri(otherWords[0].Image, UriKind.Relative));
+                imgC.Source = new BitmapImage(new Uri(otherWords[1].Image, UriKind.Relative));
+                imgD.Source = new BitmapImage(new Uri(otherWords[2].Image, UriKind.Relative));
             }
             else if (indexOfRightAnswer == 3)
             {
                 imgC.Source = new BitmapImage(new Uri(rightAnswer.Image, UriKind.Relative));
 
 
-                imgB.Source = new BitmapImage(new Uri(otherWords[1].Image, UriKind.Relative));
-                imgA.Source = new BitmapImage(new Uri(otherWords[2].Image, UriKind.Relative));
-                imgD.Source = new BitmapImage(new Uri(otherWords[3].Image, UriKind.Relative));
+                imgB.Source = new BitmapImage(new Uri(otherWords[0].Image, UriKind.Relative));
+                imgA.Source = new BitmapImage(new Uri(otherWords[1].Image, UriKind.Relative));
+                imgD.Source = new BitmapImage(new Uri(otherWords[2].Image, UriKind.Relative));
             }
             else
             {
                 imgD.Source = new BitmapImage(new Uri(rightAnswer.Image, UriKind.Relative));
 
-                imgB.Source = new BitmapImage(new Uri(otherWords[1].Image, UriKind.Relative));
-                imgA.Source = new BitmapImage(new Uri(otherWords[2].Image, UriKind.Relative));
-                imgC.Source = new BitmapImage(new Uri(otherWords[3].Image, UriKind.Relative));
+                imgB.Source = new BitmapImage(new Uri(otherWords[0].Image, UriKind.Relative));
+                imgA.Source = new BitmapImage(new Uri(otherWords[1].Image, UriKind.Relative));
+                imgC.Source = new BitmapImage(new Uri(otherWords[2].Image, UriKind.Relative));
             }
-            btnNext.Visibility = Visibility.Hidden;
+            btnCorrect.Visibility = Visibility.Hidden;
             mePronoun.Source = new Uri("../.." + rightAnswer.Pronunciation, UriKind.Relative);
             mePronoun.Play();
         }
@@ -102,22 +102,20 @@ namespace Game.Presentation.Pages
             {
                 btnRealAnswer.BorderBrush = new SolidColorBrush(Colors.Green);
                 btnRealAnswer.BorderThickness = new Thickness(3);
-
                 if (idx == (GetData.wordList.Count - 1))
                 {
                     btnFinish.Visibility = Visibility.Visible;
                 }
                 else
                 {
-                    btnNext.Visibility = Visibility.Visible;
+                    btnCorrect.Visibility = Visibility.Visible;
                 }
             }
             else
             {
                 btnRealAnswer.IsEnabled = false;
-                btnRealAnswer.BorderBrush = new SolidColorBrush(Colors.Yellow);
+                btnRealAnswer.BorderBrush = new SolidColorBrush(Colors.Red);
                 btnRealAnswer.BorderThickness = new Thickness(3);
-
             }
 
         }
@@ -136,6 +134,7 @@ namespace Game.Presentation.Pages
         {
             ResetAnimationStatus();
             isUnloadToRight = true;
+            mePronoun.Source = null;
         }
 
         private void btnPronoun_Click(object sender, RoutedEventArgs e)
@@ -143,7 +142,7 @@ namespace Game.Presentation.Pages
             mePronoun.Source = new Uri("../.." + rightAnswer.Pronunciation, UriKind.Relative);
             mePronoun.Play();
         }
-        private void btnNext_Click(object sender, RoutedEventArgs e)
+        private void btnCorrect_Click(object sender, RoutedEventArgs e)
         {
             idx++;
             UpdateData();
@@ -153,6 +152,7 @@ namespace Game.Presentation.Pages
         {
             ResetAnimationStatus();
             isUnloadToRight = true;
+            mePronoun.Source = null;
         }
 
         private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
@@ -164,14 +164,14 @@ namespace Game.Presentation.Pages
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
         }
-        private void imgNextButton_MouseEnter(object sender, MouseEventArgs e)
+        private void imgCorrectButton_MouseEnter(object sender, MouseEventArgs e)
         {
-            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/next_button_on.png", UriKind.Relative));
+            imgCorrectButton.Source = new BitmapImage(new Uri("/Images/Button/next_button_on.png", UriKind.Relative));
         }
 
-        private void imgNextButton_MouseLeave(object sender, MouseEventArgs e)
+        private void imgCorrectButton_MouseLeave(object sender, MouseEventArgs e)
         {
-            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/next_button.png", UriKind.Relative));
+            imgCorrectButton.Source = new BitmapImage(new Uri("/Images/Button/correct.png", UriKind.Relative));
         }
 
     }
