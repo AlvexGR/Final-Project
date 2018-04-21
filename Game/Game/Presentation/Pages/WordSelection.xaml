@@ -11,37 +11,49 @@
 
     <StackPanel>
         <Grid Height="600">
-            <StackPanel Margin="280 80">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!--Word list-->
+            <StackPanel Margin="80 50 50 145">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
                         <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="Tìm kiếm:" Grid.Column="0"/>
+                    <TextBlock Text="Tìm kiếm:" Grid.Column="0" Style="{StaticResource NormalTextblock}"/>
                     <TextBox Grid.Column="1"/>
                 </Grid>
-                <ListBox Margin="0 10 0 0" Padding="10 5" Height="412">
-                    <ListBoxItem>
-                        <CheckBox>
-                            <TextBlock Text="Cat" Margin="5 0"/>
-                        </CheckBox>
-                    </ListBoxItem>
-                    <ListBoxItem>
-                        <CheckBox>
-                            <TextBlock Text="Cat" Margin="5 0"/>
-                        </CheckBox>
-                    </ListBoxItem>
-                    <ListBoxItem>
-                        <CheckBox>
-                            <TextBlock Text="Cat" Margin="5 0"/>
-                        </CheckBox>
-                    </ListBoxItem>
+                <ListBox x:Name="lbxWordList" SelectionChanged="lbxWordList_SelectionChanged" Margin="0 10 0 0" Padding="10 5" Height="412">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <!--<ListBoxItem Content="{Binding EnglishWord}" FontSize="18"/>-->
+                            <ListBoxItem>
+                                <TextBlock Text="{Binding EnglishWord}" FontSize="18"/>
+                            </ListBoxItem>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
                 </ListBox>
+            </StackPanel>
+
+            <!--Selected Word list-->
+            <StackPanel Grid.Column="1" Margin="50,50,80,10">
+                <TextBlock Text="Các từ đã chọn" Grid.Column="0" HorizontalAlignment="Center" Style="{StaticResource NormalTextblock}"/>
+                <ListBox x:Name="lbxSelectedWordList" SelectionChanged="lbxSelectedWordList_SelectionChanged"  Margin="10,10,10,0" Padding="10 5" Height="376" Width="250">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <ListBoxItem Content="{Binding EnglishWord}" FontSize="18"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Button x:Name="btnNext" Click="btnNext_Click" Visibility="Hidden" Command="{Binding PlayOptionsCommand}" Style="{StaticResource NextButton}" Content="TIẾP THEO" HorizontalAlignment="Right" VerticalAlignment="Top" Width="109" Height="70" FontSize="18"/>
             </StackPanel>
             <Button Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="70" Height="70" FontSize="18">
                 <Image x:Name="imgBackButton" Source="/Images/Button/back_button.png" MouseEnter="imgBackButton_MouseEnter" MouseLeave="imgBackButton_MouseLeave"/>
             </Button>
-            <Button x:Name="btnNext" Click="btnNext_Click"  Command="{Binding PlayOptionsCommand}" Style="{StaticResource NextButton}" Content="TIẾP THEO" HorizontalAlignment="Left" Margin="626,450,0,0" VerticalAlignment="Top" Width="109" Height="70" FontSize="18"/>
+
+            <!--<Button x:Name="btnNext" Click="btnNext_Click"  Command="{Binding PlayOptionsCommand}" Style="{StaticResource NextButton}" Content="TIẾP THEO" HorizontalAlignment="Left" Margin="626,450,0,0" VerticalAlignment="Top" Width="109" Height="70" FontSize="18"></Button>-->
         </Grid>
     </StackPanel>
 </local:BasePage>

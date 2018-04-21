@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Game.Model;
 
 namespace Game.Presentation.Pages
 {
@@ -21,9 +22,11 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class WordSelection : BasePage<WordSelectionViewModel>
     {
+        public List<Vocabulary> SelectedWords { get; set; }
         public WordSelection()
         {
             InitializeComponent();
+            lbxWordList.ItemsSource = GetData.wordListTotal;
         }
 
         private void ResetAnimationStatus()
@@ -51,6 +54,37 @@ namespace Game.Presentation.Pages
         private void imgBackButton_MouseLeave(object sender, MouseEventArgs e)
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
+        }
+
+        private void lbxWordList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedWord = ((Vocabulary)lbxWordList.SelectedItem);
+            if (GetData.wordList.Contains(selectedWord)) return;
+            GetData.wordList.Add(selectedWord);
+            lbxSelectedWordList.Items.Add(selectedWord);
+            if(GetData.wordList.Count > 4)
+            {
+                btnNext.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnNext.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void lbxSelectedWordList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedWord = ((Vocabulary)lbxSelectedWordList.SelectedItem);
+            GetData.wordList.Remove(selectedWord);
+            lbxSelectedWordList.Items.Remove(selectedWord);
+            if (GetData.wordList.Count > 4)
+            {
+                btnNext.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnNext.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

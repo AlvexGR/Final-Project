@@ -24,5 +24,25 @@ namespace Game.Presentation.Pages
         {
             InitializeComponent();
         }
+
+        private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
+        }
+
+        private void imgBackButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
+        }
+
+        private void btnPronoun_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnGoBack_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

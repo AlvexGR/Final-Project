@@ -104,5 +104,6 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("audios/vocabulary%20pronunciations/vet.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("audios/vocabulary%20pronunciations/watermelon.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("audios/vocabulary%20pronunciations/write.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/leaderboard%20or%20history/star.png")]
 
 

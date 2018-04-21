@@ -10,11 +10,23 @@
 
     <StackPanel>
         <Grid Height="600">
-            <StackPanel Margin="0 80 0 30">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+            
+            <StackPanel Margin="0 80 0 30" Grid.Column="1">
                 <TextBlock Text="HOUSE" HorizontalAlignment="Center" FontSize="30"/>
                 <Image Source="/Images/Background/background.jpg" Height="250" Margin="0 10 0 0"/>
                 <TextBlock Text="_ _ _ _ _"  Margin="0 30 0 0" HorizontalAlignment="Center" FontSize="50"/>
             </StackPanel>
+            </Grid>
+            <Button Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="70" Height="70" FontSize="18">
+                <Image x:Name="imgBackButton" Source="/Images/Button/back_button.png" MouseEnter="imgBackButton_MouseEnter" MouseLeave="imgBackButton_MouseLeave"/>
+            </Button>
+            <Button x:Name="btnNext" Click="btnNext_Click"  Command="{Binding PlayOptionsCommand}" Style="{StaticResource NextButton}" Content="TIẾP THEO" HorizontalAlignment="Left" Margin="626,450,0,0" VerticalAlignment="Top" Width="109" Height="70" FontSize="18"></Button>
         </Grid>
     </StackPanel>
 </Page>

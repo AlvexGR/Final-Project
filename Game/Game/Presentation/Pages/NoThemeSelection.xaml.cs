@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Game.Model;
 
 namespace Game.Presentation.Pages
 {
@@ -21,10 +22,13 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class NoThemeSelection : BasePage<NoThemeSelectionViewModel>
     {
+        MainDb db;
         #region Constructor
         public NoThemeSelection()
         {
             InitializeComponent();
+            db = new MainDb();
+            GetData.wordListTotal = db.Words.ToList();
         }
         #endregion
 
@@ -44,6 +48,11 @@ namespace Game.Presentation.Pages
             ResetAnimationStatus();
             isUnloadToLeft = true;
             GetData.isTheme = false;
+
+            var rnd = new Random();
+            GetData.wordList.Clear();
+            
+            GetData.wordList.AddRange(GetData.wordListTotal.OrderBy(item => rnd.Next()).Take(5).ToList());
         }
 
         private void btnManual_Click(object sender, RoutedEventArgs e)
