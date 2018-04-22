@@ -127,7 +127,7 @@ namespace Game.Presentation.Pages
         private void btnGoBack_Click(object sender, RoutedEventArgs e)
         {
             ResetAnimationStatus();
-            isUnloadToRight = true;
+            isUnloadToLeft = true;
             mePronoun.Source = null;
         }
 

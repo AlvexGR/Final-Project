@@ -35,7 +35,7 @@
             <Button x:Name="btnCorrect" Click="btnCorrect_Click"  Visibility="Hidden" Style="{StaticResource NextButton}" HorizontalAlignment="Left" Margin="626,450,0,0" VerticalAlignment="Top" Width="109" Height="70" FontSize="18">
                 <Image x:Name="imgCorrectButton" Source="/Images/Button/correct.png" MouseEnter="imgCorrectButton_MouseEnter" MouseLeave="imgCorrectButton_MouseLeave"/>
             </Button>
-            <Button x:Name="btnFinish" Click="btnFinish_Click" Visibility="Hidden" Style="{StaticResource FinishButton}" HorizontalAlignment="Left" Margin="626,450,0,0" VerticalAlignment="Top" Width="109" Height="70" FontSize="18"/>
+            <Button Command="{Binding ResultCommand}" x:Name="btnFinish" Click="btnFinish_Click" Visibility="Hidden" Style="{StaticResource FinishButton}" HorizontalAlignment="Left" Margin="626,450,0,0" VerticalAlignment="Top" Width="109" Height="70" FontSize="18"/>
             <Button Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="70" Height="70" FontSize="18">
                 <Image x:Name="imgBackButton" Source="/Images/Button/back_button.png" MouseEnter="imgBackButton_MouseEnter" MouseLeave="imgBackButton_MouseLeave"/>
             </Button>

@@ -18,16 +18,22 @@ namespace Game.Presentation.Pages
     /// <summary>
     /// Interaction logic for Result.xaml
     /// </summary>
-    public partial class Result : Page
+    public partial class Result : BasePage<ResultViewModel>
     {
         public Result()
         {
             InitializeComponent();
         }
 
+        private void ResetAnimationStatus()
+        {
+            isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
+        }
+
         private void btnGoBack_Click(object sender, RoutedEventArgs e)
         {
-
+            ResetAnimationStatus();
+            isUnloadToRight = true;
         }
 
         private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)

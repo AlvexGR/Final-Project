@@ -86,5 +86,15 @@ namespace Game.Presentation.Pages
                 btnNext.Visibility = Visibility.Hidden;
             }
         }
+
+        private void imgNextButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/next_button_on.png", UriKind.Relative));
+        }
+
+        private void imgNextButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/next_button.png", UriKind.Relative));
+        }
     }
 }

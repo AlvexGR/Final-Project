@@ -22,7 +22,7 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class NoThemeSelection : BasePage<NoThemeSelectionViewModel>
     {
-        MainDb db;
+        private MainDb db;
         #region Constructor
         public NoThemeSelection()
         {

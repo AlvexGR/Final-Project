@@ -39,6 +39,7 @@ namespace Game.Presentation.Pages
         {
             ResetAnimationStatus();
             isUnloadToRight = true;
+            mePronoun.Source = null;
         }
 
         private void UpdateData()
@@ -48,7 +49,8 @@ namespace Game.Presentation.Pages
             tbxEnglishWord.Text = vc.EnglishWord;
             tbxSpelling.Text = vc.Spelling;
             wordImage.Source = new BitmapImage(new Uri(vc.Image, UriKind.Relative));
-            mePronoun.Source = null;
+            mePronoun.Source = new Uri("../.." + vc.Pronunciation, UriKind.Relative);
+            mePronoun.Play();
         }
 
         private void btnGoRight_Click(object sender, RoutedEventArgs e)

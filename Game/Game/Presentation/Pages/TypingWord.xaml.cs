@@ -17,7 +17,7 @@ namespace Game.Presentation.Pages
     {
         private int typingIdx = 0;
         private int idx = 0;
-        private int numberOfWordPerRound = 10;
+        private int numberOfWordPerRound = 1;
         private bool done = false;
         private bool doneWord = false;
         public TypingWord()
@@ -101,6 +101,7 @@ namespace Game.Presentation.Pages
         {
             ResetAnimationStatus();
             isUnloadToRight = true;
+            mePronoun.Source = null;
         }
 
         private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
@@ -125,7 +126,9 @@ namespace Game.Presentation.Pages
 
         private void btnFinish_Click(object sender, RoutedEventArgs e)
         {
-
+            ResetAnimationStatus();
+            isUnloadToLeft = true;
+            mePronoun.Source = null;
         }
 
         private void keyDown(object sender, KeyEventArgs e)

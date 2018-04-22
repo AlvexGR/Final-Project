@@ -34,6 +34,8 @@ namespace Game
                     return new SelectingPictureOnListening();
                 case AppPage.AppPage.TypingWordPage:
                     return new TypingWord();
+                case AppPage.AppPage.ResultPage:
+                    return new Result();
                 default:
                     Debugger.Break();
                     return null;

@@ -9,33 +9,27 @@ using System.Windows.Input;
 
 namespace Game.Presentation
 {
-    public class TypingWordViewModel : BaseViewModel
+    public class ResultViewModel : BaseViewModel
     {
         
         #region Public Properties
         public ICommand PreviousCommand { set; get; }
-        public ICommand ResultCommand { set; get; }
+
         #endregion
 
         #region Constructor
-        public TypingWordViewModel()
+        public ResultViewModel()
         {
             PreviousCommand = new RelayCommand(async() => await GoToPrevious());
-            ResultCommand = new RelayCommand(async () => await GoToResult());
         }
         #endregion
 
         #region Async Methods
         public async Task GoToPrevious()
         {
+            PageStack.pageStack.Pop();
             var pageName = GetNameOfObject.GetName(PageStack.pageStack.Peek().ToString()) + "Page";
             ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = (AppPage.AppPage)Enum.Parse(typeof(AppPage.AppPage), pageName);
-            await Task.Delay(1);
-        }
-
-        public async Task GoToResult()
-        {
-            ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.ResultPage;
             await Task.Delay(1);
         }
         #endregion

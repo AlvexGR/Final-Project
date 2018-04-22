@@ -113,7 +113,6 @@ namespace Game.Presentation.Pages
             }
             else
             {
-                btnRealAnswer.IsEnabled = false;
                 btnRealAnswer.BorderBrush = new SolidColorBrush(Colors.Red);
                 btnRealAnswer.BorderThickness = new Thickness(3);
             }
@@ -151,7 +150,7 @@ namespace Game.Presentation.Pages
         private void btnFinish_Click(object sender, RoutedEventArgs e)
         {
             ResetAnimationStatus();
-            isUnloadToRight = true;
+            isUnloadToLeft = true;
             mePronoun.Source = null;
         }
 

@@ -143,6 +143,7 @@
     <Compile Include="Presentation\Pages\WordSelection.xaml.cs">
       <DependentUpon>WordSelection.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\ViewModels\ResultViewModel.cs" />
     <Compile Include="Presentation\ViewModels\TypingWordViewModel.cs" />
     <Compile Include="Presentation\ViewModels\SelectingPictureOnListeningViewModel.cs" />
     <Compile Include="Presentation\ViewModels\SelectingWordOnListeningViewModel.cs" />
