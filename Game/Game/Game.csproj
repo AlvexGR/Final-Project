@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{07F5DAB1-93EE-4FC3-B9CC-9391ED2C5A2E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Game</RootNamespace>
+    <AssemblyName>Game</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>135077_Oq2_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Fielder, Version=1.2.0.0, Culture=neutral, PublicKeyToken=409b3227471b0f0d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fielder.Fody.1.2.0\lib\net452\Fielder.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.3\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.4.0.1044, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.4.0.1044\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Windows.Shell, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Windows.Shell.3.0.1.0\lib\net40\Microsoft.Windows.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="PropertyChanged, Version=2.5.3.0, Culture=neutral, PublicKeyToken=ee3ee20bcf148ddd, processorArchitecture=MSIL">
+      <HintPath>..\packages\PropertyChanged.Fody.2.5.3\lib\net452\PropertyChanged.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Animation\PageAnimation.cs" />
+    <Compile Include="Animation\PageAnimations.cs" />
+    <Compile Include="Animation\StoryboardHelpers.cs" />
+    <Compile Include="AttachedProperties\BaseAttachedProperty.cs" />
+    <Compile Include="AttachedProperties\RemoveNavigationFrameHistory.cs" />
+    <Compile Include="Migrations\201804161255452_init.cs" />
+    <Compile Include="Migrations\201804161255452_init.Designer.cs">
+      <DependentUpon>201804161255452_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\MainDb.cs" />
+    <Compile Include="Presentation\Pages\BasePage.cs" />
+    <Compile Include="Presentation\Pages\History.xaml.cs">
+      <DependentUpon>History.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Pages\Main.xaml.cs">
+      <DependentUpon>Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Pages\NoThemeSelection.xaml.cs">
+      <DependentUpon>NoThemeSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Pages\PlayOptions.xaml.cs">
+      <DependentUpon>PlayOptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Pages\Result.xaml.cs">
+      <DependentUpon>Result.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Pages\SelectingPictureOnListening.xaml.cs">
+      <DependentUpon>SelectingPictureOnListening.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Pages\SelectingWordOnListening.xaml.cs">
+      <DependentUpon>SelectingWordOnListening.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Pages\SelectingWordOnTheme.xaml.cs">
+      <DependentUpon>SelectingWordOnTheme.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Pages\Setting.xaml.cs">
+      <DependentUpon>Setting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Pages\ThemeSelection.xaml.cs">
+      <DependentUpon>ThemeSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Pages\TypingWord.xaml.cs">
+      <DependentUpon>TypingWord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Pages\VocabularyList.xaml.cs">
+      <DependentUpon>VocabularyList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Pages\WordDetail.xaml.cs">
+      <DependentUpon>WordDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Pages\WordReview.xaml.cs">
+      <DependentUpon>WordReview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Pages\WordSelection.xaml.cs">
+      <DependentUpon>WordSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ViewModels\TypingWordViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\SelectingPictureOnListeningViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\SelectingWordOnListeningViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\WordReviewViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\WordSelectionViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\PlayOptionsViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\ThemeSelectionViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\VocabularyListViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\HistoryViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\SettingViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\NoThemeSelectionViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\MainViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\RelayParameterizedCommand.cs" />
+    <Compile Include="UserControls\GetNameOfObject.cs" />
+    <Compile Include="UserControls\GetData.cs" />
+    <Compile Include="UserControls\PageHost.xaml.cs">
+      <DependentUpon>PageHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PageStack.cs" />
+    <Compile Include="ValueConverter\AppPageValueConverter.cs" />
+    <Compile Include="ValueConverter\BaseValueConverter.cs" />
+    <Page Include="Presentation\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AppPage\AppPage.cs" />
+    <Compile Include="Model\Background.cs" />
+    <Compile Include="Model\PlayHistory.cs" />
+    <Compile Include="Model\Setting.cs" />
+    <Compile Include="Model\Theme.cs" />
+    <Compile Include="Model\Vocabulary.cs" />
+    <Compile Include="Presentation\ViewModels\BaseViewModel.cs" />
+    <Compile Include="Presentation\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Presentation\Pages\History.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Pages\Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Pages\NoThemeSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Pages\PlayOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Pages\Result.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Pages\SelectingPictureOnListening.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Pages\SelectingWordOnListening.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Pages\SelectingWordOnTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Pages\Setting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Pages\ThemeSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Pages\TypingWord.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Pages\VocabularyList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Pages\WordDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Pages\WordReview.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Pages\WordSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\Button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Color.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Font.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PageHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Presentation\ViewModels\RelayCommand.cs" />
+    <Compile Include="Presentation\ViewModels\WindowViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Migrations\201804161255452_init.resx">
+      <DependentUpon>201804161255452_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\bigbang_Wbd_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\learnEnglish.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\letters_MNx_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\Letters.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\135077.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\135077_Oq2_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="135077_Oq2_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Background\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Background\background2.jpg" />
+    <Resource Include="Images\Background\background3.jpg" />
+    <Resource Include="Images\Background\background4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Background\background5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Background\background6.jpg" />
+    <Resource Include="Images\Background\background7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Button\button1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Audios\Sound Effects\click.mp3" />
+    <Content Include="Audios\Sound Effects\Typing.mp3" />
+    <Content Include="Audios\Sound Effects\Typing2.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\add.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\apple.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\architect.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\arm.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\athlete.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\aubergine.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\avocado.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\aye.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\bag.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\banana.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\basket.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\beetroot.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\blackboard.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\block.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\builder.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\building.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\cabbage.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\carot.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\castle.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\cat.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\cement.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\circle.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\cow.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\crane.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\cucumber.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\dive.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\dog.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\draw.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\ear.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\electrician.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\elephant.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\face.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\farm.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\finger.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\fireman.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\garlic.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\goggles.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\grape.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\grapefruit.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\hand.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\head.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\horse.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\hospital.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\hotel.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\house.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\jump.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\ladder.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\lawyer.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\leg.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\lemon.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\lesson.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\lifeguard.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\lion.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\minus.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\monkey.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\mouse.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\museum.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\mushroom.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\neck.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\noes.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\notebook.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\onion.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\orange.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\panda.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\park.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\plus.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\policeman.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\pomegranate.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\postman.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\potato.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\pumpkin.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\pupil.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\question.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\rabbit.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\read.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\rectangle.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\restaurant.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\ruler.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\shovel.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\singer.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\soldier.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\square.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\strawberry.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\subtract.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\supermarket.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\swim.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\swimming_pool.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\swim_suit.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\teacher.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\timber.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\vet.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\watermelon.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\write.mp3" />
+    <Resource Include="Images\Word\aubergine.jpg" />
+    <Resource Include="Images\Word\beetroot.jpg" />
+    <Resource Include="Images\Word\cabbage.jpg" />
+    <Resource Include="Images\Word\carot.jpg" />
+    <Resource Include="Images\Word\cucumber.jpg" />
+    <Resource Include="Images\Word\mushroom.jpg" />
+    <Resource Include="Images\Word\onion.jpg" />
+    <Resource Include="Images\Word\potato.jpg" />
+    <Resource Include="Images\Word\pumpkin.jpg" />
+    <Resource Include="Images\Leaderboard or History\star.png" />
+    <Resource Include="Images\Button\correct.png" />
+    <Resource Include="Images\Button\arrow_left_on.png" />
+    <Resource Include="Images\Button\arrow_right_on.png" />
+    <Resource Include="Images\Button\setting_on.png" />
+    <Resource Include="Images\Leaderboard or History\trophy_on.png" />
+    <Resource Include="Images\Button\next_button_on.png" />
+    <Resource Include="Images\Button\back_button_on.png" />
+    <Resource Include="Images\Button\back_button.png" />
+    <Resource Include="Images\Leaderboard or History\trophy.png" />
+    <Resource Include="Images\Button\setting1.png" />
+    <Resource Include="Images\Button\finish.png" />
+    <Resource Include="Images\Button\random3.png" />
+    <Resource Include="Images\Button\random2.png" />
+    <Resource Include="Images\Button\setting2.png" />
+    <Resource Include="Images\Button\random.png" />
+    <Resource Include="Images\Leaderboard or History\history.png" />
+    <Resource Include="Images\Word\cat.jpg" />
+    <Resource Include="Images\Word\cow.jpg" />
+    <Resource Include="Images\Word\dog.png" />
+    <Resource Include="Images\Word\elephant.jpg" />
+    <Resource Include="Images\Word\horse.jpg" />
+    <Resource Include="Images\Word\lion.jpg" />
+    <Resource Include="Images\Word\monkey.png" />
+    <Resource Include="Images\Word\mouse.jpg" />
+    <Resource Include="Images\Word\panda.jpg" />
+    <Resource Include="Images\Word\rabbit.jpg" />
+    <Resource Include="Images\Button\next_button.png" />
+    <Resource Include="Images\Leaderboard or History\images.png" />
+    <Resource Include="Images\Leaderboard or History\leaderboard-300x300.png" />
+    <Resource Include="Images\Leaderboard or History\Leaderboard-Regular.png" />
+    <Resource Include="Images\Button\arrow_left.png" />
+    <Resource Include="Images\Button\arrow_right.png" />
+    <Resource Include="Images\Button\audio.png" />
+    <Resource Include="Images\Button\setting.png" />
+    <Resource Include="Images\Button\lookup.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Fody.3.0.3\build\Fody.targets" Condition="Exists('..\packages\Fody.3.0.3\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Fody.3.0.3\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.3.0.3\build\Fody.targets'))" />
+  </Target>
+</Project>
