@@ -432,6 +432,15 @@
     <Content Include="Audios\Vocabulary Pronunciations\vet.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\watermelon.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\write.mp3" />
+    <Resource Include="Images\Word\aubergine.jpg" />
+    <Resource Include="Images\Word\beetroot.jpg" />
+    <Resource Include="Images\Word\cabbage.jpg" />
+    <Resource Include="Images\Word\carot.jpg" />
+    <Resource Include="Images\Word\cucumber.jpg" />
+    <Resource Include="Images\Word\mushroom.jpg" />
+    <Resource Include="Images\Word\onion.jpg" />
+    <Resource Include="Images\Word\potato.jpg" />
+    <Resource Include="Images\Word\pumpkin.jpg" />
     <Resource Include="Images\Leaderboard or History\star.png" />
     <Resource Include="Images\Button\correct.png" />
     <Resource Include="Images\Button\arrow_left_on.png" />
