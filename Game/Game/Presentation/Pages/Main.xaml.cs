@@ -1,4 +1,5 @@
-﻿using Game.Presentation;
+﻿using Game.Model;
+using Game.Presentation;
 using System;
 using System.Collections.Generic;
 using System.Linq;

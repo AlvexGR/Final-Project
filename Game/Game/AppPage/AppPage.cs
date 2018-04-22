@@ -16,6 +16,7 @@
         SelectingWordOnListeningPage = 11,
         SelectingPictureOnListeningPage = 12,
         TypingWordPage = 13,
-        SelectingWordOnThemePage = 14
+        SelectingWordOnThemePage = 14,
+        LoadingPage = 15,
     }
 }
