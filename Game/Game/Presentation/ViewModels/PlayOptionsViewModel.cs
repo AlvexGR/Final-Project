@@ -17,6 +17,7 @@ namespace Game.Presentation
         public ICommand WordReviewCommand { set; get; }
         public ICommand SelectingWordOnListeningPageCommand { set; get; }
         public ICommand SelectingPictureOnListeningPageCommand { set; get; }
+        public ICommand TypingWordCommand { set; get; }
         #endregion
 
         #region Constructor
@@ -26,6 +27,7 @@ namespace Game.Presentation
             WordReviewCommand = new RelayCommand(async () => await GoToWordReview());
             SelectingWordOnListeningPageCommand = new RelayCommand(async () => await GoToSelectingWordOnListening());
             SelectingPictureOnListeningPageCommand = new RelayCommand(async () => await GoToSelectingPictureOnListening());
+            TypingWordCommand = new RelayCommand(async () => await GoToTypingWord());
         }
         #endregion
 
@@ -52,6 +54,12 @@ namespace Game.Presentation
         public async Task GoToSelectingPictureOnListening()
         {
             ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.SelectingPictureOnListeningPage;
+            await Task.Delay(1);
+        }
+
+        public async Task GoToTypingWord()
+        {
+            ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.TypingWordPage;
             await Task.Delay(1);
         }
         #endregion
