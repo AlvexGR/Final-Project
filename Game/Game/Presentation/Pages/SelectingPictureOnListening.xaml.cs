@@ -25,10 +25,15 @@ namespace Game.Presentation.Pages
         private int idx = 0;
         private Vocabulary rightAnswer;
         int indexOfRightAnswer = 0;
+        private readonly int ScorePerQuestion=10;
+        private bool IsFirstAnswer = true;
+        MainDb db ;
         public SelectingPictureOnListening()
         {
             InitializeComponent();
             UpdateData();
+            GetData.Score = 0;
+            db = new MainDb();
         }
 
         private void UpdateData()
@@ -73,6 +78,7 @@ namespace Game.Presentation.Pages
                 imgC.Source = new BitmapImage(new Uri(otherWords[2].Image, UriKind.Relative));
             }
             btnCorrect.Visibility = Visibility.Hidden;
+            IsFirstAnswer = true;
             mePronoun.Source = new Uri("../.." + rightAnswer.Pronunciation, UriKind.Relative);
             mePronoun.Play();
         }
@@ -100,6 +106,10 @@ namespace Game.Presentation.Pages
 
             if (indexAnswer == indexOfRightAnswer)
             {
+                if(IsFirstAnswer)
+                {
+                    GetData.Score += ScorePerQuestion;
+                }
                 btnRealAnswer.BorderBrush = new SolidColorBrush(Colors.Green);
                 btnRealAnswer.BorderThickness = new Thickness(3);
                 if (idx == (GetData.wordList.Count - 1))
@@ -116,7 +126,7 @@ namespace Game.Presentation.Pages
                 btnRealAnswer.BorderBrush = new SolidColorBrush(Colors.Red);
                 btnRealAnswer.BorderThickness = new Thickness(3);
             }
-
+            IsFirstAnswer = false;
         }
         public void ResetButton()
         {
@@ -152,6 +162,13 @@ namespace Game.Presentation.Pages
             ResetAnimationStatus();
             isUnloadToLeft = true;
             mePronoun.Source = null;
+            PlayHistory playHistory = new PlayHistory()
+            {
+                Date = DateTime.Today,
+                Score = GetData.Score
+            };
+            db.PlayHistories.Add(playHistory);
+            db.SaveChanges();
         }
 
         private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)

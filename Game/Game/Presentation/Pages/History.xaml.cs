@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Game.Model;
 
 namespace Game.Presentation.Pages
 {
@@ -20,9 +21,17 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class History : BasePage<HistoryViewModel>
     {
+        MainDb db;
         public History()
         {
             InitializeComponent();
+            db = new MainDb();
+
+            lbxPlayHistories.ItemsSource = db.PlayHistories.Select(x => new PlayHitoriesView
+            {
+                Date = x.Date.Day + "/" + x.Date.Month + "/" + x.Date.Year,
+                Score = x.Score.ToString()
+            }).ToList();
         }
 
         private void ResetAnimationStatus()
@@ -45,5 +54,50 @@ namespace Game.Presentation.Pages
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
         }
+
+
+
+        private void rdNewToOld_Checked(object sender, RoutedEventArgs e)
+        {
+            lbxPlayHistories.ItemsSource = db.PlayHistories.OrderBy(x => x.Date).Select(x => new PlayHitoriesView
+            {
+                Date = x.Date.Day + "/" + x.Date.Month + "/" + x.Date.Year,
+                Score = x.Score.ToString()
+            }).ToList();
+        }
+
+        private void rdOldToNew_Checked(object sender, RoutedEventArgs e)
+        {
+            lbxPlayHistories.ItemsSource = db.PlayHistories.OrderByDescending(x => x.Date).Select(x => new PlayHitoriesView
+            {
+                Date = x.Date.Day + "/" + x.Date.Month + "/" + x.Date.Year,
+                Score = x.Score.ToString()
+            }).ToList();
+        }
+
+        private void rdIncreasePoint_Checked(object sender, RoutedEventArgs e)
+        {
+            lbxPlayHistories.ItemsSource = db.PlayHistories.OrderBy(x => x.Score).Select(x => new PlayHitoriesView
+            {
+                Date = x.Date.Day + "/" + x.Date.Month + "/" + x.Date.Year,
+                Score = x.Score.ToString()
+            }).ToList();
+        }
+
+        private void rdDecreasePoint_Checked(object sender, RoutedEventArgs e)
+        {
+            lbxPlayHistories.ItemsSource = db.PlayHistories.OrderByDescending(x => x.Score).Select(x => new PlayHitoriesView
+            {
+                Date = x.Date.Day + "/" + x.Date.Month + "/" + x.Date.Year,
+                Score = x.Score.ToString()
+            }).ToList();
+        }
+
+        public class PlayHitoriesView
+        {
+            public string Date { get; set; }
+            public string Score { get; set; }
+        }
     }
+
 }

@@ -14,11 +14,13 @@
             <StackPanel Margin="100 100 100 150">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="130"/>
                         <RowDefinition Height="150"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Text="50" FontSize="90" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    <StackPanel Grid.Row="1">
+                    <TextBlock Text="Thành tích của bạn:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
+                    <TextBlock x:Name="tbxScore" Text="{Binding CurrentScore}" FontSize="90" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1"/>
+                    <StackPanel Grid.Row="2" Margin="60 40">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
@@ -27,11 +29,11 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Image Source="/Images/Leaderboard or History/star.png" Margin="0 20 20 0"/>
-                            <Image Source="/Images/Leaderboard or History/star.png" Margin="0 20 20 0" Grid.Column="1"/>
-                            <Image Source="/Images/Leaderboard or History/star.png" Margin="0 20 20 0" Grid.Column="2"/>
-                            <Image Source="/Images/Leaderboard or History/star.png" Margin="0 20 20 0" Grid.Column="3"/>
-                            <Image Source="/Images/Leaderboard or History/star.png" Margin="0 20 20 0" Grid.Column="4"/>
+                            <Image x:Name="img1" Source="/Images/Leaderboard or History/star.png" Height="50" Visibility="Hidden"/>
+                            <Image x:Name="img2" Source="/Images/Leaderboard or History/star.png" Height="50" Visibility="Hidden" Grid.Column="1"/>
+                            <Image x:Name="img3" Source="/Images/Leaderboard or History/star.png" Height="50" Visibility="Hidden" Grid.Column="2"/>
+                            <Image x:Name="img4" Source="/Images/Leaderboard or History/star.png" Height="50" Visibility="Hidden" Grid.Column="3"/>
+                            <Image x:Name="img5" Source="/Images/Leaderboard or History/star.png" Height="50" Visibility="Hidden" Grid.Column="4"/>
                         </Grid>
                     </StackPanel>
                 </Grid>

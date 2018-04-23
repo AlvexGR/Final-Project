@@ -13,5 +13,6 @@ namespace Game.UserControls
         public static List<Vocabulary> wordList = new List<Vocabulary>();
         public static int curTheme = -1;
         public static bool isTheme = false;
+        public static int Score;
     }
 }

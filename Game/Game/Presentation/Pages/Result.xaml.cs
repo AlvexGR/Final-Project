@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Game.UserControls;
 
 namespace Game.Presentation.Pages
 {
@@ -23,6 +24,31 @@ namespace Game.Presentation.Pages
         public Result()
         {
             InitializeComponent();
+            tbxScore.Text = GetData.Score.ToString();
+            Init();
+        }
+        private void Init()
+        {
+            if(GetData.Score > 40)
+            {
+                img1.Visibility = img2.Visibility = img3.Visibility = img4.Visibility = img5.Visibility = Visibility.Visible;
+            }
+            else if(GetData.Score > 30)
+            {
+                img1.Visibility = img2.Visibility = img3.Visibility = img4.Visibility  = Visibility.Visible;
+            }
+            else if (GetData.Score > 20)
+            {
+                img1.Visibility = img2.Visibility = img3.Visibility = Visibility.Visible;
+            }
+            else if (GetData.Score > 10)
+            {
+                img1.Visibility = img2.Visibility = Visibility.Visible;
+            }
+            else if (GetData.Score > 0)
+            {
+                img1.Visibility = Visibility.Visible;
+            }
         }
 
         private void ResetAnimationStatus()
