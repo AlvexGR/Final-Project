@@ -1,9 +1,10 @@
-﻿<Page x:Class="Game.Presentation.Pages.WordSet"
+﻿<local:BasePage x:TypeArguments="viewModel:WordSetViewModel" x:Class="Game.Presentation.Pages.WordSet"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Game.Presentation.Pages"
+       xmlns:viewModel="clr-namespace:Game.Presentation"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
       Title="WordSet">
@@ -16,7 +17,7 @@
                     <ColumnDefinition Width="5*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button Click="btnGoLeft_Click" x:Name="btnGoLeft" Margin="50 0 0 0" Style="{StaticResource BackButton}">
+                <Button Click="btnGoLeft_Click"  x:Name="btnGoLeft" Margin="50 0 0 0" Style="{StaticResource BackButton}">
                     <Image x:Name="imgArrowLeft" Source="/Images/Button/arrow_left.png" MouseEnter="imgArrowLeft_MouseEnter" MouseLeave="imgArrowLeft_MouseLeave"/>
                 </Button>
                 <Button Click="btnGoRight_Click" x:Name="btnGoRight" Margin="0 0 50 0" Style="{StaticResource NextButton}" Grid.Column="2">
@@ -37,8 +38,8 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Button Content="Xoá" Style="{StaticResource NormalButton}" Margin="0 0 10 0"  Height="40"/>
-                        <Button Content="Học từ mới" Style="{StaticResource NormalButton}" Margin="0 0 10 0" Grid.Column="1"/>
-                        <Button Content="Ôn lại" Style="{StaticResource NormalButton}" Grid.Column="2"/>
+                        <Button Command="{Binding PlayOptionsCommand}" Click="btnNew_Click" x:Name="btnNew" Content="Học từ mới" Style="{StaticResource NormalButton}" Margin="0 0 10 0" Grid.Column="1"/>
+                        <Button Command="{Binding PlayOptionsCommand}" Click="btnReview_Click" x:Name="btnReview" Content="Ôn lại" Style="{StaticResource NormalButton}" Grid.Column="2"/>
                     </Grid>
                     
                 </StackPanel>
@@ -65,4 +66,4 @@
             </Button>
         </Grid>
     </StackPanel>-->
-</Page>
+</local:BasePage>

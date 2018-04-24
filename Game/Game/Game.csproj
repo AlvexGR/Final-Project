@@ -149,6 +149,12 @@
     <Compile Include="Presentation\Pages\WordSelection.xaml.cs">
       <DependentUpon>WordSelection.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\Pages\WordSet.xaml.cs">
+      <DependentUpon>WordSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ViewModels\LoginViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\RegisterViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\WordSetViewModel.cs" />
     <Compile Include="Presentation\ViewModels\ResultViewModel.cs" />
     <Compile Include="Presentation\ViewModels\TypingWordViewModel.cs" />
     <Compile Include="Presentation\ViewModels\SelectingPictureOnListeningViewModel.cs" />
@@ -257,6 +263,10 @@
     <Page Include="Presentation\Pages\WordSelection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Pages\WordSet.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Style\Button.xaml">
       <Generator>MSBuild:Compile</Generator>

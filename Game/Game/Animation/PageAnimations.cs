@@ -10,12 +10,6 @@ namespace Game.Animation
     {
         public static async Task SlideFromRight(this Page page, float seconds)
         {
-            if (((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage == AppPage.AppPage.LoadingPage)
-            {
-                page.Visibility = System.Windows.Visibility.Visible;
-                await Task.Delay((int)(seconds * 1000));
-                return;
-            }
             var sb = new Storyboard();
 
             sb.AddFadeIn(seconds);

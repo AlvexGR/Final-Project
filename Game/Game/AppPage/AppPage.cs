@@ -17,9 +17,8 @@
         SelectingPictureOnListeningPage = 12,
         TypingWordPage = 13,
         SelectingWordOnThemePage = 14,
-        LoadingPage = 15,
-        LoginPage = 16,
-        RegisterPage = 17,
-        WordSetPage = 18
+        LoginPage = 15,
+        RegisterPage = 16,
+        WordSetPage = 17,
     }
 }

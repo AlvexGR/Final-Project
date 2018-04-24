@@ -28,7 +28,6 @@ namespace Game.Presentation.Pages
             InitializeComponent();
             if(!GetData.isTheme)
             {
-                btnSelectingWordOnTheme.Visibility = Visibility.Hidden;
                 GetData.wordListTotal = db.Words.ToList();
             }
         }

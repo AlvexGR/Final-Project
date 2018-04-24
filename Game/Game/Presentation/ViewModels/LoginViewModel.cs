@@ -9,20 +9,18 @@ using System.Windows.Input;
 
 namespace Game.Presentation
 {
-    public class ThemeSelectionViewModel : BaseViewModel
+    public class LoginViewModel : BaseViewModel
     {
         
         #region Public Properties
         public ICommand PreviousCommand { set; get; }
-        public ICommand WordSetCommand { set; get; }
 
         #endregion
 
         #region Constructor
-        public ThemeSelectionViewModel()
+        public LoginViewModel()
         {
             PreviousCommand = new RelayCommand(async() => await GoToPrevious());
-            WordSetCommand = new RelayCommand(async () => await GoToWordSet());
         }
         #endregion
 
@@ -31,12 +29,6 @@ namespace Game.Presentation
         {
             var pageName = GetNameOfObject.GetName(PageStack.pageStack.Peek().ToString()) + "Page";
             ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = (AppPage.AppPage)Enum.Parse(typeof(AppPage.AppPage), pageName);
-            await Task.Delay(1);
-        }
-
-        public async Task GoToWordSet()
-        {
-            ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.WordSetPage;
             await Task.Delay(1);
         }
         #endregion

@@ -18,7 +18,7 @@ namespace Game.Presentation.Pages
     /// <summary>
     /// Interaction logic for Register.xaml
     /// </summary>
-    public partial class Register : Page
+    public partial class Register : BasePage<RegisterViewModel>
     {
         public Register()
         {

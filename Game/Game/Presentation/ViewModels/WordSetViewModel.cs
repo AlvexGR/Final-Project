@@ -9,20 +9,19 @@ using System.Windows.Input;
 
 namespace Game.Presentation
 {
-    public class ThemeSelectionViewModel : BaseViewModel
+    public class WordSetViewModel : BaseViewModel
     {
         
         #region Public Properties
         public ICommand PreviousCommand { set; get; }
-        public ICommand WordSetCommand { set; get; }
-
+        public ICommand PlayOptionsCommand { set; get; }
         #endregion
 
         #region Constructor
-        public ThemeSelectionViewModel()
+        public WordSetViewModel()
         {
             PreviousCommand = new RelayCommand(async() => await GoToPrevious());
-            WordSetCommand = new RelayCommand(async () => await GoToWordSet());
+            PlayOptionsCommand = new RelayCommand(async () => await GoToPlayOptions());
         }
         #endregion
 
@@ -34,9 +33,9 @@ namespace Game.Presentation
             await Task.Delay(1);
         }
 
-        public async Task GoToWordSet()
+        public async Task GoToPlayOptions()
         {
-            ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.WordSetPage;
+            ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.PlayOptionsPage;
             await Task.Delay(1);
         }
         #endregion

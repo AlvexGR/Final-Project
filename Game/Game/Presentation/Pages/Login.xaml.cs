@@ -18,7 +18,7 @@ namespace Game.Presentation.Pages
     /// <summary>
     /// Interaction logic for Login.xaml
     /// </summary>
-    public partial class Login : Page
+    public partial class Login : BasePage<LoginViewModel>
     {
         public Login()
         {
