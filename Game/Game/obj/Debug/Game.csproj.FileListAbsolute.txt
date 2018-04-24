@@ -67,3 +67,7 @@ F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Game.csproj.GenerateResour
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Game.exe
 F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Game.pdb
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\Login.g.cs
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\Register.g.cs
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\Login.baml
+F:\Final Assignment\Final-Project\Game\Game\obj\Debug\Presentation\Pages\Register.baml

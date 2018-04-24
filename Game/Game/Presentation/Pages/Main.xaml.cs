@@ -87,5 +87,20 @@ namespace Game.Presentation.Pages
         {
             imgSetting.Source = new BitmapImage(new Uri("/Images/Button/setting.png", UriKind.Relative));
         }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            imgLogout.Source = new BitmapImage(new Uri("/Images/Button/logout.png", UriKind.Relative));
+        }
+
+        private void imgLogout_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgLogout.Source = new BitmapImage(new Uri("/Images/Button/logout.png", UriKind.Relative));
+        }
+
+        private void imgLogout_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

@@ -22,12 +22,15 @@
                 <Button Style="{StaticResource NormalButton}" x:Name="btnVocabularyList" Command="{Binding VocabularyListCommand}" Content="TỪ VỰNG" Margin="0 0 0 40" Height="65" FontSize="18" FontFamily="Arial" Click="btnVocabularyList_Click"/>
                 <Button Style="{StaticResource NormalButton}" x:Name="btnExit" Content="THOÁT" Grid.Column="1"  Margin="2 0 0 0" Height="65" FontSize="18" Click="btnExit_Click" FontFamily="Arial"/>
             </StackPanel>
-            <StackPanel Grid.Column="3" Margin="00 200 20 0">
+            <StackPanel Grid.Column="3" Margin="00 150 20 0" Opacity="5">
                 <Button Style="{StaticResource SettingsButton}" Margin="0 0 0 20" Height="70" Width="70">
                     <Image x:Name="imgSetting" Source="/Images/Button/setting.png" MouseEnter="imgSetting_MouseEnter" MouseLeave="imgSetting_MouseLeave"/>
                 </Button>
-                <Button Style="{StaticResource HistoryButton}" Height="70" Width="70">
+                <Button x:Name="btnHistory" Click="btnHistory_Click" Style="{StaticResource HistoryButton}" Command="{Binding HistoryCommand}" Margin="0 0 0 20" Height="70" Width="70">
                     <Image x:Name="imgHistory" Source="/Images/Leaderboard or History/trophy.png" Height="50" Width="50" MouseEnter="imgHistory_MouseEnter" MouseLeave="imgHistory_MouseLeave"/>
+                </Button>
+                <Button x:Name="btnLogout" Click="btnLogout_Click"  Style="{StaticResource LogoutButton}" Height="70" Width="70">
+                    <Image x:Name="imgLogout" Source="/Images/Button/logout.png" Height="50" Width="50" MouseEnter="imgLogout_MouseEnter" MouseLeave="imgLogout_MouseLeave"/>
                 </Button>
             </StackPanel>
         </Grid>

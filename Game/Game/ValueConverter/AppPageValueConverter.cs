@@ -36,6 +36,12 @@ namespace Game
                     return new TypingWord();
                 case AppPage.AppPage.ResultPage:
                     return new Result();
+                case AppPage.AppPage.LoginPage:
+                    return new Login();
+                case AppPage.AppPage.RegisterPage:
+                    return new Register();
+                case AppPage.AppPage.WordSetPage:
+                    return new WordSet();
                 default:
                     Debugger.Break();
                     return null;

@@ -247,4 +247,30 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!--Logout Button-->
+    <Style TargetType="{x:Type Button}" x:Key="LogoutButton">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Width" Value="50"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Opacity="0"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{x:Null}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

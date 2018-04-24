@@ -26,7 +26,7 @@ namespace Game.Presentation.Pages
         {
             InitializeComponent();
             db = new MainDb();
-            lbxVocabularies.ItemsSource = db.Words.ToList();
+            lbxVocabularies.ItemsSource = db.Words.OrderBy(x=>x.EnglishWord).ToList();
         }
 
         private void ResetAnimationStatus()
@@ -40,20 +40,20 @@ namespace Game.Presentation.Pages
             isUnloadToRight = true;
         }
 
-        private void rdAllWords_Checked(object sender, RoutedEventArgs e)
-        {
-            lbxVocabularies.ItemsSource = db.Words.ToList();
-        }
+        //private void rdAllWords_Checked(object sender, RoutedEventArgs e)
+        //{
+        //    lbxVocabularies.ItemsSource = db.Words.ToList();
+        //}
 
-        private void rdKnownWords_Checked(object sender, RoutedEventArgs e)
-        {
-            lbxVocabularies.ItemsSource = db.Words.Where(x=>x.IsLearned).ToList();
-        }
+        //private void rdKnownWords_Checked(object sender, RoutedEventArgs e)
+        //{
+        //    lbxVocabularies.ItemsSource = db.Words.Where(x=>x.IsLearned).ToList();
+        //}
 
-        private void rdUnknownWords_Checked(object sender, RoutedEventArgs e)
-        {
-            lbxVocabularies.ItemsSource = db.Words.Where(x => !x.IsLearned).ToList();
-        }
+        //private void rdUnknownWords_Checked(object sender, RoutedEventArgs e)
+        //{
+        //    lbxVocabularies.ItemsSource = db.Words.Where(x => !x.IsLearned).ToList();
+        //}
 
         private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
         {

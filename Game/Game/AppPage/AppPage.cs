@@ -18,5 +18,8 @@
         TypingWordPage = 13,
         SelectingWordOnThemePage = 14,
         LoadingPage = 15,
+        LoginPage = 16,
+        RegisterPage = 17,
+        WordSetPage = 18
     }
 }
