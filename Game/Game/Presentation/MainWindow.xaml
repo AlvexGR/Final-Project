@@ -71,7 +71,7 @@
                                     <Border Grid.Row="1" Padding="{Binding InnerContentPadding}" Background="#bbc8ff">
                                         <Border>
                                             <Border.Background>
-                                                <ImageBrush TileMode="Tile" ViewportUnits="Absolute" Viewport="-5 30 700 600" ImageSource="/Images/Background/background4.png" Opacity="0.2"/>
+                                                <ImageBrush TileMode="Tile" ViewportUnits="Absolute" Viewport="-3 25 800 500" ImageSource="/Images/Background/background5.png" Opacity="0.2"/>
                                             </Border.Background>
                                             <ContentPresenter Content="{TemplateBinding Content}"/>
                                         </Border>
