@@ -121,8 +121,6 @@
     <!--Back Button-->
     <Style TargetType="{x:Type Button}" x:Key="BackButton">
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Height" Value="50"/>
-        <Setter Property="Width" Value="50"/>
         <Setter Property="Background">
             <Setter.Value>
                 <SolidColorBrush Opacity="0"/>
@@ -147,8 +145,6 @@
     <!--Next Button-->
     <Style TargetType="{x:Type Button}" x:Key="NextButton">
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Height" Value="50"/>
-        <Setter Property="Width" Value="50"/>
         <Setter Property="Background">
             <Setter.Value>
                 <SolidColorBrush Opacity="0"/>
@@ -173,8 +169,6 @@
     <!--Finish Button-->
     <Style TargetType="{x:Type Button}" x:Key="FinishButton">
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Height" Value="50"/>
-        <Setter Property="Width" Value="50"/>
         <Setter Property="ContentTemplate">
             <Setter.Value>
                 <DataTemplate>
@@ -186,9 +180,6 @@
 
     <!--Settings Button-->
     <Style TargetType="{x:Type Button}" x:Key="SettingsButton">
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Height" Value="50"/>
-        <Setter Property="Width" Value="50"/>
         <Setter Property="Background">
             <Setter.Value>
                 <SolidColorBrush Opacity="0"/>
@@ -205,16 +196,33 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{x:Null}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
 
+    <!--Theme Button-->
+    <Style TargetType="{x:Type Button}" x:Key="ThemeButton">
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#bbc8ff"/>
+                <Setter Property="BorderThickness" Value="0"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
     <!--History Button-->
     <Style TargetType="{x:Type Button}" x:Key="HistoryButton">
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Height" Value="50"/>
-        <Setter Property="Width" Value="50"/>
         <Setter Property="Background">
             <Setter.Value>
                 <SolidColorBrush Opacity="0"/>
@@ -231,7 +239,6 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{x:Null}"/>
             </Trigger>
         </Style.Triggers>
     </Style>

@@ -446,6 +446,8 @@
     <Content Include="Audios\Vocabulary Pronunciations\vet.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\watermelon.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\write.mp3" />
+    <Resource Include="Images\Button\theme.png" />
+    <Resource Include="Images\Button\theme_on.png" />
     <Resource Include="Images\Background\background.png" />
     <Resource Include="Images\Button\logout.png" />
     <Resource Include="Images\Word\aubergine.jpg" />

@@ -102,5 +102,15 @@ namespace Game.Presentation.Pages
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
         }
+
+        private void btnTheme_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgTheme.Source = new BitmapImage(new Uri("/Images/Button/theme_on.png", UriKind.Relative));
+        }
+
+        private void btnTheme_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgTheme.Source = new BitmapImage(new Uri("/Images/Button/theme.png", UriKind.Relative));
+        }
     }
 }
