@@ -1,6 +1,8 @@
 ﻿using Game.Model;
 using Game.UserControls;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -17,9 +19,11 @@ namespace Game.Presentation.Pages
     {
         private int typingIdx = 0;
         private int idx = 0;
-        private int numberOfWordPerRound = 1;
+        private int numberOfWordPerRound = 5;
+        private int progress = 0;
         private bool done = false;
         private bool doneWord = false;
+        private bool readyToNextWord = false;
         public TypingWord()
         {
             InitializeComponent();
@@ -30,6 +34,7 @@ namespace Game.Presentation.Pages
         {
             btnCorrect.Visibility = Visibility.Hidden;
             proBarTypingRange.Value = 0;
+            progress = 0;
             Vocabulary curWord = GetData.wordList[idx];
             imgWord.Source = new BitmapImage(new Uri(curWord.Image, UriKind.Relative));
             typingArea.Children.Clear();
@@ -71,6 +76,7 @@ namespace Game.Presentation.Pages
         private void increasingProgressBar()
         {
             proBarTypingRange.Value += (100.0 / numberOfWordPerRound);
+            progress++;
             if(proBarTypingRange.Value == proBarTypingRange.Maximum)
             {
                 done = true;
@@ -81,6 +87,7 @@ namespace Game.Presentation.Pages
                 else
                 {
                     btnCorrect.Visibility = Visibility.Visible;
+                    readyToNextWord = true;
                 }
             }
         }
@@ -95,6 +102,7 @@ namespace Game.Presentation.Pages
             idx++;
             LoadTextBoxes();
             mePronoun.Source = null;
+            readyToNextWord = false;
         }
 
         private void btnGoBack_Click(object sender, RoutedEventArgs e)
@@ -133,11 +141,19 @@ namespace Game.Presentation.Pages
 
         private void keyDown(object sender, KeyEventArgs e)
         {
+            if(e.Key == Key.Enter && readyToNextWord)
+            {
+                idx++;
+                LoadTextBoxes();
+                mePronoun.Source = null;
+                readyToNextWord = false;
+                return;
+            }
             if(typingIdx == 0)
             {
                 mePronoun.Source = null;
             }
-            if (!done && doneWord && (e.Key == Key.Enter  || e.Key == Key.Space))
+            if (!done && doneWord && e.Key == Key.Enter)
             {
                 typingIdx = 0;
                 typingArea.Children[typingIdx].Focus();
@@ -146,8 +162,33 @@ namespace Game.Presentation.Pages
                 {
                     (typingArea.Children[i] as TextBox).Text = "";
                     (wordArea.Children[i] as TextBlock).Foreground = Brushes.Black;
+                    wordArea.Children[i].Visibility = Visibility.Visible;
                 }
                 (wordArea.Children[typingIdx] as TextBlock).Foreground = Brushes.Green;
+                if(progress > 1)
+                {
+                    Random rd = new Random();
+                    int lossLetters = Convert.ToInt32(Math.Ceiling(Convert.ToDecimal(0.3 * GetData.wordList[idx].EnglishWord.Length)));
+                    var lst = new List<int>();
+                    for(int i= 0; i< GetData.wordList[idx].EnglishWord.Length;i++)
+                    {
+                        lst.Add(i);
+                    }
+                    var result = lst.OrderBy(item => rd.Next()).ToList();
+                    int cur = 0;
+                    while(lossLetters > 0)
+                    {
+                        for(int i = 0;i<GetData.wordList[idx].EnglishWord.Length;i++)
+                        {
+                            if(result[i] == cur)
+                            {
+                                wordArea.Children[i].Visibility = Visibility.Hidden;
+                            }
+                        }
+                        lossLetters--;
+                        cur++;
+                    }
+                }
                 doneWord = false;
                 return;
             }

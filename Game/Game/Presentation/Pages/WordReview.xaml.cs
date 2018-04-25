@@ -28,6 +28,7 @@ namespace Game.Presentation.Pages
         {
             InitializeComponent();
             UpdateData();
+            btnGoLeft.Visibility = Visibility.Hidden;
         }
 
         private void ResetAnimationStatus()
@@ -56,9 +57,14 @@ namespace Game.Presentation.Pages
         private void btnGoRight_Click(object sender, RoutedEventArgs e)
         {
             idx++;
-            if (idx == GetData.wordList.Count)
+            if (idx == GetData.wordList.Count - 1)
             {
-                idx = 0;
+                btnGoRight.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                btnGoLeft.Visibility = Visibility.Visible;
+                btnGoRight.Visibility = Visibility.Visible;
             }
             UpdateData();
         }
@@ -66,9 +72,14 @@ namespace Game.Presentation.Pages
         private void btnGoLeft_Click(object sender, RoutedEventArgs e)
         {
             idx--;
-            if (idx == -1)
+            if (idx == 0)
             {
-                idx = GetData.wordList.Count - 1;
+                btnGoLeft.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                btnGoLeft.Visibility = Visibility.Visible;
+                btnGoRight.Visibility = Visibility.Visible;
             }
             UpdateData();
         }
