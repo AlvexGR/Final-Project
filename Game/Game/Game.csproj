@@ -347,21 +347,6 @@
     <Resource Include="135077_Oq2_icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Background\background.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Background\background2.jpg" />
-    <Resource Include="Images\Background\background3.jpg" />
-    <Resource Include="Images\Background\background4.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Background\background5.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Background\background6.jpg" />
-    <Resource Include="Images\Background\background7.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Button\button1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -461,6 +446,11 @@
     <Content Include="Audios\Vocabulary Pronunciations\vet.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\watermelon.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\write.mp3" />
+    <Resource Include="Images\Background\background4.png" />
+    <Resource Include="Images\Background\background3.png" />
+    <Resource Include="Images\Background\background2.png" />
+    <Resource Include="Images\Background\background1.png" />
+    <Resource Include="Images\Background\background.png" />
     <Resource Include="Images\Button\logout.png" />
     <Resource Include="Images\Word\aubergine.jpg" />
     <Resource Include="Images\Word\beetroot.jpg" />

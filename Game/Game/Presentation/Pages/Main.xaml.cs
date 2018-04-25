@@ -88,19 +88,19 @@ namespace Game.Presentation.Pages
             imgSetting.Source = new BitmapImage(new Uri("/Images/Button/setting.png", UriKind.Relative));
         }
 
-        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        private void btnGoBack_Click(object sender, RoutedEventArgs e)
         {
-            imgLogout.Source = new BitmapImage(new Uri("/Images/Button/logout.png", UriKind.Relative));
+            ResetAnimationStatus();
+            isUnloadToRight = true;
+        }
+        private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
         }
 
-        private void imgLogout_MouseEnter(object sender, MouseEventArgs e)
+        private void imgBackButton_MouseLeave(object sender, MouseEventArgs e)
         {
-            imgLogout.Source = new BitmapImage(new Uri("/Images/Button/logout.png", UriKind.Relative));
-        }
-
-        private void imgLogout_MouseLeave(object sender, MouseEventArgs e)
-        {
-
+            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
         }
     }
 }
