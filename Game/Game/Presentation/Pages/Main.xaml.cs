@@ -112,5 +112,15 @@ namespace Game.Presentation.Pages
         {
             imgTheme.Source = new BitmapImage(new Uri("/Images/Button/theme.png", UriKind.Relative));
         }
+
+        private void btnExit_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgExit.Source = new BitmapImage(new Uri("/Images/Button/exit_on.png", UriKind.Relative));
+        }
+
+        private void btnExit_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgExit.Source = new BitmapImage(new Uri("/Images/Button/exit.png", UriKind.Relative));
+        }
     }
 }

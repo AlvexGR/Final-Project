@@ -18,13 +18,16 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
                 <Button Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="70" Height="70" FontSize="18">
+                    <Button.Background>
+                        <SolidColorBrush Opacity="0" Color="#FFCBCACA"/>
+                    </Button.Background>
                     <Image x:Name="imgBackButton" Source="/Images/Button/back_button.png" MouseEnter="imgBackButton_MouseEnter" MouseLeave="imgBackButton_MouseLeave"/>
                 </Button>
             </StackPanel>
             <StackPanel Margin="0 0 0 70" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Border CornerRadius="15" Background="White" Width="300">
                     <StackPanel Margin="20">
-                        <Button Style="{StaticResource ThemeButton}"  x:Name="btnTheme" Command="{Binding ThemeCommand}" Margin="0 0 0 50" Height="65" Click="btnTheme_Click" MouseEnter="btnTheme_MouseEnter" MouseLeave="btnTheme_MouseLeave">
+                        <Button Style="{StaticResource NormalButton}"  x:Name="btnTheme" Command="{Binding ThemeCommand}" Margin="0 0 0 50" Height="65" Click="btnTheme_Click" MouseEnter="btnTheme_MouseEnter" MouseLeave="btnTheme_MouseLeave">
                             <StackPanel Orientation="Horizontal">
                                 <Image x:Name="imgTheme"  Source="/Images/Button/theme.png" Width="50" Height="50" Margin="0 0 20 0"/>
                                 <TextBlock Text="Học từ theo chủ đề" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center"/>
@@ -32,7 +35,12 @@
                         </Button>
                         <Button Style="{StaticResource NormalButton}" x:Name="btnNoThemes" Command="{Binding NoThemeCommand}" Content="Học từ tự chọn" Margin="0 0 0 50" Height="65" FontSize="18" FontFamily="Arial" Click="btnNoThemes_Click"/>
                         <Button Style="{StaticResource NormalButton}" x:Name="btnVocabularyList" Command="{Binding VocabularyListCommand}" Content="Từ vựng" Margin="0 0 0 50" Height="65" FontSize="18" FontFamily="Arial" Click="btnVocabularyList_Click"/>
-                        <Button Style="{StaticResource NormalButton}" x:Name="btnExit" Content="Thoát" Grid.Column="1"  Margin="2 0 0 0" Height="65" FontSize="18" Click="btnExit_Click" FontFamily="Arial"/>
+                        <Button Style="{StaticResource NormalButton}" x:Name="btnExit" Margin="0 0 0 50" Height="65" MouseEnter="btnExit_MouseEnter" Click="btnExit_Click" MouseLeave="btnExit_MouseLeave">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                <Image x:Name="imgExit"  Source="/Images/Button/exit.png" Width="50" Height="50" Margin="0 0 20 0"/>
+                                <TextBlock Text="Thoát" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
                     </StackPanel>
                 </Border>
             </StackPanel>
