@@ -110,7 +110,7 @@ namespace Game.Presentation.Pages
 
         private void btnTheme_MouseLeave(object sender, MouseEventArgs e)
         {
-            imgTheme.Source = new BitmapImage(new Uri("/Images/Button/theme.png", UriKind.Relative));
+            imgTheme.Source = new BitmapImage(new Uri("/Images/Button/theme_on.png", UriKind.Relative));
         }
 
         private void btnExit_MouseEnter(object sender, MouseEventArgs e)
@@ -120,7 +120,27 @@ namespace Game.Presentation.Pages
 
         private void btnExit_MouseLeave(object sender, MouseEventArgs e)
         {
-            imgExit.Source = new BitmapImage(new Uri("/Images/Button/exit.png", UriKind.Relative));
+            imgExit.Source = new BitmapImage(new Uri("/Images/Button/exit_on.png", UriKind.Relative));
+        }
+
+        private void btnNoThemes_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgNoTheme.Source = new BitmapImage(new Uri("/Images/Button/menu.png", UriKind.Relative));
+        }
+
+        private void btnNoThemes_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgNoTheme.Source = new BitmapImage(new Uri("/Images/Button/menu.png", UriKind.Relative));
+        }
+
+        private void btnVocabularyList_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgVocabularyList.Source = new BitmapImage(new Uri("/Images/Button/vocabulary.png", UriKind.Relative));
+        }
+
+        private void btnVocabularyList_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgVocabularyList.Source = new BitmapImage(new Uri("/Images/Button/vocabulary.png", UriKind.Relative));
         }
     }
 }
