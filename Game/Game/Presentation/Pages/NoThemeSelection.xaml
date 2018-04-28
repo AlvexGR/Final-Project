@@ -12,8 +12,33 @@
     <StackPanel>
         <Grid Height="600">
             <StackPanel Margin="250 170 250 200">
-                <Button x:Name="btnRandom" Command="{Binding RandomCommand}" Click="btnRandom_Click" Style="{StaticResource NormalButton}" Content="TỪ VỰNG NGẪU NHIÊN" Height="65" Margin="0 0 0 70" FontFamily="Arial" FontSize="18"/>
-                <Button x:Name="btnManual" Command="{Binding ManualCommand}" Click="btnManual_Click" Style="{StaticResource NormalButton}" Content="TỪ VỰNG TỰ CHỌN" Height="65" Margin = "0 0 0 0" FontFamily="Arial" FontSize="18"/>
+                <Button Style="{StaticResource NormalButton}"  x:Name="btnRandom" Command="{Binding RandomCommand}" Margin="0 0 0 70" Height="65" Click="btnRandom_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="190"/>
+                            </Grid.ColumnDefinitions>
+                            <Image x:Name="imgNoTheme"  Source="/Images/Button/menu.png" Width="50" Height="50"/>
+                            <TextBlock Text="Từ vựng ngẫu nhiên" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        </Grid>
+                    </StackPanel>
+                </Button>
+                
+                
+                <!--<Button x:Name="btnManual" Command="{Binding ManualCommand}" Click="btnManual_Click" Style="{StaticResource NormalButton}" Content="TỪ VỰNG TỰ CHỌN" Height="65" Margin = "0 0 0 0" FontFamily="Arial" FontSize="18"/>-->
+                <Button Style="{StaticResource NormalButton}"  x:Name="btnManual" Command="{Binding ManualCommand}" Margin="0 0 0 70" Height="65" Click="btnManual_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="190"/>
+                            </Grid.ColumnDefinitions>
+                            <Image x:Name="imgManual"  Source="/Images/Button/menu.png" Width="50" Height="50"/>
+                            <TextBlock Text="Từ vựng tự chọn" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        </Grid>
+                    </StackPanel>
+                </Button>
             </StackPanel>
             <Button Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="70" Height="70" FontSize="18">
                 <Image x:Name="imgBackButton" Source="/Images/Button/back_button.png" MouseEnter="imgBackButton_MouseEnter" MouseLeave="imgBackButton_MouseLeave"/>

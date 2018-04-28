@@ -24,7 +24,19 @@
                     <TextBlock Text="Xác nhận mật khẩu" Padding="5 5" FontSize="20"/>
                     <TextBox Padding="5 5" FontSize="20"/>
                 </StackPanel>
-                <Button x:Name="btnLogin" Style="{StaticResource NormalButton}" Margin="70 20 70 0" Height="50" Content="ĐĂNG KÝ"/>
+                <!--<Button x:Name="btnRegister" Style="{StaticResource NormalButton}" Margin="70 20 70 0" Height="50" Content="ĐĂNG KÝ"/>-->
+                <Button Style="{StaticResource NormalButton}"  x:Name="btnRegister" Command="{Binding NoThemeCommand}" Margin="70 20 70 0" Height="65" Click="btnNoThemes_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="190"/>
+                            </Grid.ColumnDefinitions>
+                            <Image x:Name="imgRegister"  Source="/Images/Button/menu.png" Width="50" Height="50"/>
+                            <TextBlock Text="Đăng ký" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        </Grid>
+                    </StackPanel>
+                </Button>
             </StackPanel>
         </Grid>
     </StackPanel>

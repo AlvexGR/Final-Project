@@ -95,8 +95,20 @@
     <Compile Include="Migrations\201804161255452_init.Designer.cs">
       <DependentUpon>201804161255452_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804281336186_init2.cs" />
+    <Compile Include="Migrations\201804281336186_init2.Designer.cs">
+      <DependentUpon>201804281336186_init2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804281343502_init3.cs" />
+    <Compile Include="Migrations\201804281343502_init3.Designer.cs">
+      <DependentUpon>201804281343502_init3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\Enums\TypeSetCollection.cs" />
     <Compile Include="Model\MainDb.cs" />
+    <Compile Include="Model\Set.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\WordSet.cs" />
     <Compile Include="Presentation\Pages\BasePage.cs" />
     <Compile Include="Presentation\Pages\History.xaml.cs">
       <DependentUpon>History.xaml</DependentUpon>
@@ -303,6 +315,12 @@
     </Compile>
     <EmbeddedResource Include="Migrations\201804161255452_init.resx">
       <DependentUpon>201804161255452_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804281336186_init2.resx">
+      <DependentUpon>201804281336186_init2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804281343502_init3.resx">
+      <DependentUpon>201804281343502_init3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
