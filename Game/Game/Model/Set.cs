@@ -11,6 +11,6 @@ namespace Game.Model
     {
         public int Id { get; set; }
         public DateTime CreatedDate { get; set; }
-        public TypeSetCollection TypeSetCollection { get; set; }
+        public bool IsCreatedByTheme { get; set; }
     }
 }

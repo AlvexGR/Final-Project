@@ -10,10 +10,10 @@
       Title="PlayOptions">
 
     <StackPanel>
-        <Grid Height="600">
-            <StackPanel Margin="250 80 250 30">
+        <Grid Height="570">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                 <!--<Button Command="{Binding WordReviewCommand}" x:Name="btnWordReview" Content="HỌC TỪ" Style="{StaticResource NormalButton}" Height="60" FontFamily="Arial" FontSize="18" Margin="0 0 0 30" Click="btnWordReview_Click"/>-->
-                <Button Style="{StaticResource NormalButton}"  x:Name="btnNoThemes" Command="{Binding WordReviewCommand}" Margin="0 0 0 50" Height="60" Click="btnWordReview_Click">
+                <Button Style="{StaticResource NormalButton}"  x:Name="btnNoThemes" Command="{Binding WordReviewCommand}" Margin="0 0 0 30" Height="60" Click="btnWordReview_Click">
                     <StackPanel Orientation="Horizontal">
                         <Grid>
                             <Grid.ColumnDefinitions>

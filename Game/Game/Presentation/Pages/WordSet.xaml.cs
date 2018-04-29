@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Game.UserControls;
+using Game.Model;
 
 namespace Game.Presentation.Pages
 {
@@ -20,9 +22,31 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class WordSet : BasePage<WordSetViewModel>
     {
+        MainDb db;
         public WordSet()
         {
             InitializeComponent();
+            db = new MainDb();
+            //default user
+            var curentUser = db.Users.FirstOrDefault();
+
+            if (GetData.isTheme)
+            {
+                btnCustom1.Content = "Ôn";
+                btnCustom2.Content = "Học mới";
+                //var query = from wordSet in db.WordSets
+                //            join sets in db.Sets on wordSet.Set.Id equals sets.Id
+                //            where wordSet.User.Id == curentUser.Id
+                //            orderby sets.CreatedDate
+                //            select wordSet;
+
+            }
+            else
+            {
+                btnCustom1.Content = "Học";
+                btnCustom2.Content = "Tạo bộ";
+            }
+
         }
 
         private void ResetAnimationStatus()
@@ -86,6 +110,53 @@ namespace Game.Presentation.Pages
         {
             ResetAnimationStatus();
             isUnloadToLeft = true;
+        }
+
+        private void btnCustom1_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            ResetAnimationStatus();
+            isUnloadToLeft = true;
+        }
+
+        private void btnCustom2_Click(object sender, RoutedEventArgs e)
+        {
+            ResetAnimationStatus();
+            isUnloadToLeft = true;
+
+            //user default
+            User user = db.Users.FirstOrDefault();
+
+            Set set = new Set()
+            {
+                CreatedDate = DateTime.Now.Date,
+                IsCreatedByTheme = false
+            };
+
+            if (GetData.isTheme)
+            {
+                var selectedThemeId = GetData.curTheme;
+                GetData.wordList = GetData.wordListTotal.Where(x => x.Theme.Id == selectedThemeId && x.IsLearned == false).Take(5).ToList();
+                set.IsCreatedByTheme = true;
+            }
+            //db.Sets.Add(set);
+            //db.SaveChanges();
+
+            //List<Model.WordSet> wordSetList = new List<Model.WordSet>();
+            //foreach (var item in GetData.wordList)
+            //{
+            //    Model.WordSet wordSet = new Model.WordSet()
+            //    {
+            //        User = user,
+            //        Set = set,
+            //        Word = item
+            //    };
+            //    wordSetList.Add(wordSet);
+            //}
+            //db.WordSets.AddRange(wordSetList);
+            //db.SaveChanges();
+
         }
     }
 }

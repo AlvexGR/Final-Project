@@ -37,11 +37,10 @@
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Button Content="Xoá" Style="{StaticResource NormalButton}" Margin="0 0 10 0"  Height="40"/>
-                        <Button Command="{Binding PlayOptionsCommand}" Click="btnNew_Click" x:Name="btnNew" Content="Học từ mới" Style="{StaticResource NormalButton}" Margin="0 0 10 0" Grid.Column="1"/>
-                        <Button Command="{Binding PlayOptionsCommand}" Click="btnReview_Click" x:Name="btnReview" Content="Ôn lại" Style="{StaticResource NormalButton}" Grid.Column="2"/>
+                        <Button x:Name="btnDelete" Content="Xoá" Style="{StaticResource NormalButton}" Margin="0 0 10 0"  Height="40"/>
+                        <Button x:Name="btnCustom1" Command="{Binding PlayOptionsCommand}" Style="{StaticResource NormalButton}" Click="btnCustom1_Click" Margin="0 0 10 0" Grid.Column="1"/>
+                        <Button x:Name="btnCustom2"  Command="{Binding PlayOptionsCommand}" Style="{StaticResource NormalButton}" Click="btnCustom2_Click" Grid.Column="2"/>
                     </Grid>
-                    
                 </StackPanel>
             </Grid>
             <Button Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="70" Height="70" FontSize="18">

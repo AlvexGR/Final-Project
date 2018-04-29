@@ -25,7 +25,7 @@
                     <TextBox Padding="5 5" FontSize="20"/>
                 </StackPanel>
                 <!--<Button x:Name="btnRegister" Style="{StaticResource NormalButton}" Margin="70 20 70 0" Height="50" Content="ĐĂNG KÝ"/>-->
-                <Button Style="{StaticResource NormalButton}"  x:Name="btnRegister" Command="{Binding NoThemeCommand}" Margin="70 20 70 0" Height="65" Click="btnNoThemes_Click">
+                <Button Style="{StaticResource NormalButton}"  x:Name="btnRegister" Command="{Binding NoThemeCommand}" Margin="70 20 70 0" Height="65">
                     <StackPanel Orientation="Horizontal">
                         <Grid>
                             <Grid.ColumnDefinitions>
