@@ -3,7 +3,7 @@
     public enum AppPage
     {
         MainPage = 0,
-        NoThemeSelectionPage = 1,
+        WordSetPage = 1,
         HistoryPage = 2,
         SettingPage = 3,
         ThemeSelectionPage = 4,
@@ -19,6 +19,6 @@
         SelectingWordOnThemePage = 14,
         LoginPage = 15,
         RegisterPage = 16,
-        WordSetPage = 17,
+        
     }
 }

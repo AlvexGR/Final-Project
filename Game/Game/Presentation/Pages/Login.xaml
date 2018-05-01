@@ -9,28 +9,40 @@
       d:DesignHeight="600" d:DesignWidth="800"
       Title="Login">
     <StackPanel>
-        <Grid Height="570">
+        <Grid Height="600">
             <StackPanel Margin="230 80">
-                <StackPanel Margin="0 30 0 0">
-                    <TextBlock Text="Tên đăng nhập" Padding="5 5" FontSize="20"/>
-                    <TextBox Padding="5 5" FontSize="20"/>
-                </StackPanel>
-                <StackPanel Margin="0 10 0 0">
-                    <TextBlock Text="Mật khẩu" Padding="5 5" FontSize="20"/>
-                    <TextBox Padding="5 5" FontSize="20"/>
-                </StackPanel>
+                <Border CornerRadius="15" Background="White" Width="300">
+                    <StackPanel Height="349">
+                        <Border Margin="20 0 20 0" BorderThickness="0 0 0 1" BorderBrush="Blue">
+                            <StackPanel Margin="0 30 0 0" >
+                                <TextBlock Text="Tên đăng nhập" Padding="5 5" FontSize="25" HorizontalAlignment="Center" Foreground="Blue"/>
+                                <TextBox x:Name="tbxUserName" TabIndex="0" Padding="5 5" FontSize="20" BorderThickness="0 0 0 0" TextAlignment="Center" KeyDown="BasePage_KeyDown"/>
+                            </StackPanel>
+                        </Border>
+                        <Border Margin="20 0 20 0" BorderThickness="0 0 0 1" BorderBrush="Blue">
+                            <StackPanel Margin="0 10 0 0">
+                                <TextBlock Text="Mật khẩu" Padding="5 5" FontSize="25" HorizontalAlignment="Center" Foreground="Blue"/>
+                                <PasswordBox x:Name="tbxPassword" TabIndex="1" BorderThickness="0 0 0 0" Padding="5 5" FontSize="20" HorizontalAlignment="Center" KeyDown="BasePage_KeyDown"/>
+                            </StackPanel>
+                        </Border>
 
-                <Button x:Name="btnLogin" Style="{StaticResource NormalButton}" Command="{Binding NoThemeCommand}" Margin="70 20 70 0" Height="65" Click="btnLogin_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="60"/>
-                                <ColumnDefinition Width="190"/>
-                            </Grid.ColumnDefinitions>
-                            <Image x:Name="imgNoTheme"  Source="/Images/Button/menu.png" Width="50" Height="50"/>
-                            <TextBlock Text="Đăng nhập" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                        </Grid>
+                        <Button x:Name="btnLogin" Style="{StaticResource NormalButton}" Command="{Binding MainCommand}" Margin="50 20 50 0" Height="65" Click="btnLogin_Click" KeyDown="BasePage_KeyDown">
+                            <StackPanel Orientation="Horizontal">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition Width="140"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image x:Name="imgNoTheme" Source="/Images/Button/login.png" Width="50" Height="50"/>
+                                    <TextBlock Text="Đăng nhập" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                </Grid>
+                            </StackPanel>
+                        </Button>
+                        <TextBlock x:Name="tbxError" Visibility="Hidden" Foreground="Red" HorizontalAlignment="Center" Margin="20" FontFamily="Arial" FontSize="17"/>
                     </StackPanel>
+                </Border>
+                <Button Command="{Binding RegisterCommand}" Style="{StaticResource RegisterButton}" x:Name="btnRegister" Height="30" Width="200" Margin="10" Click="btnRegister_Click" MouseEnter="btnRegister_MouseEnter" MouseLeave="btnRegister_MouseLeave">
+                    <TextBlock x:Name="tbxRegister" Text="Đăng ký tài khoản" FontFamily="Arial" FontSize="25" Foreground="Blue"/>
                 </Button>
             </StackPanel>
         </Grid>

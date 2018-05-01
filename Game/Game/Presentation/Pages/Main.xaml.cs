@@ -38,7 +38,7 @@ namespace Game.Presentation.Pages
             Application.Current.Shutdown();
         }
 
-        private void btnNoThemes_Click(object sender, RoutedEventArgs e)
+        private void btnOption_Click(object sender, RoutedEventArgs e)
         {
             ResetAnimationStatus();
             isUnloadToLeft = true;
@@ -93,6 +93,7 @@ namespace Game.Presentation.Pages
             ResetAnimationStatus();
             isUnloadToRight = true;
         }
+
         private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
@@ -101,16 +102,6 @@ namespace Game.Presentation.Pages
         private void imgBackButton_MouseLeave(object sender, MouseEventArgs e)
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
-        }
-
-        private void btnTheme_MouseEnter(object sender, MouseEventArgs e)
-        {
-            imgTheme.Source = new BitmapImage(new Uri("/Images/Button/theme_on.png", UriKind.Relative));
-        }
-
-        private void btnTheme_MouseLeave(object sender, MouseEventArgs e)
-        {
-            imgTheme.Source = new BitmapImage(new Uri("/Images/Button/theme_on.png", UriKind.Relative));
         }
 
         private void btnExit_MouseEnter(object sender, MouseEventArgs e)
@@ -123,24 +114,5 @@ namespace Game.Presentation.Pages
             imgExit.Source = new BitmapImage(new Uri("/Images/Button/exit_on.png", UriKind.Relative));
         }
 
-        private void btnNoThemes_MouseEnter(object sender, MouseEventArgs e)
-        {
-            imgNoTheme.Source = new BitmapImage(new Uri("/Images/Button/menu.png", UriKind.Relative));
-        }
-
-        private void btnNoThemes_MouseLeave(object sender, MouseEventArgs e)
-        {
-            imgNoTheme.Source = new BitmapImage(new Uri("/Images/Button/menu.png", UriKind.Relative));
-        }
-
-        private void btnVocabularyList_MouseEnter(object sender, MouseEventArgs e)
-        {
-            imgVocabularyList.Source = new BitmapImage(new Uri("/Images/Button/vocabulary.png", UriKind.Relative));
-        }
-
-        private void btnVocabularyList_MouseLeave(object sender, MouseEventArgs e)
-        {
-            imgVocabularyList.Source = new BitmapImage(new Uri("/Images/Button/vocabulary.png", UriKind.Relative));
-        }
     }
 }

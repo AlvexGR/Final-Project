@@ -44,7 +44,7 @@ namespace Game.Presentation.Pages
             else
             {
                 btnCustom1.Content = "Học";
-                btnCustom2.Content = "Tạo bộ";
+                btnCustom2.Content = "Tạo bộ từ";
             }
 
         }

@@ -9,7 +9,7 @@
       d:DesignHeight="600" d:DesignWidth="800"
       Title="Main">
     <StackPanel>
-        <Grid Height="570">
+        <Grid Height="550">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="250"/>
                 <ColumnDefinition Width="300"/>
@@ -28,7 +28,7 @@
                 <Border CornerRadius="15" Background="White" Width="300">
                     <StackPanel Margin="20">
                         <!-- theme-->
-                        <Button Style="{StaticResource NormalButton}"  x:Name="btnTheme" Command="{Binding ThemeCommand}" Margin="0 0 0 50" Height="65" Click="btnTheme_Click" MouseEnter="btnTheme_MouseEnter" MouseLeave="btnTheme_MouseLeave">
+                        <Button Style="{StaticResource NormalButton}"  x:Name="btnTheme" Command="{Binding ThemeCommand}" Margin="0 0 0 50" Height="65" Click="btnTheme_Click">
                             <StackPanel Orientation="Horizontal">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -40,22 +40,22 @@
                                 </Grid>
                             </StackPanel>
                         </Button>
-                        <!--no theme-->
-                        <Button Style="{StaticResource NormalButton}"  x:Name="btnNoThemes" Command="{Binding NoThemeCommand}" Margin="0 0 0 50" Height="65" Click="btnNoThemes_Click" MouseEnter="btnNoThemes_MouseEnter" MouseLeave="btnNoThemes_MouseLeave">
+                        <!--option-->
+                        <Button Style="{StaticResource NormalButton}"  x:Name="btnOption" Command="{Binding OptionCommand}" Margin="0 0 0 50" Height="65" Click="btnOption_Click">
                             <StackPanel Orientation="Horizontal">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="60"/>
                                         <ColumnDefinition Width="190"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image x:Name="imgNoTheme"  Source="/Images/Button/menu.png" Width="50" Height="50"/>
+                                    <Image x:Name="imgOption"  Source="/Images/Button/menu.png" Width="50" Height="50"/>
                                     <TextBlock Text="Học từ tự chọn" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                 </Grid>
                             </StackPanel>
                         </Button>
 
                         <!--<Button Style="{StaticResource NormalButton}" x:Name="btnVocabularyList" Command="{Binding VocabularyListCommand}" Content="Từ vựng" Margin="0 0 0 50" Height="65" FontSize="18" FontFamily="Arial" Click="btnVocabularyList_Click"/>-->
-                        <Button Style="{StaticResource NormalButton}"  x:Name="btnVocabularyList" Command="{Binding VocabularyListCommand}" Margin="0 0 0 50" Height="65" Click="btnVocabularyList_Click" MouseEnter="btnVocabularyList_MouseEnter" MouseLeave="btnVocabularyList_MouseLeave">
+                        <Button Style="{StaticResource NormalButton}"  x:Name="btnVocabularyList" Command="{Binding VocabularyListCommand}" Margin="0 0 0 50" Height="65" Click="btnVocabularyList_Click">
                             <StackPanel Orientation="Horizontal">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -68,7 +68,7 @@
                             </StackPanel>
                         </Button>
 
-                        <Button Style="{StaticResource NormalButton}" x:Name="btnExit" Margin="0 0 0 0" Height="65" MouseEnter="btnExit_MouseEnter" Click="btnExit_Click" MouseLeave="btnExit_MouseLeave">
+                        <Button Style="{StaticResource NormalButton}" x:Name="btnExit" Margin="0 0 0 0" Height="65" Click="btnExit_Click">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -83,11 +83,11 @@
                     </StackPanel>
                 </Border>
             </StackPanel>
-            <StackPanel Grid.Column="3" VerticalAlignment="Center">
+            <StackPanel Grid.Column="3" VerticalAlignment="Center" Margin="0 0 30 0">
                 <Button Command="{Binding SettingsCommand}" Style="{StaticResource SettingsButton}" Margin="0 0 0 20" Height="70" Width="70">
                     <Image x:Name="imgSetting" Source="/Images/Button/setting.png" MouseEnter="imgSetting_MouseEnter" MouseLeave="imgSetting_MouseLeave"/>
                 </Button>
-                <Button Command="{Binding HistoryCommand}" Style="{StaticResource HistoryButton}" x:Name="btnHistory" Click="btnHistory_Click" Margin="0 0 0 20" Height="70" Width="70">
+                <Button Command="{Binding HistoryCommand}" Style="{StaticResource HistoryButton}" x:Name="btnHistory" Click="btnHistory_Click" Margin="0 25 0 20" Height="70" Width="70">
                     <Image x:Name="imgHistory" Source="/Images/Leaderboard or History/trophy.png" MouseEnter="imgHistory_MouseEnter" MouseLeave="imgHistory_MouseLeave"/>
                 </Button>
             </StackPanel>
