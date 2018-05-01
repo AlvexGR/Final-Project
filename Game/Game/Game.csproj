@@ -107,6 +107,10 @@
     <Compile Include="Migrations\201804291336006_init4.Designer.cs">
       <DependentUpon>201804291336006_init4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805010748065_init5.cs" />
+    <Compile Include="Migrations\201805010748065_init5.Designer.cs">
+      <DependentUpon>201805010748065_init5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Enums\TypeSetCollection.cs" />
     <Compile Include="Model\MainDb.cs" />
@@ -122,9 +126,6 @@
     </Compile>
     <Compile Include="Presentation\Pages\Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\Pages\NoThemeSelection.xaml.cs">
-      <DependentUpon>NoThemeSelection.xaml</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Pages\PlayOptions.xaml.cs">
       <DependentUpon>PlayOptions.xaml</DependentUpon>
@@ -182,7 +183,6 @@
     <Compile Include="Presentation\ViewModels\VocabularyListViewModel.cs" />
     <Compile Include="Presentation\ViewModels\HistoryViewModel.cs" />
     <Compile Include="Presentation\ViewModels\SettingViewModel.cs" />
-    <Compile Include="Presentation\ViewModels\NoThemeSelectionViewModel.cs" />
     <Compile Include="Presentation\ViewModels\MainViewModel.cs" />
     <Compile Include="Presentation\ViewModels\RelayParameterizedCommand.cs" />
     <Compile Include="UserControls\GetNameOfObject.cs" />
@@ -221,10 +221,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Presentation\Pages\Main.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Presentation\Pages\NoThemeSelection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -328,6 +324,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804291336006_init4.resx">
       <DependentUpon>201804291336006_init4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805010748065_init5.resx">
+      <DependentUpon>201805010748065_init5.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -471,6 +470,8 @@
     <Content Include="Audios\Vocabulary Pronunciations\vet.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\watermelon.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\write.mp3" />
+    <Resource Include="Images\Button\register.png" />
+    <Resource Include="Images\Button\login.png" />
     <Resource Include="Images\Button\menu.png" />
     <Resource Include="Images\Button\vocabulary.png" />
     <Resource Include="Images\Button\exit.png" />

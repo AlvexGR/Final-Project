@@ -13,22 +13,28 @@ namespace Game.Presentation
     {
         
         #region Public Properties
-        public ICommand PreviousCommand { set; get; }
-
+        public ICommand MainCommand { set; get; }
+        public ICommand RegisterCommand { set; get; }
         #endregion
 
         #region Constructor
         public LoginViewModel()
         {
-            PreviousCommand = new RelayCommand(async() => await GoToPrevious());
+            MainCommand = new RelayCommand(async() => await GoToMain());
+            RegisterCommand = new RelayCommand(async() => await GoToRegister());
         }
         #endregion
 
         #region Async Methods
-        public async Task GoToPrevious()
+        public async Task GoToMain()
         {
-            var pageName = GetNameOfObject.GetName(PageStack.pageStack.Peek().ToString()) + "Page";
-            ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = (AppPage.AppPage)Enum.Parse(typeof(AppPage.AppPage), pageName);
+            ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.MainPage;
+            await Task.Delay(1);
+        }
+
+        public async Task GoToRegister()
+        {
+            ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.RegisterPage;
             await Task.Delay(1);
         }
         #endregion

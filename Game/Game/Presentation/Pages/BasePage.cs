@@ -4,6 +4,8 @@ using System.Windows;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Media.Animation;
+using Game.UserControls;
+using System.Windows.Media;
 
 namespace Game.Presentation.Pages
 {
@@ -68,6 +70,15 @@ namespace Game.Presentation.Pages
                 await AnimateOutToLeft();
             }
             isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
+            if (GetNameOfObject.GetName(this.ToString()) == "Login" && GetData.didRegister)
+            {
+                (this as Login).tbxUserName.Text = GetData.currentUser.Username;
+                (this as Login).tbxError.Text = "Đăng kí thành công";
+                (this as Login).tbxError.Foreground = Brushes.Green;
+                (this as Login).tbxError.Visibility = Visibility.Visible;
+                (this as Login).tbxPassword.Focus();
+                GetData.didRegister = false;
+            }
         }
 
         public async Task AnimateInFromRight()
