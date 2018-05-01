@@ -26,6 +26,9 @@ namespace Game.Presentation.Pages
         {
             InitializeComponent();
             db = new MainDb();
+            List<Theme> themes = new List<Theme>() { new Theme { Id = 0, Name = " Tất cả" } };
+            themes.AddRange(db.Themes.ToList());
+            cbxTheme.ItemsSource = themes;
             lbxVocabularies.ItemsSource = db.Words.OrderBy(x=>x.EnglishWord).ToList();
         }
 
