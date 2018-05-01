@@ -10,6 +10,7 @@ namespace Game.Model
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public String ImageUrl { get; set; }
 
     }
 }

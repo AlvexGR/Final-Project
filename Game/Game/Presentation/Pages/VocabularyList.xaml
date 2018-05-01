@@ -18,18 +18,14 @@
     <StackPanel>
         <Grid>
             <StackPanel Margin="250 80">
-                <!--<Grid>
+                <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="2*"/>
                         <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="Lọc" Grid.Column="0" FontSize="15"/>
-                    <RadioButton x:Name ="rdAllWords" Checked="rdAllWords_Checked"  Content="Tất cả" Grid.Column="1" FontSize="15"/>
-                    <RadioButton x:Name ="rdKnownWords" Checked="rdKnownWords_Checked" Content="Từ đã học" Grid.Column="3" FontSize="15"/>
-                    <RadioButton x:Name ="rdUnknownWords" Checked="rdUnknownWords_Checked" Content="Từ chưa học" Grid.Column="2" FontSize="15" />
-                </Grid>-->
+                    <TextBlock Text="Tìm kiếm:" Grid.Column="0" Style="{StaticResource NormalTextblock}"/>
+
+                </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2*"/>

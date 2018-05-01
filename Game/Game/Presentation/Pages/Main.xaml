@@ -17,7 +17,20 @@
                 <ColumnDefinition Width="110"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
-                <Button Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="70" Height="70" FontSize="18">
+                <Border Background="White" Margin="5 5">
+                    <StackPanel Orientation="Horizontal" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="190"/>
+                            </Grid.ColumnDefinitions>
+                            <Image x:Name="imgUser"  Source="/Images/Button/menu.png" Width="40" Height="40"/>
+                            <TextBlock Text="UserUserUserUserUser" Grid.Column="1" Padding="0 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <Button Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" HorizontalAlignment="Left" Margin="80,405,0,0" VerticalAlignment="Top" Width="70" Height="70" FontSize="18">
                     <Button.Background>
                         <SolidColorBrush Opacity="0" Color="#FFCBCACA"/>
                     </Button.Background>

@@ -10,7 +10,6 @@ namespace Game.Model
     {
         public int Id { get; set; }
 
-        public User User { get; set; }
 
         public virtual Vocabulary Word { get; set; }
 
