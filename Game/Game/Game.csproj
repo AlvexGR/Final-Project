@@ -115,6 +115,10 @@
     <Compile Include="Migrations\201805011540232_init6.Designer.cs">
       <DependentUpon>201805011540232_init6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805021401309_init7.cs" />
+    <Compile Include="Migrations\201805021401309_init7.Designer.cs">
+      <DependentUpon>201805021401309_init7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Enums\TypeSetCollection.cs" />
     <Compile Include="Model\MainDb.cs" />
@@ -334,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805011540232_init6.resx">
       <DependentUpon>201805011540232_init6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805021401309_init7.resx">
+      <DependentUpon>201805021401309_init7.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

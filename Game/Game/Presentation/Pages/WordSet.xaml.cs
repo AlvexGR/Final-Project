@@ -130,7 +130,8 @@ namespace Game.Presentation.Pages
 
             Set set = new Set()
             {
-                IsCreatedByTheme = false
+                IsCreatedByTheme = false,
+                UserId = user.Id
             };
 
             if (GetData.isTheme)
@@ -149,8 +150,8 @@ namespace Game.Presentation.Pages
             {
                 Model.WordSet wordSet = new Model.WordSet()
                 {
-                    Set = set,
-                    Word = item
+                    SetId = set.Id,
+                    WordId = item.Id
                 };
                 wordSetList.Add(wordSet);
             }
