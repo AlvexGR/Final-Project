@@ -1,5 +1,6 @@
 ﻿using Game.Model;
 using Game.Presentation;
+using Game.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,7 @@ namespace Game.Presentation.Pages
         public Main()
         {
             InitializeComponent();
+            tbxUser.Text = GetData.currentUser.Username;
         }
 
         private void ResetAnimationStatus()
