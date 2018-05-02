@@ -39,7 +39,7 @@ namespace Game.Presentation
         public int TitleHeight { get; set; } = 30;
         public GridLength TitleHeightGridLength { get { return new GridLength(TitleHeight + ResizeBorder); } }
 
-        public AppPage.AppPage CurrentPage { set; get; } = AppPage.AppPage.LoginPage;
+        public AppPage.AppPage CurrentPage { set; get; } = AppPage.AppPage.MainPage;
 
         #endregion
 

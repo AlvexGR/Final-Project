@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,9 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class VocabularyList : BasePage<VocabularyListViewModel>
     {
+
         private MainDb db;
+
         public VocabularyList()
         {
             InitializeComponent();
@@ -29,7 +32,6 @@ namespace Game.Presentation.Pages
             List<Theme> themes = new List<Theme>() { new Theme { Id = 0, Name = " Tất cả" } };
             themes.AddRange(db.Themes.ToList());
             cbxTheme.ItemsSource = themes;
-            lbxVocabularies.ItemsSource = db.Words.OrderBy(x=>x.EnglishWord).ToList();
         }
 
         private void ResetAnimationStatus()
@@ -43,21 +45,6 @@ namespace Game.Presentation.Pages
             isUnloadToRight = true;
         }
 
-        //private void rdAllWords_Checked(object sender, RoutedEventArgs e)
-        //{
-        //    lbxVocabularies.ItemsSource = db.Words.ToList();
-        //}
-
-        //private void rdKnownWords_Checked(object sender, RoutedEventArgs e)
-        //{
-        //    lbxVocabularies.ItemsSource = db.Words.Where(x=>x.IsLearned).ToList();
-        //}
-
-        //private void rdUnknownWords_Checked(object sender, RoutedEventArgs e)
-        //{
-        //    lbxVocabularies.ItemsSource = db.Words.Where(x => !x.IsLearned).ToList();
-        //}
-
         private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
@@ -66,6 +53,49 @@ namespace Game.Presentation.Pages
         private void imgBackButton_MouseLeave(object sender, MouseEventArgs e)
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
+        }
+
+        private void cbxTheme_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = (Theme)cbxTheme.SelectedItem;
+
+            if (selectedItem.Id == 0)
+            {
+                lbxVocabularies.ItemsSource = db.Words.OrderBy(x => x.EnglishWord).ToList();
+            }
+            else
+            {
+                lbxVocabularies.ItemsSource = db.Words.Where(x => x.Theme.Id == selectedItem.Id).OrderBy(x => x.EnglishWord).ToList();
+            }
+
+        }
+
+        private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var selectedItem = (Theme)cbxTheme.SelectedItem;
+
+            if (String.IsNullOrEmpty(txtSearch.Text.Trim()))
+            {
+                if (selectedItem.Id == 0)
+                {
+                    lbxVocabularies.ItemsSource = db.Words.OrderBy(x => x.EnglishWord).ToList();
+                }
+                else
+                {
+                    lbxVocabularies.ItemsSource = db.Words.Where(x => x.Theme.Id == selectedItem.Id).OrderBy(x => x.EnglishWord).ToList();
+                }
+            }
+            else
+            {
+                if (selectedItem.Id == 0)
+                {
+                    lbxVocabularies.ItemsSource = db.Words.Where(x => x.EnglishWord.StartsWith(txtSearch.Text.ToLower().ToString())).OrderBy(x => x.EnglishWord).ToList();
+                }
+                else
+                {
+                    lbxVocabularies.ItemsSource = db.Words.Where(x => x.Theme.Id == selectedItem.Id && x.EnglishWord.StartsWith(txtSearch.Text.ToLower().ToString())).OrderBy(x => x.EnglishWord).ToList();
+                }
+            }
         }
     }
 }

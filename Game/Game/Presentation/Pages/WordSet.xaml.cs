@@ -126,50 +126,36 @@ namespace Game.Presentation.Pages
             isUnloadToLeft = true;
 
             //user default
-            //using (db = new MainDb())
-            //{
-            //    using(var dbct = db.Database.BeginTransaction())
-            //    {
-            //        try
-            //        {
-            //            User user = db.Users.FirstOrDefault();
+            User user = db.Users.FirstOrDefault();
 
-            //            Set set = new Set()
-            //            {
-            //                CreatedDate = DateTime.Now.Date,
-            //                IsCreatedByTheme = false
-            //            };
+            Set set = new Set()
+            {
+                IsCreatedByTheme = false
+            };
 
-            //            if (GetData.isTheme)
-            //            {
-            //                var selectedThemeId = GetData.curTheme;
-            //                GetData.wordList = GetData.wordListTotal.Where(x => x.Theme.Id == selectedThemeId && x.IsLearned == false).Take(5).ToList();
-            //                set.IsCreatedByTheme = true;
-            //            }
-            //            db.Sets.Add(set);
-            //            db.SaveChanges();
-            //            db.Entry(set).State = System.Data.Entity.EntityState.Detached;
-            //            List<Model.WordSet> wordSetList = new List<Model.WordSet>();
-            //            foreach (var item in GetData.wordList)
-            //            {
-            //                Model.WordSet wordSet = new Model.WordSet()
-            //                {
-            //                    User = user,
-            //                    Set = set,
-            //                    Word = item
-            //                };
-            //                wordSetList.Add(wordSet);
-            //            }
-            //            db.WordSets.AddRange(wordSetList);
-            //            db.SaveChanges();
-            //            dbct.Commit();
-            //        }
-            //        catch(Exception)
-            //        {
-            //            dbct.Rollback();
-            //        }
-            //    }
-            //}
+            if (GetData.isTheme)
+            {
+                var selectedThemeId = GetData.curTheme;
+                GetData.wordList = GetData.wordListTotal.Where(x => x.Theme.Id == selectedThemeId && x.IsLearned == false).Take(5).ToList();
+                set.IsCreatedByTheme = true;
+            }
+            db.Sets.Add(set);
+            db.SaveChanges();
+
+            
+
+            List<Model.WordSet> wordSetList = new List<Model.WordSet>();
+            foreach (var item in GetData.wordList)
+            {
+                Model.WordSet wordSet = new Model.WordSet()
+                {
+                    Set = set,
+                    Word = item
+                };
+                wordSetList.Add(wordSet);
+            }
+            db.WordSets.AddRange(wordSetList);
+            db.SaveChanges();
 
         }
     }
