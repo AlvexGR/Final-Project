@@ -12,62 +12,61 @@
     <StackPanel>
         <Grid Height="570">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                <!--<Button Command="{Binding WordReviewCommand}" x:Name="btnWordReview" Content="HỌC TỪ" Style="{StaticResource NormalButton}" Height="60" FontFamily="Arial" FontSize="18" Margin="0 0 0 30" Click="btnWordReview_Click"/>-->
-                <Button Style="{StaticResource NormalButton}"  x:Name="btnNoThemes" Command="{Binding WordReviewCommand}" Margin="0 0 0 30" Height="60" Click="btnWordReview_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="60"/>
-                                <ColumnDefinition Width="190"/>
-                            </Grid.ColumnDefinitions>
-                            <Image x:Name="imgNoTheme"  Source="/Images/Button/menu.png" Width="50" Height="50"/>
-                            <TextBlock Text="Học từ" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                        </Grid>
-                    </StackPanel>
-                </Button>
+                <Border CornerRadius="15" Background="White" Width="300" Height="370">
+                    <StackPanel Margin="20">
+                        <Button Style="{StaticResource NormalButton}"  x:Name="btnNoThemes" Command="{Binding WordReviewCommand}" Margin="0 0 0 30" Height="60" Click="btnWordReview_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition Width="190"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image x:Name="imgNoTheme"  Source="/Images/Button/study.png" Width="50" Height="50"/>
+                                    <TextBlock Text="Học từ" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                </Grid>
+                            </StackPanel>
+                        </Button>
 
-                <!--<Button Click="btnSelectingPictureOnListening_Click" Command="{Binding SelectingPictureOnListeningPageCommand}" x:Name="btnSelectingPictureOnListening" Content="NGHE VÀ CHỌN HÌNH" Style="{StaticResource NormalButton}" Height="60" FontFamily="Arial" FontSize="18" Margin="0 0 0 30"/>-->
-                <Button Style="{StaticResource NormalButton}"  x:Name="btnSelectingPictureOnListening" Command="{Binding SelectingPictureOnListeningPageCommand}" Margin="0 0 0 30" Height="60" Click="btnSelectingPictureOnListening_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="60"/>
-                                <ColumnDefinition Width="190"/>
-                            </Grid.ColumnDefinitions>
-                            <Image x:Name="imgSelectingPictureOnListening"  Source="/Images/Button/menu.png" Width="50" Height="50"/>
-                            <TextBlock Text="Nghe và chọn hình" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                        </Grid>
-                    </StackPanel>
-                </Button>
-                
-                <!--<Button Click="btnSelectingWordOnListening_Click" Command="{Binding SelectingWordOnListeningPageCommand}" x:Name="btnSelectingWordOnListening" Content="NGHE VÀ CHỌN TỪ" Style="{StaticResource NormalButton}" Height="60" FontFamily="Arial" FontSize="18" Margin="0 0 0 30"/>-->
-                <Button Style="{StaticResource NormalButton}"  x:Name="btnSelectingWordOnListening" Command="{Binding SelectingWordOnListeningPageCommand}" Margin="0 0 0 30" Height="60" Click="btnSelectingWordOnListening_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="60"/>
-                                <ColumnDefinition Width="190"/>
-                            </Grid.ColumnDefinitions>
-                            <Image x:Name="imgSelectingWordOnListening"  Source="/Images/Button/menu.png" Width="50" Height="50"/>
-                            <TextBlock Text="Nghe và chọn từ" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                        </Grid>
-                    </StackPanel>
-                </Button>
+                        <Button Style="{StaticResource NormalButton}"  x:Name="btnSelectingPictureOnListening" Command="{Binding SelectingPictureOnListeningPageCommand}" Margin="0 0 0 30" Height="60" Click="btnSelectingPictureOnListening_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition Width="190"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image x:Name="imgSelectingPictureOnListening"  Source="/Images/Button/findPic.png" Width="50" Height="50"/>
+                                    <TextBlock Text="Nghe và chọn hình" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                </Grid>
+                            </StackPanel>
+                        </Button>
 
-                
-                <!--<Button Click="btnTypingWord_Click" Command="{Binding TypingWordCommand}" x:Name="btnTypingWord" Content="HỌC THUỘC LÒNG" Style="{StaticResource NormalButton}" Height="60" FontFamily="Arial" FontSize="18" Margin="0 0 0 30"/>-->
-                <Button Style="{StaticResource NormalButton}"  x:Name="btnTypingWord" Command="{Binding TypingWordCommand}" Margin="0 0 0 30" Height="60" Click="btnTypingWord_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="60"/>
-                                <ColumnDefinition Width="190"/>
-                            </Grid.ColumnDefinitions>
-                            <Image x:Name="imgTypingWord"  Source="/Images/Button/menu.png" Width="50" Height="50"/>
-                            <TextBlock Text="Nghe và chọn từ" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                        </Grid>
+                        <Button Style="{StaticResource NormalButton}"  x:Name="btnSelectingWordOnListening" Command="{Binding SelectingWordOnListeningPageCommand}" Margin="0 0 0 30" Height="60" Click="btnSelectingWordOnListening_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition Width="190"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image x:Name="imgSelectingWordOnListening"  Source="/Images/Button/findWord.png" Width="50" Height="50"/>
+                                    <TextBlock Text="Nghe và chọn từ" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                </Grid>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource NormalButton}"  x:Name="btnTypingWord" Command="{Binding TypingWordCommand}" Margin="0 0 0 30" Height="60" Click="btnTypingWord_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition Width="190"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image x:Name="imgTypingWord"  Source="/Images/Button/typing.png" Width="50" Height="50"/>
+                                    <TextBlock Text="Học thuộc lòng" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                </Grid>
+                            </StackPanel>
+                        </Button>
                     </StackPanel>
-                </Button>
+                </Border>
             </StackPanel>
             <Button Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="70" Height="70" FontSize="18">
                 <Image x:Name="imgBackButton" Source="/Images/Button/back_button.png" MouseEnter="imgBackButton_MouseEnter" MouseLeave="imgBackButton_MouseLeave"/>

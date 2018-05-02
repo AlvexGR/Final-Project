@@ -477,6 +477,11 @@
     <Content Include="Audios\Vocabulary Pronunciations\vet.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\watermelon.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\write.mp3" />
+    <Resource Include="Images\Button\findPic.png" />
+    <Resource Include="Images\Button\findWord.png" />
+    <Resource Include="Images\Button\study.png" />
+    <Resource Include="Images\Button\typing.png" />
+    <Resource Include="Images\Logo\user.png" />
     <Resource Include="Images\Button\register.png" />
     <Resource Include="Images\Button\login.png" />
     <Resource Include="Images\Button\menu.png" />
