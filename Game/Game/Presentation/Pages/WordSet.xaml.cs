@@ -41,7 +41,7 @@ namespace Game.Presentation.Pages
         
         private void AddWord()
         {
-            for()
+            
         }
 
         private void ResetAnimationStatus()

@@ -17,10 +17,10 @@ namespace Game.Model
 
         public virtual User User { get; set; }
 
-        //[ForeignKey("Theme")]
-        //public int ThemeId { get; set; }
+        [ForeignKey("Theme")]
+        public int ThemeId { get; set; }
 
-        //public virtual Theme Theme { get; set; }
+        public virtual Theme Theme { get; set; }
 
         public bool IsCreatedByTheme { get; set; }
     }
