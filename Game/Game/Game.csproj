@@ -485,6 +485,9 @@
     <Content Include="Audios\Vocabulary Pronunciations\vet.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\watermelon.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\write.mp3" />
+    <Resource Include="Images\Button\delete.png" />
+    <Resource Include="Images\Button\new.png" />
+    <Resource Include="Images\Button\review.png" />
     <Resource Include="Images\Button\detail_on.png" />
     <Resource Include="Images\Button\detail.png" />
     <Resource Include="Images\Button\changePassword.png" />
