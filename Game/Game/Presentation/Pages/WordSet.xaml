@@ -39,7 +39,7 @@
                         </Grid.ColumnDefinitions>
                         <Button x:Name="btnDelete" Content="Xoá" Style="{StaticResource NormalButton}" Margin="0 0 10 0"  Height="40"/>
                         <Button x:Name="btnCustom1" Command="{Binding PlayOptionsCommand}" Style="{StaticResource NormalButton}" Click="btnCustom1_Click" Margin="0 0 10 0" Grid.Column="1"/>
-                        <Button x:Name="btnCustom2"  Command="{Binding PlayOptionsCommand}" Style="{StaticResource NormalButton}" Click="btnCustom2_Click" Grid.Column="2"/>
+                        <Button x:Name="btnCustom2" Command="{Binding PlayOptionsCommand}" Style="{StaticResource NormalButton}" Click="btnCustom2_Click" Grid.Column="2"/>
                     </Grid>
                 </StackPanel>
             </Grid>

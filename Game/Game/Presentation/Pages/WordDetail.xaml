@@ -1,9 +1,10 @@
-﻿<Page x:Class="Game.Presentation.Pages.WordDetail"
+﻿<local:BasePage x:TypeArguments="viewModel:WordDetailViewModel" x:Class="Game.Presentation.Pages.WordDetail"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Game.Presentation.Pages"
+      xmlns:viewModel="clr-namespace:Game.Presentation"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
       Title="WordDetail">
@@ -13,16 +14,20 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="3*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <StackPanel Margin="0 50" Grid.Column="1">
-                    <Image x:Name="wordImage" Height="250"/>
-                    <TextBlock x:Name="tbxEnglishWord" Margin="0 10" HorizontalAlignment="Center" FontSize="35" FontWeight="Bold"/>
-                    <TextBlock x:Name="tbxSpelling" Margin="0 10" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Style="{StaticResource NormalTextblock}"/>
-                    <TextBlock x:Name="tbxDefinition" Margin="0 10" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Style="{StaticResource NormalTextblock}"/>
-                    <Button Click="btnPronoun_Click" x:Name="btnPronoun" Width="40" Height="40" HorizontalAlignment="Center" Margin="0 20" Background="{x:Null}" BorderBrush="{x:Null}">
+                <StackPanel Grid.Column="1">
+                    <Border CornerRadius="10" Background="White" Margin="0 20 0 0">
+                        <StackPanel Margin="20">
+                            <Image x:Name="wordImage" Height="250"/>
+                            <TextBlock x:Name="tbxEnglishWord" HorizontalAlignment="Center" FontFamily="Arial" FontSize="50" FontWeight="Bold" Style="{StaticResource NormalTextblock}"/>
+                            <TextBlock x:Name="tbxSpelling" HorizontalAlignment="Center" FontFamily="Arial" FontSize="30" FontWeight="Bold" Style="{StaticResource NormalTextblock}"/>
+                            <TextBlock x:Name="tbxDefinition" HorizontalAlignment="Center" FontFamily="Arial" FontSize="50" FontWeight="Bold" Style="{StaticResource NormalTextblock}"/>
+                        </StackPanel>
+                    </Border>
+                    <Button Click="btnPronoun_Click" x:Name="btnPronoun" Width="40" Height="40" HorizontalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
                         <Image Source="/Images/Button/audio.png"/>
                     </Button>
                     <MediaElement x:Name="mePronoun" LoadedBehavior="Manual"/>
@@ -34,4 +39,4 @@
         </Grid>
 
     </StackPanel>
-</Page>
+</local:BasePage>

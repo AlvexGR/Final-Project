@@ -174,8 +174,6 @@ namespace Game.Presentation.Pages
 
         private void btnCustom1_Click(object sender, RoutedEventArgs e)
         {
-
-
             ResetAnimationStatus();
             isUnloadToLeft = true;
         }

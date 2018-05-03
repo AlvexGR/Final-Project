@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Game.Model;
+using Game.UserControls;
 
 namespace Game.Presentation.Pages
 {
@@ -29,7 +30,7 @@ namespace Game.Presentation.Pages
         {
             InitializeComponent();
             db = new MainDb();
-            List<Theme> themes = new List<Theme>() { new Theme { Id = 0, Name = " Tất cả" } };
+            List<Theme> themes = new List<Theme>() { new Theme { Id = 0, Name = "Tất cả" } };
             themes.AddRange(db.Themes.ToList());
             cbxTheme.ItemsSource = themes;
         }
@@ -62,12 +63,13 @@ namespace Game.Presentation.Pages
             if (selectedItem.Id == 0)
             {
                 lbxVocabularies.ItemsSource = db.Words.OrderBy(x => x.EnglishWord).ToList();
+                lbxVocabularies.SelectedIndex = 0;
             }
             else
             {
                 lbxVocabularies.ItemsSource = db.Words.Where(x => x.Theme.Id == selectedItem.Id).OrderBy(x => x.EnglishWord).ToList();
+                lbxVocabularies.SelectedIndex = 0;
             }
-
         }
 
         private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
@@ -79,10 +81,12 @@ namespace Game.Presentation.Pages
                 if (selectedItem.Id == 0)
                 {
                     lbxVocabularies.ItemsSource = db.Words.OrderBy(x => x.EnglishWord).ToList();
+                    lbxVocabularies.SelectedIndex = 0;
                 }
                 else
                 {
                     lbxVocabularies.ItemsSource = db.Words.Where(x => x.Theme.Id == selectedItem.Id).OrderBy(x => x.EnglishWord).ToList();
+                    lbxVocabularies.SelectedIndex = 0;
                 }
             }
             else
@@ -90,12 +94,31 @@ namespace Game.Presentation.Pages
                 if (selectedItem.Id == 0)
                 {
                     lbxVocabularies.ItemsSource = db.Words.Where(x => x.EnglishWord.StartsWith(txtSearch.Text.ToLower().ToString())).OrderBy(x => x.EnglishWord).ToList();
+                    lbxVocabularies.SelectedIndex = 0;
                 }
                 else
                 {
                     lbxVocabularies.ItemsSource = db.Words.Where(x => x.Theme.Id == selectedItem.Id && x.EnglishWord.StartsWith(txtSearch.Text.ToLower().ToString())).OrderBy(x => x.EnglishWord).ToList();
+                    lbxVocabularies.SelectedIndex = 0;
                 }
             }
+        }
+
+        private void btnWordDetail_Click(object sender, RoutedEventArgs e)
+        {
+            ResetAnimationStatus();
+            isUnloadToLeft = true;
+            GetData.curWord = (Vocabulary)(lbxVocabularies.SelectedItem);
+        }
+
+        private void imgWordDetail_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgWordDetail.Source = new BitmapImage(new Uri("/Images/Button/detail.png", UriKind.Relative));
+        }
+
+        private void imgWordDetail_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgWordDetail.Source = new BitmapImage(new Uri("/Images/Button/detail_on.png", UriKind.Relative));
         }
     }
 }

@@ -177,6 +177,7 @@
     <Compile Include="Presentation\Pages\WordSet.xaml.cs">
       <DependentUpon>WordSet.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\ViewModels\WordDetailViewModel.cs" />
     <Compile Include="Presentation\ViewModels\LoginViewModel.cs" />
     <Compile Include="Presentation\ViewModels\RegisterViewModel.cs" />
     <Compile Include="Presentation\ViewModels\WordSetViewModel.cs" />
@@ -484,6 +485,16 @@
     <Content Include="Audios\Vocabulary Pronunciations\vet.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\watermelon.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\write.mp3" />
+    <Resource Include="Images\Button\detail_on.png" />
+    <Resource Include="Images\Button\detail.png" />
+    <Resource Include="Images\Button\changePassword.png" />
+    <Resource Include="Images\Theme\bongda.png" />
+    <Resource Include="Images\Theme\bongro.png" />
+    <Resource Include="Images\Theme\giadinh.png" />
+    <Resource Include="Images\Theme\dongvat.png" />
+    <Resource Include="Images\Theme\nghenghiep.png" />
+    <Resource Include="Images\Theme\raucu.png" />
+    <Resource Include="Images\Theme\traicay.png" />
     <Resource Include="Images\Button\findPic.png" />
     <Resource Include="Images\Button\findWord.png" />
     <Resource Include="Images\Button\study.png" />
@@ -545,9 +556,7 @@
     <Resource Include="Images\Button\setting.png" />
     <Resource Include="Images\Button\lookup.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\Theme\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.3.0.3\build\Fody.targets" Condition="Exists('..\packages\Fody.3.0.3\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

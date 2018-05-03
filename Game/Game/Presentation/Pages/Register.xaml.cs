@@ -48,6 +48,7 @@ namespace Game.Presentation.Pages
                 };
                 db.Users.Add(user);
                 db.SaveChanges();
+                (DataContext as RegisterViewModel).GoToLogin();
             }
         }
 

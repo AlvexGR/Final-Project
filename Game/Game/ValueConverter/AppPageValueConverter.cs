@@ -40,6 +40,8 @@ namespace Game
                     return new Register();
                 case AppPage.AppPage.WordSetPage:
                     return new WordSet();
+                case AppPage.AppPage.WordDetailPage:
+                    return new WordDetail();
                 default:
                     Debugger.Break();
                     return null;

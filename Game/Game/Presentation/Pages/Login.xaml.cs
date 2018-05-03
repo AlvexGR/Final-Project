@@ -43,6 +43,7 @@ namespace Game.Presentation.Pages
                 isUnloadToLeft = true;
                 GetData.didRegister = false;
                 tbxError.Visibility = Visibility.Hidden;
+                (DataContext as LoginViewModel).GoToMain();
             }
         }
 
