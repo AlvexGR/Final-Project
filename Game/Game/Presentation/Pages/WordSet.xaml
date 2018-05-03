@@ -26,7 +26,11 @@
                 <StackPanel Grid.Column="1">
                     <Border CornerRadius="10" Background="White" Height="470" Margin="0 50 0 0">
                         <StackPanel Margin="20">
-                            <ScrollViewer x:Name="displayWord" VerticalScrollBarVisibility="Auto"/>
+                            <ScrollViewer x:Name="displayWord" VerticalScrollBarVisibility="Auto">
+                                <ItemsControl ItemsSource="{Binding vocabularies}">
+                                    
+                                </ItemsControl>
+                            </ScrollViewer>
                             <Grid Margin="0 370 0 0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -64,7 +68,7 @@
                                                 <ColumnDefinition Width="60"/>
                                                 <ColumnDefinition Width="100"/>
                                             </Grid.ColumnDefinitions>
-                                            <Image x:Name="imgNew"  Source="/Images/Button/new.png" Width="50" Height="50"/>
+                                            <Image x:Name="imgNew"  Source="/Images/Button/new.png" Width="50" Height="50" HorizontalAlignment="Left" Margin="5 0 0 0"/>
                                             <TextBlock Text="Học mới" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                         </Grid>
                                     </StackPanel>

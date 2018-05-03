@@ -25,23 +25,45 @@ namespace Game.Presentation.Pages
     {
         private MainDb db = new MainDb();
         private List<Set> sets = new List<Set>();
-
+        private List<Vocabulary> vocabularies = new List<Vocabulary>();
+        private int idx = 0;
         public WordSet()
         {
             InitializeComponent();
             if(GetData.isTheme)
             {
-
+                sets = db.Sets.Where(x => x.UserId == GetData.currentUser.Id && x.IsCreatedByTheme && x.ThemeId == GetData.curTheme).ToList();
+                if(sets.Count>0)
+                {
+                    AddWord();
+                }
             }
             else
             {
 
             }
+            UpdateArrowButton();
         }
         
+        private void UpdateArrowButton()
+        {
+            if (sets.Count <= 1)
+            {
+                btnGoLeft.Visibility = btnGoRight.Visibility = Visibility.Hidden;
+            }
+        }
+
         private void AddWord()
         {
-            
+            var curSet = sets[idx];
+            vocabularies = (from wordSet in db.WordSets
+                           join word in db.Words on wordSet.WordId equals word.Id
+                           where wordSet.SetId == curSet.Id select word).Distinct().ToList();
+            //foreach(var word in vocabularies)
+            //{
+            //    TextBlock tbx = new TextBlock();
+            //    tbx.Text = word.EnglishWord;
+            //}
         }
 
         private void ResetAnimationStatus()
