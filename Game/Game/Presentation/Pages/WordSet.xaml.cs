@@ -14,15 +14,39 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Game.UserControls;
 using Game.Model;
+using System.ComponentModel;
 
 namespace Game.Presentation.Pages
 {
     /// <summary>
     /// Interaction logic for WordSet.xaml
     /// </summary>
-    public partial class WordSet : BasePage<WordSetViewModel>
+    public partial class WordSet : BasePage<WordSetViewModel>, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged = (sender, e) => { };
+        public void OnPropertyChanged(string name)
+        {
+            PropertyChanged(this, new PropertyChangedEventArgs(name));
+        }
+
         MainDb db;
+        int indexOfWordset = 0;
+        public Set CurrentSet { get; set; }
+        public List<Set> SetsOfUser { get; set; }
+
+        List<Vocabulary> _wordsOfCurrentSet;
+        public List<Vocabulary> WordsOfCurrentSet
+        {
+            get
+            {
+                return _wordsOfCurrentSet;
+            }
+            set
+            {
+                _wordsOfCurrentSet = value;
+                OnPropertyChanged("WordsOfCurrentSet");
+            }
+        }
         public WordSet()
         {
             InitializeComponent();
@@ -34,20 +58,36 @@ namespace Game.Presentation.Pages
             {
                 btnCustom1.Content = "Ôn";
                 btnCustom2.Content = "Học mới";
-                //var query = from wordSet in db.WordSets
-                //            join sets in db.Sets on wordSet.Set.Id equals sets.Id
-                //            where wordSet.User.Id == curentUser.Id
-                //            orderby sets.CreatedDate
-                //            select wordSet;
-
+                SetsOfUser = db.Sets.Where(x => x.UserId == curentUser.Id && x.IsCreatedByTheme).ToList();
             }
             else
             {
                 btnCustom1.Content = "Học";
                 btnCustom2.Content = "Tạo bộ từ";
+                SetsOfUser = db.Sets.Where(x => x.UserId == curentUser.Id && !x.IsCreatedByTheme).ToList();
+            }
+            if (SetsOfUser.Count != 0)
+            {
+                CurrentSet = SetsOfUser[indexOfWordset];
+                WordsOfCurrentSet = (from wordSet in db.WordSets
+                                     join word in db.Words on wordSet.WordId equals word.Id
+                                     where wordSet.SetId == CurrentSet.Id
+                                     select word).Distinct().ToList();
+            }
+            else
+            {
+                btnCustom1.IsEnabled = false;
             }
 
+            DataContext = this;
+            btnGoLeft.Visibility = Visibility.Hidden;
+            if(SetsOfUser.Count <= 1)
+            {
+                btnGoRight.Visibility = Visibility.Hidden;
+            }
         }
+
+
 
         private void ResetAnimationStatus()
         {
@@ -72,12 +112,32 @@ namespace Game.Presentation.Pages
 
         private void btnGoLeft_Click(object sender, RoutedEventArgs e)
         {
-
+            indexOfWordset--;
+            btnGoRight.Visibility = Visibility.Visible;
+            if (indexOfWordset == 0)
+            {
+                btnGoLeft.Visibility = Visibility.Hidden;
+            }
+            CurrentSet = SetsOfUser[indexOfWordset];
+            WordsOfCurrentSet = (from wordSet in db.WordSets
+                                 join word in db.Words on wordSet.WordId equals word.Id
+                                 where wordSet.SetId == CurrentSet.Id
+                                 select word).ToList();
         }
 
         private void btnGoRight_Click(object sender, RoutedEventArgs e)
         {
-
+            indexOfWordset++;
+            btnGoLeft.Visibility = Visibility.Visible;
+            if (indexOfWordset == SetsOfUser.Count - 1)
+            {
+                btnGoRight.Visibility = Visibility.Hidden;
+            }
+            CurrentSet = SetsOfUser[indexOfWordset];
+            WordsOfCurrentSet = (from wordSet in db.WordSets
+                                 join word in db.Words on wordSet.WordId equals word.Id
+                                 where wordSet.SetId == CurrentSet.Id
+                                 select word).ToList();
         }
 
         private void imgArrowRight_MouseEnter(object sender, MouseEventArgs e)
@@ -136,14 +196,14 @@ namespace Game.Presentation.Pages
 
             if (GetData.isTheme)
             {
-                var selectedThemeId = GetData.curTheme;
-                GetData.wordList = GetData.wordListTotal.Where(x => x.Theme.Id == selectedThemeId && x.IsLearned == false).Take(5).ToList();
+                //random five words from current theme
+                GetData.wordList = GetData.wordListTotal.Where(x => x.Theme.Id == GetData.curTheme && x.IsLearned == false).Take(5).ToList();
+
+                //set to true if these words have the same theme
                 set.IsCreatedByTheme = true;
             }
             db.Sets.Add(set);
             db.SaveChanges();
-
-            
 
             List<Model.WordSet> wordSetList = new List<Model.WordSet>();
             foreach (var item in GetData.wordList)
@@ -153,6 +213,13 @@ namespace Game.Presentation.Pages
                     SetId = set.Id,
                     WordId = item.Id
                 };
+
+                if (GetData.isTheme)
+                {
+                    var word = db.Words.Find(item.Id);
+                    word.IsLearned = true;
+                }
+
                 wordSetList.Add(wordSet);
             }
             db.WordSets.AddRange(wordSetList);
