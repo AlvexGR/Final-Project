@@ -17,5 +17,6 @@ namespace Game.UserControls
         public static User currentUser = new User();
         public static bool didRegister = false;
         public static int volume = 0;
+        public static Vocabulary curWord;
     }
 }

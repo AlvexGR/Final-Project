@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Game.Model;
+using Game.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +20,13 @@ namespace Game.Presentation.Pages
     /// <summary>
     /// Interaction logic for WordDetail.xaml
     /// </summary>
-    public partial class WordDetail : Page
+    public partial class WordDetail : BasePage<WordDetailViewModel>
     {
+        private Vocabulary vc;
         public WordDetail()
         {
             InitializeComponent();
+            UpdateData();
         }
 
         private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
@@ -37,12 +41,31 @@ namespace Game.Presentation.Pages
 
         private void btnPronoun_Click(object sender, RoutedEventArgs e)
         {
+            mePronoun.Source = new Uri("../.." + vc.Pronunciation, UriKind.Relative);
+            mePronoun.Play();
+        }
 
+        private void UpdateData()
+        {
+            vc = GetData.curWord;
+            tbxDefinition.Text = vc.Definition;
+            tbxEnglishWord.Text = vc.EnglishWord;
+            tbxSpelling.Text = vc.Spelling;
+            wordImage.Source = new BitmapImage(new Uri(vc.Image, UriKind.Relative));
+            mePronoun.Source = new Uri("../.." + vc.Pronunciation, UriKind.Relative);
+            mePronoun.Play();
+        }
+
+        private void ResetAnimationStatus()
+        {
+            isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
         }
 
         private void btnGoBack_Click(object sender, RoutedEventArgs e)
         {
-
+            ResetAnimationStatus();
+            isUnloadToRight = true;
+            mePronoun.Source = null;
         }
     }
 }

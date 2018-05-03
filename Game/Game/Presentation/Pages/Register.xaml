@@ -44,7 +44,7 @@
                                 <PasswordBox x:Name="tbxReEnterPassword" TabIndex="2" BorderThickness="0 0 0 0" Padding="5 5" FontSize="20" HorizontalAlignment="Center" KeyDown="BasePage_KeyDown"/>
                             </StackPanel>
                         </Border>
-                        <Button Command="{Binding LoginCommand}" Style="{StaticResource NormalButton}"  x:Name="btnRegister" Margin="50 20 50 0" Height="65" Click="btnRegister_Click" KeyDown="BasePage_KeyDown">
+                        <Button Style="{StaticResource NormalButton}"  x:Name="btnRegister" Margin="50 20 50 0" Height="65" Click="btnRegister_Click" KeyDown="BasePage_KeyDown">
                             <StackPanel Orientation="Horizontal">
                                 <Grid>
                                     <Grid.ColumnDefinitions>

@@ -9,19 +9,18 @@ using System.Windows.Input;
 
 namespace Game.Presentation
 {
-    public class VocabularyListViewModel : BaseViewModel
+    public class WordDetailViewModel : BaseViewModel
     {
         
         #region Public Properties
         public ICommand PreviousCommand { set; get; }
-        public ICommand WordDetailCommand { set; get; }
+
         #endregion
 
         #region Constructor
-        public VocabularyListViewModel()
+        public WordDetailViewModel()
         {
             PreviousCommand = new RelayCommand(async() => await GoToPrevious());
-            WordDetailCommand = new RelayCommand(async() => await GoToWordDetail());
         }
         #endregion
 
@@ -30,11 +29,6 @@ namespace Game.Presentation
         {
             var pageName = GetNameOfObject.GetName(PageStack.pageStack.Peek().ToString()) + "Page";
             ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = (AppPage.AppPage)Enum.Parse(typeof(AppPage.AppPage), pageName);
-            await Task.Delay(1);
-        }
-        public async Task GoToWordDetail()
-        {
-            ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.WordDetailPage;
             await Task.Delay(1);
         }
         #endregion

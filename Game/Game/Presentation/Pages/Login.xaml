@@ -26,7 +26,7 @@
                             </StackPanel>
                         </Border>
 
-                        <Button x:Name="btnLogin" Style="{StaticResource NormalButton}" Command="{Binding MainCommand}" Margin="50 20 50 0" Height="65" Click="btnLogin_Click" KeyDown="BasePage_KeyDown">
+                        <Button x:Name="btnLogin" Style="{StaticResource NormalButton}" Margin="50 20 50 0" Height="65" Click="btnLogin_Click" KeyDown="BasePage_KeyDown">
                             <StackPanel Orientation="Horizontal">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
