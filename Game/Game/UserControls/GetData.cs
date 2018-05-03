@@ -16,5 +16,6 @@ namespace Game.UserControls
         public static int Score;
         public static User currentUser = new User();
         public static bool didRegister = false;
+        public static int volume = 0;
     }
 }

@@ -202,8 +202,8 @@
         </Setter>
     </Style>
 
-    <!--Settings Button-->
-    <Style TargetType="{x:Type Button}" x:Key="SettingsButton">
+    <!--Setting Button-->
+    <Style TargetType="{x:Type Button}" x:Key="SettingButton">
         <Setter Property="Background">
             <Setter.Value>
                 <SolidColorBrush Opacity="0"/>

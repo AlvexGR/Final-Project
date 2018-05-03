@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Game.Model;
+using Game.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,11 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class Setting : BasePage<SettingViewModel>
     {
+        private MainDb db = new MainDb();
         public Setting()
         {
             InitializeComponent();
+            slideVolume.Value = GetData.volume;
         }
 
         private void ResetAnimationStatus()
@@ -43,6 +47,41 @@ namespace Game.Presentation.Pages
         private void imgBackButton_MouseLeave(object sender, MouseEventArgs e)
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
+        }
+
+        private bool CanChange()
+        {
+            if(GetData.currentUser.Password != tbxCurPass.Password)
+            {
+                tbxStatus.Text = "Mật khẩu hiện tại không đúng";
+                tbxStatus.Visibility = Visibility.Visible;
+                tbxStatus.Foreground = Brushes.Red;
+                return false;
+            }
+            if(tbxNewPass.Password != tbxReNewPass.Password)
+            {
+                tbxStatus.Text = "Mật khẩu mới không khớp";
+                tbxStatus.Visibility = Visibility.Visible;
+                tbxStatus.Foreground = Brushes.Red;
+                return false;
+            }
+            return true;
+        }
+
+        private void btnChangePassword_Click(object sender, RoutedEventArgs e)
+        {
+            if(CanChange())
+            {
+                tbxStatus.Text = "Thay đổi mật khẩu thành công";
+                tbxStatus.Visibility = Visibility.Visible;
+                tbxStatus.Foreground = Brushes.Green;
+                tbxCurPass.Password = tbxNewPass.Password = tbxReNewPass.Password = "";
+            }
+        }
+
+        private void slideVolume_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            tbxVolume.Text = "Âm lượng: " + slideVolume.Value.ToString();
         }
     }
 }
