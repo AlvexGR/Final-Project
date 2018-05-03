@@ -79,7 +79,6 @@ namespace Game.Presentation.Pages
                 btnCustom1.IsEnabled = false;
             }
 
-            DataContext = this;
             btnGoLeft.Visibility = Visibility.Hidden;
             if(SetsOfUser.Count <= 1)
             {
