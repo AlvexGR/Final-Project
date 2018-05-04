@@ -17,10 +17,12 @@ namespace Game.Presentation.Pages
     {
         private int idx = 0;
         private Vocabulary rightAnswer;
+        private bool firstChoice = true;
         public SelectingWordOnListening()
         {
             InitializeComponent();
             UpdateData();
+            GetData.correctAnswer = 0;
         }
         private void ResetAnimationStatus()
         {
@@ -76,6 +78,7 @@ namespace Game.Presentation.Pages
         {
             idx++;
             UpdateData();
+            firstChoice = true;
         }
 
         private void CheckAnswer(object sender, RoutedEventArgs e)
@@ -87,6 +90,10 @@ namespace Game.Presentation.Pages
             {
                 btnRealAnswer.BorderBrush = new SolidColorBrush(Colors.Green);
                 btnRealAnswer.BorderThickness = new Thickness(3);
+                if(firstChoice)
+                {
+                    GetData.correctAnswer++;
+                }
                 if(idx == (GetData.wordList.Count-1))
                 {
                     btnFinish.Visibility = Visibility.Visible;
@@ -101,7 +108,7 @@ namespace Game.Presentation.Pages
                 btnRealAnswer.BorderThickness = new Thickness(3);
                 btnRealAnswer.BorderBrush = new SolidColorBrush(Colors.Red);
             }
-            
+            firstChoice = false;
         }
 
         private void btnPronoun_Click(object sender, RoutedEventArgs e)
@@ -113,7 +120,7 @@ namespace Game.Presentation.Pages
         private void btnFinish_Click(object sender, RoutedEventArgs e)
         {
             ResetAnimationStatus();
-            isUnloadToRight = true;
+            isUnloadToLeft = true;
             mePronoun.Source = null;
         }
 
@@ -127,7 +134,7 @@ namespace Game.Presentation.Pages
         private void btnGoBack_Click(object sender, RoutedEventArgs e)
         {
             ResetAnimationStatus();
-            isUnloadToLeft = true;
+            isUnloadToRight = true;
             mePronoun.Source = null;
         }
 
@@ -142,12 +149,22 @@ namespace Game.Presentation.Pages
         }
         private void imgCorrectButton_MouseEnter(object sender, MouseEventArgs e)
         {
-            imgCorrectButton.Source = new BitmapImage(new Uri("/Images/Button/next_button_on.png", UriKind.Relative));
+            imgCorrectButton.Source = new BitmapImage(new Uri("/Images/Button/correct_on.png", UriKind.Relative));
         }
 
         private void imgCorrectButton_MouseLeave(object sender, MouseEventArgs e)
         {
             imgCorrectButton.Source = new BitmapImage(new Uri("/Images/Button/correct.png", UriKind.Relative));
+        }
+
+        private void imgFinishButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgFinishButton.Source = new BitmapImage(new Uri("/Images/Button/finish_on.png", UriKind.Relative));
+        }
+
+        private void imgFinishButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgFinishButton.Source = new BitmapImage(new Uri("/Images/Button/finish.png", UriKind.Relative));
         }
     }
 }

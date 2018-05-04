@@ -89,6 +89,9 @@ namespace Game.Presentation.Pages
         
         private bool CanRegister()
         {
+            tbxPassword.Password = tbxPassword.Password.Trim();
+            tbxReEnterPassword.Password = tbxReEnterPassword.Password.Trim();
+            tbxUserName.Text = tbxUserName.Text.Trim();
             if (tbxUserName.Text.Length <= 3)
             {
                 tbxError.Text = "Tên tài khoản phải ít nhất 4 kí tự";

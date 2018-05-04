@@ -60,49 +60,7 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-
-    <!--Normal Buttons Old-->
-    <!--<Style x:Key="NormalButton" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}">
-        <Setter Property="Background" Value="Orange"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Foreground" Value="{StaticResource ForegroundVeryDarkBrush}"/>
-        <Setter Property="FontSize" Value="18"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ButtonBase}">
-                    <Border x:Name="border" 
-                            BorderBrush="{TemplateBinding BorderBrush}" 
-                            BorderThickness="{TemplateBinding BorderThickness}" 
-                            Background="{TemplateBinding Background}" 
-                            SnapsToDevicePixels="True">
-                        <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <EventTrigger RoutedEvent="MouseEnter">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation To="Blue" Duration="0:0:0" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color"/>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                        <EventTrigger RoutedEvent="MouseLeave">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation To="Orange" Duration="0:0:0" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color"/>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                        <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
-                            <Setter Property="BorderBrush" TargetName="border" Value="#FFADB2B5"/>
-                            <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#FF838383"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>-->
-
+    
     <!--Transparent Button-->
     <Style TargetType="{x:Type Button}" x:Key="TransparentButton">
         <Setter Property="Background" Value="Transparent"/>
@@ -193,13 +151,25 @@
     <!--Finish Button-->
     <Style TargetType="{x:Type Button}" x:Key="FinishButton">
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="ContentTemplate">
+        <Setter Property="Background">
             <Setter.Value>
-                <DataTemplate>
-                    <Image Source="/Images/Button/finish.png"/>
-                </DataTemplate>
+                <SolidColorBrush Opacity="0"/>
             </Setter.Value>
         </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{x:Null}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <!--Setting Button-->

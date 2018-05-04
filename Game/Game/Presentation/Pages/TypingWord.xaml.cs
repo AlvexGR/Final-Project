@@ -24,10 +24,12 @@ namespace Game.Presentation.Pages
         private bool done = false;
         private bool doneWord = false;
         private bool readyToNextWord = false;
+        private bool firstTry = true;
         public TypingWord()
         {
             InitializeComponent();
             LoadTextBoxes();
+            GetData.correctAnswer = 0;
         }
 
         private void LoadTextBoxes()
@@ -79,6 +81,10 @@ namespace Game.Presentation.Pages
             progress++;
             if(proBarTypingRange.Value == proBarTypingRange.Maximum)
             {
+                if(firstTry)
+                {
+                    GetData.correctAnswer++;
+                }
                 done = true;
                 if(idx == GetData.wordList.Count-1)
                 {
@@ -103,6 +109,7 @@ namespace Game.Presentation.Pages
             LoadTextBoxes();
             mePronoun.Source = null;
             readyToNextWord = false;
+            firstTry = true;
         }
 
         private void btnGoBack_Click(object sender, RoutedEventArgs e)
@@ -124,7 +131,7 @@ namespace Game.Presentation.Pages
 
         private void imgCorrectButton_MouseEnter(object sender, MouseEventArgs e)
         {
-            imgCorrectButton.Source = new BitmapImage(new Uri("/Images/Button/next_button_on.png", UriKind.Relative));
+            imgCorrectButton.Source = new BitmapImage(new Uri("/Images/Button/correct_on.png", UriKind.Relative));
         }
 
         private void imgCorrectButton_MouseLeave(object sender, MouseEventArgs e)
@@ -141,7 +148,15 @@ namespace Game.Presentation.Pages
 
         private void keyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key == Key.Enter && readyToNextWord)
+            if (e.Key == Key.Enter && btnFinish.Visibility == Visibility.Visible)
+            {
+                ResetAnimationStatus();
+                isUnloadToLeft = true;
+                mePronoun.Source = null;
+                (DataContext as TypingWordViewModel).GoToResult();
+                return;
+            }
+            if (e.Key == Key.Enter && readyToNextWord)
             {
                 idx++;
                 LoadTextBoxes();
@@ -218,7 +233,17 @@ namespace Game.Presentation.Pages
             else
             {
                 (wordArea.Children[typingIdx] as TextBlock).Foreground = Brushes.Red;
+                firstTry = false;
             }
+        }
+        private void imgFinishButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgFinishButton.Source = new BitmapImage(new Uri("/Images/Button/finish_on.png", UriKind.Relative));
+        }
+
+        private void imgFinishButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgFinishButton.Source = new BitmapImage(new Uri("/Images/Button/finish.png", UriKind.Relative));
         }
     }
 }

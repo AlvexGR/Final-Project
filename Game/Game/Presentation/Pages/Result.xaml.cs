@@ -24,30 +24,10 @@ namespace Game.Presentation.Pages
         public Result()
         {
             InitializeComponent();
-            tbxScore.Text = GetData.Score.ToString();
-            Init();
-        }
-        private void Init()
-        {
-            if(GetData.Score > 40)
+            tbxScore.Text = GetData.correctAnswer.ToString() + "/5";
+            for (int i = 0; i < GetData.correctAnswer; i++) 
             {
-                img1.Visibility = img2.Visibility = img3.Visibility = img4.Visibility = img5.Visibility = Visibility.Visible;
-            }
-            else if(GetData.Score > 30)
-            {
-                img1.Visibility = img2.Visibility = img3.Visibility = img4.Visibility  = Visibility.Visible;
-            }
-            else if (GetData.Score > 20)
-            {
-                img1.Visibility = img2.Visibility = img3.Visibility = Visibility.Visible;
-            }
-            else if (GetData.Score > 10)
-            {
-                img1.Visibility = img2.Visibility = Visibility.Visible;
-            }
-            else if (GetData.Score > 0)
-            {
-                img1.Visibility = Visibility.Visible;
+                (starArea.Children[i] as Image).Source = new BitmapImage(new Uri("/Images/Leaderboard or History/star_on.png", UriKind.Relative));
             }
         }
 

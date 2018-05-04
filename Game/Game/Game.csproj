@@ -492,6 +492,11 @@
     <Content Include="Audios\Vocabulary Pronunciations\vet.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\watermelon.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\write.mp3" />
+    <Resource Include="Images\Leaderboard or History\star_on.png" />
+    <Resource Include="Images\Button\finish_on.png" />
+    <Resource Include="Images\Button\correct_on.png" />
+    <Resource Include="Images\Theme\mausac.png" />
+    <Resource Include="Images\Theme\sodem.png" />
     <Resource Include="Images\Button\delete.png" />
     <Resource Include="Images\Button\new.png" />
     <Resource Include="Images\Button\review.png" />

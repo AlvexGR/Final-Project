@@ -25,15 +25,14 @@ namespace Game.Presentation.Pages
         private int idx = 0;
         private Vocabulary rightAnswer;
         int indexOfRightAnswer = 0;
-        private readonly int ScorePerQuestion=10;
-        private bool IsFirstAnswer = true;
+        private bool firstChoice = true;
         MainDb db ;
         public SelectingPictureOnListening()
         {
             InitializeComponent();
             UpdateData();
-            GetData.Score = 0;
             db = new MainDb();
+            GetData.correctAnswer = 0;
         }
 
         private void UpdateData()
@@ -78,7 +77,6 @@ namespace Game.Presentation.Pages
                 imgC.Source = new BitmapImage(new Uri(otherWords[2].Image, UriKind.Relative));
             }
             btnCorrect.Visibility = Visibility.Hidden;
-            IsFirstAnswer = true;
             mePronoun.Source = new Uri("../.." + rightAnswer.Pronunciation, UriKind.Relative);
             mePronoun.Play();
         }
@@ -106,9 +104,9 @@ namespace Game.Presentation.Pages
 
             if (indexAnswer == indexOfRightAnswer)
             {
-                if(IsFirstAnswer)
+                if(firstChoice)
                 {
-                    GetData.Score += ScorePerQuestion;
+                    GetData.correctAnswer++;
                 }
                 btnRealAnswer.BorderBrush = new SolidColorBrush(Colors.Green);
                 btnRealAnswer.BorderThickness = new Thickness(3);
@@ -126,7 +124,7 @@ namespace Game.Presentation.Pages
                 btnRealAnswer.BorderBrush = new SolidColorBrush(Colors.Red);
                 btnRealAnswer.BorderThickness = new Thickness(3);
             }
-            IsFirstAnswer = false;
+            firstChoice = false;
         }
         public void ResetButton()
         {
@@ -155,6 +153,7 @@ namespace Game.Presentation.Pages
         {
             idx++;
             UpdateData();
+            firstChoice = true;
         }
 
         private void btnFinish_Click(object sender, RoutedEventArgs e)
@@ -165,7 +164,7 @@ namespace Game.Presentation.Pages
             PlayHistory playHistory = new PlayHistory()
             {
                 Date = DateTime.Today,
-                Score = GetData.Score
+                Score = GetData.correctAnswer
             };
             db.PlayHistories.Add(playHistory);
             db.SaveChanges();
@@ -182,7 +181,7 @@ namespace Game.Presentation.Pages
         }
         private void imgCorrectButton_MouseEnter(object sender, MouseEventArgs e)
         {
-            imgCorrectButton.Source = new BitmapImage(new Uri("/Images/Button/next_button_on.png", UriKind.Relative));
+            imgCorrectButton.Source = new BitmapImage(new Uri("/Images/Button/correct_on.png", UriKind.Relative));
         }
 
         private void imgCorrectButton_MouseLeave(object sender, MouseEventArgs e)
@@ -190,5 +189,14 @@ namespace Game.Presentation.Pages
             imgCorrectButton.Source = new BitmapImage(new Uri("/Images/Button/correct.png", UriKind.Relative));
         }
 
+        private void imgFinishButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgFinishButton.Source = new BitmapImage(new Uri("/Images/Button/finish_on.png", UriKind.Relative));
+        }
+
+        private void imgFinishButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgFinishButton.Source = new BitmapImage(new Uri("/Images/Button/finish.png", UriKind.Relative));
+        }
     }
 }

@@ -11,35 +11,35 @@
 
     <StackPanel>
         <Grid Height="600">
-            <StackPanel Margin="100 100 100 150">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="130"/>
-                        <RowDefinition Height="150"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Text="Thành tích của bạn:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
-                    <TextBlock x:Name="tbxScore" Text="{Binding CurrentScore}" FontSize="90" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1"/>
-                    <StackPanel Grid.Row="2" Margin="60 40">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Image x:Name="img1" Source="/Images/Leaderboard or History/star.png" Height="50" Visibility="Hidden"/>
-                            <Image x:Name="img2" Source="/Images/Leaderboard or History/star.png" Height="50" Visibility="Hidden" Grid.Column="1"/>
-                            <Image x:Name="img3" Source="/Images/Leaderboard or History/star.png" Height="50" Visibility="Hidden" Grid.Column="2"/>
-                            <Image x:Name="img4" Source="/Images/Leaderboard or History/star.png" Height="50" Visibility="Hidden" Grid.Column="3"/>
-                            <Image x:Name="img5" Source="/Images/Leaderboard or History/star.png" Height="50" Visibility="Hidden" Grid.Column="4"/>
-                        </Grid>
-                    </StackPanel>
-                </Grid>
-                
-
-            </StackPanel>
+            <Border Margin="150 100 150 230" Background="White" CornerRadius="10">
+                <StackPanel Margin="20">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="90"/>
+                            <RowDefinition Height="90"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Thành tích của bạn:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
+                        <TextBlock x:Name="tbxScore" Text="{Binding CorrectAnswer}" FontSize="60" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1"/>
+                        <StackPanel Grid.Row="2" Margin="20" VerticalAlignment="Center">
+                            <Grid x:Name="starArea">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="/Images/Leaderboard or History/star.png" Height="50" Grid.Column="0"/>
+                                <Image Source="/Images/Leaderboard or History/star.png" Height="50" Grid.Column="1"/>
+                                <Image Source="/Images/Leaderboard or History/star.png" Height="50" Grid.Column="2"/>
+                                <Image Source="/Images/Leaderboard or History/star.png" Height="50" Grid.Column="3"/>
+                                <Image Source="/Images/Leaderboard or History/star.png" Height="50" Grid.Column="4"/>
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Border>
             <Button Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="70" Height="70" FontSize="18">
                 <Image x:Name="imgBackButton" Source="/Images/Button/back_button.png" MouseEnter="imgBackButton_MouseEnter" MouseLeave="imgBackButton_MouseLeave"/>
             </Button>
