@@ -26,10 +26,6 @@ namespace Game.Presentation.Pages
         public PlayOptions()
         {
             InitializeComponent();
-            if(!GetData.isTheme)
-            {
-                GetData.wordListTotal = db.Words.ToList();
-            }
         }
 
         private void ResetAnimationStatus()
@@ -43,28 +39,10 @@ namespace Game.Presentation.Pages
             isUnloadToRight = true;
         }
 
-        private void randomizeListOfWord()
-        {
-            var rnd = new Random();
-            int d=0;
-            GetData.wordListTotal = GetData.wordListTotal.OrderBy(item => d = rnd.Next()).ToList();
-            if (GetData.isTheme) GetData.wordListTotal = GetData.wordListTotal.Where(x => x.Theme.Id == GetData.curTheme).ToList();
-            GetData.wordList.Clear();
-            for (int i = 0; i < 5; i++)
-            {
-                GetData.wordList.Add(GetData.wordListTotal[i]);
-            }
-        }
-
         private void btnWordReview_Click(object sender, RoutedEventArgs e)
         {
             ResetAnimationStatus();
             isUnloadToLeft = true;
-        }
-
-        private void btnRandom_Click(object sender, RoutedEventArgs e)
-        {
-            randomizeListOfWord();
         }
 
         private void btnSelectingWordOnListening_Click(object sender, RoutedEventArgs e)

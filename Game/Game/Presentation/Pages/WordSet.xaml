@@ -14,7 +14,7 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 <Button Click="btnGoLeft_Click"  x:Name="btnGoLeft" Margin="50 0 0 0" Style="{StaticResource BackButton}">
