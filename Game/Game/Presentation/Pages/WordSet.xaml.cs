@@ -30,18 +30,7 @@ namespace Game.Presentation.Pages
         public WordSet()
         {
             InitializeComponent();
-            if(GetData.isTheme)
-            {
-                sets = db.Sets.Where(x => x.UserId == GetData.currentUser.Id && x.IsCreatedByTheme && x.ThemeId == GetData.curTheme).ToList();
-                if(sets.Count>0)
-                {
-                    AddWord();
-                }
-            }
-            else
-            {
-
-            }
+            UpdateSets();
             UpdateArrowButton();
         }
         
@@ -53,17 +42,39 @@ namespace Game.Presentation.Pages
             }
         }
 
+        private void UpdateSets()
+        {
+            if (GetData.isTheme)
+            {
+                sets = db.Sets.Where(x => x.UserId == GetData.currentUser.Id && x.IsCreatedByTheme && x.ThemeId == GetData.curTheme).ToList();
+                if (sets.Count > 0)
+                {
+                    AddWord();
+                }
+            }
+            else
+            {
+
+            }
+        }
+
         private void AddWord()
         {
             var curSet = sets[idx];
             vocabularies = (from wordSet in db.WordSets
-                           join word in db.Words on wordSet.WordId equals word.Id
-                           where wordSet.SetId == curSet.Id select word).Distinct().ToList();
-            //foreach(var word in vocabularies)
-            //{
-            //    TextBlock tbx = new TextBlock();
-            //    tbx.Text = word.EnglishWord;
-            //}
+                            join word in db.Words on wordSet.WordId equals word.Id
+                            where wordSet.SetId == curSet.Id
+                            select word).Distinct().ToList();
+            displayWord.DataContext = vocabularies;
+            displayWord.Children.Clear();
+            foreach (var word in vocabularies)
+            {
+                TextBlock tbx = new TextBlock();
+                tbx.Text = word.EnglishWord;
+                tbx.FontFamily = new FontFamily("Arial");
+                tbx.FontSize = 40;
+                displayWord.Children.Add(tbx);
+            }
         }
 
         private void ResetAnimationStatus()
@@ -121,6 +132,7 @@ namespace Game.Presentation.Pages
         {
             ResetAnimationStatus();
             isUnloadToLeft = true;
+            GetData.wordList = vocabularies;
         }
 
         private void btnNew_Click(object sender, RoutedEventArgs e)
@@ -131,7 +143,11 @@ namespace Game.Presentation.Pages
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-
+            var curSet = sets[idx];
+            db.WordSets.RemoveRange(db.WordSets.Where(x => x.SetId == curSet.Id).ToList());
+            db.Sets.Remove(db.Sets.Find(curSet.Id));
+            db.SaveChanges();
+            UpdateSets();
         }
     }
 }
