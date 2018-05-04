@@ -22,7 +22,7 @@
                         <ComboBox x:Name="cbxTheme" SelectionChanged="cbxTheme_SelectionChanged" SelectedIndex="0" Grid.Column="1" Height="27">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Name}" FontSize="15"/>
+                                    <TextBlock Text="{Binding Name}" FontSize="15" FontFamily="Comic Sans MS"/>
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
                         </ComboBox>
@@ -32,13 +32,13 @@
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="3*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="Tìm kiếm:" Grid.Column="0" Style="{StaticResource NormalTextblock}" VerticalAlignment="Center"/>
-                        <TextBox x:Name="txtSearch" TextChanged="txtSearch_TextChanged" Grid.Column="1" Height="27" FontSize="15" BorderThickness="0 0 0 1"/>
+                        <TextBlock Text="Tìm kiếm:" FontFamily="Comic Sans MS" Grid.Column="0" Style="{StaticResource NormalTextblock}" VerticalAlignment="Center"/>
+                        <TextBox x:Name="txtSearch" FontFamily="Comic Sans MS" TextChanged="txtSearch_TextChanged" Grid.Column="1" Height="27" FontSize="15" BorderThickness="0 0 0 1"/>
                     </Grid>
-                    <ListBox x:Name="lbxVocabularies" Height="280" Margin="0 10 0 0" BorderThickness="0" SelectedIndex="0">
+                    <ListBox x:Name="lbxVocabularies" Height="286" Margin="0 10 0 0" BorderThickness="0" SelectedIndex="0">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding EnglishWord}" Margin="5 0 0 0" Grid.Column="1" FontSize="18" FontFamily="Arial"/>
+                                <TextBlock FontFamily="Comic Sans MS" Text="{Binding EnglishWord}" Margin="5 0 0 0" Grid.Column="1" FontSize="18"/>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>

@@ -26,12 +26,12 @@ namespace Game.Presentation.Pages
         private Vocabulary rightAnswer;
         int indexOfRightAnswer = 0;
         private bool firstChoice = true;
-        MainDb db ;
+        private MainDb db;
         public SelectingPictureOnListening()
         {
             InitializeComponent();
-            UpdateData();
             db = new MainDb();
+            UpdateData();
             GetData.correctAnswer = 0;
         }
 
@@ -40,7 +40,7 @@ namespace Game.Presentation.Pages
             ResetButton();
             Random rd = new Random();
             rightAnswer = GetData.wordList[idx];
-            var otherWords = GetData.wordListTotal.Where(x => x.Theme.Id == rightAnswer.Theme.Id && x.Id != rightAnswer.Id).OrderBy(x => rd.Next()).ToList(); //all words have the same theme with right answer, except right answer
+            var otherWords = db.Words.ToList().Where(x => x.Id != rightAnswer.Id && x.Theme.Id == GetData.curTheme).OrderBy(x => rd.Next()).ToList(); //all words have the same theme with right answer, except right answer
 
             indexOfRightAnswer = rd.Next(1, 5);
             if (indexOfRightAnswer == 1)
@@ -106,7 +106,7 @@ namespace Game.Presentation.Pages
             {
                 if(firstChoice)
                 {
-                    GetData.correctAnswer++;
+                    GetData.correctAnswer |= (1 << idx);
                 }
                 btnRealAnswer.BorderBrush = new SolidColorBrush(Colors.Green);
                 btnRealAnswer.BorderThickness = new Thickness(3);

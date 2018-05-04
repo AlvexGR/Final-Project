@@ -53,9 +53,16 @@ namespace Game.Presentation.Pages
                 tb.HorizontalAlignment = HorizontalAlignment.Center;
                 tb.HorizontalContentAlignment = HorizontalAlignment.Center;
                 tb.Margin = new Thickness(0, 0, 5, 0);
-                tb.FontSize = 30;
+                if(curWord.EnglishWord.Length>=10)
+                {
+                    tb.FontSize = 20;
+                }
+                else
+                {
+                    tb.FontSize = 30;
+                }
                 tb.MaxLength = 1;
-                tb.FontFamily = new FontFamily("Arial");
+                tb.FontFamily = new FontFamily("Comic Sans MS");
                 tb.TextAlignment = TextAlignment.Center;
                 tb.Background = null;
                 tb.FontWeight = FontWeights.Bold;
@@ -64,7 +71,7 @@ namespace Game.Presentation.Pages
                 typingArea.Children.Add(tb);
 
                 TextBlock tbx = new TextBlock();
-                tbx.FontFamily = new FontFamily("Arial");
+                tbx.FontFamily = new FontFamily("Comic Sans MS");
                 tbx.FontSize = 40;
                 tbx.FontWeight = FontWeights.Bold;
                 tbx.HorizontalAlignment = HorizontalAlignment.Center;
@@ -83,7 +90,7 @@ namespace Game.Presentation.Pages
             {
                 if(firstTry)
                 {
-                    GetData.correctAnswer++;
+                    GetData.correctAnswer |= (1 << idx);
                 }
                 done = true;
                 if(idx == GetData.wordList.Count-1)

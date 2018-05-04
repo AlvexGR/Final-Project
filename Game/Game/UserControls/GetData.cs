@@ -18,5 +18,6 @@ namespace Game.UserControls
         public static int volume = 0;
         public static Vocabulary curWord;
         public static int correctAnswer = 0;
+        public static bool isLearned = false;
     }
 }

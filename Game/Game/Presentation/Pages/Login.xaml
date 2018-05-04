@@ -15,13 +15,13 @@
                     <StackPanel Height="349">
                         <Border Margin="20 0 20 0" BorderThickness="0 0 0 1" BorderBrush="Blue">
                             <StackPanel Margin="0 30 0 0" >
-                                <TextBlock Text="Tên đăng nhập" Padding="5 5" FontSize="25" HorizontalAlignment="Center" Foreground="Blue"/>
-                                <TextBox x:Name="tbxUserName" TabIndex="0" Padding="5 5" FontSize="20" BorderThickness="0 0 0 0" TextAlignment="Center" KeyDown="BasePage_KeyDown"/>
+                                <TextBlock Text="Tên đăng nhập" Padding="5 5" FontSize="25" HorizontalAlignment="Center" Foreground="Blue" FontFamily="Comic Sans MS"/>
+                                <TextBox x:Name="tbxUserName" FontFamily="Comic Sans MS" TabIndex="0" Padding="5 5" FontSize="20" BorderThickness="0 0 0 0" TextAlignment="Center" KeyDown="BasePage_KeyDown"/>
                             </StackPanel>
                         </Border>
                         <Border Margin="20 0 20 0" BorderThickness="0 0 0 1" BorderBrush="Blue">
                             <StackPanel Margin="0 10 0 0">
-                                <TextBlock Text="Mật khẩu" Padding="5 5" FontSize="25" HorizontalAlignment="Center" Foreground="Blue"/>
+                                <TextBlock Text="Mật khẩu" Padding="5 5" FontSize="25" HorizontalAlignment="Center" Foreground="Blue" FontFamily="Comic Sans MS"/>
                                 <PasswordBox x:Name="tbxPassword" TabIndex="1" BorderThickness="0 0 0 0" Padding="5 5" FontSize="20" HorizontalAlignment="Center" KeyDown="BasePage_KeyDown"/>
                             </StackPanel>
                         </Border>
@@ -34,15 +34,15 @@
                                         <ColumnDefinition Width="140"/>
                                     </Grid.ColumnDefinitions>
                                     <Image x:Name="imgNoTheme" Source="/Images/Button/login.png" Width="50" Height="50"/>
-                                    <TextBlock Text="Đăng nhập" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="Đăng nhập" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                 </Grid>
                             </StackPanel>
                         </Button>
-                        <TextBlock x:Name="tbxError" Visibility="Hidden" Foreground="Red" HorizontalAlignment="Center" Margin="20" FontFamily="Arial" FontSize="17"/>
+                        <TextBlock x:Name="tbxError" Visibility="Hidden" Foreground="Red" HorizontalAlignment="Center" Margin="20" FontFamily="Comic Sans MS" FontSize="17"/>
                     </StackPanel>
                 </Border>
-                <Button Command="{Binding RegisterCommand}" Style="{StaticResource RegisterButton}" x:Name="btnRegister" Height="30" Width="200" Margin="10" Click="btnRegister_Click" MouseEnter="btnRegister_MouseEnter" MouseLeave="btnRegister_MouseLeave">
-                    <TextBlock x:Name="tbxRegister" Text="Đăng ký tài khoản" FontFamily="Arial" FontSize="25" Foreground="Blue"/>
+                <Button Command="{Binding RegisterCommand}" Style="{StaticResource RegisterButton}" x:Name="btnRegister" Height="30" Width="220" Margin="10" Click="btnRegister_Click" MouseEnter="btnRegister_MouseEnter" MouseLeave="btnRegister_MouseLeave">
+                    <TextBlock x:Name="tbxRegister" Text="Đăng ký tài khoản" FontFamily="Comic Sans MS" FontSize="25" Foreground="Blue"/>
                 </Button>
             </StackPanel>
         </Grid>

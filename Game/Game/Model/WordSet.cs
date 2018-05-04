@@ -19,5 +19,7 @@ namespace Game.Model
         [ForeignKey("Set")]
         public int SetId { get; set; }
         public virtual Set Set { get; set; }
+
+        public int Star { get; set; }
     }
 }

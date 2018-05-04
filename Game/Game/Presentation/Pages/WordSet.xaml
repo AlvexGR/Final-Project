@@ -26,10 +26,8 @@
                 <StackPanel Grid.Column="1">
                     <Border CornerRadius="10" Background="White" Height="470" Margin="0 35 0 0">
                         <StackPanel Margin="20">
-                            <ScrollViewer Height="260" VerticalScrollBarVisibility="Auto">
-                                <StackPanel x:Name="displayWord" HorizontalAlignment="Center"/>
-                            </ScrollViewer>
-                            <Grid>
+                            <StackPanel x:Name="displayWord" Height="260" HorizontalAlignment="Center"/>
+                                <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
@@ -43,7 +41,7 @@
                                                 <ColumnDefinition Width="100"/>
                                             </Grid.ColumnDefinitions>
                                             <Image x:Name="imgReview"  Source="/Images/Button/review.png" Width="40" Height="40"/>
-                                            <TextBlock Text="Ôn lại" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                            <TextBlock Text="Ôn lại" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                         </Grid>
                                     </StackPanel>
                                 </Button>
@@ -55,7 +53,7 @@
                                                 <ColumnDefinition Width="100"/>
                                             </Grid.ColumnDefinitions>
                                             <Image x:Name="imgNew"  Source="/Images/Button/new.png" Width="40" Height="40"/>
-                                            <TextBlock Text="Học mới" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                            <TextBlock Text="Học mới" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                         </Grid>
                                     </StackPanel>
                                 </Button>
@@ -67,7 +65,7 @@
                                                 <ColumnDefinition Width="100"/>
                                             </Grid.ColumnDefinitions>
                                             <Image x:Name="imgDelete"  Source="/Images/Button/delete.png" Width="40" Height="40"/>
-                                            <TextBlock Text="Xoá" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                            <TextBlock Text="Xoá" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                         </Grid>
                                     </StackPanel>
                                 </Button>
