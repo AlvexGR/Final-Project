@@ -95,13 +95,14 @@ namespace Game.Presentation.Pages
 
         private void AddWord()
         {
-            if (sets.Count == 0) 
+            if (sets.Count == 0)
             {
                 displayWord.Children.Clear();
                 btnDelete.IsEnabled = false;
                 btnReview.IsEnabled = false;
                 return;
             }
+            db = new MainDb();
             var curSet = sets[idx];
             vocabularies = (from wordSet in db.WordSets
                             join word in db.Words on wordSet.WordId equals word.Id
@@ -111,13 +112,88 @@ namespace Game.Presentation.Pages
             GetData.wordList.Clear();
             foreach (var word in vocabularies)
             {
+                // Text block to display Word
                 TextBlock tbx = new TextBlock();
                 tbx.Text = word.EnglishWord;
                 tbx.FontFamily = new FontFamily("Comic Sans MS");
-                tbx.FontSize = 30;
-                tbx.HorizontalAlignment = HorizontalAlignment.Center;
-                tbx.Margin = new Thickness(0, 0, 0, 10);
-                displayWord.Children.Add(tbx);
+                tbx.FontSize = 25;
+                tbx.VerticalAlignment = VerticalAlignment.Center;
+                tbx.TextAlignment = TextAlignment.Left;
+                tbx.Padding = new Thickness(5, 0, 0, 0);
+
+                StackPanel sp = new StackPanel();
+                sp.Orientation = Orientation.Horizontal;
+                Grid grid = new Grid();
+                ColumnDefinition imgArea = new ColumnDefinition();
+                ColumnDefinition textArea = new ColumnDefinition();
+                imgArea.Width = new GridLength(80);
+                textArea.Width = new GridLength(150);
+                grid.ColumnDefinitions.Add(imgArea);
+                grid.ColumnDefinitions.Add(textArea);
+
+                int stars = db.WordSets.Where(x => x.SetId == curSet.Id && x.WordId == word.Id).Single().Star;
+
+                // Image for stars
+                Image img_pict = new Image();
+                img_pict.Width = 20;
+                img_pict.Height = 20;
+                if ((stars & (1 << 2)) > 0)
+                {
+                    img_pict.Source = new BitmapImage(new Uri("/Images/Other/medal_on.png", UriKind.Relative));
+                }
+                else
+                {
+                    img_pict.Source = new BitmapImage(new Uri("/Images/Other/medal.png", UriKind.Relative));
+                }
+
+                Image img_word = new Image();
+                img_word.Width = 20;
+                img_word.Height = 20;
+                if ((stars & (1 << 1)) > 0)
+                {
+                    img_word.Source = new BitmapImage(new Uri("/Images/Other/medal_on.png", UriKind.Relative));
+                }
+                else
+                {
+                    img_word.Source = new BitmapImage(new Uri("/Images/Other/medal.png", UriKind.Relative));
+                }
+
+                Image img_type = new Image();
+                img_type.Width = 20;
+                img_type.Height = 20;
+                if ((stars & 1) > 0)
+                {
+                    img_type.Source = new BitmapImage(new Uri("/Images/Other/medal_on.png", UriKind.Relative));
+                }
+                else
+                {
+                    img_type.Source = new BitmapImage(new Uri("/Images/Other/medal.png", UriKind.Relative));
+                }
+
+                Grid starArea = new Grid();
+                ColumnDefinition cdPict = new ColumnDefinition();
+                ColumnDefinition cdWord = new ColumnDefinition();
+                ColumnDefinition cdType = new ColumnDefinition();
+                cdPict.Width = new GridLength(1, GridUnitType.Star);
+                cdWord.Width = new GridLength(1, GridUnitType.Star);
+                cdType.Width = new GridLength(1, GridUnitType.Star);
+                starArea.ColumnDefinitions.Add(cdPict);
+                starArea.ColumnDefinitions.Add(cdWord);
+                starArea.ColumnDefinitions.Add(cdType);
+                starArea.Children.Add(img_pict);
+                starArea.Children.Add(img_word);
+                starArea.Children.Add(img_type);
+                Grid.SetColumn(img_pict, 0);
+                Grid.SetColumn(img_word, 1);
+                Grid.SetColumn(img_type, 2);
+
+                grid.Children.Add(starArea);
+                grid.Children.Add(tbx);
+                Grid.SetColumn(starArea, 0);
+                Grid.SetColumn(tbx, 1);
+                sp.Margin = new Thickness(0, 0, 0, 10);
+                sp.Children.Add(grid);
+                displayWord.Children.Add(sp);
                 GetData.wordList.Add(word);
             }
             btnDelete.IsEnabled = true;

@@ -527,6 +527,7 @@
     <Content Include="Audios\Vocabulary Pronunciations\plus.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\policeman.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\pomegranate.mp3" />
+    <Content Include="Audios\Vocabulary Pronunciations\pomelo.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\porcupine.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\postman.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\potato.mp3" />
@@ -579,6 +580,10 @@
     <Content Include="Audios\Vocabulary Pronunciations\write.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\yellow.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\zebra.mp3" />
+    <Resource Include="Images\Word\grandparent.jpg" />
+    <Resource Include="Images\Word\reporter.jpg" />
+    <Resource Include="Images\Theme\cothe.png" />
+    <Resource Include="Images\Theme\toanhoc.png" />
     <Resource Include="Images\Button\finishStudy.png" />
     <Resource Include="Images\Button\finishStudy_on.png" />
     <Resource Include="Images\Other\correct.png" />
@@ -650,11 +655,7 @@
     <Resource Include="Images\Word\lemon.jpg" />
     <Resource Include="Images\Word\magician.png" />
     <Resource Include="Images\Word\mango.png" />
-    <Resource Include="Images\Word\mangosteen.jpg"/>
-    <Resource Include="Images\Word\mother.jpg" />
-    <Resource Include="Images\Word\nephew.jpg" />
-    <Resource Include="Images\Word\niece.jpg" />
-    <Resource Include="Images\Word\nine.png" />
+    <Resource Include="Images\Word\mangosteen.jpg" />
     <Resource Include="Images\Word\minus.png" />
     <Resource Include="Images\Word\mother.jpg" />
     <Resource Include="Images\Word\neck.jpg" />

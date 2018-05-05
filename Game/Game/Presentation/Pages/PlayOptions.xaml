@@ -14,14 +14,14 @@
             <StackPanel HorizontalAlignment="Center">
                 <Border CornerRadius="15" Background="White" Width="300" Height="370" Margin="0 80 0 0">
                     <StackPanel Margin="20">
-                        <Button Style="{StaticResource NormalButton}"  x:Name="btnNoThemes" Command="{Binding WordReviewCommand}" Margin="0 0 0 30" Height="60" Click="btnWordReview_Click">
+                        <Button Style="{StaticResource NormalButton}"  x:Name="btnWordReview" Command="{Binding WordReviewCommand}" Margin="0 0 0 30" Height="60" Click="btnWordReview_Click">
                             <StackPanel Orientation="Horizontal">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="60"/>
                                         <ColumnDefinition Width="190"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image x:Name="imgNoTheme"  Source="/Images/Button/study.png" Width="50" Height="50"/>
+                                    <Image x:Name="imgWordView"  Source="/Images/Button/study.png" Width="50" Height="50"/>
                                     <TextBlock Text="Học từ" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                 </Grid>
                             </StackPanel>

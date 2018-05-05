@@ -83,6 +83,10 @@ namespace Game.Presentation.Pages
             {
                 (this as WordSet).LoadData();
             }
+            if (GetNameOfObject.GetName(ToString()) == "PlayOptions" && GetData.isLearned && GetData.isTheme)
+            {
+                (this as PlayOptions).ChangeStudyStatus(true);
+            }
         }
 
         public async Task AnimateInFromRight()

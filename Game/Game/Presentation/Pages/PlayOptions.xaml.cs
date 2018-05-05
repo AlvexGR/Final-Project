@@ -26,6 +26,15 @@ namespace Game.Presentation.Pages
         public PlayOptions()
         {
             InitializeComponent();
+            if (GetData.isTheme && !GetData.isLearned)
+            {
+                ChangeStudyStatus(false);
+            }
+        }
+
+        public void ChangeStudyStatus(bool status)
+        {
+            btnSelectingPictureOnListening.IsEnabled = btnSelectingWordOnListening.IsEnabled = btnTypingWord.IsEnabled = status;
         }
 
         private void ResetAnimationStatus()
