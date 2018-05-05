@@ -11,16 +11,17 @@
 
     <StackPanel>
         <Grid Height="600">
-            <Border Margin="150 100 150 230" Background="White" CornerRadius="10">
+            <Border Margin="150 50 150 120" Background="White" CornerRadius="10">
                 <StackPanel Margin="20">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
                             <RowDefinition Height="90"/>
-                            <RowDefinition Height="90"/>
+                            <RowDefinition Height="200"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Text="Thành tích của bạn:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
-                        <TextBlock x:Name="tbxScore" Text="{Binding CorrectAnswer}" FontSize="60" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1"/>
+                        <TextBlock FontFamily="Comic Sans MS" Text="Thành tích của bạn" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
+                        <TextBlock FontFamily="Comic Sans MS" x:Name="tbxScore" Text="{Binding CorrectAnswer}" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1"/>
                         <StackPanel Grid.Row="2" Margin="20" VerticalAlignment="Center">
                             <Grid x:Name="starArea">
                                 <Grid.ColumnDefinitions>
@@ -30,11 +31,21 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Image Source="/Images/Leaderboard or History/star.png" Height="50" Grid.Column="0"/>
-                                <Image Source="/Images/Leaderboard or History/star.png" Height="50" Grid.Column="1"/>
-                                <Image Source="/Images/Leaderboard or History/star.png" Height="50" Grid.Column="2"/>
-                                <Image Source="/Images/Leaderboard or History/star.png" Height="50" Grid.Column="3"/>
-                                <Image Source="/Images/Leaderboard or History/star.png" Height="50" Grid.Column="4"/>
+                                <Image Source="/Images/Other/star.png" Height="50" Grid.Column="0"/>
+                                <Image Source="/Images/Other/star.png" Height="50" Grid.Column="1"/>
+                                <Image Source="/Images/Other/star.png" Height="50" Grid.Column="2"/>
+                                <Image Source="/Images/Other/star.png" Height="50" Grid.Column="3"/>
+                                <Image Source="/Images/Other/star.png" Height="50" Grid.Column="4"/>
+                            </Grid>
+                        </StackPanel>
+                        <StackPanel Grid.Row="3">
+                            <Grid Margin="20 0 20 20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel x:Name="correctWords" Grid.Column="0"/>
+                                <StackPanel x:Name="wrongWords" Grid.Column="1"/>
                             </Grid>
                         </StackPanel>
                     </Grid>

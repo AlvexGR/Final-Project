@@ -24,7 +24,7 @@
                             <ColumnDefinition Width="190"/>
                         </Grid.ColumnDefinitions>
                         <Image x:Name="imgUser"  Source="/Images/Logo/user.png" Width="40" Height="40"/>
-                        <TextBlock x:Name="tbxUser" Grid.Column="1" Padding="0 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <TextBlock x:Name="tbxUser" Grid.Column="1" Padding="0 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                     </Grid>
                 </StackPanel>
 
@@ -47,7 +47,7 @@
                                         <ColumnDefinition Width="190"/>
                                     </Grid.ColumnDefinitions>
                                     <Image x:Name="imgTheme"  Source="/Images/Button/theme_on.png" Width="50" Height="50"/>
-                                    <TextBlock Text="Học từ theo chủ đề" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="Học từ theo chủ đề" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                 </Grid>
                             </StackPanel>
                         </Button>
@@ -60,12 +60,12 @@
                                         <ColumnDefinition Width="190"/>
                                     </Grid.ColumnDefinitions>
                                     <Image x:Name="imgOption"  Source="/Images/Button/menu.png" Width="50" Height="50"/>
-                                    <TextBlock Text="Học từ tự chọn" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="Học từ tự chọn" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                 </Grid>
                             </StackPanel>
                         </Button>
 
-                        <!--<Button Style="{StaticResource NormalButton}" x:Name="btnVocabularyList" Command="{Binding VocabularyListCommand}" Content="Từ vựng" Margin="0 0 0 50" Height="65" FontSize="18" FontFamily="Arial" Click="btnVocabularyList_Click"/>-->
+                        <!--<Button Style="{StaticResource NormalButton}" x:Name="btnVocabularyList" Command="{Binding VocabularyListCommand}" Content="Từ vựng" Margin="0 0 0 50" Height="65" FontSize="18" FontFamily="Comic Sans MS" Click="btnVocabularyList_Click"/>-->
                         <Button Style="{StaticResource NormalButton}"  x:Name="btnVocabularyList" Command="{Binding VocabularyListCommand}" Margin="0 0 0 50" Height="65" Click="btnVocabularyList_Click">
                             <StackPanel Orientation="Horizontal">
                                 <Grid>
@@ -74,7 +74,7 @@
                                         <ColumnDefinition Width="190"/>
                                     </Grid.ColumnDefinitions>
                                     <Image x:Name="imgVocabularyList"  Source="/Images/Button/vocabulary.png" Width="50" Height="50"/>
-                                    <TextBlock Text="Từ vựng" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="Từ vựng" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                 </Grid>
                             </StackPanel>
                         </Button>
@@ -87,7 +87,7 @@
                                         <ColumnDefinition Width="190"/>
                                     </Grid.ColumnDefinitions>
                                     <Image x:Name="imgExit"  Source="/Images/Button/exit_on.png" Width="50" Height="50"/>
-                                    <TextBlock Text="Thoát" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="Thoát" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                 </Grid>
                             </StackPanel>
                         </Button>
@@ -99,7 +99,7 @@
                     <Image x:Name="imgSetting" Source="/Images/Button/setting.png" MouseEnter="imgSetting_MouseEnter" MouseLeave="imgSetting_MouseLeave"/>
                 </Button>
                 <Button Command="{Binding HistoryCommand}" Style="{StaticResource HistoryButton}" x:Name="btnHistory" Click="btnHistory_Click" Margin="0 25 0 20" Height="70" Width="70">
-                    <Image x:Name="imgHistory" Source="/Images/Leaderboard or History/trophy.png" MouseEnter="imgHistory_MouseEnter" MouseLeave="imgHistory_MouseLeave"/>
+                    <Image x:Name="imgHistory" Source="/Images/Other/trophy.png" MouseEnter="imgHistory_MouseEnter" MouseLeave="imgHistory_MouseLeave"/>
                 </Button>
             </StackPanel>
         </Grid>

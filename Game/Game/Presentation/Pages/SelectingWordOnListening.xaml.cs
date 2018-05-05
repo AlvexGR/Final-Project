@@ -1,6 +1,7 @@
 ﻿using Game.Model;
 using Game.UserControls;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,9 +19,11 @@ namespace Game.Presentation.Pages
         private int idx = 0;
         private Vocabulary rightAnswer;
         private bool firstChoice = true;
+        private MainDb db; 
         public SelectingWordOnListening()
         {
             InitializeComponent();
+            db = new MainDb();
             UpdateData();
             GetData.correctAnswer = 0;
         }
@@ -34,7 +37,7 @@ namespace Game.Presentation.Pages
             ResetButton();
             Random rd = new Random();
             rightAnswer = GetData.wordList[idx];
-            var otherWords = GetData.wordListTotal.Where(x => x.Theme.Id == rightAnswer.Theme.Id && x.Id != rightAnswer.Id).OrderBy(x=>rd.Next()).ToList(); //all words have the same theme with right answer, except right answer
+            var otherWords = db.Words.ToList().Where(x => x.Id != rightAnswer.Id).OrderBy(x => rd.Next()).ToList();
 
             var indexOfRightAnswer = rd.Next(1,5);
             if(indexOfRightAnswer == 1)
@@ -92,7 +95,7 @@ namespace Game.Presentation.Pages
                 btnRealAnswer.BorderThickness = new Thickness(3);
                 if(firstChoice)
                 {
-                    GetData.correctAnswer++;
+                    GetData.correctAnswer |= (1 << idx);
                 }
                 if(idx == (GetData.wordList.Count-1))
                 {

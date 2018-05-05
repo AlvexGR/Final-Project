@@ -23,7 +23,7 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class WordSet : BasePage<WordSetViewModel>
     {
-        private MainDb db = new MainDb();
+        private MainDb db;
         private List<Set> sets = new List<Set>();
         private List<Vocabulary> vocabularies = new List<Vocabulary>();
         private int idx = 0;
@@ -31,7 +31,13 @@ namespace Game.Presentation.Pages
         public WordSet()
         {
             InitializeComponent();
-            if(GetData.isTheme)
+            db = new MainDb();
+            LoadData();
+        }
+        
+        public void LoadData()
+        {
+            if (GetData.isTheme)
             {
                 var rnd = new Random();
                 GetData.wordListTotal = db.Words.Where(x => x.Theme.Id == GetData.curTheme && !x.IsLearned).ToList().OrderBy(item => rnd.Next()).ToList();
@@ -43,7 +49,7 @@ namespace Game.Presentation.Pages
             UpdateSets();
             UpdateArrowButton();
         }
-        
+
         private void UpdateArrowButton()
         {
             if (sets.Count <= 1)
@@ -107,8 +113,10 @@ namespace Game.Presentation.Pages
             {
                 TextBlock tbx = new TextBlock();
                 tbx.Text = word.EnglishWord;
-                tbx.FontFamily = new FontFamily("Arial");
+                tbx.FontFamily = new FontFamily("Comic Sans MS");
                 tbx.FontSize = 30;
+                tbx.HorizontalAlignment = HorizontalAlignment.Center;
+                tbx.Margin = new Thickness(0, 0, 0, 10);
                 displayWord.Children.Add(tbx);
                 GetData.wordList.Add(word);
             }
@@ -173,57 +181,31 @@ namespace Game.Presentation.Pages
 
         private void btnReview_Click(object sender, RoutedEventArgs e)
         {
+            db = new MainDb();
             ResetAnimationStatus();
             isUnloadToLeft = true;
             GetData.wordList = vocabularies;
+            GetData.isLearned = true;
         }
 
         private void btnNew_Click(object sender, RoutedEventArgs e)
         {
+            db = new MainDb();
             ResetAnimationStatus();
             isUnloadToLeft = true;
-
-            Set set = new Set()
-            {
-                IsCreatedByTheme = true,
-                ThemeId = GetData.curTheme,
-                UserId = GetData.currentUser.Id
-            };
-
-            db.Sets.Add(set);
-            db.SaveChanges();
-            
+            GetData.isLearned = false;
             var rnd = new Random();
             GetData.wordListTotal = db.Words.Where(x => x.Theme.Id == GetData.curTheme && !x.IsLearned).ToList().OrderBy(item => rnd.Next()).ToList();
             GetData.wordList.Clear();
-
-            List<Model.WordSet> wordSets = new List<Model.WordSet>();
-
             for (int i = 0; i < 5; i++)
             {
                 GetData.wordList.Add(GetData.wordListTotal[i]);
-                Model.WordSet wordSet = new Model.WordSet()
-                {
-                    SetId = set.Id,
-                    WordId = GetData.wordList[i].Id
-                };
-                var word = db.Words.Find(GetData.wordList[i].Id);
-                word.IsLearned = true;
-                db.SaveChanges();
-                wordSets.Add(wordSet);
             }
-            if (db.Words.Where(x => x.Theme.Id == GetData.curTheme && !x.IsLearned).ToList().OrderBy(item => rnd.Next()).ToList().Count == 0)
-            {
-                btnNew.IsEnabled = false;
-            }
-            db.WordSets.AddRange(wordSets);
-            db.SaveChanges();
-            UpdateSets();
-            UpdateArrowButton();
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            db = new MainDb();
             var curSet = sets[idx];
             foreach (var i in GetData.wordList)
             {

@@ -28,19 +28,19 @@
                     <StackPanel>
                         <Border Margin="20 0 20 0" BorderThickness="0 0 0 1" BorderBrush="Blue">
                             <StackPanel Margin="0 30 0 0" >
-                                <TextBlock Text="Tên đăng nhập" Padding="5 5" FontSize="25" HorizontalAlignment="Center" Foreground="Blue"/>
-                                <TextBox x:Name="tbxUserName" MaxLength="20" TabIndex="0" Padding="5 5" FontSize="20" BorderThickness="0 0 0 0" TextAlignment="Center" KeyDown="BasePage_KeyDown"/>
+                                <TextBlock FontFamily="Comic Sans MS" Text="Tên đăng nhập" Padding="5 5" FontSize="25" HorizontalAlignment="Center" Foreground="Blue"/>
+                                <TextBox FontFamily="Comic Sans MS" x:Name="tbxUserName" MaxLength="20" TabIndex="0" Padding="5 5" FontSize="20" BorderThickness="0 0 0 0" TextAlignment="Center" KeyDown="BasePage_KeyDown"/>
                             </StackPanel>
                         </Border>
                         <Border Margin="20 0 20 0" BorderThickness="0 0 0 1" BorderBrush="Blue">
                             <StackPanel Margin="0 10 0 0">
-                                <TextBlock Text="Mật khẩu" Padding="5 5" FontSize="25" HorizontalAlignment="Center" Foreground="Blue"/>
+                                <TextBlock FontFamily="Comic Sans MS" Text="Mật khẩu" Padding="5 5" FontSize="25" HorizontalAlignment="Center" Foreground="Blue"/>
                                 <PasswordBox x:Name="tbxPassword" TabIndex="1" BorderThickness="0 0 0 0" Padding="5 5" FontSize="20" HorizontalAlignment="Center" KeyDown="BasePage_KeyDown"/>
                             </StackPanel>
                         </Border>
                         <Border Margin="20 0 20 0" BorderThickness="0 0 0 1" BorderBrush="Blue">
                             <StackPanel Margin="0 10 0 0">
-                                <TextBlock Text="Nhập lại mật khẩu" Padding="5 5" FontSize="25" HorizontalAlignment="Center" Foreground="Blue"/>
+                                <TextBlock FontFamily="Comic Sans MS" Text="Nhập lại mật khẩu" Padding="5 5" FontSize="25" HorizontalAlignment="Center" Foreground="Blue"/>
                                 <PasswordBox x:Name="tbxReEnterPassword" TabIndex="2" BorderThickness="0 0 0 0" Padding="5 5" FontSize="20" HorizontalAlignment="Center" KeyDown="BasePage_KeyDown"/>
                             </StackPanel>
                         </Border>
@@ -52,11 +52,11 @@
                                         <ColumnDefinition Width="140"/>
                                     </Grid.ColumnDefinitions>
                                     <Image x:Name="imgRegister"  Source="/Images/Button/register.png" Width="50" Height="50"/>
-                                    <TextBlock Text="Đăng ký" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="Đăng ký" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                 </Grid>
                             </StackPanel>
                         </Button>
-                        <TextBlock x:Name="tbxError" Visibility="Hidden" Text="" Foreground="Red" HorizontalAlignment="Center" Margin="20" FontFamily="Arial" FontSize="17"/>
+                        <TextBlock x:Name="tbxError" Visibility="Hidden" Text="" Foreground="Red" HorizontalAlignment="Center" Margin="20" FontFamily="Comic Sans MS" FontSize="17"/>
                     </StackPanel>
                 </Border>
             </StackPanel>

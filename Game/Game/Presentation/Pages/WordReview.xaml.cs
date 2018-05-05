@@ -24,11 +24,14 @@ namespace Game.Presentation.Pages
     {
         private int idx = 0;
         private Vocabulary vc;
+        private MainDb db;
         public WordReview()
         {
             InitializeComponent();
+            db = new MainDb();
             UpdateData();
             btnGoLeft.Visibility = Visibility.Hidden;
+            btnFinish.Visibility = Visibility.Hidden;
         }
 
         private void ResetAnimationStatus()
@@ -48,6 +51,22 @@ namespace Game.Presentation.Pages
             vc = GetData.wordList[idx];
             tbxDefinition.Text = vc.Definition;
             tbxEnglishWord.Text = vc.EnglishWord;
+            if(tbxEnglishWord.Text.Length>=20)
+            {
+                tbxEnglishWord.FontSize = 30;
+            }
+            else
+            {
+                tbxEnglishWord.FontSize = 40;
+            }
+            if (tbxDefinition.Text.Length >= 20)
+            {
+                tbxDefinition.FontSize = 30;
+            }
+            else
+            {
+                tbxDefinition.FontSize = 40;
+            }
             tbxSpelling.Text = vc.Spelling;
             wordImage.Source = new BitmapImage(new Uri(vc.Image, UriKind.Relative));
             mePronoun.Source = new Uri("../.." + vc.Pronunciation, UriKind.Relative);
@@ -60,11 +79,16 @@ namespace Game.Presentation.Pages
             if (idx == GetData.wordList.Count - 1)
             {
                 btnGoRight.Visibility = Visibility.Hidden;
+                if (GetData.isTheme && !GetData.isLearned)
+                {
+                    btnFinish.Visibility = Visibility.Visible;
+                }
             }
             else
             {
                 btnGoLeft.Visibility = Visibility.Visible;
                 btnGoRight.Visibility = Visibility.Visible;
+                btnFinish.Visibility = Visibility.Hidden;
             }
             UpdateData();
         }
@@ -81,6 +105,7 @@ namespace Game.Presentation.Pages
                 btnGoLeft.Visibility = Visibility.Visible;
                 btnGoRight.Visibility = Visibility.Visible;
             }
+            btnFinish.Visibility = Visibility.Hidden;
             UpdateData();
         }
 
@@ -118,6 +143,48 @@ namespace Game.Presentation.Pages
         private void imgBackButton_MouseLeave(object sender, MouseEventArgs e)
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
+        }
+
+        private void btnFinish_Click(object sender, RoutedEventArgs e)
+        {
+            ResetAnimationStatus();
+            isUnloadToRight = true;
+            mePronoun.Source = null;
+            GetData.isLearned = true;
+            Set set = new Set()
+            {
+                IsCreatedByTheme = true,
+                ThemeId = GetData.curTheme,
+                UserId = GetData.currentUser.Id
+            };
+            db.Sets.Add(set);
+            db.SaveChanges();
+            List<Model.WordSet> wordSets = new List<Model.WordSet>();
+
+            for (int i = 0; i < 5; i++)
+            {
+                Model.WordSet wordSet = new Model.WordSet()
+                {
+                    SetId = set.Id,
+                    WordId = GetData.wordList[i].Id
+                };
+                var word = db.Words.Find(GetData.wordList[i].Id);
+                word.IsLearned = true;
+                db.SaveChanges();
+                wordSets.Add(wordSet);
+            }
+            db.WordSets.AddRange(wordSets);
+            db.SaveChanges();
+        }
+
+        private void imgFinishButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgFinishButton.Source = new BitmapImage(new Uri("/Images/Button/finishStudy_on.png", UriKind.Relative));
+        }
+
+        private void imgFinishButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgFinishButton.Source = new BitmapImage(new Uri("/Images/Button/finishStudy.png", UriKind.Relative));
         }
     }
 }

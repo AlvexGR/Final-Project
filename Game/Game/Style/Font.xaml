@@ -4,11 +4,11 @@
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <Style TargetType="{x:Type Control}" x:Key="BaseStyle">
-        <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="FontFamily" Value="Comic Sans MS"/>
     </Style>
 
     <Style TargetType="{x:Type TextBlock}" x:Key="BaseTextBlockStyle">
-        <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="FontFamily" Value="Comic Sans MS"/>
         <Setter Property="FontSize" Value="18"/>
     </Style>
 

@@ -18,26 +18,26 @@
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Label Content="Sắp xếp:" Grid.Column="0" FontFamily="Arial" FontSize="18"/>
+                    <Label Content="Sắp xếp:" Grid.Column="0" FontFamily="Comic Sans MS" FontSize="18"/>
                     <StackPanel Grid.Column="1">
-                        <RadioButton x:Name="rdNewToOld" Checked="rdNewToOld_Checked" GroupName="Filter" Content="Mới nhất" Margin="0 0 0 5" FontFamily="Arial" FontSize="18"/>
-                        <RadioButton x:Name="rdOldToNew" Checked="rdOldToNew_Checked" GroupName="Filter" Content="Cũ nhất" FontFamily="Arial" FontSize="18"/>
+                        <RadioButton x:Name="rdNewToOld" Checked="rdNewToOld_Checked" GroupName="Filter" Content="Mới nhất" Margin="0 0 0 5" FontFamily="Comic Sans MS" FontSize="18"/>
+                        <RadioButton x:Name="rdOldToNew" Checked="rdOldToNew_Checked" GroupName="Filter" Content="Cũ nhất" FontFamily="Comic Sans MS" FontSize="18"/>
                     </StackPanel>
                     <StackPanel Grid.Column="2">
-                        <RadioButton x:Name="rdDecreasePoint" Checked="rdDecreasePoint_Checked" GroupName="Filter" Content="Điểm giảm dần" Margin="0 0 0 5" FontFamily="Arial" FontSize="18"/>
-                        <RadioButton x:Name="rdIncreasePoint" Checked="rdIncreasePoint_Checked" GroupName="Filter" Content="Điểm tăng dần" FontFamily="Arial" FontSize="18"/>
+                        <RadioButton x:Name="rdDecreasePoint" Checked="rdDecreasePoint_Checked" GroupName="Filter" Content="Điểm giảm dần" Margin="0 0 0 5" FontFamily="Comic Sans MS" FontSize="18"/>
+                        <RadioButton x:Name="rdIncreasePoint" Checked="rdIncreasePoint_Checked" GroupName="Filter" Content="Điểm tăng dần" FontFamily="Comic Sans MS" FontSize="18"/>
                     </StackPanel>
                 </Grid>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Ngày chơi" Width="200" FontSize="18" FontWeight="Bold"/>
-                    <TextBlock Text="Thành tích" Width="100" FontSize="18" FontWeight="Bold"/>
+                    <TextBlock Text="Ngày chơi" Width="200" FontSize="18" FontWeight="Bold" FontFamily="Comic Sans MS"/>
+                    <TextBlock Text="Thành tích" Width="100" FontSize="18" FontWeight="Bold" FontFamily="Comic Sans MS"/>
                 </StackPanel>
                 <ListBox x:Name="lbxPlayHistories" Height="300" Margin="0 10 0 0" Width="400">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Date}" Width="200" FontSize="18"/>
-                                <TextBlock Text="{Binding Score}" Width="100" FontSize="18"/>
+                                <TextBlock Text="{Binding Date}" Width="200" FontSize="18" FontFamily="Comic Sans MS"/>
+                                <TextBlock Text="{Binding Score}" Width="100" FontSize="18" FontFamily="Comic Sans MS"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

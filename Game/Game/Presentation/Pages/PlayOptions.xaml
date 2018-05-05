@@ -22,7 +22,7 @@
                                         <ColumnDefinition Width="190"/>
                                     </Grid.ColumnDefinitions>
                                     <Image x:Name="imgNoTheme"  Source="/Images/Button/study.png" Width="50" Height="50"/>
-                                    <TextBlock Text="Học từ" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="Học từ" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                 </Grid>
                             </StackPanel>
                         </Button>
@@ -35,7 +35,7 @@
                                         <ColumnDefinition Width="190"/>
                                     </Grid.ColumnDefinitions>
                                     <Image x:Name="imgSelectingPictureOnListening"  Source="/Images/Button/findPic.png" Width="50" Height="50"/>
-                                    <TextBlock Text="Nghe và chọn hình" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="Nghe và chọn hình" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                 </Grid>
                             </StackPanel>
                         </Button>
@@ -48,7 +48,7 @@
                                         <ColumnDefinition Width="190"/>
                                     </Grid.ColumnDefinitions>
                                     <Image x:Name="imgSelectingWordOnListening"  Source="/Images/Button/findWord.png" Width="50" Height="50"/>
-                                    <TextBlock Text="Nghe và chọn từ" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="Nghe và chọn từ" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                 </Grid>
                             </StackPanel>
                         </Button>
@@ -61,7 +61,7 @@
                                         <ColumnDefinition Width="190"/>
                                     </Grid.ColumnDefinitions>
                                     <Image x:Name="imgTypingWord"  Source="/Images/Button/typing.png" Width="50" Height="50"/>
-                                    <TextBlock Text="Học thuộc lòng" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="Học thuộc lòng" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                 </Grid>
                             </StackPanel>
                         </Button>
