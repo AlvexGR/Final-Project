@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Game.Model;
 using Game.UserControls;
 
 namespace Game.Presentation.Pages
@@ -21,11 +22,18 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class Result : BasePage<ResultViewModel>
     {
+        private MainDb db;
+        private List<Vocabulary> vocabularies;
         public Result()
         {
             InitializeComponent();
+            db = new MainDb();
             int total = 0;
-            for (int i = 0; i < GetData.wordList.Count; i++)
+            vocabularies = (from wordSet in db.WordSets
+                            join word in db.Words on wordSet.WordId equals word.Id
+                            where wordSet.SetId == GetData.curSet
+                            select word).Distinct().ToList();
+            for (int i = 0; i <vocabularies.Count; i++)
             {
                 StackPanel sp = new StackPanel();
                 sp.Orientation = Orientation.Horizontal;
@@ -41,7 +49,7 @@ namespace Game.Presentation.Pages
                 img.Width = 30;
                 img.Height = 30;
                 tbx.FontFamily = new FontFamily("Comic Sans MS");
-                tbx.Text = GetData.wordList[i].EnglishWord;
+                tbx.Text = vocabularies[i].EnglishWord;
                 tbx.FontSize = 20;
                 tbx.VerticalAlignment = VerticalAlignment.Center;
                 tbx.TextAlignment = TextAlignment.Left;
@@ -57,6 +65,10 @@ namespace Game.Presentation.Pages
                     Grid.SetColumn(tbx, 1);
                     sp.Children.Add(grid);
                     correctWords.Children.Add(sp);
+                    int wordId = vocabularies[i].Id;
+                    Model.WordSet wordSet = db.WordSets.Where(x => x.SetId == GetData.curSet && x.WordId == wordId).Single();
+                    wordSet.Star |= (1 << GetData.medal);
+                    db.SaveChanges();
                 }
                 else
                 {
@@ -73,7 +85,7 @@ namespace Game.Presentation.Pages
             {
                 (starArea.Children[i] as Image).Source = new BitmapImage(new Uri("/Images/Other/star_on.png", UriKind.Relative));
             }
-            tbxScore.Text = total.ToString() + "/" + GetData.wordList.Count.ToString();
+            tbxScore.Text = total.ToString() + "/" + vocabularies.Count.ToString();
         }
 
         private void ResetAnimationStatus()

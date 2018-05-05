@@ -24,9 +24,9 @@
                     <Image x:Name="imgArrowRight" Source="/Images/Button/arrow_right.png" MouseEnter="imgArrowRight_MouseEnter" MouseLeave="imgArrowRight_MouseLeave" Width="70" Height="70"/>
                 </Button>
                 <StackPanel Grid.Column="1">
-                    <Border CornerRadius="10" Background="White" Height="470" Margin="0 35 0 0">
+                    <Border CornerRadius="10" Background="White" Height="450" Margin="0 35 0 0">
                         <StackPanel Margin="20">
-                            <StackPanel x:Name="displayWord" Height="260" HorizontalAlignment="Center"/>
+                            <StackPanel x:Name="displayWord" Height="240" HorizontalAlignment="Left"/>
                                 <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"/>

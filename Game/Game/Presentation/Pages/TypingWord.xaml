@@ -19,8 +19,8 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Margin="0 50 0 30" Grid.Column="1">
-                    <Image x:Name="imgWord" Height="250" Margin="0 0 0 30"/>
-                    <Border Background="White" CornerRadius="10" Width="400">
+                    <Image x:Name="imgWord" Height="200" Width="200" Margin="0 0 0 30"/>
+                    <Border Background="White" CornerRadius="10">
                         <StackPanel Margin="20">
                             <StackPanel x:Name="wordArea" Orientation="Horizontal" HorizontalAlignment="Center">
                             </StackPanel>

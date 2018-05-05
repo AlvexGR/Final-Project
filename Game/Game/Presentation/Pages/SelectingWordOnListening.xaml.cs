@@ -19,13 +19,18 @@ namespace Game.Presentation.Pages
         private int idx = 0;
         private Vocabulary rightAnswer;
         private bool firstChoice = true;
-        private MainDb db; 
+        private MainDb db;
+        private List<Vocabulary> vocabularies;
         public SelectingWordOnListening()
         {
             InitializeComponent();
             db = new MainDb();
-            UpdateData();
             GetData.correctAnswer = 0;
+            vocabularies = (from wordSet in db.WordSets
+                            join word in db.Words on wordSet.WordId equals word.Id
+                            where wordSet.SetId == GetData.curSet
+                            select word).Distinct().ToList();
+            UpdateData();
         }
         private void ResetAnimationStatus()
         {
@@ -36,7 +41,7 @@ namespace Game.Presentation.Pages
         {
             ResetButton();
             Random rd = new Random();
-            rightAnswer = GetData.wordList[idx];
+            rightAnswer = vocabularies[idx];
             var otherWords = db.Words.ToList().Where(x => x.Id != rightAnswer.Id).OrderBy(x => rd.Next()).ToList();
 
             var indexOfRightAnswer = rd.Next(1,5);
@@ -97,7 +102,7 @@ namespace Game.Presentation.Pages
                 {
                     GetData.correctAnswer |= (1 << idx);
                 }
-                if(idx == (GetData.wordList.Count-1))
+                if(idx == (vocabularies.Count-1))
                 {
                     btnFinish.Visibility = Visibility.Visible;
                 }
@@ -125,13 +130,13 @@ namespace Game.Presentation.Pages
             ResetAnimationStatus();
             isUnloadToLeft = true;
             mePronoun.Source = null;
+            GetData.medal = 1;
         }
 
         public void ResetButton()
         {
             btnA.BorderThickness = btnB.BorderThickness = btnC.BorderThickness = btnD.BorderThickness = new Thickness(0);
             btnA.BorderBrush = btnB.BorderBrush = btnC.BorderBrush = btnD.BorderBrush = new SolidColorBrush(Colors.White);
-            btnA.IsEnabled = btnB.IsEnabled = btnC.IsEnabled = btnD.IsEnabled = true;
         }
 
         private void btnGoBack_Click(object sender, RoutedEventArgs e)

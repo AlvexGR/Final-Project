@@ -58,33 +58,33 @@ namespace Game.Presentation.Pages
 
         private void lbxWordList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var selectedWord = ((Vocabulary)lbxWordList.SelectedItem);
-            if (GetData.wordList.Contains(selectedWord)) return;
-            GetData.wordList.Add(selectedWord);
-            lbxSelectedWordList.Items.Add(selectedWord);
-            if(GetData.wordList.Count > 4)
-            {
-                btnNext.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                btnNext.Visibility = Visibility.Hidden;
-            }
+            //var selectedWord = ((Vocabulary)lbxWordList.SelectedItem);
+            //if (GetData.wordList.Contains(selectedWord)) return;
+            //GetData.wordList.Add(selectedWord);
+            //lbxSelectedWordList.Items.Add(selectedWord);
+            //if(GetData.wordList.Count > 4)
+            //{
+            //    btnNext.Visibility = Visibility.Visible;
+            //}
+            //else
+            //{
+            //    btnNext.Visibility = Visibility.Hidden;
+            //}
         }
 
         private void lbxSelectedWordList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var selectedWord = ((Vocabulary)lbxSelectedWordList.SelectedItem);
-            GetData.wordList.Remove(selectedWord);
-            lbxSelectedWordList.Items.Remove(selectedWord);
-            if (GetData.wordList.Count > 4)
-            {
-                btnNext.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                btnNext.Visibility = Visibility.Hidden;
-            }
+            //var selectedWord = ((Vocabulary)lbxSelectedWordList.SelectedItem);
+            //GetData.wordList.Remove(selectedWord);
+            //lbxSelectedWordList.Items.Remove(selectedWord);
+            //if (GetData.wordList.Count > 4)
+            //{
+            //    btnNext.Visibility = Visibility.Visible;
+            //}
+            //else
+            //{
+            //    btnNext.Visibility = Visibility.Hidden;
+            //}
         }
 
         private void imgNextButton_MouseEnter(object sender, MouseEventArgs e)

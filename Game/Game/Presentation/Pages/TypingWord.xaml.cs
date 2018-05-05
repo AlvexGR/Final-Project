@@ -25,11 +25,18 @@ namespace Game.Presentation.Pages
         private bool doneWord = false;
         private bool readyToNextWord = false;
         private bool firstTry = true;
+        private List<Vocabulary> vocabularies;
+        private MainDb db;
         public TypingWord()
         {
             InitializeComponent();
-            LoadTextBoxes();
+            db = new MainDb();
             GetData.correctAnswer = 0;
+            vocabularies = (from wordSet in db.WordSets
+                            join word in db.Words on wordSet.WordId equals word.Id
+                            where wordSet.SetId == GetData.curSet
+                            select word).Distinct().ToList();
+            LoadTextBoxes();
         }
 
         private void LoadTextBoxes()
@@ -37,7 +44,7 @@ namespace Game.Presentation.Pages
             btnCorrect.Visibility = Visibility.Hidden;
             proBarTypingRange.Value = 0;
             progress = 0;
-            Vocabulary curWord = GetData.wordList[idx];
+            Vocabulary curWord = vocabularies[idx];
             imgWord.Source = new BitmapImage(new Uri(curWord.Image, UriKind.Relative));
             typingArea.Children.Clear();
             wordArea.Children.Clear();
@@ -93,7 +100,7 @@ namespace Game.Presentation.Pages
                     GetData.correctAnswer |= (1 << idx);
                 }
                 done = true;
-                if(idx == GetData.wordList.Count-1)
+                if(idx == vocabularies.Count-1)
                 {
                     btnFinish.Visibility = Visibility.Visible;
                 }
@@ -151,6 +158,7 @@ namespace Game.Presentation.Pages
             ResetAnimationStatus();
             isUnloadToLeft = true;
             mePronoun.Source = null;
+            GetData.medal = 0;
         }
 
         private void keyDown(object sender, KeyEventArgs e)
@@ -160,6 +168,7 @@ namespace Game.Presentation.Pages
                 ResetAnimationStatus();
                 isUnloadToLeft = true;
                 mePronoun.Source = null;
+                GetData.medal = 0;
                 (DataContext as TypingWordViewModel).GoToResult();
                 return;
             }
@@ -190,9 +199,9 @@ namespace Game.Presentation.Pages
                 if(progress > 1)
                 {
                     Random rd = new Random();
-                    int lossLetters = Convert.ToInt32(Math.Ceiling(Convert.ToDecimal(0.3 * GetData.wordList[idx].EnglishWord.Length)));
+                    int lossLetters = Convert.ToInt32(Math.Ceiling(Convert.ToDecimal(0.3 * vocabularies[idx].EnglishWord.Length)));
                     var lst = new List<int>();
-                    for(int i= 0; i< GetData.wordList[idx].EnglishWord.Length;i++)
+                    for(int i= 0; i< vocabularies[idx].EnglishWord.Length;i++)
                     {
                         lst.Add(i);
                     }
@@ -200,7 +209,7 @@ namespace Game.Presentation.Pages
                     int cur = 0;
                     while(lossLetters > 0)
                     {
-                        for(int i = 0;i<GetData.wordList[idx].EnglishWord.Length;i++)
+                        for(int i = 0;i<vocabularies[idx].EnglishWord.Length;i++)
                         {
                             if(result[i] == cur)
                             {
@@ -219,19 +228,19 @@ namespace Game.Presentation.Pages
                 return;
             }
             char c = e.Key.ToString().ToLower()[0];
-            if (e.Key.ToString().ToLower()[0] == GetData.wordList[idx].EnglishWord[typingIdx])
+            if (e.Key.ToString().ToLower()[0] == vocabularies[idx].EnglishWord[typingIdx])
             {
                 (typingArea.Children[typingIdx] as TextBox).Text = e.Key.ToString();
                 (typingArea.Children[typingIdx] as TextBox).Text = (typingArea.Children[typingIdx] as TextBox).Text.ToLower();
                 (wordArea.Children[typingIdx] as TextBlock).Foreground = Brushes.Black;
                 typingIdx++;
-                if (typingIdx == GetData.wordList[idx].EnglishWord.Length)
+                if (typingIdx == vocabularies[idx].EnglishWord.Length)
                 {
                     doneWord = true;
-                    mePronoun.Source = new Uri("../.." + GetData.wordList[idx].Pronunciation, UriKind.Relative);
+                    mePronoun.Source = new Uri("../.." + vocabularies[idx].Pronunciation, UriKind.Relative);
                     mePronoun.Play();
                 }
-                if(typingIdx < GetData.wordList[idx].EnglishWord.Length)
+                if(typingIdx < vocabularies[idx].EnglishWord.Length)
                 {
                     typingArea.Children[typingIdx].Focus();
                     (wordArea.Children[typingIdx] as TextBlock).Foreground = Brushes.Green;

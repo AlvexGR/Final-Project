@@ -10,7 +10,6 @@ namespace Game.UserControls
     public static class GetData
     {
         public static List<Vocabulary> wordListTotal = new List<Vocabulary>();
-        public static List<Vocabulary> wordList = new List<Vocabulary>();
         public static int curTheme = -1;
         public static bool isTheme = false;
         public static User currentUser = new User();
@@ -19,5 +18,7 @@ namespace Game.UserControls
         public static Vocabulary curWord;
         public static int correctAnswer = 0;
         public static bool isLearned = false;
+        public static int medal = 0;
+        public static int curSet;
     }
 }

@@ -25,13 +25,31 @@ namespace Game.Presentation.Pages
         private int idx = 0;
         private Vocabulary vc;
         private MainDb db;
+        private List<Vocabulary> vocabularies;
         public WordReview()
         {
             InitializeComponent();
             db = new MainDb();
-            UpdateData();
             btnGoLeft.Visibility = Visibility.Hidden;
             btnFinish.Visibility = Visibility.Hidden;
+            if(!GetData.isLearned)
+            {
+                var rnd = new Random();
+                vocabularies = new List<Vocabulary>();
+                GetData.wordListTotal = db.Words.Where(x => x.Theme.Id == GetData.curTheme && !x.IsLearned).ToList().OrderBy(item => rnd.Next()).ToList();
+                for (int i = 0; i < 5; i++)
+                {
+                    vocabularies.Add(GetData.wordListTotal[i]);
+                }
+            }
+            else
+            {
+                vocabularies = (from wordSet in db.WordSets
+                                join word in db.Words on wordSet.WordId equals word.Id
+                                where wordSet.SetId == GetData.curSet
+                                select word).Distinct().ToList();
+            }
+            UpdateData();
         }
 
         private void ResetAnimationStatus()
@@ -48,7 +66,7 @@ namespace Game.Presentation.Pages
 
         private void UpdateData()
         {
-            vc = GetData.wordList[idx];
+            vc = vocabularies[idx];
             tbxDefinition.Text = vc.Definition;
             tbxEnglishWord.Text = vc.EnglishWord;
             if(tbxEnglishWord.Text.Length>=20)
@@ -76,7 +94,7 @@ namespace Game.Presentation.Pages
         private void btnGoRight_Click(object sender, RoutedEventArgs e)
         {
             idx++;
-            if (idx == GetData.wordList.Count - 1)
+            if (idx == vocabularies.Count - 1)
             {
                 btnGoRight.Visibility = Visibility.Hidden;
                 if (GetData.isTheme && !GetData.isLearned)
@@ -159,6 +177,8 @@ namespace Game.Presentation.Pages
             };
             db.Sets.Add(set);
             db.SaveChanges();
+            GetData.curSet = set.Id;
+
             List<Model.WordSet> wordSets = new List<Model.WordSet>();
 
             for (int i = 0; i < 5; i++)
@@ -166,15 +186,17 @@ namespace Game.Presentation.Pages
                 Model.WordSet wordSet = new Model.WordSet()
                 {
                     SetId = set.Id,
-                    WordId = GetData.wordList[i].Id
+                    WordId = vocabularies[i].Id,
+                    Star = 0
                 };
-                var word = db.Words.Find(GetData.wordList[i].Id);
+                var word = db.Words.Find(vocabularies[i].Id);
                 word.IsLearned = true;
                 db.SaveChanges();
                 wordSets.Add(wordSet);
             }
             db.WordSets.AddRange(wordSets);
             db.SaveChanges();
+            
         }
 
         private void imgFinishButton_MouseEnter(object sender, MouseEventArgs e)

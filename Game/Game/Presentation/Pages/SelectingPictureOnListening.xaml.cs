@@ -27,19 +27,24 @@ namespace Game.Presentation.Pages
         int indexOfRightAnswer = 0;
         private bool firstChoice = true;
         private MainDb db;
+        private List<Vocabulary> vocabularies;
         public SelectingPictureOnListening()
         {
             InitializeComponent();
             db = new MainDb();
-            UpdateData();
             GetData.correctAnswer = 0;
+            vocabularies = (from wordSet in db.WordSets
+                            join word in db.Words on wordSet.WordId equals word.Id
+                            where wordSet.SetId == GetData.curSet
+                            select word).Distinct().ToList();
+            UpdateData();
         }
 
         private void UpdateData()
         {
             ResetButton();
             Random rd = new Random();
-            rightAnswer = GetData.wordList[idx];
+            rightAnswer = vocabularies[idx];
             var otherWords = db.Words.ToList().Where(x => x.Id != rightAnswer.Id && x.Theme.Id == GetData.curTheme).OrderBy(x => rd.Next()).ToList(); //all words have the same theme with right answer, except right answer
 
             indexOfRightAnswer = rd.Next(1, 5);
@@ -110,7 +115,7 @@ namespace Game.Presentation.Pages
                 }
                 btnRealAnswer.BorderBrush = new SolidColorBrush(Colors.Green);
                 btnRealAnswer.BorderThickness = new Thickness(3);
-                if (idx == (GetData.wordList.Count - 1))
+                if (idx == (vocabularies.Count - 1))
                 {
                     btnFinish.Visibility = Visibility.Visible;
                 }
@@ -130,7 +135,6 @@ namespace Game.Presentation.Pages
         {
             btnA.BorderThickness = btnB.BorderThickness = btnC.BorderThickness = btnD.BorderThickness = new Thickness(0);
             btnA.BorderBrush = btnB.BorderBrush = btnC.BorderBrush = btnD.BorderBrush = new SolidColorBrush(Colors.White);
-            btnA.IsEnabled = btnB.IsEnabled = btnC.IsEnabled = btnD.IsEnabled = true;
         }
         private void ResetAnimationStatus()
         {
@@ -161,13 +165,14 @@ namespace Game.Presentation.Pages
             ResetAnimationStatus();
             isUnloadToLeft = true;
             mePronoun.Source = null;
-            PlayHistory playHistory = new PlayHistory()
-            {
-                Date = DateTime.Today,
-                Score = GetData.correctAnswer
-            };
-            db.PlayHistories.Add(playHistory);
-            db.SaveChanges();
+            //PlayHistory playHistory = new PlayHistory()
+            //{
+            //    Date = DateTime.Today,
+            //    Score = GetData.correctAnswer
+            //};
+            //db.PlayHistories.Add(playHistory);
+            //db.SaveChanges();
+            GetData.medal = 2;
         }
 
         private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)

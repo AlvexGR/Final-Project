@@ -44,6 +44,7 @@ namespace Game.Presentation.Pages
                 if (GetData.wordListTotal.Count == 0)
                 {
                     btnNew.IsEnabled = false;
+                    imgNew.Opacity = 0.5;
                 }
             }
             UpdateSets();
@@ -100,6 +101,8 @@ namespace Game.Presentation.Pages
                 displayWord.Children.Clear();
                 btnDelete.IsEnabled = false;
                 btnReview.IsEnabled = false;
+                imgDelete.Opacity = 0.5;
+                imgReview.Opacity = 0.5;
                 return;
             }
             db = new MainDb();
@@ -109,7 +112,6 @@ namespace Game.Presentation.Pages
                             where wordSet.SetId == curSet.Id
                             select word).Distinct().ToList();
             displayWord.Children.Clear();
-            GetData.wordList.Clear();
             foreach (var word in vocabularies)
             {
                 // Text block to display Word
@@ -118,16 +120,17 @@ namespace Game.Presentation.Pages
                 tbx.FontFamily = new FontFamily("Comic Sans MS");
                 tbx.FontSize = 25;
                 tbx.VerticalAlignment = VerticalAlignment.Center;
+                tbx.HorizontalAlignment = HorizontalAlignment.Left;
                 tbx.TextAlignment = TextAlignment.Left;
-                tbx.Padding = new Thickness(5, 0, 0, 0);
+                tbx.Padding = new Thickness(10, 0, 0, 0);
 
                 StackPanel sp = new StackPanel();
                 sp.Orientation = Orientation.Horizontal;
                 Grid grid = new Grid();
                 ColumnDefinition imgArea = new ColumnDefinition();
                 ColumnDefinition textArea = new ColumnDefinition();
-                imgArea.Width = new GridLength(80);
-                textArea.Width = new GridLength(150);
+                imgArea.Width = new GridLength(95);
+                textArea.Width = new GridLength(180);
                 grid.ColumnDefinitions.Add(imgArea);
                 grid.ColumnDefinitions.Add(textArea);
 
@@ -135,11 +138,11 @@ namespace Game.Presentation.Pages
 
                 // Image for stars
                 Image img_pict = new Image();
-                img_pict.Width = 20;
-                img_pict.Height = 20;
+                img_pict.Width = 30;
+                img_pict.Height = 30;
                 if ((stars & (1 << 2)) > 0)
                 {
-                    img_pict.Source = new BitmapImage(new Uri("/Images/Other/medal_on.png", UriKind.Relative));
+                    img_pict.Source = new BitmapImage(new Uri("/Images/Other/bronze_medal.png", UriKind.Relative));
                 }
                 else
                 {
@@ -147,11 +150,11 @@ namespace Game.Presentation.Pages
                 }
 
                 Image img_word = new Image();
-                img_word.Width = 20;
-                img_word.Height = 20;
+                img_word.Width = 30;
+                img_word.Height = 30;
                 if ((stars & (1 << 1)) > 0)
                 {
-                    img_word.Source = new BitmapImage(new Uri("/Images/Other/medal_on.png", UriKind.Relative));
+                    img_word.Source = new BitmapImage(new Uri("/Images/Other/silver_medal.png", UriKind.Relative));
                 }
                 else
                 {
@@ -159,16 +162,18 @@ namespace Game.Presentation.Pages
                 }
 
                 Image img_type = new Image();
-                img_type.Width = 20;
-                img_type.Height = 20;
+                img_type.Width = 30;
+                img_type.Height = 30;
                 if ((stars & 1) > 0)
                 {
-                    img_type.Source = new BitmapImage(new Uri("/Images/Other/medal_on.png", UriKind.Relative));
+                    img_type.Source = new BitmapImage(new Uri("/Images/Other/gold_medal.png", UriKind.Relative));
                 }
                 else
                 {
                     img_type.Source = new BitmapImage(new Uri("/Images/Other/medal.png", UriKind.Relative));
                 }
+
+                img_pict.HorizontalAlignment = img_word.HorizontalAlignment = img_type.HorizontalAlignment = HorizontalAlignment.Left;
 
                 Grid starArea = new Grid();
                 ColumnDefinition cdPict = new ColumnDefinition();
@@ -194,10 +199,11 @@ namespace Game.Presentation.Pages
                 sp.Margin = new Thickness(0, 0, 0, 10);
                 sp.Children.Add(grid);
                 displayWord.Children.Add(sp);
-                GetData.wordList.Add(word);
             }
             btnDelete.IsEnabled = true;
             btnReview.IsEnabled = true;
+            imgDelete.Opacity = 1;
+            imgReview.Opacity = 1;
         }
 
         private void ResetAnimationStatus()
@@ -260,8 +266,8 @@ namespace Game.Presentation.Pages
             db = new MainDb();
             ResetAnimationStatus();
             isUnloadToLeft = true;
-            GetData.wordList = vocabularies;
             GetData.isLearned = true;
+            GetData.curSet = sets[idx].Id;
         }
 
         private void btnNew_Click(object sender, RoutedEventArgs e)
@@ -270,20 +276,13 @@ namespace Game.Presentation.Pages
             ResetAnimationStatus();
             isUnloadToLeft = true;
             GetData.isLearned = false;
-            var rnd = new Random();
-            GetData.wordListTotal = db.Words.Where(x => x.Theme.Id == GetData.curTheme && !x.IsLearned).ToList().OrderBy(item => rnd.Next()).ToList();
-            GetData.wordList.Clear();
-            for (int i = 0; i < 5; i++)
-            {
-                GetData.wordList.Add(GetData.wordListTotal[i]);
-            }
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             db = new MainDb();
             var curSet = sets[idx];
-            foreach (var i in GetData.wordList)
+            foreach (var i in vocabularies)
             {
                 var word = db.Words.Find(i.Id);
                 word.IsLearned = false;
@@ -301,6 +300,7 @@ namespace Game.Presentation.Pages
             UpdateArrowButton();
             isDeleted = false;
             btnNew.IsEnabled = true;
+            imgNew.Opacity = 1;
         }
     }
 }

@@ -22,10 +22,11 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class PlayOptions : BasePage<PlayOptionsViewModel>
     {
-        private MainDb db = new MainDb();
+        private MainDb db;
         public PlayOptions()
         {
             InitializeComponent();
+            db = new MainDb();
             if (GetData.isTheme && !GetData.isLearned)
             {
                 ChangeStudyStatus(false);
@@ -35,6 +36,14 @@ namespace Game.Presentation.Pages
         public void ChangeStudyStatus(bool status)
         {
             btnSelectingPictureOnListening.IsEnabled = btnSelectingWordOnListening.IsEnabled = btnTypingWord.IsEnabled = status;
+            if(!status)
+            {
+                imgSelectingPictureOnListening.Opacity = imgTypingWord.Opacity = imgSelectingWordOnListening.Opacity = 0.5;
+            }
+            else
+            {
+                imgSelectingPictureOnListening.Opacity = imgTypingWord.Opacity = imgSelectingWordOnListening.Opacity = 1;
+            }
         }
 
         private void ResetAnimationStatus()
