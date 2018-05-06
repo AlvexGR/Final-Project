@@ -10,67 +10,81 @@
       Title="WordSelection">
 
     <StackPanel>
-        <Grid Height="600">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <!--Word list-->
-            <StackPanel Margin="100 50 30 145">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="3*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="Chủ đề:" Grid.Column="0" Style="{StaticResource NormalTextblock}" VerticalAlignment="Center"/>
-                    <ComboBox x:Name="cbxTheme" SelectionChanged="cbxTheme_SelectionChanged" SelectedIndex="0" Grid.Column="1" Height="27">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Name}" FontSize="15" FontFamily="Comic Sans MS"/>
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
-                </Grid>
-                <Grid Margin="0 10 0 0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="3*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="Tìm kiếm:" Style="{StaticResource NormalTextblock}"/>
-                    <TextBox x:Name="txtSearch" FontFamily="Comic Sans MS" TextChanged="txtSearch_TextChanged" Grid.Column="1" Height="27" FontSize="15" BorderThickness="0 0 0 1"/>
-                </Grid>
-                <ListBox x:Name="lbxVocabularies" SelectionChanged="lbxVocabularies_SelectionChanged" Margin="0 10 0 0" Padding="10 5" Height="331">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <!--<ListBoxItem Content="{Binding EnglishWord}" FontSize="18"/>-->
-                            <TextBlock Text="{Binding EnglishWord}" FontSize="18"/>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-            </StackPanel>
+        <StackPanel>
+            <Grid Height="600">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="115"/>
+                    <ColumnDefinition Width="570"/>
+                    <ColumnDefinition Width="115"/>
+                </Grid.ColumnDefinitions>
+                <!--Word list-->
+                <Border Grid.Column="1" Background="White" CornerRadius="10" Margin="0 40 0 100" Height="450">
+                    <StackPanel VerticalAlignment="Center" Margin="20">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="250"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="250"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel VerticalAlignment="Center" Grid.Column="0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="Chủ đề:" Grid.Column="0" Style="{StaticResource NormalTextblock}" VerticalAlignment="Center"/>
+                                    <ComboBox x:Name="cbxTheme" SelectionChanged="cbxTheme_SelectionChanged" SelectedIndex="0" Grid.Column="1" Height="30" VerticalAlignment="Center">
+                                        <ComboBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Name}" FontSize="18" FontFamily="Comic Sans MS"/>
+                                            </DataTemplate>
+                                        </ComboBox.ItemTemplate>
+                                    </ComboBox>
+                                </Grid>
+                                <Grid Margin="0 10 0 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="Tìm kiếm:" Style="{StaticResource NormalTextblock}" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="txtSearch" VerticalAlignment="Center" FontFamily="Comic Sans MS" TextChanged="txtSearch_TextChanged" Grid.Column="1" Height="30" FontSize="15" BorderThickness="0 0 0 1"/>
+                                </Grid>
+                                <ListBox x:Name="lbxVocabularies" Margin="0 10 0 0" BorderThickness="0" Height="330">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding EnglishWord}" FontSize="18"/>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </StackPanel>
 
-            <!--Selected Word list-->
-            <StackPanel Grid.Column="1" Margin="30 100 100 0">
-                <TextBlock Text="Các từ đã chọn" Grid.Column="0" HorizontalAlignment="Center" Style="{StaticResource NormalTextblock}"/>
-                <ListBox x:Name="lbxSelectedVocabularies" SelectionChanged="lbxSelectedVocabularies_SelectionChanged" Padding="10 5" Width="270" Height="331" >
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding EnglishWord}" FontSize="18"/>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-                <Button x:Name="btnNext" Click="btnNext_Click" Visibility="Hidden" Command="{Binding PlayOptionsCommand}" Style="{StaticResource NextButton}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="70" Height="70" FontSize="18">
-                    <Image x:Name="imgNextButton" Source="/Images/Button/next_button.png" MouseEnter="imgNextButton_MouseEnter" MouseLeave="imgNextButton_MouseLeave"/>
-                </Button>
-            </StackPanel>
+                            <!--Arrow left / right-->
+                            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                <Button Style="{StaticResource BackButton}" x:Name="btnAdd" Click="btnAdd_Click" Width="20" Height="20" Margin="0 0 0 10">
+                                    <Image Source="/Images/Button/arrow_right.png"/>
+                                </Button>
+                                <Button Style="{StaticResource BackButton}" x:Name="btnRemove" Click="btnRemove_Click" Width="20" Height="20" Margin="0 10 0 0">
+                                    <Image Source="/Images/Button/arrow_left.png"/>
+                                </Button>
+                            </StackPanel>
 
-            <StackPanel>
-                <Grid Height="550" Width="100" HorizontalAlignment="Left">
-                    <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" Width="70" Height="70">
-                        <Image x:Name="imgBackButton" Source="/Images/Button/back_button.png" MouseEnter="imgBackButton_MouseEnter" MouseLeave="imgBackButton_MouseLeave"/>
-                    </Button>
-                </Grid>
-            </StackPanel>
-        </Grid>
+                            <!--Selected Word list-->
+                            <StackPanel Grid.Column="2" VerticalAlignment="Center" Height="250">
+                                <TextBlock FontSize="25" Text="Các từ đã chọn" Grid.Column="0" HorizontalAlignment="Center" Style="{StaticResource NormalTextblock}"/>
+                                <ListBox x:Name="lbxSelectedVocabularies" BorderThickness="0"/>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+                <StackPanel Grid.Column="0">
+                    <Grid Height="550" Width="100" HorizontalAlignment="Left">
+                        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" Width="70" Height="70">
+                            <Image x:Name="imgBackButton" Source="/Images/Button/back_button.png" MouseEnter="imgBackButton_MouseEnter" MouseLeave="imgBackButton_MouseLeave"/>
+                        </Button>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        
     </StackPanel>
 </local:BasePage>

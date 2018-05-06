@@ -22,16 +22,18 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class WordSelection : BasePage<WordSelectionViewModel>
     {
-        public List<Vocabulary> SelectedWords { get; set; }
+        private List<Theme> themes;
+        private List<Vocabulary> selectedWords;
         private MainDb db;
         public WordSelection()
         {
             InitializeComponent();
             db = new MainDb();
-            List<Theme> themes = new List<Theme>() { new Theme { Id = 0, Name = "Tất cả" } };
+            selectedWords = new List<Vocabulary>();
+            themes = new List<Theme>() { new Theme { Id = 0, Name = "Tất cả" } };
             themes.AddRange(db.Themes.ToList());
             cbxTheme.ItemsSource = themes;
-            lbxVocabularies.ItemsSource = GetData.wordListTotal;
+            lbxVocabularies.ItemsSource = db.Words.ToList();
         }
 
         private void ResetAnimationStatus()
@@ -47,13 +49,13 @@ namespace Game.Presentation.Pages
             if (selectedItem.Id == 0)
             {
                 lbxVocabularies.ItemsSource = db.Words.OrderBy(x => x.EnglishWord).ToList();
-                lbxVocabularies.SelectedIndex = 0;
             }
             else
             {
                 lbxVocabularies.ItemsSource = db.Words.Where(x => x.Theme.Id == selectedItem.Id).OrderBy(x => x.EnglishWord).ToList();
-                lbxVocabularies.SelectedIndex = 0;
             }
+
+            lbxVocabularies.SelectedIndex = 0;
         }
 
         private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
@@ -87,43 +89,73 @@ namespace Game.Presentation.Pages
                 }
             }
         }
-
-        private void lbxVocabularies_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void UpdateData(int type)
         {
-            var selectedWord = ((Vocabulary)lbxVocabularies.SelectedItem);
-            if (SelectedWords.Contains(selectedWord)) return;
-            SelectedWords.Add(selectedWord);
-            lbxSelectedVocabularies.Items.Add(selectedWord);
-
-           
-
-            if (SelectedWords.Count == 5)
+            if (type == 1) 
             {
-                btnNext.Visibility = Visibility.Visible;
+                ListBoxItem lbi = new ListBoxItem();
+                lbi.BorderBrush = new SolidColorBrush(Colors.Black);
+                lbi.BorderThickness = new Thickness(1, 1, 1, 1);
+                lbi.Margin = new Thickness(0, 0, 0, 10);
+                TextBlock tbxWord = new TextBlock();
+                tbxWord.FontFamily = new FontFamily("Comic Sans MS");
+                tbxWord.FontSize = 20;
+                tbxWord.Text = (lbxSelectedVocabularies.Items.Count + 1).ToString() + ". " + selectedWords.Last().EnglishWord;
+                lbi.Content = tbxWord;
+                lbxSelectedVocabularies.Items.Add(lbi);
             }
             else
             {
-                btnNext.Visibility = Visibility.Hidden;
+                var selectedWord = selectedWords[lbxSelectedVocabularies.SelectedIndex];
+
+                selectedWords.Remove(selectedWord);
+
+                lbxSelectedVocabularies.Items.Clear();
+
+                for (int i = 0; i< selectedWords.Count;i++ )
+                {
+                    ListBoxItem lbi = new ListBoxItem();
+                    lbi.BorderBrush = new SolidColorBrush(Colors.Black);
+                    lbi.BorderThickness = new Thickness(1, 1, 1, 1);
+                    lbi.Margin = new Thickness(0, 0, 0, 10);
+                    TextBlock tbxWord = new TextBlock();
+                    tbxWord.FontFamily = new FontFamily("Comic Sans MS");
+                    tbxWord.FontSize = 20;
+                    tbxWord.Text = (lbxSelectedVocabularies.Items.Count + 1).ToString() + ". " + selectedWords[i].EnglishWord;
+                    lbi.Content = tbxWord;
+                    lbxSelectedVocabularies.Items.Add(lbi);
+                }
+            }
+            if (lbxSelectedVocabularies.Items.Count > 0) 
+            {
+                lbxSelectedVocabularies.SelectedIndex = 0;
             }
         }
 
-        private void lbxSelectedVocabularies_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            btnRemove.IsEnabled = true;
             var selectedWord = ((Vocabulary)lbxVocabularies.SelectedItem);
-
-            SelectedWords.Remove(selectedWord);
-            lbxSelectedVocabularies.Items.Remove(selectedWord);
-
+            if (selectedWords.Contains(selectedWord)) return;
+            selectedWords.Add(selectedWord);
+            UpdateData(1);
+            if (selectedWords.Count == 5)
+            {
+                //btnNext.Visibility = Visibility.Visible;
+                btnAdd.IsEnabled = false;
+                return;
+            }
         }
 
-        private void imgNextButton_MouseEnter(object sender, MouseEventArgs e)
+        private void btnRemove_Click(object sender, RoutedEventArgs e)
         {
-            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/next_button_on.png", UriKind.Relative));
-        }
-
-        private void imgNextButton_MouseLeave(object sender, MouseEventArgs e)
-        {
-            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/next_button.png", UriKind.Relative));
+            btnAdd.IsEnabled = true;
+            UpdateData(2);
+            if(selectedWords.Count == 0)
+            {
+                btnRemove.IsEnabled = false;
+            }
+            //btnNext.Visibility = Visibility.Hidden;
         }
 
         private void btnGoBack_Click(object sender, RoutedEventArgs e)
@@ -147,7 +179,5 @@ namespace Game.Presentation.Pages
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
         }
-
-
     }
 }
