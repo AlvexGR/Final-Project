@@ -10,20 +10,19 @@
       Title="Register">
 
     <StackPanel>
-        <Grid Height="570">
+        <Grid Height="600">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150"/>
                 <ColumnDefinition Width="650"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
-                <Button Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="70" Height="70" FontSize="18">
-                    <Button.Background>
-                        <SolidColorBrush Opacity="0" Color="#FFCBCACA"/>
-                    </Button.Background>
-                    <Image x:Name="imgBackButton" Source="/Images/Button/back_button.png" MouseEnter="imgBackButton_MouseEnter" MouseLeave="imgBackButton_MouseLeave"/>
-                </Button>
+                <Grid Height="550">
+                    <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" Width="70" Height="70">
+                        <Image x:Name="imgBackButton" Source="/Images/Button/back_button.png" MouseEnter="imgBackButton_MouseEnter" MouseLeave="imgBackButton_MouseLeave"/>
+                    </Button>
+                </Grid>
             </StackPanel>
-            <StackPanel Margin="50 40 200 50" Grid.Column="1">
+            <StackPanel Margin="50 30 200 50" Grid.Column="1">
                 <Border CornerRadius="15" Background="White" Width="300" Height="440">
                     <StackPanel>
                         <Border Margin="20 0 20 0" BorderThickness="0 0 0 1" BorderBrush="Blue">

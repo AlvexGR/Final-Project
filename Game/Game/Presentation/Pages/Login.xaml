@@ -41,7 +41,7 @@
                         <TextBlock x:Name="tbxError" Visibility="Hidden" Foreground="Red" HorizontalAlignment="Center" Margin="20" FontFamily="Comic Sans MS" FontSize="17"/>
                     </StackPanel>
                 </Border>
-                <Button Command="{Binding RegisterCommand}" Style="{StaticResource RegisterButton}" x:Name="btnRegister" Height="30" Width="220" Margin="10" Click="btnRegister_Click" MouseEnter="btnRegister_MouseEnter" MouseLeave="btnRegister_MouseLeave">
+                <Button Command="{Binding RegisterCommand}" Style="{StaticResource RegisterButton}" x:Name="btnRegister" Height="40" Width="220" Margin="10" Click="btnRegister_Click" MouseEnter="btnRegister_MouseEnter" MouseLeave="btnRegister_MouseLeave">
                     <TextBlock x:Name="tbxRegister" Text="Đăng ký tài khoản" FontFamily="Comic Sans MS" FontSize="25" Foreground="Blue"/>
                 </Button>
             </StackPanel>

@@ -44,9 +44,13 @@
                     </ListBox>
                 </StackPanel>
             </Border>
-            <Button Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" HorizontalAlignment="Left" Margin="80,450,0,0" VerticalAlignment="Top" Width="70" Height="70" FontSize="18">
-                <Image x:Name="imgBackButton" Source="/Images/Button/back_button.png" MouseEnter="imgBackButton_MouseEnter" MouseLeave="imgBackButton_MouseLeave"/>
-            </Button>
+            <StackPanel>
+                <Grid Height="550" Width="100" HorizontalAlignment="Left">
+                    <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" Width="70" Height="70">
+                        <Image x:Name="imgBackButton" Source="/Images/Button/back_button.png" MouseEnter="imgBackButton_MouseEnter" MouseLeave="imgBackButton_MouseLeave"/>
+                    </Button>
+                </Grid>
+            </StackPanel>
             <Button x:Name="btnWordDetail" Click="btnWordDetail_Click" Command="{Binding WordDetailCommand}" Style="{StaticResource NextButton}" HorizontalAlignment="Left" Margin="653,449,0,0" VerticalAlignment="Top" Width="70" Height="70" FontSize="18">
                 <Image x:Name="imgWordDetail" Source="/Images/Button/detail.png" MouseEnter="imgWordDetail_MouseEnter" MouseLeave="imgWordDetail_MouseLeave"/>
             </Button>

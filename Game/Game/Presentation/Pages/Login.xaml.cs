@@ -64,6 +64,8 @@ namespace Game.Presentation.Pages
         {
             tbxPassword.Password = tbxPassword.Password.Trim();
             tbxUserName.Text = tbxUserName.Text.Trim();
+            tbxUserName.SelectionStart = tbxUserName.Text.Length;
+            tbxUserName.SelectionLength = 0;
             if(db.Users.Where(x => x.Username == tbxUserName.Text && x.Password == tbxPassword.Password).ToList().Count == 0)
             {
                 tbxError.Text = "Tên đăng nhập hoặc mật khẩu sai";
