@@ -15,6 +15,7 @@ namespace Game.Presentation
         #region Public Properties
         public ICommand PreviousCommand { set; get; }
         public ICommand PlayOptionsCommand { set; get; }
+        public ICommand WordSelectionCommand { set; get; }
         #endregion
 
         #region Constructor
@@ -22,6 +23,7 @@ namespace Game.Presentation
         {
             PreviousCommand = new RelayCommand(async() => await GoToPrevious());
             PlayOptionsCommand = new RelayCommand(async () => await GoToPlayOptions());
+            WordSelectionCommand = new RelayCommand(async () => await GoToWordSelection());
         }
         #endregion
 
@@ -36,6 +38,12 @@ namespace Game.Presentation
         public async Task GoToPlayOptions()
         {
             ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.PlayOptionsPage;
+            await Task.Delay(1);
+        }
+
+        public async Task GoToWordSelection()
+        {
+            ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.WordSelectionPage;
             await Task.Delay(1);
         }
         #endregion

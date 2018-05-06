@@ -169,7 +169,7 @@ namespace Game.Presentation.Pages
                 isUnloadToLeft = true;
                 mePronoun.Source = null;
                 GetData.medal = 0;
-                (DataContext as TypingWordViewModel).GoToResult();
+                (DataContext as TypingWordViewModel).ResultCommand.Execute(null);
                 return;
             }
             if (e.Key == Key.Enter && readyToNextWord)

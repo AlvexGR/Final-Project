@@ -23,18 +23,24 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class WordSet : BasePage<WordSetViewModel>
     {
+        #region Properties
         private MainDb db;
         private List<Set> sets = new List<Set>();
         private List<Vocabulary> vocabularies = new List<Vocabulary>();
         private int idx = 0;
         private bool isDeleted = false;
+        #endregion
+
+        #region Constructor
         public WordSet()
         {
             InitializeComponent();
             db = new MainDb();
             LoadData();
         }
-        
+        #endregion
+
+        #region Other Methods
         public void LoadData()
         {
             if (GetData.isTheme)
@@ -46,11 +52,20 @@ namespace Game.Presentation.Pages
                     btnNew.IsEnabled = false;
                     imgNew.Opacity = 0.5;
                 }
+                tbxNew.Text = "Học mới";
+                tbxReview.Text = "Ôn lại";
+                imgReview.Source = new BitmapImage(new Uri("/Images/Button/review.png", UriKind.Relative));
+            }
+            else
+            {
+                tbxNew.Text = "Tạo mới";
+                tbxReview.Text = "Học";
+                imgReview.Source = new BitmapImage(new Uri("/Images/Button/learn.png", UriKind.Relative));
             }
             UpdateSets();
             UpdateArrowButton();
         }
-
+        
         private void UpdateArrowButton()
         {
             if (sets.Count <= 1)
@@ -82,16 +97,16 @@ namespace Game.Presentation.Pages
             if (GetData.isTheme)
             {
                 sets = db.Sets.Where(x => x.UserId == GetData.currentUser.Id && x.IsCreatedByTheme && x.ThemeId == GetData.curTheme).ToList();
-                if(!isDeleted)
-                {
-                    idx = sets.Count - 1;
-                }
-                AddWord();
             }
             else
             {
-
+                sets = db.Sets.Where(x => x.UserId == GetData.currentUser.Id && !x.IsCreatedByTheme).ToList();
             }
+            if (!isDeleted)
+            {
+                idx = sets.Count - 1;
+            }
+            AddWord();
         }
 
         private void AddWord()
@@ -210,21 +225,13 @@ namespace Game.Presentation.Pages
         {
             isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
         }
+        #endregion
 
+        #region Click Methods
         private void btnGoBack_Click(object sender, RoutedEventArgs e)
         {
             ResetAnimationStatus();
             isUnloadToRight = true;
-        }
-
-        private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
-        {
-            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
-        }
-
-        private void imgBackButton_MouseLeave(object sender, MouseEventArgs e)
-        {
-            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
         }
 
         private void btnGoLeft_Click(object sender, RoutedEventArgs e)
@@ -240,27 +247,7 @@ namespace Game.Presentation.Pages
             UpdateArrowButton();
             AddWord();
         }
-
-        private void imgArrowRight_MouseEnter(object sender, MouseEventArgs e)
-        {
-            imgArrowRight.Source = new BitmapImage(new Uri("/Images/Button/arrow_right_on.png", UriKind.Relative));
-        }
-
-        private void imgArrowRight_MouseLeave(object sender, MouseEventArgs e)
-        {
-            imgArrowRight.Source = new BitmapImage(new Uri("/Images/Button/arrow_right.png", UriKind.Relative));
-        }
-
-        private void imgArrowLeft_MouseEnter(object sender, MouseEventArgs e)
-        {
-            imgArrowLeft.Source = new BitmapImage(new Uri("/Images/Button/arrow_left_on.png", UriKind.Relative));
-        }
-
-        private void imgArrowLeft_MouseLeave(object sender, MouseEventArgs e)
-        {
-            imgArrowLeft.Source = new BitmapImage(new Uri("/Images/Button/arrow_left.png", UriKind.Relative));
-        }
-
+        
         private void btnReview_Click(object sender, RoutedEventArgs e)
         {
             db = new MainDb();
@@ -275,7 +262,15 @@ namespace Game.Presentation.Pages
             db = new MainDb();
             ResetAnimationStatus();
             isUnloadToLeft = true;
-            GetData.isLearned = false;
+            if(GetData.isTheme)
+            {
+                GetData.isLearned = false;
+                (DataContext as WordSetViewModel).PlayOptionsCommand.Execute(null);
+            }
+            else
+            {
+                (DataContext as WordSetViewModel).WordSelectionCommand.Execute(null);
+            }
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -302,5 +297,38 @@ namespace Game.Presentation.Pages
             btnNew.IsEnabled = true;
             imgNew.Opacity = 1;
         }
+        #endregion
+
+        #region MouseEnter and MouseLeave Methods
+        private void imgArrowRight_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgArrowRight.Source = new BitmapImage(new Uri("/Images/Button/arrow_right_on.png", UriKind.Relative));
+        }
+
+        private void imgArrowRight_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgArrowRight.Source = new BitmapImage(new Uri("/Images/Button/arrow_right.png", UriKind.Relative));
+        }
+
+        private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
+        }
+
+        private void imgBackButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
+        }
+
+        private void imgArrowLeft_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgArrowLeft.Source = new BitmapImage(new Uri("/Images/Button/arrow_left_on.png", UriKind.Relative));
+        }
+
+        private void imgArrowLeft_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgArrowLeft.Source = new BitmapImage(new Uri("/Images/Button/arrow_left.png", UriKind.Relative));
+        }
+        #endregion
     }
 }

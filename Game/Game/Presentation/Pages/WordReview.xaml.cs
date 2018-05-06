@@ -22,10 +22,14 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class WordReview : BasePage<WordReviewViewModel>
     {
+        #region Properties
         private int idx = 0;
         private Vocabulary vc;
         private MainDb db;
         private List<Vocabulary> vocabularies;
+        #endregion
+
+        #region Constructor
         public WordReview()
         {
             InitializeComponent();
@@ -51,17 +55,12 @@ namespace Game.Presentation.Pages
             }
             UpdateData();
         }
+        #endregion
 
+        #region Other Methods
         private void ResetAnimationStatus()
         {
             isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
-        }
-
-        private void btnGoBack_Click(object sender, RoutedEventArgs e)
-        {
-            ResetAnimationStatus();
-            isUnloadToRight = true;
-            mePronoun.Source = null;
         }
 
         private void UpdateData()
@@ -69,7 +68,7 @@ namespace Game.Presentation.Pages
             vc = vocabularies[idx];
             tbxDefinition.Text = vc.Definition;
             tbxEnglishWord.Text = vc.EnglishWord;
-            if(tbxEnglishWord.Text.Length>=20)
+            if (tbxEnglishWord.Text.Length >= 20)
             {
                 tbxEnglishWord.FontSize = 30;
             }
@@ -90,7 +89,16 @@ namespace Game.Presentation.Pages
             mePronoun.Source = new Uri("../.." + vc.Pronunciation, UriKind.Relative);
             mePronoun.Play();
         }
+        #endregion
 
+        #region Click Methods
+        private void btnGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            ResetAnimationStatus();
+            isUnloadToRight = true;
+            mePronoun.Source = null;
+        }
+        
         private void btnGoRight_Click(object sender, RoutedEventArgs e)
         {
             idx++;
@@ -133,36 +141,6 @@ namespace Game.Presentation.Pages
             mePronoun.Play();
         }
 
-        private void imgArrowRight_MouseEnter(object sender, MouseEventArgs e)
-        {
-            imgArrowRight.Source = new BitmapImage(new Uri("/Images/Button/arrow_right_on.png", UriKind.Relative));
-        }
-
-        private void imgArrowRight_MouseLeave(object sender, MouseEventArgs e)
-        {
-            imgArrowRight.Source = new BitmapImage(new Uri("/Images/Button/arrow_right.png", UriKind.Relative));
-        }
-
-        private void imgArrowLeft_MouseEnter(object sender, MouseEventArgs e)
-        {
-            imgArrowLeft.Source = new BitmapImage(new Uri("/Images/Button/arrow_left_on.png", UriKind.Relative));
-        }
-
-        private void imgArrowLeft_MouseLeave(object sender, MouseEventArgs e)
-        {
-            imgArrowLeft.Source = new BitmapImage(new Uri("/Images/Button/arrow_left.png", UriKind.Relative));
-        }
-
-        private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
-        {
-            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
-        }
-
-        private void imgBackButton_MouseLeave(object sender, MouseEventArgs e)
-        {
-            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
-        }
-
         private void btnFinish_Click(object sender, RoutedEventArgs e)
         {
             ResetAnimationStatus();
@@ -196,7 +174,39 @@ namespace Game.Presentation.Pages
             }
             db.WordSets.AddRange(wordSets);
             db.SaveChanges();
-            
+
+        }
+        #endregion
+
+        #region MouseEnter and MouseLeave Methods
+        private void imgArrowRight_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgArrowRight.Source = new BitmapImage(new Uri("/Images/Button/arrow_right_on.png", UriKind.Relative));
+        }
+
+        private void imgArrowRight_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgArrowRight.Source = new BitmapImage(new Uri("/Images/Button/arrow_right.png", UriKind.Relative));
+        }
+
+        private void imgArrowLeft_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgArrowLeft.Source = new BitmapImage(new Uri("/Images/Button/arrow_left_on.png", UriKind.Relative));
+        }
+
+        private void imgArrowLeft_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgArrowLeft.Source = new BitmapImage(new Uri("/Images/Button/arrow_left.png", UriKind.Relative));
+        }
+
+        private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
+        }
+
+        private void imgBackButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
         }
 
         private void imgFinishButton_MouseEnter(object sender, MouseEventArgs e)
@@ -208,5 +218,6 @@ namespace Game.Presentation.Pages
         {
             imgFinishButton.Source = new BitmapImage(new Uri("/Images/Button/finishStudy.png", UriKind.Relative));
         }
+        #endregion
     }
 }

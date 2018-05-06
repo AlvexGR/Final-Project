@@ -23,17 +23,22 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class Main : BasePage<MainViewModel>
     {
+        #region Constructor
         public Main()
         {
             InitializeComponent();
             tbxUser.Text = GetData.currentUser.Username;
         }
+        #endregion
 
+        #region Other Methods
         private void ResetAnimationStatus()
         {
             isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
         }
+        #endregion
 
+        #region Click Methods
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.ShutdownMode = ShutdownMode.OnExplicitShutdown;
@@ -44,6 +49,7 @@ namespace Game.Presentation.Pages
         {
             ResetAnimationStatus();
             isUnloadToLeft = true;
+            GetData.isTheme = false;
         }
 
         private void btnSetting_Click(object sender, RoutedEventArgs e)
@@ -60,6 +66,7 @@ namespace Game.Presentation.Pages
 
         private void btnTheme_Click(object sender, RoutedEventArgs e)
         {
+            GetData.isTheme = true;
             ResetAnimationStatus();
             isUnloadToLeft = true;
         }
@@ -70,32 +77,15 @@ namespace Game.Presentation.Pages
             isUnloadToLeft = true;
         }
 
-        private void imgHistory_MouseEnter(object sender, MouseEventArgs e)
-        {
-            imgHistory.Source = new BitmapImage(new Uri("/Images/Other/trophy_on.png", UriKind.Relative));
-        }
-
-        private void imgHistory_MouseLeave(object sender, MouseEventArgs e)
-        {
-            imgHistory.Source = new BitmapImage(new Uri("/Images/Other/trophy.png", UriKind.Relative));
-        }
-
-        private void imgSetting_MouseEnter(object sender, MouseEventArgs e)
-        {
-            imgSetting.Source = new BitmapImage(new Uri("/Images/Button/setting_on.png", UriKind.Relative));
-        }
-
-        private void imgSetting_MouseLeave(object sender, MouseEventArgs e)
-        {
-            imgSetting.Source = new BitmapImage(new Uri("/Images/Button/setting.png", UriKind.Relative));
-        }
-
         private void btnGoBack_Click(object sender, RoutedEventArgs e)
         {
             ResetAnimationStatus();
             isUnloadToRight = true;
         }
+        #endregion
 
+        #region MouseEnter and MouseLeave Methods
+        //Go Back
         private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
@@ -106,15 +96,27 @@ namespace Game.Presentation.Pages
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
         }
 
-        private void btnExit_MouseEnter(object sender, MouseEventArgs e)
+        //History
+        private void imgHistory_MouseEnter(object sender, MouseEventArgs e)
         {
-            imgExit.Source = new BitmapImage(new Uri("/Images/Button/exit_on.png", UriKind.Relative));
+            imgHistory.Source = new BitmapImage(new Uri("/Images/Other/trophy_on.png", UriKind.Relative));
         }
 
-        private void btnExit_MouseLeave(object sender, MouseEventArgs e)
+        private void imgHistory_MouseLeave(object sender, MouseEventArgs e)
         {
-            imgExit.Source = new BitmapImage(new Uri("/Images/Button/exit_on.png", UriKind.Relative));
+            imgHistory.Source = new BitmapImage(new Uri("/Images/Other/trophy.png", UriKind.Relative));
         }
 
+        //Setting
+        private void imgSetting_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgSetting.Source = new BitmapImage(new Uri("/Images/Button/setting_on.png", UriKind.Relative));
+        }
+
+        private void imgSetting_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgSetting.Source = new BitmapImage(new Uri("/Images/Button/setting.png", UriKind.Relative));
+        }
+        #endregion
     }
 }

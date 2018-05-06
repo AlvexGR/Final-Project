@@ -629,6 +629,7 @@
     <Content Include="Audios\Vocabulary Pronunciations\write.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\yellow.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\zebra.mp3" />
+    <Resource Include="Images\Button\learn.png" />
     <Resource Include="Images\Other\bronze_medal.png" />
     <Resource Include="Images\Other\gold_medal.png" />
     <Resource Include="Images\Other\silver_medal.png" />
