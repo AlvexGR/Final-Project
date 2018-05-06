@@ -32,7 +32,7 @@ namespace Game.Presentation.Pages
             db = new MainDb();
             selectedWords = new List<Vocabulary>();
             themes = new List<Theme>() { new Theme { Id = 0, Name = "Tất cả" } };
-            themes.AddRange(db.Themes.ToList());
+            themes.AddRange(db.Themes.Where(x => x.Id != 11).ToList());
             cbxTheme.ItemsSource = themes;
             lbxVocabularies.ItemsSource = db.Words.ToList();
         }

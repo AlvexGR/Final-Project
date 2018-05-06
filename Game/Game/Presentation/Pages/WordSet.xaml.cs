@@ -65,7 +65,7 @@ namespace Game.Presentation.Pages
             UpdateSets();
             UpdateArrowButton();
         }
-        
+
         private void UpdateArrowButton()
         {
             if (sets.Count <= 1)
@@ -74,12 +74,12 @@ namespace Game.Presentation.Pages
             }
             else
             {
-                if(idx == 0)
+                if (idx == 0)
                 {
                     btnGoRight.Visibility = Visibility.Visible;
                     btnGoLeft.Visibility = Visibility.Hidden;
                 }
-                else if(idx == sets.Count-1)
+                else if (idx == sets.Count - 1)
                 {
                     btnGoRight.Visibility = Visibility.Hidden;
                     btnGoLeft.Visibility = Visibility.Visible;
@@ -247,7 +247,7 @@ namespace Game.Presentation.Pages
             UpdateArrowButton();
             AddWord();
         }
-        
+
         private void btnReview_Click(object sender, RoutedEventArgs e)
         {
             db = new MainDb();
@@ -262,7 +262,7 @@ namespace Game.Presentation.Pages
             db = new MainDb();
             ResetAnimationStatus();
             isUnloadToLeft = true;
-            if(GetData.isTheme)
+            if (GetData.isTheme)
             {
                 GetData.isLearned = false;
                 (DataContext as WordSetViewModel).PlayOptionsCommand.Execute(null);
@@ -275,27 +275,33 @@ namespace Game.Presentation.Pages
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            db = new MainDb();
-            var curSet = sets[idx];
-            foreach (var i in vocabularies)
+            MessageBoxResult messageBoxResult = MessageBox.Show("Bạn muốn xoá bộ từ này?", "Xoá bộ từ?", MessageBoxButton.YesNo,MessageBoxImage.Question,MessageBoxResult.No);
+
+            if (messageBoxResult == MessageBoxResult.Yes)
             {
-                var word = db.Words.Find(i.Id);
-                word.IsLearned = false;
+                db = new MainDb();
+                var curSet = sets[idx];
+                foreach (var i in vocabularies)
+                {
+                    var word = db.Words.Find(i.Id);
+                    word.IsLearned = false;
+                    db.SaveChanges();
+                }
+                if (idx > 0)
+                {
+                    idx--;
+                }
+                db.WordSets.RemoveRange(db.WordSets.Where(x => x.SetId == curSet.Id).ToList());
+                db.Sets.Remove(db.Sets.Find(curSet.Id));
                 db.SaveChanges();
+                isDeleted = true;
+                UpdateSets();
+                UpdateArrowButton();
+                isDeleted = false;
+                btnNew.IsEnabled = true;
+                imgNew.Opacity = 1;
             }
-            if(idx>0)
-            {
-                idx--;
-            }
-            db.WordSets.RemoveRange(db.WordSets.Where(x => x.SetId == curSet.Id).ToList());
-            db.Sets.Remove(db.Sets.Find(curSet.Id));
-            db.SaveChanges();
-            isDeleted = true;
-            UpdateSets();
-            UpdateArrowButton();
-            isDeleted = false;
-            btnNew.IsEnabled = true;
-            imgNew.Opacity = 1;
+
         }
         #endregion
 

@@ -45,10 +45,18 @@
                     </Button>
                 </Grid>
             </StackPanel>
-            <Button x:Name="btnFinish" Click="btnFinish_Click"  Command="{Binding PreviousCommand}" Style="{StaticResource NextButton}" HorizontalAlignment="Left" Margin="653,449,0,0" VerticalAlignment="Top" Width="70" Height="70" FontSize="18">
+            <!--<Button x:Name="btnFinish" Click="btnFinish_Click"  Command="{Binding PreviousCommand}" Style="{StaticResource NextButton}" HorizontalAlignment="Left" Margin="653,449,0,0" VerticalAlignment="Top" Width="70" Height="70" FontSize="18">
                 <Image x:Name="imgFinishButton" Source="/Images/Button/finishStudy.png" MouseEnter="imgFinishButton_MouseEnter"  MouseLeave="imgFinishButton_MouseLeave"/>
-            </Button>
+            </Button>-->
+            <StackPanel>
+                <Grid Height="540" Width="70" HorizontalAlignment="Right">
+                    <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Style="{StaticResource NextButton}" x:Name="btnFinish" Click="btnFinish_Click" Command="{Binding PreviousCommand}" Width="70" Height="70">
+                        <Image x:Name="imgFinishButton" Source="/Images/Button/correct.png" MouseEnter="imgFinishButton_MouseEnter" MouseLeave="imgFinishButton_MouseLeave"/>
+                    </Button>
+                </Grid>
+            </StackPanel>
+
         </Grid>
-        
+
     </StackPanel>
 </local:BasePage>

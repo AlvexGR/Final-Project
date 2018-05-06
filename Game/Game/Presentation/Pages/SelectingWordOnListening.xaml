@@ -36,12 +36,20 @@
                 </Button>
                 <MediaElement x:Name="mePronoun" LoadedBehavior="Manual"/>
             </StackPanel>
-            <Button x:Name="btnCorrect" Click="btnCorrect_Click" Visibility="Hidden" Style="{StaticResource NextButton}" HorizontalAlignment="Left" Margin="650,450,0,0" VerticalAlignment="Top" FontSize="18">
-                <Image x:Name="imgCorrectButton" Source="/Images/Button/correct.png" MouseEnter="imgCorrectButton_MouseEnter" MouseLeave="imgCorrectButton_MouseLeave" Width="70" Height="70"/>
-            </Button>
-            <Button Command="{Binding ResultCommand}" Visibility="Hidden" x:Name="btnFinish" Click="btnFinish_Click" Style="{StaticResource FinishButton}" HorizontalAlignment="Left" Margin="626,450,0,0" VerticalAlignment="Top" Width="109" Height="70" FontSize="18">
+
+            <!--<Button Command="{Binding ResultCommand}" Visibility="Hidden" x:Name="btnFinish" Click="btnFinish_Click" Style="{StaticResource FinishButton}" HorizontalAlignment="Left" Margin="626,450,0,0" VerticalAlignment="Top" Width="109" Height="70" FontSize="18">
                 <Image x:Name="imgFinishButton" Source="/Images/Button/finish.png" MouseEnter="imgFinishButton_MouseEnter" MouseLeave="imgFinishButton_MouseLeave"/>
-            </Button>
+            </Button>-->
+            <StackPanel>
+                <Grid Height="540" Width="70" HorizontalAlignment="Right">
+                    <Button Visibility="Hidden" VerticalAlignment="Bottom" HorizontalAlignment="Right" Style="{StaticResource NextButton}" x:Name="btnFinish" Click="btnFinish_Click" Command="{Binding ResultCommand}" Width="70" Height="70">
+                        <Image x:Name="imgFinishButton" Source="/Images/Button/correct.png" MouseEnter="imgFinishButton_MouseEnter" MouseLeave="imgFinishButton_MouseLeave"/>
+                    </Button>
+                    <Button x:Name="btnCorrect" Click="btnCorrect_Click" Visibility="Hidden" Style="{StaticResource NextButton}" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="18">
+                        <Image x:Name="imgCorrectButton" Source="/Images/Button/correct.png" MouseEnter="imgCorrectButton_MouseEnter" MouseLeave="imgCorrectButton_MouseLeave" Width="70" Height="70"/>
+                    </Button>
+                </Grid>
+            </StackPanel>
             <StackPanel>
                 <Grid Height="540" Width="100" HorizontalAlignment="Left">
                     <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" Width="70" Height="70">

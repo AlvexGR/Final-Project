@@ -26,7 +26,7 @@ namespace Game.Presentation.Pages
         public ThemeSelection()
         {
             InitializeComponent();
-            lbxTheme.ItemsSource = db.Themes.ToList();
+            lbxTheme.ItemsSource = db.Themes.Where(x=>x.Id!=11).ToList();
         }
 
         private void ResetAnimationStatus()
@@ -60,12 +60,12 @@ namespace Game.Presentation.Pages
 
         private void imgNextButton_MouseEnter(object sender, MouseEventArgs e)
         {
-            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/next_button_on.png", UriKind.Relative));
+            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/correct_on.png", UriKind.Relative));
         }
 
         private void imgNextButton_MouseLeave(object sender, MouseEventArgs e)
         {
-            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/next_button.png", UriKind.Relative));
+            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/correct.png", UriKind.Relative));
         }
     }
 }

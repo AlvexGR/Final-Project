@@ -46,14 +46,7 @@ namespace Game.Presentation.Pages
             Random rd = new Random();
             rightAnswer = vocabularies[idx];
             List<Vocabulary> otherWords = new List<Vocabulary>();
-            if (GetData.isTheme)
-            {
-                otherWords = db.Words.ToList().Where(x => x.Id != rightAnswer.Id && x.Theme.Id == GetData.curTheme).OrderBy(x => rd.Next()).ToList();
-            }
-            else
-            {
-                otherWords = db.Words.ToList().Where(x => x.Id != rightAnswer.Id).OrderBy(x => rd.Next()).ToList();
-            }
+            otherWords = db.Words.ToList().Where(x => x.Id != rightAnswer.Id && x.Theme.Id == rightAnswer.Theme.Id).OrderBy(x => rd.Next()).ToList();
 
             indexOfRightAnswer = rd.Next(1, 5);
             if (indexOfRightAnswer == 1)
@@ -204,12 +197,12 @@ namespace Game.Presentation.Pages
 
         private void imgFinishButton_MouseEnter(object sender, MouseEventArgs e)
         {
-            imgFinishButton.Source = new BitmapImage(new Uri("/Images/Button/finish_on.png", UriKind.Relative));
+            imgFinishButton.Source = new BitmapImage(new Uri("/Images/Button/correct_on.png", UriKind.Relative));
         }
 
         private void imgFinishButton_MouseLeave(object sender, MouseEventArgs e)
         {
-            imgFinishButton.Source = new BitmapImage(new Uri("/Images/Button/finish.png", UriKind.Relative));
+            imgFinishButton.Source = new BitmapImage(new Uri("/Images/Button/correct.png", UriKind.Relative));
         }
     }
 }

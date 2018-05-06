@@ -31,7 +31,7 @@ namespace Game.Presentation.Pages
             InitializeComponent();
             db = new MainDb();
             List<Theme> themes = new List<Theme>() { new Theme { Id = 0, Name = "Tất cả" } };
-            themes.AddRange(db.Themes.ToList());
+            themes.AddRange(db.Themes.Where(x => x.Id != 11).ToList());
             cbxTheme.ItemsSource = themes;
         }
 

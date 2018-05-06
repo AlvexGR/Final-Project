@@ -22,10 +22,11 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class Setting : BasePage<SettingViewModel>
     {
-        private MainDb db = new MainDb();
+        private MainDb db;
         public Setting()
         {
             InitializeComponent();
+            db = new MainDb();
             slideVolume.Value = GetData.volume;
         }
 
@@ -75,10 +76,11 @@ namespace Game.Presentation.Pages
                 tbxStatus.Text = "Thay đổi mật khẩu thành công";
                 tbxStatus.Visibility = Visibility.Visible;
                 tbxStatus.Foreground = Brushes.Green;
+                var user = db.Users.Find(GetData.currentUser.Id);
+                user.Password = tbxNewPass.Password;
+                db.SaveChanges();
                 tbxCurPass.Password = tbxNewPass.Password = tbxReNewPass.Password = "";
-                //var user = db.Users.Find(GetData.currentUser.Id);
-                //user.Password = tbxNewPass.Password;
-                //db.SaveChanges();
+
             }
         }
 

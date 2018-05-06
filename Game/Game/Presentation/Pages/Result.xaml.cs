@@ -101,12 +101,12 @@ namespace Game.Presentation.Pages
 
         private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
         {
-            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
+            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/correct_on.png", UriKind.Relative));
         }
 
         private void imgBackButton_MouseLeave(object sender, MouseEventArgs e)
         {
-            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
+            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/correct.png", UriKind.Relative));
         }
     }
 }

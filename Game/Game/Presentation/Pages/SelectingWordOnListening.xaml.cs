@@ -167,12 +167,12 @@ namespace Game.Presentation.Pages
 
         private void imgFinishButton_MouseEnter(object sender, MouseEventArgs e)
         {
-            imgFinishButton.Source = new BitmapImage(new Uri("/Images/Button/finish_on.png", UriKind.Relative));
+            imgFinishButton.Source = new BitmapImage(new Uri("/Images/Button/correct_on.png", UriKind.Relative));
         }
 
         private void imgFinishButton_MouseLeave(object sender, MouseEventArgs e)
         {
-            imgFinishButton.Source = new BitmapImage(new Uri("/Images/Button/finish.png", UriKind.Relative));
+            imgFinishButton.Source = new BitmapImage(new Uri("/Images/Button/correct.png", UriKind.Relative));
         }
     }
 }
