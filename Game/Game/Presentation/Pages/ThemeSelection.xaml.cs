@@ -44,7 +44,6 @@ namespace Game.Presentation.Pages
         {
             ResetAnimationStatus();
             isUnloadToLeft = true;
-            GetData.isTheme = true;
             GetData.curTheme = ((Theme)lbxTheme.SelectedItem).Id;
             GetData.wordListTotal = db.Words.Where(x => x.Theme.Id == GetData.curTheme).ToList();
         }

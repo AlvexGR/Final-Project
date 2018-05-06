@@ -43,7 +43,7 @@ namespace Game.Presentation.Pages
                 isUnloadToLeft = true;
                 GetData.didRegister = false;
                 tbxError.Visibility = Visibility.Hidden;
-                (DataContext as LoginViewModel).GoToMain();
+                (DataContext as LoginViewModel).MainCommand.Execute(null);
             }
         }
 
@@ -56,13 +56,12 @@ namespace Game.Presentation.Pages
                 isUnloadToLeft = true;
                 GetData.didRegister = false;
                 tbxError.Visibility = Visibility.Hidden;
-                (DataContext as LoginViewModel).GoToMain();
+                (DataContext as LoginViewModel).MainCommand.Execute(null);
             }
         }
 
         private bool CanLogin()
         {
-            tbxPassword.Password = tbxPassword.Password.Trim();
             tbxUserName.Text = tbxUserName.Text.Trim();
             tbxUserName.SelectionStart = tbxUserName.Text.Length;
             tbxUserName.SelectionLength = 0;

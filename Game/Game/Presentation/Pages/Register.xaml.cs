@@ -48,7 +48,7 @@ namespace Game.Presentation.Pages
                 };
                 db.Users.Add(user);
                 db.SaveChanges();
-                (DataContext as RegisterViewModel).GoToLogin();
+                (DataContext as RegisterViewModel).LoginCommand.Execute(null);
             }
         }
 
@@ -67,7 +67,7 @@ namespace Game.Presentation.Pages
                 };
                 db.Users.Add(user);
                 db.SaveChanges();
-                (DataContext as RegisterViewModel).GoToLogin();
+                (DataContext as RegisterViewModel).LoginCommand.Execute(null);
             }
         }
 
@@ -89,8 +89,6 @@ namespace Game.Presentation.Pages
         
         private bool CanRegister()
         {
-            tbxPassword.Password = tbxPassword.Password.Trim();
-            tbxReEnterPassword.Password = tbxReEnterPassword.Password.Trim();
             tbxUserName.Text = tbxUserName.Text.Trim();
             if (tbxUserName.Text.Length <= 3)
             {
