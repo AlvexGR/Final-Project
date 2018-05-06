@@ -23,15 +23,107 @@ namespace Game.Presentation.Pages
     public partial class WordSelection : BasePage<WordSelectionViewModel>
     {
         public List<Vocabulary> SelectedWords { get; set; }
+        private MainDb db;
         public WordSelection()
         {
             InitializeComponent();
-            lbxWordList.ItemsSource = GetData.wordListTotal;
+            db = new MainDb();
+            List<Theme> themes = new List<Theme>() { new Theme { Id = 0, Name = "Tất cả" } };
+            themes.AddRange(db.Themes.ToList());
+            cbxTheme.ItemsSource = themes;
+            lbxVocabularies.ItemsSource = GetData.wordListTotal;
         }
 
         private void ResetAnimationStatus()
         {
             isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
+        }
+
+
+        private void cbxTheme_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = (Theme)cbxTheme.SelectedItem;
+
+            if (selectedItem.Id == 0)
+            {
+                lbxVocabularies.ItemsSource = db.Words.OrderBy(x => x.EnglishWord).ToList();
+                lbxVocabularies.SelectedIndex = 0;
+            }
+            else
+            {
+                lbxVocabularies.ItemsSource = db.Words.Where(x => x.Theme.Id == selectedItem.Id).OrderBy(x => x.EnglishWord).ToList();
+                lbxVocabularies.SelectedIndex = 0;
+            }
+        }
+
+        private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var selectedItem = (Theme)cbxTheme.SelectedItem;
+
+            if (String.IsNullOrEmpty(txtSearch.Text.Trim()))
+            {
+                if (selectedItem.Id == 0)
+                {
+                    lbxVocabularies.ItemsSource = db.Words.OrderBy(x => x.EnglishWord).ToList();
+                    lbxVocabularies.SelectedIndex = 0;
+                }
+                else
+                {
+                    lbxVocabularies.ItemsSource = db.Words.Where(x => x.Theme.Id == selectedItem.Id).OrderBy(x => x.EnglishWord).ToList();
+                    lbxVocabularies.SelectedIndex = 0;
+                }
+            }
+            else
+            {
+                if (selectedItem.Id == 0)
+                {
+                    lbxVocabularies.ItemsSource = db.Words.Where(x => x.EnglishWord.StartsWith(txtSearch.Text.ToLower().ToString())).OrderBy(x => x.EnglishWord).ToList();
+                    lbxVocabularies.SelectedIndex = 0;
+                }
+                else
+                {
+                    lbxVocabularies.ItemsSource = db.Words.Where(x => x.Theme.Id == selectedItem.Id && x.EnglishWord.StartsWith(txtSearch.Text.ToLower().ToString())).OrderBy(x => x.EnglishWord).ToList();
+                    lbxVocabularies.SelectedIndex = 0;
+                }
+            }
+        }
+
+        private void lbxVocabularies_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedWord = ((Vocabulary)lbxVocabularies.SelectedItem);
+            if (SelectedWords.Contains(selectedWord)) return;
+            SelectedWords.Add(selectedWord);
+            lbxSelectedVocabularies.Items.Add(selectedWord);
+
+           
+
+            if (SelectedWords.Count == 5)
+            {
+                btnNext.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnNext.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void lbxSelectedVocabularies_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedWord = ((Vocabulary)lbxVocabularies.SelectedItem);
+
+            SelectedWords.Remove(selectedWord);
+            lbxSelectedVocabularies.Items.Remove(selectedWord);
+
+        }
+
+        private void imgNextButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/next_button_on.png", UriKind.Relative));
+        }
+
+        private void imgNextButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/next_button.png", UriKind.Relative));
         }
 
         private void btnGoBack_Click(object sender, RoutedEventArgs e)
@@ -56,45 +148,6 @@ namespace Game.Presentation.Pages
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
         }
 
-        private void lbxWordList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //var selectedWord = ((Vocabulary)lbxWordList.SelectedItem);
-            //if (GetData.wordList.Contains(selectedWord)) return;
-            //GetData.wordList.Add(selectedWord);
-            //lbxSelectedWordList.Items.Add(selectedWord);
-            //if(GetData.wordList.Count > 4)
-            //{
-            //    btnNext.Visibility = Visibility.Visible;
-            //}
-            //else
-            //{
-            //    btnNext.Visibility = Visibility.Hidden;
-            //}
-        }
 
-        private void lbxSelectedWordList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //var selectedWord = ((Vocabulary)lbxSelectedWordList.SelectedItem);
-            //GetData.wordList.Remove(selectedWord);
-            //lbxSelectedWordList.Items.Remove(selectedWord);
-            //if (GetData.wordList.Count > 4)
-            //{
-            //    btnNext.Visibility = Visibility.Visible;
-            //}
-            //else
-            //{
-            //    btnNext.Visibility = Visibility.Hidden;
-            //}
-        }
-
-        private void imgNextButton_MouseEnter(object sender, MouseEventArgs e)
-        {
-            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/next_button_on.png", UriKind.Relative));
-        }
-
-        private void imgNextButton_MouseLeave(object sender, MouseEventArgs e)
-        {
-            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/next_button.png", UriKind.Relative));
-        }
     }
 }

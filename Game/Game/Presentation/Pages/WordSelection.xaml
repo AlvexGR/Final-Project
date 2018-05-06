@@ -16,16 +16,30 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <!--Word list-->
-            <StackPanel Margin="80 50 50 145">
+            <StackPanel Margin="100 50 30 145">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2*"/>
                         <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="Tìm kiếm:" Grid.Column="0" Style="{StaticResource NormalTextblock}"/>
-                    <TextBox Grid.Column="1"/>
+                    <TextBlock Text="Chủ đề:" Grid.Column="0" Style="{StaticResource NormalTextblock}" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="cbxTheme" SelectionChanged="cbxTheme_SelectionChanged" SelectedIndex="0" Grid.Column="1" Height="27">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" FontSize="15" FontFamily="Comic Sans MS"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
                 </Grid>
-                <ListBox x:Name="lbxWordList" SelectionChanged="lbxWordList_SelectionChanged" Margin="0 10 0 0" Padding="10 5" Height="412" Width="250">
+                <Grid Margin="0 10 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Tìm kiếm:" Style="{StaticResource NormalTextblock}"/>
+                    <TextBox x:Name="txtSearch" FontFamily="Comic Sans MS" TextChanged="txtSearch_TextChanged" Grid.Column="1" Height="27" FontSize="15" BorderThickness="0 0 0 1"/>
+                </Grid>
+                <ListBox x:Name="lbxVocabularies" SelectionChanged="lbxVocabularies_SelectionChanged" Margin="0 10 0 0" Padding="10 5" Height="331">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <!--<ListBoxItem Content="{Binding EnglishWord}" FontSize="18"/>-->
@@ -36,9 +50,9 @@
             </StackPanel>
 
             <!--Selected Word list-->
-            <StackPanel Grid.Column="1" Margin="50 50 50 0">
+            <StackPanel Grid.Column="1" Margin="30 100 100 0">
                 <TextBlock Text="Các từ đã chọn" Grid.Column="0" HorizontalAlignment="Center" Style="{StaticResource NormalTextblock}"/>
-                <ListBox x:Name="lbxSelectedWordList" SelectionChanged="lbxSelectedWordList_SelectionChanged"  Margin="10,10,10,0" Padding="10 5" Height="376" Width="250">
+                <ListBox x:Name="lbxSelectedVocabularies" SelectionChanged="lbxSelectedVocabularies_SelectionChanged" Padding="10 5" Width="270" Height="331" >
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding EnglishWord}" FontSize="18"/>
