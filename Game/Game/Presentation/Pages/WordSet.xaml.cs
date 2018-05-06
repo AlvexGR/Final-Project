@@ -52,14 +52,14 @@ namespace Game.Presentation.Pages
                     btnNew.IsEnabled = false;
                     imgNew.Opacity = 0.5;
                 }
-                tbxNew.Text = "Học mới";
-                tbxReview.Text = "Ôn lại";
+                tbxNew.Text = "Học bộ từ mới";
+                tbxReview.Text = "Ôn lại bộ từ";
                 imgReview.Source = new BitmapImage(new Uri("/Images/Button/review.png", UriKind.Relative));
             }
             else
             {
-                tbxNew.Text = "Tạo mới";
-                tbxReview.Text = "Học";
+                tbxNew.Text = "Tạo bộ từ mới";
+                tbxReview.Text = "Học bộ từ";
                 imgReview.Source = new BitmapImage(new Uri("/Images/Button/learn.png", UriKind.Relative));
             }
             UpdateSets();

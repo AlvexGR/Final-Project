@@ -76,6 +76,9 @@ namespace Game.Presentation.Pages
                 tbxStatus.Visibility = Visibility.Visible;
                 tbxStatus.Foreground = Brushes.Green;
                 tbxCurPass.Password = tbxNewPass.Password = tbxReNewPass.Password = "";
+                //var user = db.Users.Find(GetData.currentUser.Id);
+                //user.Password = tbxNewPass.Password;
+                //db.SaveChanges();
             }
         }
 

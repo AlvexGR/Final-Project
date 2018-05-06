@@ -45,7 +45,15 @@ namespace Game.Presentation.Pages
             ResetButton();
             Random rd = new Random();
             rightAnswer = vocabularies[idx];
-            var otherWords = db.Words.ToList().Where(x => x.Id != rightAnswer.Id && x.Theme.Id == GetData.curTheme).OrderBy(x => rd.Next()).ToList(); //all words have the same theme with right answer, except right answer
+            List<Vocabulary> otherWords = new List<Vocabulary>();
+            if (GetData.isTheme)
+            {
+                otherWords = db.Words.ToList().Where(x => x.Id != rightAnswer.Id && x.Theme.Id == GetData.curTheme).OrderBy(x => rd.Next()).ToList();
+            }
+            else
+            {
+                otherWords = db.Words.ToList().Where(x => x.Id != rightAnswer.Id).OrderBy(x => rd.Next()).ToList();
+            }
 
             indexOfRightAnswer = rd.Next(1, 5);
             if (indexOfRightAnswer == 1)

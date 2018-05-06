@@ -17,7 +17,7 @@
                 <ColumnDefinition Width="110"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
-                <Grid Height="550">
+                <Grid Height="540">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>

@@ -38,10 +38,10 @@
                                         <Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="60"/>
-                                                <ColumnDefinition Width="100"/>
+                                                <ColumnDefinition Width="150"/>
                                             </Grid.ColumnDefinitions>
                                             <Image x:Name="imgReview"  Source="/Images/Button/review.png" Width="40" Height="40"/>
-                                            <TextBlock x:Name="tbxReview" Text="Ôn lại" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                            <TextBlock x:Name="tbxReview" Text="Ôn lại bộ từ" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                         </Grid>
                                     </StackPanel>
                                 </Button>
@@ -50,10 +50,10 @@
                                         <Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="60"/>
-                                                <ColumnDefinition Width="100"/>
+                                                <ColumnDefinition Width="150"/>
                                             </Grid.ColumnDefinitions>
                                             <Image x:Name="imgNew"  Source="/Images/Button/new.png" Width="40" Height="40"/>
-                                            <TextBlock x:Name="tbxNew" Text="Học mới" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                            <TextBlock x:Name="tbxNew" Text="Học bộ từ mới" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                         </Grid>
                                     </StackPanel>
                                 </Button>
@@ -62,10 +62,10 @@
                                         <Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="60"/>
-                                                <ColumnDefinition Width="100"/>
+                                                <ColumnDefinition Width="150"/>
                                             </Grid.ColumnDefinitions>
                                             <Image x:Name="imgDelete"  Source="/Images/Button/delete.png" Width="40" Height="40"/>
-                                            <TextBlock  Text="Xoá" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                            <TextBlock  Text="Xoá bộ từ" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                         </Grid>
                                     </StackPanel>
                                 </Button>
@@ -75,7 +75,7 @@
                 </StackPanel>
             </Grid>
             <StackPanel>
-                <Grid Height="550" Width="100" HorizontalAlignment="Left">
+                <Grid Height="540" Width="100" HorizontalAlignment="Left">
                     <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" Width="70" Height="70">
                         <Image x:Name="imgBackButton" Source="/Images/Button/back_button.png" MouseEnter="imgBackButton_MouseEnter" MouseLeave="imgBackButton_MouseLeave"/>
                     </Button>

@@ -25,6 +25,7 @@ namespace Game.Presentation.Pages
         private List<Theme> themes;
         private List<Vocabulary> selectedWords;
         private MainDb db;
+
         public WordSelection()
         {
             InitializeComponent();
@@ -141,7 +142,7 @@ namespace Game.Presentation.Pages
             UpdateData(1);
             if (selectedWords.Count == 5)
             {
-                //btnNext.Visibility = Visibility.Visible;
+                btnNext.Visibility = Visibility.Visible;
                 btnAdd.IsEnabled = false;
                 return;
             }
@@ -155,7 +156,7 @@ namespace Game.Presentation.Pages
             {
                 btnRemove.IsEnabled = false;
             }
-            //btnNext.Visibility = Visibility.Hidden;
+            btnNext.Visibility = Visibility.Hidden;
         }
 
         private void btnGoBack_Click(object sender, RoutedEventArgs e)
@@ -166,8 +167,32 @@ namespace Game.Presentation.Pages
 
         private void btnNext_Click(object sender, RoutedEventArgs e)
         {
+            GetData.created = true;
             ResetAnimationStatus();
-            isUnloadToLeft = true;
+            isUnloadToRight = true;
+            Set set = new Set()
+            {
+                IsCreatedByTheme = false,
+                ThemeId = 11,
+                UserId = GetData.currentUser.Id
+            };
+            db.Sets.Add(set);
+            db.SaveChanges();
+
+            List<Model.WordSet> wordSets = new List<Model.WordSet>();
+
+            foreach(var word in selectedWords)
+            {
+                Model.WordSet ws = new Model.WordSet()
+                {
+                    SetId = set.Id,
+                    Star = 0,
+                    WordId = word.Id
+                };
+                wordSets.Add(ws);
+            }
+            db.WordSets.AddRange(wordSets);
+            db.SaveChanges();
         }
 
         private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
@@ -178,6 +203,16 @@ namespace Game.Presentation.Pages
         private void imgBackButton_MouseLeave(object sender, MouseEventArgs e)
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
+        }
+
+        private void imgNextButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/correct_on.png", UriKind.Relative));
+        }
+
+        private void imgNextButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/correct.png", UriKind.Relative));
         }
     }
 }

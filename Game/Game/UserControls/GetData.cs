@@ -20,5 +20,6 @@ namespace Game.UserControls
         public static bool isLearned = false;
         public static int medal = 0;
         public static int curSet;
+        public static bool created = false;
     }
 }

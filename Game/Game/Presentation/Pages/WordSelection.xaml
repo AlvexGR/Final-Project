@@ -11,7 +11,7 @@
 
     <StackPanel>
         <StackPanel>
-            <Grid Height="600">
+            <Grid Height="600" Width="800">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="115"/>
                     <ColumnDefinition Width="570"/>
@@ -22,9 +22,9 @@
                     <StackPanel VerticalAlignment="Center" Margin="20">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="250"/>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="250"/>
+                                <ColumnDefinition Width="260"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="260"/>
                             </Grid.ColumnDefinitions>
                             <StackPanel VerticalAlignment="Center" Grid.Column="0">
                                 <Grid>
@@ -57,29 +57,51 @@
                                     </ListBox.ItemTemplate>
                                 </ListBox>
                             </StackPanel>
-
-                            <!--Arrow left / right-->
-                            <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                                <Button Style="{StaticResource BackButton}" x:Name="btnAdd" Click="btnAdd_Click" Width="20" Height="20" Margin="0 0 0 10">
-                                    <Image Source="/Images/Button/arrow_right.png"/>
-                                </Button>
-                                <Button Style="{StaticResource BackButton}" x:Name="btnRemove" Click="btnRemove_Click" Width="20" Height="20" Margin="0 10 0 0">
-                                    <Image Source="/Images/Button/arrow_left.png"/>
-                                </Button>
-                            </StackPanel>
-
                             <!--Selected Word list-->
-                            <StackPanel Grid.Column="2" VerticalAlignment="Center" Height="250">
+                            <StackPanel Grid.Column="2" VerticalAlignment="Center">
                                 <TextBlock FontSize="25" Text="Các từ đã chọn" Grid.Column="0" HorizontalAlignment="Center" Style="{StaticResource NormalTextblock}"/>
-                                <ListBox x:Name="lbxSelectedVocabularies" BorderThickness="0"/>
+                                <ListBox x:Name="lbxSelectedVocabularies" BorderThickness="0" Height="220"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Style="{StaticResource NormalButton}"  x:Name="btnAdd" Margin="0 0 0 0" Height="60" Click="btnAdd_Click">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="50"/>
+                                                    <ColumnDefinition Width="70"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Image x:Name="imgAdd"  Source="/Images/Button/new.png" Width="40" Height="40"/>
+                                                <TextBlock Text="Thêm" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                            </Grid>
+                                        </StackPanel>
+                                    </Button>
+                                    <Button Style="{StaticResource NormalButton}"  x:Name="btnRemove" Command="{Binding ThemeCommand}" Margin="10 0 0 0" Height="60" Click="btnRemove_Click">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="50"/>
+                                                    <ColumnDefinition Width="70"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Image x:Name="imgRemove"  Source="/Images/Button/delete.png" Width="40" Height="40"/>
+                                                <TextBlock Text="Xoá" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                            </Grid>
+                                        </StackPanel>
+                                    </Button>
+                                </StackPanel>
                             </StackPanel>
                         </Grid>
                     </StackPanel>
                 </Border>
                 <StackPanel Grid.Column="0">
-                    <Grid Height="550" Width="100" HorizontalAlignment="Left">
+                    <Grid Height="540" Width="100" HorizontalAlignment="Left">
                         <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" Width="70" Height="70">
                             <Image x:Name="imgBackButton" Source="/Images/Button/back_button.png" MouseEnter="imgBackButton_MouseEnter" MouseLeave="imgBackButton_MouseLeave"/>
+                        </Button>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Column="2">
+                    <Grid Height="540" Width="70" HorizontalAlignment="Center">
+                        <Button Visibility="Hidden" VerticalAlignment="Bottom" HorizontalAlignment="Right" Style="{StaticResource NextButton}" x:Name="btnNext" Click="btnNext_Click" Command="{Binding PreviousCommand}" Width="70" Height="70">
+                            <Image x:Name="imgNextButton" Source="/Images/Button/correct.png" MouseEnter="imgNextButton_MouseEnter" MouseLeave="imgNextButton_MouseLeave"/>
                         </Button>
                     </Grid>
                 </StackPanel>

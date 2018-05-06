@@ -12,7 +12,7 @@
         <Grid Height="600">
             <StackPanel Margin="230 80">
                 <Border CornerRadius="15" Background="White" Width="300">
-                    <StackPanel Height="349">
+                    <StackPanel Height="350">
                         <Border Margin="20 0 20 0" BorderThickness="0 0 0 1" BorderBrush="Blue">
                             <StackPanel Margin="0 30 0 0" >
                                 <TextBlock Text="Tên đăng nhập" Padding="5 5" FontSize="25" HorizontalAlignment="Center" Foreground="Blue" FontFamily="Comic Sans MS"/>
@@ -22,7 +22,7 @@
                         <Border Margin="20 0 20 0" BorderThickness="0 0 0 1" BorderBrush="Blue">
                             <StackPanel Margin="0 10 0 0">
                                 <TextBlock Text="Mật khẩu" Padding="5 5" FontSize="25" HorizontalAlignment="Center" Foreground="Blue" FontFamily="Comic Sans MS"/>
-                                <PasswordBox x:Name="tbxPassword" TabIndex="1" BorderThickness="0 0 0 0" Padding="5 5" FontSize="20" HorizontalAlignment="Center" KeyDown="BasePage_KeyDown"/>
+                                <PasswordBox HorizontalContentAlignment="Center" FontFamily="Comic Sans MS" x:Name="tbxPassword" TabIndex="1" BorderThickness="0" Padding="5 5" FontSize="20" HorizontalAlignment="Center" KeyDown="BasePage_KeyDown" Width="260"/>
                             </StackPanel>
                         </Border>
 

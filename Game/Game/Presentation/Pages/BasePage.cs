@@ -79,7 +79,7 @@ namespace Game.Presentation.Pages
                 (this as Login).tbxPassword.Focus();
                 GetData.didRegister = false;
             }
-            if (GetNameOfObject.GetName(this.ToString()) == "WordSet" && GetData.isLearned && GetData.isTheme)
+            if (GetNameOfObject.GetName(ToString()) == "WordSet")
             {
                 (this as WordSet).LoadData();
             }
