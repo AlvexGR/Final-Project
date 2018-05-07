@@ -19,7 +19,7 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Margin="0 50 0 30" Grid.Column="1">
-                    <Image x:Name="imgWord" Height="200" Width="200" Margin="0 0 0 30"/>
+                    <Image x:Name="imgWord" Height="250" Width="250" Margin="0 0 0 30"/>
                     <Border Background="White" CornerRadius="10">
                         <StackPanel Margin="20">
                             <StackPanel x:Name="wordArea" Orientation="Horizontal" HorizontalAlignment="Center">
@@ -32,7 +32,7 @@
                 </StackPanel>
             </Grid>
             <StackPanel>
-                <Grid Height="540" Width="100" HorizontalAlignment="Left">
+                <Grid Height="600" Width="100" HorizontalAlignment="Left">
                     <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" Width="70" Height="70">
                         <Image x:Name="imgBackButton" Source="/Images/Button/back_button.png" MouseEnter="imgBackButton_MouseEnter" MouseLeave="imgBackButton_MouseLeave"/>
                     </Button>

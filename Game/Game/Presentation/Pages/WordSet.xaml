@@ -10,72 +10,70 @@
       Title="WordSet">
 
     <StackPanel>
-        <Grid Height="600">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="3*"/>
-                    <ColumnDefinition Width="2*"/>
-                </Grid.ColumnDefinitions>
-                <Button Click="btnGoLeft_Click"  x:Name="btnGoLeft" Margin="50 0 0 0" Style="{StaticResource BackButton}">
-                    <Image x:Name="imgArrowLeft" Source="/Images/Button/arrow_left.png" MouseEnter="imgArrowLeft_MouseEnter" MouseLeave="imgArrowLeft_MouseLeave" Width="70" Height="70"/>
-                </Button>
-                <Button Click="btnGoRight_Click" x:Name="btnGoRight" Margin="0 0 50 0" Style="{StaticResource NextButton}" Grid.Column="2">
-                    <Image x:Name="imgArrowRight" Source="/Images/Button/arrow_right.png" MouseEnter="imgArrowRight_MouseEnter" MouseLeave="imgArrowRight_MouseLeave" Width="70" Height="70"/>
-                </Button>
-                <StackPanel Grid.Column="1">
-                    <Border CornerRadius="10" Background="White" Height="450" Margin="0 35 0 0">
-                        <StackPanel Margin="20">
-                            <StackPanel x:Name="displayWord" Height="240" HorizontalAlignment="Left"/>
-                                <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                <Button Style="{StaticResource NormalButton}"  x:Name="btnReview" Command="{Binding PlayOptionsCommand}" Height="50" Click="btnReview_Click" Grid.Row="0">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="60"/>
-                                                <ColumnDefinition Width="150"/>
-                                            </Grid.ColumnDefinitions>
-                                            <Image x:Name="imgReview"  Source="/Images/Button/review.png" Width="40" Height="40"/>
-                                            <TextBlock x:Name="tbxReview" Text="Ôn lại bộ từ" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                                        </Grid>
-                                    </StackPanel>
-                                </Button>
-                                <Button Style="{StaticResource NormalButton}" x:Name="btnNew" Height="50" Click="btnNew_Click" Grid.Row="1" Margin="0 10 0 0">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="60"/>
-                                                <ColumnDefinition Width="150"/>
-                                            </Grid.ColumnDefinitions>
-                                            <Image x:Name="imgNew"  Source="/Images/Button/new.png" Width="40" Height="40"/>
-                                            <TextBlock x:Name="tbxNew" Text="Học bộ từ mới" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                                        </Grid>
-                                    </StackPanel>
-                                </Button>
-                                <Button Style="{StaticResource NormalButton}"  x:Name="btnDelete" Height="50" Click="btnDelete_Click" Grid.Row="2" Margin="0 10 0 0">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="60"/>
-                                                <ColumnDefinition Width="150"/>
-                                            </Grid.ColumnDefinitions>
-                                            <Image x:Name="imgDelete"  Source="/Images/Button/delete.png" Width="40" Height="40"/>
-                                            <TextBlock  Text="Xoá bộ từ" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                                        </Grid>
-                                    </StackPanel>
-                                </Button>
-                            </Grid>
-                        </StackPanel>
-                    </Border>
-                </StackPanel>
-            </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Button Click="btnGoLeft_Click"  x:Name="btnGoLeft" Margin="50 0 0 0" Style="{StaticResource BackButton}">
+                <Image x:Name="imgArrowLeft" Source="/Images/Button/arrow_left.png" MouseEnter="imgArrowLeft_MouseEnter" MouseLeave="imgArrowLeft_MouseLeave" Width="70" Height="70"/>
+            </Button>
+            <Button Click="btnGoRight_Click" x:Name="btnGoRight" Margin="0 0 50 0" Style="{StaticResource NextButton}" Grid.Column="2">
+                <Image x:Name="imgArrowRight" Source="/Images/Button/arrow_right.png" MouseEnter="imgArrowRight_MouseEnter" MouseLeave="imgArrowRight_MouseLeave" Width="70" Height="70"/>
+            </Button>
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                <Border CornerRadius="10" Background="White" Height="450">
+                    <StackPanel Margin="20">
+                        <StackPanel x:Name="displayWord" Height="240" HorizontalAlignment="Left"/>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Button Style="{StaticResource NormalButton}"  x:Name="btnReview" Command="{Binding PlayOptionsCommand}" Height="50" Click="btnReview_Click" Grid.Row="0">
+                                <StackPanel Orientation="Horizontal">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="60"/>
+                                            <ColumnDefinition Width="150"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image x:Name="imgReview"  Source="/Images/Button/review.png" Width="40" Height="40"/>
+                                        <TextBlock x:Name="tbxReview" Text="Ôn lại bộ từ" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Button>
+                            <Button Style="{StaticResource NormalButton}" x:Name="btnNew" Height="50" Click="btnNew_Click" Grid.Row="1" Margin="0 10 0 0">
+                                <StackPanel Orientation="Horizontal">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="60"/>
+                                            <ColumnDefinition Width="150"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image x:Name="imgNew"  Source="/Images/Button/new.png" Width="40" Height="40"/>
+                                        <TextBlock x:Name="tbxNew" Text="Học bộ từ mới" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Button>
+                            <Button Style="{StaticResource NormalButton}"  x:Name="btnDelete" Height="50" Click="btnDelete_Click" Grid.Row="2" Margin="0 10 0 0">
+                                <StackPanel Orientation="Horizontal">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="60"/>
+                                            <ColumnDefinition Width="150"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image x:Name="imgDelete"  Source="/Images/Button/delete.png" Width="40" Height="40"/>
+                                        <TextBlock  Text="Xoá bộ từ" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Button>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
             <StackPanel>
-                <Grid Height="540" Width="100" HorizontalAlignment="Left">
+                <Grid Height="600" Width="100" HorizontalAlignment="Left">
                     <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" Width="70" Height="70">
                         <Image x:Name="imgBackButton" Source="/Images/Button/back_button.png" MouseEnter="imgBackButton_MouseEnter" MouseLeave="imgBackButton_MouseLeave"/>
                     </Button>

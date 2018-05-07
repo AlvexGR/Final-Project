@@ -10,7 +10,7 @@
       Title="Setting">
     <StackPanel>
         <Grid Height="600">
-            <Border CornerRadius="15" Background="White" Width="300" Margin="0 40 0 70">
+            <Border CornerRadius="15" Background="White" Width="300" Margin="0 55 0 55">
                 <StackPanel Margin="20">
                     <TextBlock x:Name="tbxVolume" Text="Âm lượng: 0" FontFamily="Comic Sans MS" FontSize="18" Margin="20 0 20 20"/>
                     <Slider x:Name="slideVolume" IsSnapToTickEnabled="True" Margin="20 0 20 20" ValueChanged="slideVolume_ValueChanged" Maximum="100" SmallChange="0" TickFrequency="5"/>
@@ -40,7 +40,7 @@
                 </StackPanel>
             </Border>
             <StackPanel>
-                <Grid Height="540" Width="100" HorizontalAlignment="Left">
+                <Grid Height="600" Width="100" HorizontalAlignment="Left">
                     <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" Width="70" Height="70">
                         <Image x:Name="imgBackButton" Source="/Images/Button/back_button.png" MouseEnter="imgBackButton_MouseEnter" MouseLeave="imgBackButton_MouseLeave"/>
                     </Button>

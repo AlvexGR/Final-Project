@@ -11,20 +11,19 @@
 
     <StackPanel>
         <StackPanel>
-            <Grid Height="600" Width="800">
+            <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="115"/>
-                    <ColumnDefinition Width="570"/>
-                    <ColumnDefinition Width="115"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <!--Word list-->
-                <Border Grid.Column="1" Background="White" CornerRadius="10" Margin="0 40 0 100" Height="450">
+                <Border Grid.Column="1" Background="White" CornerRadius="10" Height="450">
                     <StackPanel VerticalAlignment="Center" Margin="20">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="260"/>
-                                <ColumnDefinition Width="10"/>
-                                <ColumnDefinition Width="260"/>
+                                <ColumnDefinition Width="20*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="20*"/>
                             </Grid.ColumnDefinitions>
                             <StackPanel VerticalAlignment="Center" Grid.Column="0">
                                 <Grid>
@@ -59,21 +58,21 @@
                             </StackPanel>
                             <!--Selected Word list-->
                             <StackPanel Grid.Column="2" VerticalAlignment="Center">
-                                <TextBlock FontSize="25" Text="Các từ đã chọn" Grid.Column="0" HorizontalAlignment="Center" Style="{StaticResource NormalTextblock}"/>
+                                <TextBlock FontSize="25" Text="Các từ đã chọn" Grid.Column="0" HorizontalAlignment="Center" Style="{StaticResource NormalTextblock}" Margin="0 0 0 5"/>
                                 <ListBox x:Name="lbxSelectedVocabularies" BorderThickness="0" Height="220" SelectionChanged="lbxSelectedVocabularies_SelectionChanged"/>
                             </StackPanel>
                         </Grid>
                     </StackPanel>
                 </Border>
                 <StackPanel Grid.Column="0">
-                    <Grid Height="540" Width="100" HorizontalAlignment="Left">
+                    <Grid Height="600" Width="100" HorizontalAlignment="Left">
                         <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" Width="70" Height="70">
                             <Image x:Name="imgBackButton" Source="/Images/Button/back_button.png" MouseEnter="imgBackButton_MouseEnter" MouseLeave="imgBackButton_MouseLeave"/>
                         </Button>
                     </Grid>
                 </StackPanel>
                 <StackPanel Grid.Column="2">
-                    <Grid Height="540" Width="70" HorizontalAlignment="Center">
+                    <Grid Height="600" Width="70" HorizontalAlignment="Right">
                         <Button Visibility="Hidden" VerticalAlignment="Bottom" HorizontalAlignment="Right" Style="{StaticResource NextButton}" x:Name="btnNext" Click="btnNext_Click" Command="{Binding PreviousCommand}" Width="70" Height="70">
                             <Image x:Name="imgNextButton" Source="/Images/Button/correct.png" MouseEnter="imgNextButton_MouseEnter" MouseLeave="imgNextButton_MouseLeave"/>
                         </Button>

@@ -10,7 +10,7 @@
         x:Name="wndMain"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
-        Title="Louder" Height="600" Width="800" ResizeMode="NoResize">
+        Title="Louder" Height="660" Width="800" ResizeMode="NoResize">
 
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">
@@ -29,7 +29,7 @@
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <!--Title Bar-->
-                                        <RowDefinition Height="{Binding TitleHeightGridLength, FallbackValue=42}"/>
+                                        <RowDefinition Height="{Binding TitleHeightGridLength, FallbackValue=40}"/>
 
                                         <!--Window Contents-->
                                         <RowDefinition Height="*"/>
@@ -71,6 +71,7 @@
                                     <Border Grid.Row="1" Padding="{Binding InnerContentPadding}" Background="#bbc8ff">
                                         <Border>
                                             <Border.Background>
+                                                <!--<ImageBrush ImageSource="/Images/Background/background1.png"/>-->
                                                 <ImageBrush TileMode="Tile" ViewportUnits="Absolute" Viewport="-3 50 800 500" ImageSource="/Images/Background/background.png" Opacity="0.2"/>
                                             </Border.Background>
                                             <ContentPresenter Content="{TemplateBinding Content}"/>
@@ -92,7 +93,17 @@
             />
     </WindowChrome.WindowChrome>
 
-    <Grid>
+    <Grid Height="600">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="190"/>
+                </Grid.ColumnDefinitions>
+                <Image Visibility="Hidden" x:Name="imgUser"  Source="/Images/Logo/user.png" Width="40" Height="40"/>
+                <TextBlock Visibility="Hidden" x:Name="tbxUser" Grid.Column="1" Padding="0 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            </Grid>
+        </StackPanel>
         <hostPage:PageHost x:Name="MainFrame" 
                            CurrentPage="{Binding CurrentPage, Converter={local:AppPageValueConverter}}"/>
     </Grid>

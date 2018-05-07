@@ -22,8 +22,12 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class Result : BasePage<ResultViewModel>
     {
+        #region Properties
         private MainDb db;
         private List<Vocabulary> vocabularies;
+        #endregion
+
+        #region Constructor
         public Result()
         {
             InitializeComponent();
@@ -87,18 +91,24 @@ namespace Game.Presentation.Pages
             }
             tbxScore.Text = total.ToString() + "/" + vocabularies.Count.ToString();
         }
+        #endregion
 
+        #region Other Methods
         private void ResetAnimationStatus()
         {
             isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
         }
+        #endregion
 
+        #region Click Methods
         private void btnGoBack_Click(object sender, RoutedEventArgs e)
         {
             ResetAnimationStatus();
             isUnloadToRight = true;
         }
+        #endregion
 
+        #region MouseEnter and MouseLeave Methods
         private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/correct_on.png", UriKind.Relative));
@@ -108,5 +118,6 @@ namespace Game.Presentation.Pages
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/correct.png", UriKind.Relative));
         }
+        #endregion
     }
 }

@@ -22,25 +22,35 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class ThemeSelection : BasePage<ThemeSelectionViewModel>
     {
+        #region Properties
         private MainDb db;
+        #endregion
+
+        #region Constructor
         public ThemeSelection()
         {
             InitializeComponent();
             db = new MainDb();
             lbxTheme.ItemsSource = db.Themes.Where(x=>x.Id!=11).ToList();
         }
+        #endregion
 
+        #region Other Methods
         private void ResetAnimationStatus()
         {
             isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
         }
+        #endregion
 
+        #region Click Methods
         private void btnGoBack_Click(object sender, RoutedEventArgs e)
         {
             ResetAnimationStatus();
             isUnloadToRight = true;
         }
+        #endregion
 
+        #region MouseEnter and MouseLeave Methods
         private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
@@ -50,7 +60,9 @@ namespace Game.Presentation.Pages
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
         }
-    
+        #endregion
+
+        #region SelectionChanged Methods
         private void lbxTheme_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ResetAnimationStatus();
@@ -59,5 +71,6 @@ namespace Game.Presentation.Pages
             GetData.wordListTotal = db.Words.Where(x => x.Theme.Id == GetData.curTheme).ToList();
             (DataContext as ThemeSelectionViewModel).WordSetCommand.Execute(null);
         }
+        #endregion
     }
 }

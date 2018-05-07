@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -25,6 +24,7 @@ namespace Game.Presentation.Pages
         private bool firstTry = true;
         private List<Vocabulary> vocabularies;
         private MainDb db;
+        private Dictionary<List<int>, bool> uniqueRand;
         #endregion
 
         #region Constructor
@@ -32,6 +32,7 @@ namespace Game.Presentation.Pages
         {
             InitializeComponent();
             db = new MainDb();
+            uniqueRand = new Dictionary<List<int>, bool>();
             GetData.correctAnswer = 0;
             vocabularies = (from wordSet in db.WordSets
                             join word in db.Words on wordSet.WordId equals word.Id
@@ -185,19 +186,33 @@ namespace Game.Presentation.Pages
                         {
                             lst.Add(i);
                         }
-                        var result = lst.OrderBy(item => rd.Next()).ToList();
-                        int cur = 0;
-                        while (lossLetters > 0)
+                        List<int> result = new List<int>();
+                        List<int> ans = new List<int>();
+                        result = lst.OrderBy(item => rd.Next()).ToList();
+                        for (int i = 0; i < result.Count; i++)
                         {
-                            for (int i = 0; i < vocabularies[idx].EnglishWord.Length; i++)
+                            if (result[i] < lossLetters)
                             {
-                                if (result[i] == cur)
+                                ans.Add(i);
+                            }
+                        }
+                        while(uniqueRand.Keys.Contains(ans))
+                        {
+                            ans.Clear();
+                            result = lst.OrderBy(item => rd.Next()).ToList();
+                            for (int i = 0; i < result.Count; i++)
+                            {
+                                if (result[i] < lossLetters)
                                 {
-                                    wordArea.Children[i].Visibility = Visibility.Hidden;
+                                    ans.Add(i);
+
                                 }
                             }
-                            lossLetters--;
-                            cur++;
+                        }
+                        uniqueRand[ans] = true;
+                        foreach(var i in ans)
+                        {
+                            wordArea.Children[i].Visibility = Visibility.Hidden;
                         }
                     }
                 }

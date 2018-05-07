@@ -22,44 +22,35 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class Setting : BasePage<SettingViewModel>
     {
+        #region Properties
         private MainDb db;
+        #endregion
+
+        #region Constructor
         public Setting()
         {
             InitializeComponent();
             db = new MainDb();
             slideVolume.Value = GetData.volume;
         }
+        #endregion
 
+        #region Other Methods
         private void ResetAnimationStatus()
         {
             isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
         }
 
-        private void btnGoBack_Click(object sender, RoutedEventArgs e)
-        {
-            ResetAnimationStatus();
-            isUnloadToRight = true;
-        }
-        private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
-        {
-            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
-        }
-
-        private void imgBackButton_MouseLeave(object sender, MouseEventArgs e)
-        {
-            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
-        }
-
         private bool CanChange()
         {
-            if(GetData.currentUser.Password != tbxCurPass.Password)
+            if (GetData.currentUser.Password != tbxCurPass.Password)
             {
                 tbxStatus.Text = "Mật khẩu hiện tại không đúng";
                 tbxStatus.Visibility = Visibility.Visible;
                 tbxStatus.Foreground = Brushes.Red;
                 return false;
             }
-            if(tbxNewPass.Password != tbxReNewPass.Password)
+            if (tbxNewPass.Password != tbxReNewPass.Password)
             {
                 tbxStatus.Text = "Mật khẩu mới không khớp";
                 tbxStatus.Visibility = Visibility.Visible;
@@ -68,10 +59,18 @@ namespace Game.Presentation.Pages
             }
             return true;
         }
+        #endregion
+
+        #region Click Methods
+        private void btnGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            ResetAnimationStatus();
+            isUnloadToRight = true;
+        }
 
         private void btnChangePassword_Click(object sender, RoutedEventArgs e)
         {
-            if(CanChange())
+            if (CanChange())
             {
                 tbxStatus.Text = "Thay đổi mật khẩu thành công";
                 tbxStatus.Visibility = Visibility.Visible;
@@ -83,10 +82,25 @@ namespace Game.Presentation.Pages
 
             }
         }
+        #endregion
 
+        #region MouseEnter and MouseLeave Methods
+        private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
+        }
+
+        private void imgBackButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
+        }
+        #endregion
+
+        #region ValueChanged Methods
         private void slideVolume_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             tbxVolume.Text = "Âm lượng: " + slideVolume.Value.ToString();
         }
+        #endregion
     }
 }

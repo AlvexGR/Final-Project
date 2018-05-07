@@ -22,18 +22,42 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class Login : BasePage<LoginViewModel>
     {
-        private MainDb db = new MainDb();
+        #region Properties
+        private MainDb db;
+        #endregion
+
+        #region Constructor
         public Login()
         {
             InitializeComponent();
+            db = new MainDb();
             tbxUserName.Focus();
         }
+        #endregion
 
+        #region Other Methods
         private void ResetAnimationStatus()
         {
             isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
         }
 
+        private bool CanLogin()
+        {
+            tbxUserName.Text = tbxUserName.Text.Trim();
+            tbxUserName.SelectionStart = tbxUserName.Text.Length;
+            tbxUserName.SelectionLength = 0;
+            if (db.Users.Where(x => x.Username == tbxUserName.Text && x.Password == tbxPassword.Password).ToList().Count == 0)
+            {
+                tbxError.Text = "Tên đăng nhập hoặc mật khẩu sai";
+                tbxError.Foreground = Brushes.Red;
+                tbxError.Visibility = Visibility.Visible;
+                return false;
+            }
+            return true;
+        }
+        #endregion
+
+        #region Click Methods
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             if(CanLogin())
@@ -45,34 +69,6 @@ namespace Game.Presentation.Pages
                 tbxError.Visibility = Visibility.Hidden;
                 (DataContext as LoginViewModel).MainCommand.Execute(null);
             }
-        }
-
-        private void BasePage_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter && CanLogin())
-            {
-                GetData.currentUser = db.Users.Where(x => x.Username == tbxUserName.Text).First();
-                ResetAnimationStatus();
-                isUnloadToLeft = true;
-                GetData.didRegister = false;
-                tbxError.Visibility = Visibility.Hidden;
-                (DataContext as LoginViewModel).MainCommand.Execute(null);
-            }
-        }
-
-        private bool CanLogin()
-        {
-            tbxUserName.Text = tbxUserName.Text.Trim();
-            tbxUserName.SelectionStart = tbxUserName.Text.Length;
-            tbxUserName.SelectionLength = 0;
-            if(db.Users.Where(x => x.Username == tbxUserName.Text && x.Password == tbxPassword.Password).ToList().Count == 0)
-            {
-                tbxError.Text = "Tên đăng nhập hoặc mật khẩu sai";
-                tbxError.Foreground = Brushes.Red;
-                tbxError.Visibility = Visibility.Visible;
-                return false;
-            }
-            return true;
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
@@ -92,6 +88,21 @@ namespace Game.Presentation.Pages
             tbxRegister.Foreground = Brushes.Blue;
             tbxRegister.TextDecorations = null;
         }
+        #endregion
 
+        #region KeyDown Methods
+        private void BasePage_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter && CanLogin())
+            {
+                GetData.currentUser = db.Users.Where(x => x.Username == tbxUserName.Text).First();
+                ResetAnimationStatus();
+                isUnloadToLeft = true;
+                GetData.didRegister = false;
+                tbxError.Visibility = Visibility.Hidden;
+                (DataContext as LoginViewModel).MainCommand.Execute(null);
+            }
+        }
+        #endregion
     }
 }

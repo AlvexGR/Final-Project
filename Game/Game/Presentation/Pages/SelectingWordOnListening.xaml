@@ -11,7 +11,7 @@
 
     <StackPanel>
         <Grid Height="600">
-            <StackPanel Margin="170 150 170 100">
+            <StackPanel Margin="170 150 170 100" VerticalAlignment="Center">
                 <Border Background="White" CornerRadius="10">
                     <StackPanel Margin="20">
                         <Grid>
@@ -37,7 +37,7 @@
                 <MediaElement x:Name="mePronoun" LoadedBehavior="Manual"/>
             </StackPanel>
             <StackPanel>
-                <Grid Height="540" Width="100" HorizontalAlignment="Left">
+                <Grid Height="600" Width="100" HorizontalAlignment="Left">
                     <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Style="{StaticResource BackButton}" x:Name="btnGoBack" Click="btnGoBack_Click"  Command="{Binding PreviousCommand}" Width="70" Height="70">
                         <Image x:Name="imgBackButton" Source="/Images/Button/back_button.png" MouseEnter="imgBackButton_MouseEnter" MouseLeave="imgBackButton_MouseLeave"/>
                     </Button>

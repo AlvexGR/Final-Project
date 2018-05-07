@@ -23,9 +23,11 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class VocabularyList : BasePage<VocabularyListViewModel>
     {
-
+        #region Properties
         private MainDb db;
+        #endregion
 
+        #region Constructor
         public VocabularyList()
         {
             InitializeComponent();
@@ -34,18 +36,31 @@ namespace Game.Presentation.Pages
             themes.AddRange(db.Themes.Where(x => x.Id != 11).ToList());
             cbxTheme.ItemsSource = themes;
         }
+        #endregion
 
+        #region Other Methods
         private void ResetAnimationStatus()
         {
             isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
         }
+        #endregion
 
+        #region Click Methods
         private void btnGoBack_Click(object sender, RoutedEventArgs e)
         {
             ResetAnimationStatus();
             isUnloadToRight = true;
         }
 
+        private void btnWordDetail_Click(object sender, RoutedEventArgs e)
+        {
+            ResetAnimationStatus();
+            isUnloadToLeft = true;
+            GetData.curWord = (Vocabulary)(lbxVocabularies.SelectedItem);
+        }
+        #endregion
+
+        #region MouseEnter and MouseLeave Methods
         private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
@@ -55,7 +70,19 @@ namespace Game.Presentation.Pages
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
         }
+        
+        private void imgWordDetail_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgWordDetail.Source = new BitmapImage(new Uri("/Images/Button/detail.png", UriKind.Relative));
+        }
 
+        private void imgWordDetail_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgWordDetail.Source = new BitmapImage(new Uri("/Images/Button/detail_on.png", UriKind.Relative));
+        }
+        #endregion
+
+        #region SelectionChanged Methods
         private void cbxTheme_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedItem = (Theme)cbxTheme.SelectedItem;
@@ -71,7 +98,9 @@ namespace Game.Presentation.Pages
                 lbxVocabularies.SelectedIndex = 0;
             }
         }
+        #endregion
 
+        #region TextChanged Methods
         private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             var selectedItem = (Theme)cbxTheme.SelectedItem;
@@ -103,22 +132,6 @@ namespace Game.Presentation.Pages
                 }
             }
         }
-
-        private void btnWordDetail_Click(object sender, RoutedEventArgs e)
-        {
-            ResetAnimationStatus();
-            isUnloadToLeft = true;
-            GetData.curWord = (Vocabulary)(lbxVocabularies.SelectedItem);
-        }
-
-        private void imgWordDetail_MouseLeave(object sender, MouseEventArgs e)
-        {
-            imgWordDetail.Source = new BitmapImage(new Uri("/Images/Button/detail.png", UriKind.Relative));
-        }
-
-        private void imgWordDetail_MouseEnter(object sender, MouseEventArgs e)
-        {
-            imgWordDetail.Source = new BitmapImage(new Uri("/Images/Button/detail_on.png", UriKind.Relative));
-        }
+        #endregion
     }
 }

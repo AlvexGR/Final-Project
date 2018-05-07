@@ -27,7 +27,9 @@ namespace Game.Presentation.Pages
         public Main()
         {
             InitializeComponent();
-            tbxUser.Text = GetData.currentUser.Username;
+            ((MainWindow)Application.Current.MainWindow).imgUser.Visibility = Visibility.Visible;
+            ((MainWindow)Application.Current.MainWindow).tbxUser.Visibility = Visibility.Visible;
+            ((MainWindow)Application.Current.MainWindow).tbxUser.Text = GetData.currentUser.Username;
         }
         #endregion
 
@@ -81,6 +83,8 @@ namespace Game.Presentation.Pages
         {
             ResetAnimationStatus();
             isUnloadToRight = true;
+            ((MainWindow)Application.Current.MainWindow).imgUser.Visibility = Visibility.Hidden;
+            ((MainWindow)Application.Current.MainWindow).tbxUser.Visibility = Visibility.Hidden;
         }
         #endregion
 

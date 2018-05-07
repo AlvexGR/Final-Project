@@ -22,13 +22,19 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class WordDetail : BasePage<WordDetailViewModel>
     {
+        #region Properties
         private Vocabulary vc;
+        #endregion
+
+        #region Constructor
         public WordDetail()
         {
             InitializeComponent();
             UpdateData();
         }
+        #endregion
 
+        #region MouseEnter and MouseLeave Methods
         private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
@@ -38,13 +44,26 @@ namespace Game.Presentation.Pages
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
         }
+        #endregion
 
+        #region Click Methods
         private void btnPronoun_Click(object sender, RoutedEventArgs e)
         {
             mePronoun.Source = new Uri("../.." + vc.Pronunciation, UriKind.Relative);
             mePronoun.Play();
         }
+        #endregion
 
+        #region Click Methods
+        private void btnGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            ResetAnimationStatus();
+            isUnloadToRight = true;
+            mePronoun.Source = null;
+        }
+        #endregion
+
+        #region Other Methods
         private void UpdateData()
         {
             vc = GetData.curWord;
@@ -60,12 +79,6 @@ namespace Game.Presentation.Pages
         {
             isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
         }
-
-        private void btnGoBack_Click(object sender, RoutedEventArgs e)
-        {
-            ResetAnimationStatus();
-            isUnloadToRight = true;
-            mePronoun.Source = null;
-        }
+        #endregion
     }
 }

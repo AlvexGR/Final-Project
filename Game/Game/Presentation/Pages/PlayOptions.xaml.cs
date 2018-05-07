@@ -22,7 +22,11 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class PlayOptions : BasePage<PlayOptionsViewModel>
     {
+        #region Properties
         private MainDb db;
+        #endregion
+
+        #region Constructor
         public PlayOptions()
         {
             InitializeComponent();
@@ -32,7 +36,9 @@ namespace Game.Presentation.Pages
                 ChangeStudyStatus(false);
             }
         }
+        #endregion
 
+        #region Other Methods
         public void ChangeStudyStatus(bool status)
         {
             btnSelectingPictureOnListening.IsEnabled = btnSelectingWordOnListening.IsEnabled = btnTypingWord.IsEnabled = status;
@@ -50,7 +56,9 @@ namespace Game.Presentation.Pages
         {
             isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
         }
+        #endregion
 
+        #region Click Methods
         private void btnGoBack_Click(object sender, RoutedEventArgs e)
         {
             ResetAnimationStatus();
@@ -69,16 +77,6 @@ namespace Game.Presentation.Pages
             isUnloadToLeft = true;
         }
 
-        private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
-        {
-            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
-        }
-
-        private void imgBackButton_MouseLeave(object sender, MouseEventArgs e)
-        {
-            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
-        }
-
         private void btnSelectingPictureOnListening_Click(object sender, RoutedEventArgs e)
         {
             ResetAnimationStatus();
@@ -90,5 +88,18 @@ namespace Game.Presentation.Pages
             ResetAnimationStatus();
             isUnloadToLeft = true;
         }
+        #endregion
+
+        #region MouseEnter and MouseLeave Methods
+        private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
+        }
+
+        private void imgBackButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
+        }
+        #endregion
     }
 }

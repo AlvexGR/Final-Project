@@ -57,7 +57,6 @@ namespace Game.Presentation.Pages
                 ListBoxItem lbi = new ListBoxItem();
                 lbi.BorderBrush = new SolidColorBrush(Colors.Black);
                 lbi.BorderThickness = new Thickness(1, 1, 1, 1);
-                lbi.Margin = new Thickness(0, 0, 0, 10);
                 TextBlock tbxWord = new TextBlock();
                 tbxWord.FontFamily = new FontFamily("Comic Sans MS");
                 tbxWord.FontSize = 20;
@@ -81,7 +80,6 @@ namespace Game.Presentation.Pages
                     ListBoxItem lbi = new ListBoxItem();
                     lbi.BorderBrush = new SolidColorBrush(Colors.Black);
                     lbi.BorderThickness = new Thickness(1, 1, 1, 1);
-                    lbi.Margin = new Thickness(0, 0, 0, 10);
                     TextBlock tbxWord = new TextBlock();
                     tbxWord.FontFamily = new FontFamily("Comic Sans MS");
                     tbxWord.FontSize = 20;
