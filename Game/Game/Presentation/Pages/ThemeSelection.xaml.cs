@@ -22,10 +22,11 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class ThemeSelection : BasePage<ThemeSelectionViewModel>
     {
-        private MainDb db = new MainDb();
+        private MainDb db;
         public ThemeSelection()
         {
             InitializeComponent();
+            db = new MainDb();
             lbxTheme.ItemsSource = db.Themes.Where(x=>x.Id!=11).ToList();
         }
 
@@ -40,14 +41,6 @@ namespace Game.Presentation.Pages
             isUnloadToRight = true;
         }
 
-        private void btnStart_Click(object sender, RoutedEventArgs e)
-        {
-            ResetAnimationStatus();
-            isUnloadToLeft = true;
-            GetData.curTheme = ((Theme)lbxTheme.SelectedItem).Id;
-            GetData.wordListTotal = db.Words.Where(x => x.Theme.Id == GetData.curTheme).ToList();
-        }
-
         private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
@@ -57,15 +50,14 @@ namespace Game.Presentation.Pages
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
         }
-
-        private void imgNextButton_MouseEnter(object sender, MouseEventArgs e)
+    
+        private void lbxTheme_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/correct_on.png", UriKind.Relative));
-        }
-
-        private void imgNextButton_MouseLeave(object sender, MouseEventArgs e)
-        {
-            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/correct.png", UriKind.Relative));
+            ResetAnimationStatus();
+            isUnloadToLeft = true;
+            GetData.curTheme = ((Theme)lbxTheme.SelectedItem).Id;
+            GetData.wordListTotal = db.Words.Where(x => x.Theme.Id == GetData.curTheme).ToList();
+            (DataContext as ThemeSelectionViewModel).WordSetCommand.Execute(null);
         }
     }
 }

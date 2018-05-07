@@ -16,11 +16,15 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class SelectingWordOnListening : BasePage<SelectingWordOnListeningViewModel>
     {
+        #region Properties
         private int idx = 0;
         private Vocabulary rightAnswer;
         private bool firstChoice = true;
         private MainDb db;
         private List<Vocabulary> vocabularies;
+        #endregion
+
+        #region Constructor
         public SelectingWordOnListening()
         {
             InitializeComponent();
@@ -32,6 +36,9 @@ namespace Game.Presentation.Pages
                             select word).Distinct().ToList();
             UpdateData();
         }
+        #endregion
+
+        #region Other Methods
         private void ResetAnimationStatus()
         {
             isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
@@ -77,16 +84,8 @@ namespace Game.Presentation.Pages
                 btnC.Content = otherWords[1].EnglishWord;
                 btnA.Content = otherWords[2].EnglishWord;
             }
-            btnCorrect.Visibility = Visibility.Hidden;
             mePronoun.Source = new Uri("../.." + rightAnswer.Pronunciation, UriKind.Relative);
             mePronoun.Play();
-        }
-
-        private void btnCorrect_Click(object sender, RoutedEventArgs e)
-        {
-            idx++;
-            UpdateData();
-            firstChoice = true;
         }
 
         private void CheckAnswer(object sender, RoutedEventArgs e)
@@ -94,49 +93,49 @@ namespace Game.Presentation.Pages
             var btnRealAnswer = (Button)sender;
             var realAnswer = btnRealAnswer.Content;
 
-            if(realAnswer.ToString() == rightAnswer.EnglishWord)
+            if (realAnswer.ToString() == rightAnswer.EnglishWord)
             {
                 btnRealAnswer.BorderBrush = new SolidColorBrush(Colors.Green);
                 btnRealAnswer.BorderThickness = new Thickness(3);
-                if(firstChoice)
+                if (firstChoice)
                 {
                     GetData.correctAnswer |= (1 << idx);
                 }
-                if(idx == (vocabularies.Count-1))
+                idx++;
+                if(idx == vocabularies.Count)
                 {
-                    btnFinish.Visibility = Visibility.Visible;
+                    ResetAnimationStatus();
+                    isUnloadToLeft = true;
+                    mePronoun.Source = null;
+                    GetData.medal = 1;
+                    (DataContext as SelectingWordOnListeningViewModel).ResultCommand.Execute(null);
                 }
                 else
                 {
-                    btnCorrect.Visibility = Visibility.Visible;
+                    UpdateData();
+                    firstChoice = true;
                 }
             }
             else
             {
                 btnRealAnswer.BorderThickness = new Thickness(3);
                 btnRealAnswer.BorderBrush = new SolidColorBrush(Colors.Red);
+                firstChoice = false;
             }
-            firstChoice = false;
-        }
-
-        private void btnPronoun_Click(object sender, RoutedEventArgs e)
-        {
-            mePronoun.Source = new Uri("../.." + rightAnswer.Pronunciation, UriKind.Relative);
-            mePronoun.Play();
-        }
-
-        private void btnFinish_Click(object sender, RoutedEventArgs e)
-        {
-            ResetAnimationStatus();
-            isUnloadToLeft = true;
-            mePronoun.Source = null;
-            GetData.medal = 1;
         }
 
         public void ResetButton()
         {
             btnA.BorderThickness = btnB.BorderThickness = btnC.BorderThickness = btnD.BorderThickness = new Thickness(0);
             btnA.BorderBrush = btnB.BorderBrush = btnC.BorderBrush = btnD.BorderBrush = new SolidColorBrush(Colors.White);
+        }
+        #endregion
+
+        #region Click Methods
+        private void btnPronoun_Click(object sender, RoutedEventArgs e)
+        {
+            mePronoun.Source = new Uri("../.." + rightAnswer.Pronunciation, UriKind.Relative);
+            mePronoun.Play();
         }
 
         private void btnGoBack_Click(object sender, RoutedEventArgs e)
@@ -145,7 +144,9 @@ namespace Game.Presentation.Pages
             isUnloadToRight = true;
             mePronoun.Source = null;
         }
+        #endregion
 
+        #region MouseEnter and MouseLeave Methods
         private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
@@ -155,24 +156,6 @@ namespace Game.Presentation.Pages
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
         }
-        private void imgCorrectButton_MouseEnter(object sender, MouseEventArgs e)
-        {
-            imgCorrectButton.Source = new BitmapImage(new Uri("/Images/Button/correct_on.png", UriKind.Relative));
-        }
-
-        private void imgCorrectButton_MouseLeave(object sender, MouseEventArgs e)
-        {
-            imgCorrectButton.Source = new BitmapImage(new Uri("/Images/Button/correct.png", UriKind.Relative));
-        }
-
-        private void imgFinishButton_MouseEnter(object sender, MouseEventArgs e)
-        {
-            imgFinishButton.Source = new BitmapImage(new Uri("/Images/Button/correct_on.png", UriKind.Relative));
-        }
-
-        private void imgFinishButton_MouseLeave(object sender, MouseEventArgs e)
-        {
-            imgFinishButton.Source = new BitmapImage(new Uri("/Images/Button/correct.png", UriKind.Relative));
-        }
+        #endregion
     }
 }

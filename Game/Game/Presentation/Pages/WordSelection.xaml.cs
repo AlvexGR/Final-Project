@@ -22,10 +22,15 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class WordSelection : BasePage<WordSelectionViewModel>
     {
+        #region Properties
         private List<Theme> themes;
         private List<Vocabulary> selectedWords;
         private MainDb db;
+        private bool justClear;
+        private bool enough;
+        #endregion
 
+        #region Constructor
         public WordSelection()
         {
             InitializeComponent();
@@ -35,14 +40,60 @@ namespace Game.Presentation.Pages
             themes.AddRange(db.Themes.Where(x => x.Id != 11).ToList());
             cbxTheme.ItemsSource = themes;
             lbxVocabularies.ItemsSource = db.Words.ToList();
+            enough = justClear = false;
         }
+        #endregion
 
+        #region Other Methods
         private void ResetAnimationStatus()
         {
             isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
         }
 
+        private void UpdateData(int type)
+        {
+            if (type == 1)
+            {
+                ListBoxItem lbi = new ListBoxItem();
+                lbi.BorderBrush = new SolidColorBrush(Colors.Black);
+                lbi.BorderThickness = new Thickness(1, 1, 1, 1);
+                lbi.Margin = new Thickness(0, 0, 0, 10);
+                TextBlock tbxWord = new TextBlock();
+                tbxWord.FontFamily = new FontFamily("Comic Sans MS");
+                tbxWord.FontSize = 20;
+                tbxWord.Text = (lbxSelectedVocabularies.Items.Count + 1).ToString() + ". " + selectedWords.Last().EnglishWord;
+                lbi.Content = tbxWord;
+                lbxSelectedVocabularies.Items.Add(lbi);
+                if(lbxSelectedVocabularies.Items.Count == 5)
+                {
+                    enough = true;
+                }
+            }
+            else
+            {
+                enough = false;
+                var selectedWord = selectedWords[lbxSelectedVocabularies.SelectedIndex];
+                selectedWords.Remove(selectedWord);
+                justClear = true;
+                lbxSelectedVocabularies.Items.Clear();
+                for (int i = 0; i < selectedWords.Count; i++)
+                {
+                    ListBoxItem lbi = new ListBoxItem();
+                    lbi.BorderBrush = new SolidColorBrush(Colors.Black);
+                    lbi.BorderThickness = new Thickness(1, 1, 1, 1);
+                    lbi.Margin = new Thickness(0, 0, 0, 10);
+                    TextBlock tbxWord = new TextBlock();
+                    tbxWord.FontFamily = new FontFamily("Comic Sans MS");
+                    tbxWord.FontSize = 20;
+                    tbxWord.Text = (lbxSelectedVocabularies.Items.Count + 1).ToString() + ". " + selectedWords[i].EnglishWord;
+                    lbi.Content = tbxWord;
+                    lbxSelectedVocabularies.Items.Add(lbi);
+                }
+            }
+        }
+        #endregion
 
+        #region SelectionChanged Methods
         private void cbxTheme_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedItem = (Theme)cbxTheme.SelectedItem;
@@ -55,10 +106,36 @@ namespace Game.Presentation.Pages
             {
                 lbxVocabularies.ItemsSource = db.Words.Where(x => x.Theme.Id == selectedItem.Id).OrderBy(x => x.EnglishWord).ToList();
             }
-
-            lbxVocabularies.SelectedIndex = 0;
+        }
+        private void lbxVocabularies_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(enough)
+            {
+                return;
+            }
+            var selectedWord = ((Vocabulary)lbxVocabularies.SelectedItem);
+            if (selectedWords.Contains(selectedWord)) return;
+            selectedWords.Add(selectedWord);
+            UpdateData(1);
+            if (selectedWords.Count == 5)
+            {
+                btnNext.Visibility = Visibility.Visible;
+            }
         }
 
+        private void lbxSelectedVocabularies_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(justClear)
+            {
+                justClear = false;
+                return;
+            }
+            UpdateData(2);
+            btnNext.Visibility = Visibility.Hidden;
+        }
+        #endregion
+
+        #region TextChanged Methods
         private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             var selectedItem = (Theme)cbxTheme.SelectedItem;
@@ -90,74 +167,9 @@ namespace Game.Presentation.Pages
                 }
             }
         }
-        private void UpdateData(int type)
-        {
-            if (type == 1) 
-            {
-                ListBoxItem lbi = new ListBoxItem();
-                lbi.BorderBrush = new SolidColorBrush(Colors.Black);
-                lbi.BorderThickness = new Thickness(1, 1, 1, 1);
-                lbi.Margin = new Thickness(0, 0, 0, 10);
-                TextBlock tbxWord = new TextBlock();
-                tbxWord.FontFamily = new FontFamily("Comic Sans MS");
-                tbxWord.FontSize = 20;
-                tbxWord.Text = (lbxSelectedVocabularies.Items.Count + 1).ToString() + ". " + selectedWords.Last().EnglishWord;
-                lbi.Content = tbxWord;
-                lbxSelectedVocabularies.Items.Add(lbi);
-            }
-            else
-            {
-                var selectedWord = selectedWords[lbxSelectedVocabularies.SelectedIndex];
+        #endregion
 
-                selectedWords.Remove(selectedWord);
-
-                lbxSelectedVocabularies.Items.Clear();
-
-                for (int i = 0; i< selectedWords.Count;i++ )
-                {
-                    ListBoxItem lbi = new ListBoxItem();
-                    lbi.BorderBrush = new SolidColorBrush(Colors.Black);
-                    lbi.BorderThickness = new Thickness(1, 1, 1, 1);
-                    lbi.Margin = new Thickness(0, 0, 0, 10);
-                    TextBlock tbxWord = new TextBlock();
-                    tbxWord.FontFamily = new FontFamily("Comic Sans MS");
-                    tbxWord.FontSize = 20;
-                    tbxWord.Text = (lbxSelectedVocabularies.Items.Count + 1).ToString() + ". " + selectedWords[i].EnglishWord;
-                    lbi.Content = tbxWord;
-                    lbxSelectedVocabularies.Items.Add(lbi);
-                }
-            }
-            if (lbxSelectedVocabularies.Items.Count > 0) 
-            {
-                lbxSelectedVocabularies.SelectedIndex = 0;
-            }
-        }
-
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            btnRemove.IsEnabled = true;
-            var selectedWord = ((Vocabulary)lbxVocabularies.SelectedItem);
-            if (selectedWords.Contains(selectedWord)) return;
-            selectedWords.Add(selectedWord);
-            UpdateData(1);
-            if (selectedWords.Count == 5)
-            {
-                btnNext.Visibility = Visibility.Visible;
-                btnAdd.IsEnabled = false;
-                return;
-            }
-        }
-
-        private void btnRemove_Click(object sender, RoutedEventArgs e)
-        {
-            btnAdd.IsEnabled = true;
-            UpdateData(2);
-            if(selectedWords.Count == 0)
-            {
-                btnRemove.IsEnabled = false;
-            }
-            btnNext.Visibility = Visibility.Hidden;
-        }
+        #region Click Methods
 
         private void btnGoBack_Click(object sender, RoutedEventArgs e)
         {
@@ -194,7 +206,9 @@ namespace Game.Presentation.Pages
             db.WordSets.AddRange(wordSets);
             db.SaveChanges();
         }
+        #endregion
 
+        #region MouseEnter and MouseLeave Methods
         private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
@@ -214,5 +228,6 @@ namespace Game.Presentation.Pages
         {
             imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/correct.png", UriKind.Relative));
         }
+        #endregion
     }
 }

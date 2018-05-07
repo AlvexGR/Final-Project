@@ -22,12 +22,16 @@ namespace Game.Presentation.Pages
     /// </summary>
     public partial class SelectingPictureOnListening : BasePage<SelectingPictureOnListeningViewModel>
     {
+        #region Properties
         private int idx = 0;
         private Vocabulary rightAnswer;
         int indexOfRightAnswer = 0;
         private bool firstChoice = true;
         private MainDb db;
         private List<Vocabulary> vocabularies;
+        #endregion
+
+        #region Constructor
         public SelectingPictureOnListening()
         {
             InitializeComponent();
@@ -39,7 +43,9 @@ namespace Game.Presentation.Pages
                             select word).Distinct().ToList();
             UpdateData();
         }
+        #endregion
 
+        #region Other Methods
         private void UpdateData()
         {
             ResetButton();
@@ -82,7 +88,6 @@ namespace Game.Presentation.Pages
                 imgA.Source = new BitmapImage(new Uri(otherWords[1].Image, UriKind.Relative));
                 imgC.Source = new BitmapImage(new Uri(otherWords[2].Image, UriKind.Relative));
             }
-            btnCorrect.Visibility = Visibility.Hidden;
             mePronoun.Source = new Uri("../.." + rightAnswer.Pronunciation, UriKind.Relative);
             mePronoun.Play();
         }
@@ -114,23 +119,27 @@ namespace Game.Presentation.Pages
                 {
                     GetData.correctAnswer |= (1 << idx);
                 }
-                btnRealAnswer.BorderBrush = new SolidColorBrush(Colors.Green);
-                btnRealAnswer.BorderThickness = new Thickness(3);
-                if (idx == (vocabularies.Count - 1))
+                idx++;
+                if (idx == vocabularies.Count)
                 {
-                    btnFinish.Visibility = Visibility.Visible;
+                    ResetAnimationStatus();
+                    isUnloadToLeft = true;
+                    mePronoun.Source = null;
+                    GetData.medal = 2;
+                    (DataContext as SelectingPictureOnListeningViewModel).ResultCommand.Execute(null);
                 }
                 else
                 {
-                    btnCorrect.Visibility = Visibility.Visible;
+                    UpdateData();
+                    firstChoice = true;
                 }
             }
             else
             {
                 btnRealAnswer.BorderBrush = new SolidColorBrush(Colors.Red);
                 btnRealAnswer.BorderThickness = new Thickness(3);
+                firstChoice = false;
             }
-            firstChoice = false;
         }
         public void ResetButton()
         {
@@ -141,7 +150,9 @@ namespace Game.Presentation.Pages
         {
             isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
         }
+        #endregion
 
+        #region Click Methods
         private void btnGoBack_Click(object sender, RoutedEventArgs e)
         {
             ResetAnimationStatus();
@@ -154,28 +165,9 @@ namespace Game.Presentation.Pages
             mePronoun.Source = new Uri("../.." + rightAnswer.Pronunciation, UriKind.Relative);
             mePronoun.Play();
         }
-        private void btnCorrect_Click(object sender, RoutedEventArgs e)
-        {
-            idx++;
-            UpdateData();
-            firstChoice = true;
-        }
+        #endregion
 
-        private void btnFinish_Click(object sender, RoutedEventArgs e)
-        {
-            ResetAnimationStatus();
-            isUnloadToLeft = true;
-            mePronoun.Source = null;
-            //PlayHistory playHistory = new PlayHistory()
-            //{
-            //    Date = DateTime.Today,
-            //    Score = GetData.correctAnswer
-            //};
-            //db.PlayHistories.Add(playHistory);
-            //db.SaveChanges();
-            GetData.medal = 2;
-        }
-
+        #region MouseEnter and MouseLeave Methods
         private void imgBackButton_MouseEnter(object sender, MouseEventArgs e)
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button_on.png", UriKind.Relative));
@@ -185,24 +177,6 @@ namespace Game.Presentation.Pages
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
         }
-        private void imgCorrectButton_MouseEnter(object sender, MouseEventArgs e)
-        {
-            imgCorrectButton.Source = new BitmapImage(new Uri("/Images/Button/correct_on.png", UriKind.Relative));
-        }
-
-        private void imgCorrectButton_MouseLeave(object sender, MouseEventArgs e)
-        {
-            imgCorrectButton.Source = new BitmapImage(new Uri("/Images/Button/correct.png", UriKind.Relative));
-        }
-
-        private void imgFinishButton_MouseEnter(object sender, MouseEventArgs e)
-        {
-            imgFinishButton.Source = new BitmapImage(new Uri("/Images/Button/correct_on.png", UriKind.Relative));
-        }
-
-        private void imgFinishButton_MouseLeave(object sender, MouseEventArgs e)
-        {
-            imgFinishButton.Source = new BitmapImage(new Uri("/Images/Button/correct.png", UriKind.Relative));
-        }
+        #endregion
     }
 }

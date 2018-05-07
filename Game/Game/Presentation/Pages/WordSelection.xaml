@@ -49,7 +49,7 @@
                                     <TextBlock Text="Tìm kiếm:" Style="{StaticResource NormalTextblock}" VerticalAlignment="Center"/>
                                     <TextBox x:Name="txtSearch" VerticalAlignment="Center" FontFamily="Comic Sans MS" TextChanged="txtSearch_TextChanged" Grid.Column="1" Height="30" FontSize="15" BorderThickness="0 0 0 1"/>
                                 </Grid>
-                                <ListBox x:Name="lbxVocabularies" Margin="0 10 0 0" BorderThickness="0" Height="330">
+                                <ListBox x:Name="lbxVocabularies" Margin="0 10 0 0" BorderThickness="0" Height="330" SelectionChanged="lbxVocabularies_SelectionChanged">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
                                             <TextBlock Text="{Binding EnglishWord}" FontSize="18"/>
@@ -60,33 +60,7 @@
                             <!--Selected Word list-->
                             <StackPanel Grid.Column="2" VerticalAlignment="Center">
                                 <TextBlock FontSize="25" Text="Các từ đã chọn" Grid.Column="0" HorizontalAlignment="Center" Style="{StaticResource NormalTextblock}"/>
-                                <ListBox x:Name="lbxSelectedVocabularies" BorderThickness="0" Height="220"/>
-                                <StackPanel Orientation="Horizontal">
-                                    <Button Style="{StaticResource NormalButton}"  x:Name="btnAdd" Margin="0 0 0 0" Height="60" Click="btnAdd_Click">
-                                        <StackPanel Orientation="Horizontal">
-                                            <Grid>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="50"/>
-                                                    <ColumnDefinition Width="70"/>
-                                                </Grid.ColumnDefinitions>
-                                                <Image x:Name="imgAdd"  Source="/Images/Button/new.png" Width="40" Height="40"/>
-                                                <TextBlock Text="Thêm" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                                            </Grid>
-                                        </StackPanel>
-                                    </Button>
-                                    <Button Style="{StaticResource NormalButton}"  x:Name="btnRemove" Command="{Binding ThemeCommand}" Margin="10 0 0 0" Height="60" Click="btnRemove_Click">
-                                        <StackPanel Orientation="Horizontal">
-                                            <Grid>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="50"/>
-                                                    <ColumnDefinition Width="70"/>
-                                                </Grid.ColumnDefinitions>
-                                                <Image x:Name="imgRemove"  Source="/Images/Button/delete.png" Width="40" Height="40"/>
-                                                <TextBlock Text="Xoá" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                                            </Grid>
-                                        </StackPanel>
-                                    </Button>
-                                </StackPanel>
+                                <ListBox x:Name="lbxSelectedVocabularies" BorderThickness="0" Height="220" SelectionChanged="lbxSelectedVocabularies_SelectionChanged"/>
                             </StackPanel>
                         </Grid>
                     </StackPanel>

@@ -12,7 +12,7 @@
         <Grid Height="600">
             <Border CornerRadius="15" Background="White" Width="300" Margin="0 50 0 120">
                 <StackPanel Margin="20" >
-                    <ListBox Width="260" Height="390" x:Name="lbxTheme" SelectedIndex="0" BorderThickness="0">
+                    <ListBox Width="260" Height="390" x:Name="lbxTheme" BorderThickness="0" SelectionChanged="lbxTheme_SelectionChanged">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" Height="65">
@@ -37,17 +37,6 @@
                     </Button>
                 </Grid>
             </StackPanel>
-            <!--<Button x:Name="btnNext" Click="btnStart_Click" Command="{Binding WordSetCommand}" Style="{StaticResource NextButton}" HorizontalAlignment="Left" Margin="653,449,0,0" VerticalAlignment="Top" Width="70" Height="70" FontSize="18">
-                <Image x:Name="imgNextButton" Source="/Images/Button/next_button.png" MouseEnter="imgNextButton_MouseEnter" MouseLeave="imgNextButton_MouseLeave"/>
-            </Button>-->
-            <StackPanel>
-                <Grid Height="540" Width="70" HorizontalAlignment="Right">
-                    <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Style="{StaticResource NextButton}" x:Name="btnNext" Click="btnStart_Click" Command="{Binding WordSetCommand}" Width="70" Height="70">
-                        <Image x:Name="imgNextButton" Source="/Images/Button/correct.png" MouseEnter="imgNextButton_MouseEnter" MouseLeave="imgNextButton_MouseLeave"/>
-                    </Button>
-                </Grid>
-            </StackPanel>
-
         </Grid>
     </StackPanel>
 </local:BasePage>
