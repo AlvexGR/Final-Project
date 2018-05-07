@@ -14,7 +14,7 @@ namespace Game.Model
 
         public DbSet<Vocabulary> Words { get; set; }
 
-        public DbSet<PlayHistory> PlayHistories { get; set; }
+        //public DbSet<PlayHistory> PlayHistories { get; set; }
 
         public DbSet<Set> Sets { get; set; }
 

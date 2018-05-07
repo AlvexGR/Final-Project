@@ -101,15 +101,15 @@ namespace Game.Presentation.Pages
         }
 
         //History
-        private void imgHistory_MouseEnter(object sender, MouseEventArgs e)
-        {
-            imgHistory.Source = new BitmapImage(new Uri("/Images/Other/trophy_on.png", UriKind.Relative));
-        }
+        //private void imgHistory_MouseEnter(object sender, MouseEventArgs e)
+        //{
+        //    imgHistory.Source = new BitmapImage(new Uri("/Images/Other/trophy_on.png", UriKind.Relative));
+        //}
 
-        private void imgHistory_MouseLeave(object sender, MouseEventArgs e)
-        {
-            imgHistory.Source = new BitmapImage(new Uri("/Images/Other/trophy.png", UriKind.Relative));
-        }
+        //private void imgHistory_MouseLeave(object sender, MouseEventArgs e)
+        //{
+        //    imgHistory.Source = new BitmapImage(new Uri("/Images/Other/trophy.png", UriKind.Relative));
+        //}
 
         //Setting
         private void imgSetting_MouseEnter(object sender, MouseEventArgs e)

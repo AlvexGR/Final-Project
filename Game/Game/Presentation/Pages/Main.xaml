@@ -27,11 +27,11 @@
                     </Button>
                 </Grid>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Center" Margin="0 70 0 0" Grid.Column="1" >
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" >
                 <Border CornerRadius="15" Background="White" Width="300">
                     <StackPanel Margin="20">
                         <!-- theme-->
-                        <Button Style="{StaticResource NormalButton}"  x:Name="btnTheme" Command="{Binding ThemeCommand}" Margin="0 0 0 50" Height="65" Click="btnTheme_Click">
+                        <Button Style="{StaticResource NormalButton}"  x:Name="btnTheme" Command="{Binding ThemeCommand}" Margin="0 0 0 30" Height="65" Click="btnTheme_Click">
                             <StackPanel Orientation="Horizontal">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -44,7 +44,7 @@
                             </StackPanel>
                         </Button>
                         <!--option-->
-                        <Button Style="{StaticResource NormalButton}"  x:Name="btnOption" Command="{Binding OptionCommand}" Margin="0 0 0 50" Height="65" Click="btnOption_Click">
+                        <Button Style="{StaticResource NormalButton}"  x:Name="btnOption" Command="{Binding OptionCommand}" Margin="0 0 0 30" Height="65" Click="btnOption_Click">
                             <StackPanel Orientation="Horizontal">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -58,7 +58,7 @@
                         </Button>
 
                         <!--<Button Style="{StaticResource NormalButton}" x:Name="btnVocabularyList" Command="{Binding VocabularyListCommand}" Content="Từ vựng" Margin="0 0 0 50" Height="65" FontSize="18" FontFamily="Comic Sans MS" Click="btnVocabularyList_Click"/>-->
-                        <Button Style="{StaticResource NormalButton}"  x:Name="btnVocabularyList" Command="{Binding VocabularyListCommand}" Margin="0 0 0 50" Height="65" Click="btnVocabularyList_Click">
+                        <Button Style="{StaticResource NormalButton}"  x:Name="btnVocabularyList" Command="{Binding VocabularyListCommand}" Margin="0 0 0 30" Height="65" Click="btnVocabularyList_Click">
                             <StackPanel Orientation="Horizontal">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -67,6 +67,19 @@
                                     </Grid.ColumnDefinitions>
                                     <Image x:Name="imgVocabularyList"  Source="/Images/Button/vocabulary.png" Width="50" Height="50"/>
                                     <TextBlock Text="Từ vựng" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                </Grid>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource NormalButton}" Command="{Binding SettingCommand}" Margin="0 0 0 30" Height="65" Click="btnSetting_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition Width="190"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image x:Name="imgSetting"  Source="/Images/Button/vocabulary.png" Width="50" Height="50"/>
+                                    <TextBlock Text="Cài đặt" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                 </Grid>
                             </StackPanel>
                         </Button>
@@ -86,14 +99,14 @@
                     </StackPanel>
                 </Border>
             </StackPanel>
-            <StackPanel Grid.Column="3" VerticalAlignment="Center" Margin="0 0 30 0">
+            <!--<StackPanel Grid.Column="3" VerticalAlignment="Center" Margin="0 0 30 0">
                 <Button Command="{Binding SettingCommand}" Style="{StaticResource SettingButton}" Margin="0 0 0 20" Height="70" Width="70" Click="btnSetting_Click">
                     <Image x:Name="imgSetting" Source="/Images/Button/setting.png" MouseEnter="imgSetting_MouseEnter" MouseLeave="imgSetting_MouseLeave"/>
                 </Button>
                 <Button Command="{Binding HistoryCommand}" Style="{StaticResource HistoryButton}" x:Name="btnHistory" Click="btnHistory_Click" Margin="0 25 0 20" Height="70" Width="70">
                     <Image x:Name="imgHistory" Source="/Images/Other/trophy.png" MouseEnter="imgHistory_MouseEnter" MouseLeave="imgHistory_MouseLeave"/>
                 </Button>
-            </StackPanel>
+            </StackPanel>-->
         </Grid>
     </StackPanel>
 </local:BasePage>
