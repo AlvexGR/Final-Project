@@ -46,7 +46,7 @@ namespace Game.Presentation.Pages
             tbxUserName.Text = tbxUserName.Text.Trim();
             if (tbxUserName.Text.Length <= 3)
             {
-                tbxError.Text = "Tên tài khoản phải ít nhất 4 kí tự";
+                tbxError.Text = "Tên đăng nhập phải ít nhất 4 kí tự";
                 tbxError.Visibility = Visibility.Visible;
                 return false;
             }
@@ -64,7 +64,7 @@ namespace Game.Presentation.Pages
             }
             if (db.Users.Where(x => x.Username == tbxUserName.Text).ToList().Count == 1)
             {
-                tbxError.Text = "Tên tài khoản đã tồn tại";
+                tbxError.Text = "Tên đăng nhập đã tồn tại";
                 tbxError.Visibility = Visibility.Visible;
                 return false;
             }
