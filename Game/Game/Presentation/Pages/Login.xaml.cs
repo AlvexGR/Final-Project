@@ -38,7 +38,7 @@ namespace Game.Presentation.Pages
         #region Other Methods
         private void ResetAnimationStatus()
         {
-            isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
+            isUnloadToLeft = isUnloadToRight = isLoadFromLeft = isLoadFromRight = firstTime = false;
         }
 
         private bool CanLogin()

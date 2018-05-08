@@ -78,7 +78,7 @@
                                         <ColumnDefinition Width="60"/>
                                         <ColumnDefinition Width="190"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image x:Name="imgSetting"  Source="/Images/Button/vocabulary.png" Width="50" Height="50"/>
+                                    <Image x:Name="imgSetting"  Source="/Images/Button/settings.png" Width="50" Height="50"/>
                                     <TextBlock Text="Cài đặt" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                 </Grid>
                             </StackPanel>

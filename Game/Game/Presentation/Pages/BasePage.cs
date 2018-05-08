@@ -36,7 +36,7 @@ namespace Game.Presentation.Pages
 
         public bool isLoadFromRight { set; get; }
 
-        public bool isLoadBack { set; get; }
+        public bool isLoadFromLeft { set; get; }
 
         public bool isUnloadToRight { set; get; }
 
@@ -57,7 +57,7 @@ namespace Game.Presentation.Pages
             {
                 await AnimateInFromRight();
             }
-            if(isLoadBack)
+            if(isLoadFromLeft)
             {
                 await AnimateInFromLeft();
             }
@@ -69,8 +69,7 @@ namespace Game.Presentation.Pages
             {
                 await AnimateOutToLeft();
             }
-            isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
-            if (GetNameOfObject.GetName(this.ToString()) == "Login" && GetData.didRegister)
+            if (GetData.didRegister && GetNameOfObject.GetName(ToString()) == "Login")
             {
                 (this as Login).tbxUserName.Text = GetData.currentUser.Username;
                 (this as Login).tbxError.Text = "Đăng kí thành công";
@@ -83,10 +82,15 @@ namespace Game.Presentation.Pages
             {
                 (this as WordSet).LoadData();
             }
-            if (GetNameOfObject.GetName(ToString()) == "PlayOptions" && GetData.isLearned && GetData.isTheme)
+            if (isLoadFromLeft && GetNameOfObject.GetName(ToString()) == "ThemeSelection")
+            {
+                (this as ThemeSelection).lbxTheme.UnselectAll();
+            }
+            if (GetData.isLearned && GetData.isTheme && GetNameOfObject.GetName(ToString()) == "PlayOptions")
             {
                 (this as PlayOptions).ChangeStudyStatus(true);
             }
+            isUnloadToLeft = isUnloadToRight = firstTime = isLoadFromLeft = isLoadFromRight = false;
         }
 
         public async Task AnimateInFromRight()

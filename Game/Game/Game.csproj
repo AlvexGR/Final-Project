@@ -400,13 +400,8 @@
     <Resource Include="135077_Oq2_icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Button\button1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Theme\cothe.png" />
     <Resource Include="Images\Theme\toanhoc.png" />
-    <Resource Include="Images\Button\finishStudy.png" />
-    <Resource Include="Images\Button\finishStudy_on.png" />
     <Resource Include="Images\Other\correct.png" />
     <Resource Include="Images\Other\medal.png" />
     <Resource Include="Images\Other\star.png" />
@@ -438,28 +433,20 @@
     <Resource Include="Images\Button\login.png" />
     <Resource Include="Images\Button\menu.png" />
     <Resource Include="Images\Button\vocabulary.png" />
-    <Resource Include="Images\Button\exit.png" />
     <Resource Include="Images\Button\exit_on.png" />
-    <Resource Include="Images\Button\theme.png" />
     <Resource Include="Images\Button\theme_on.png" />
     <Resource Include="Images\Background\background.png" />
-    <Resource Include="Images\Button\logout.png" />
     <Resource Include="Images\Button\correct.png" />
     <Resource Include="Images\Button\arrow_left_on.png" />
     <Resource Include="Images\Button\arrow_right_on.png" />
-    <Resource Include="Images\Button\setting_on.png" />
     <Resource Include="Images\Other\trophy_on.png" />
-    <Resource Include="Images\Button\next_button_on.png" />
     <Resource Include="Images\Button\back_button_on.png" />
     <Resource Include="Images\Button\back_button.png" />
     <Resource Include="Images\Other\trophy.png" />
     <Resource Include="Images\Button\finish.png" />
-    <Resource Include="Images\Button\next_button.png" />
     <Resource Include="Images\Button\arrow_left.png" />
     <Resource Include="Images\Button\arrow_right.png" />
     <Resource Include="Images\Button\audio.png" />
-    <Resource Include="Images\Button\setting.png" />
-    <Resource Include="Images\Button\lookup.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -636,6 +623,13 @@
     <Content Include="Audios\Vocabulary Pronunciations\write.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\yellow.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\zebra.mp3" />
+    <Resource Include="Images\Button\confirmWords.png" />
+    <Resource Include="Images\Button\confirmWords_on.png" />
+    <Resource Include="Images\Theme\dungcuhoctap.png" />
+    <Resource Include="Images\Theme\ngoinha.png" />
+    <Resource Include="Images\Theme\noichon.png" />
+    <Resource Include="Images\Theme\phuongtiengiaothong.png" />
+    <Resource Include="Images\Button\settings.png" />
     <Resource Include="Images\Background\background1.png" />
     <Resource Include="Images\Background\background2.jpg" />
     <Resource Include="Images\Background\background3.jpg" />

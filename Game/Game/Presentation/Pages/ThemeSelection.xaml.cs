@@ -38,7 +38,7 @@ namespace Game.Presentation.Pages
         #region Other Methods
         private void ResetAnimationStatus()
         {
-            isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
+            isUnloadToLeft = isUnloadToRight = isLoadFromLeft = isLoadFromRight = firstTime = false;
         }
         #endregion
 
@@ -65,6 +65,10 @@ namespace Game.Presentation.Pages
         #region SelectionChanged Methods
         private void lbxTheme_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (lbxTheme.SelectedItem is null)
+            {
+                return;
+            }
             ResetAnimationStatus();
             isUnloadToLeft = true;
             GetData.curTheme = ((Theme)lbxTheme.SelectedItem).Id;
@@ -72,5 +76,6 @@ namespace Game.Presentation.Pages
             (DataContext as ThemeSelectionViewModel).WordSetCommand.Execute(null);
         }
         #endregion
+
     }
 }

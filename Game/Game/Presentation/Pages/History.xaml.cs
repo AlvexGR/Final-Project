@@ -36,7 +36,7 @@ namespace Game.Presentation.Pages
 
         //private void ResetAnimationStatus()
         //{
-        //    isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
+        //    isUnloadToLeft = isUnloadToRight = isLoadFromLeft = isLoadFromRight = firstTime = false;
         //}
 
         //private void btnGoBack_Click(object sender, RoutedEventArgs e)

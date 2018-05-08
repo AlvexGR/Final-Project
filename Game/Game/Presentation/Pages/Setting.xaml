@@ -10,10 +10,8 @@
       Title="Setting">
     <StackPanel>
         <Grid Height="600">
-            <Border CornerRadius="15" Background="White" Width="300" Margin="0 55 0 55">
+            <Border CornerRadius="15" Background="White" Width="300" VerticalAlignment="Center">
                 <StackPanel Margin="20">
-                    <TextBlock x:Name="tbxVolume" Text="Âm lượng: 0" FontFamily="Comic Sans MS" FontSize="18" Margin="20 0 20 20"/>
-                    <Slider x:Name="slideVolume" IsSnapToTickEnabled="True" Margin="20 0 20 20" ValueChanged="slideVolume_ValueChanged" Maximum="100" SmallChange="0" TickFrequency="5"/>
                     <GroupBox FontFamily="Comic Sans MS" Header="Thay đổi mật khẩu" FontSize="15" Height="365">
                         <StackPanel>
                             <TextBlock Text="Mật khẩu hiện tại" FontSize="18" FontFamily="Comic Sans MS" Margin="0 20 0 0"/>

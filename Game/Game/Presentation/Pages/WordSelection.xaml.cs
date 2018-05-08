@@ -47,7 +47,7 @@ namespace Game.Presentation.Pages
         #region Other Methods
         private void ResetAnimationStatus()
         {
-            isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
+            isUnloadToLeft = isUnloadToRight = isLoadFromLeft = isLoadFromRight = firstTime = false;
         }
 
         private void UpdateData(int type)
@@ -107,6 +107,10 @@ namespace Game.Presentation.Pages
         }
         private void lbxVocabularies_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if(lbxVocabularies.SelectedItem is null)
+            {
+                return;
+            }
             if(enough)
             {
                 return;
@@ -219,12 +223,19 @@ namespace Game.Presentation.Pages
 
         private void imgNextButton_MouseEnter(object sender, MouseEventArgs e)
         {
-            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/correct_on.png", UriKind.Relative));
+            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/confirmWords_on.png", UriKind.Relative));
         }
 
         private void imgNextButton_MouseLeave(object sender, MouseEventArgs e)
         {
-            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/correct.png", UriKind.Relative));
+            imgNextButton.Source = new BitmapImage(new Uri("/Images/Button/confirmWords.png", UriKind.Relative));
+        }
+        #endregion
+
+        #region LostFocus Methods
+        private void lbxVocabularies_LostFocus(object sender, RoutedEventArgs e)
+        {
+            lbxVocabularies.UnselectAll();
         }
         #endregion
     }

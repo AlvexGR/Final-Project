@@ -31,14 +31,13 @@ namespace Game.Presentation.Pages
         {
             InitializeComponent();
             db = new MainDb();
-            slideVolume.Value = GetData.volume;
         }
         #endregion
 
         #region Other Methods
         private void ResetAnimationStatus()
         {
-            isUnloadToLeft = isUnloadToRight = isLoadBack = isLoadFromRight = firstTime = false;
+            isUnloadToLeft = isUnloadToRight = isLoadFromLeft = isLoadFromRight = firstTime = false;
         }
 
         private bool CanChange()
@@ -93,13 +92,6 @@ namespace Game.Presentation.Pages
         private void imgBackButton_MouseLeave(object sender, MouseEventArgs e)
         {
             imgBackButton.Source = new BitmapImage(new Uri("/Images/Button/back_button.png", UriKind.Relative));
-        }
-        #endregion
-
-        #region ValueChanged Methods
-        private void slideVolume_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            tbxVolume.Text = "Âm lượng: " + slideVolume.Value.ToString();
         }
         #endregion
     }

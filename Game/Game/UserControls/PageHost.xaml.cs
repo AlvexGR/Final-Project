@@ -53,7 +53,7 @@ namespace Game.UserControls
             {
                 tmpPageFrame.Content = curPage;
                 var prePage = PageStack.pageStack.Pop();
-                prePage.isLoadBack = true;
+                prePage.isLoadFromLeft = true;
                 curPageFrame.Content = prePage;
             }
 
