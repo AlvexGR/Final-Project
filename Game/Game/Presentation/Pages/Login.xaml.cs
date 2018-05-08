@@ -73,6 +73,7 @@ namespace Game.Presentation.Pages
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
+            tbxError.Visibility = Visibility.Hidden;
             ResetAnimationStatus();
             isUnloadToLeft = true;
         }

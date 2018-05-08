@@ -2,7 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Game.Style"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
-
     <Style TargetType="{x:Type Control}" x:Key="BaseStyle">
         <Setter Property="FontFamily" Value="Comic Sans MS"/>
     </Style>

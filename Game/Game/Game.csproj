@@ -623,6 +623,8 @@
     <Content Include="Audios\Vocabulary Pronunciations\write.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\yellow.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\zebra.mp3" />
+    <Resource Include="Images\Background\dotdotdot3.png" />
+    <Resource Include="Images\Background\dotdotdot5.png" />
     <Resource Include="Images\Button\confirmWords.png" />
     <Resource Include="Images\Button\confirmWords_on.png" />
     <Resource Include="Images\Theme\dungcuhoctap.png" />
