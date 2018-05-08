@@ -42,7 +42,7 @@ namespace Game.Presentation.Pages
 
         private bool CanChange()
         {
-            if (GetData.currentUser.Password != tbxCurPass.Password)
+            if (db.Users.Find(GetData.currentUser.Id).Password != tbxCurPass.Password)
             {
                 tbxStatus.Text = "Mật khẩu hiện tại không đúng";
                 tbxStatus.Visibility = Visibility.Visible;
