@@ -24,7 +24,7 @@ namespace Game.Presentation.Pages
         private bool firstTry = true;
         private List<Vocabulary> vocabularies;
         private MainDb db;
-        private Dictionary<List<int>, bool> uniqueRand;
+        private Dictionary<string, bool> uniqueRand;
         #endregion
 
         #region Constructor
@@ -32,7 +32,7 @@ namespace Game.Presentation.Pages
         {
             InitializeComponent();
             db = new MainDb();
-            uniqueRand = new Dictionary<List<int>, bool>();
+            uniqueRand = new Dictionary<string, bool>();
             GetData.correctAnswer = 0;
             vocabularies = (from wordSet in db.WordSets
                             join word in db.Words on wordSet.WordId equals word.Id
@@ -88,6 +88,7 @@ namespace Game.Presentation.Pages
             }
             typingArea.Children[typingIdx].Focus();
             (wordArea.Children[typingIdx] as TextBlock).Foreground = Brushes.Green;
+            uniqueRand.Clear();
         }
         private void increasingProgressBar()
         {
@@ -187,32 +188,32 @@ namespace Game.Presentation.Pages
                             lst.Add(i);
                         }
                         List<int> result = new List<int>();
-                        List<int> ans = new List<int>();
+                        string ans = "";
                         result = lst.OrderBy(item => rd.Next()).ToList();
                         for (int i = 0; i < result.Count; i++)
                         {
                             if (result[i] < lossLetters)
                             {
-                                ans.Add(i);
+                                ans += i.ToString()+"_";
                             }
                         }
-                        while(uniqueRand.Keys.Contains(ans))
+                        while(uniqueRand.ContainsKey(ans))
                         {
-                            ans.Clear();
+                            ans = "";
                             result = lst.OrderBy(item => rd.Next()).ToList();
                             for (int i = 0; i < result.Count; i++)
                             {
                                 if (result[i] < lossLetters)
                                 {
-                                    ans.Add(i);
-
+                                    ans += i.ToString() + "_";
                                 }
                             }
                         }
                         uniqueRand[ans] = true;
-                        foreach(var i in ans)
+                        ans = ans.Trim('_');
+                        foreach(var i in ans.Split('_'))
                         {
-                            wordArea.Children[i].Visibility = Visibility.Hidden;
+                            wordArea.Children[Convert.ToInt32(i)].Visibility = Visibility.Hidden;
                         }
                     }
                 }

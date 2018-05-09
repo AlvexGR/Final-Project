@@ -30,7 +30,6 @@
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" >
                 <Border CornerRadius="15" Background="White" Width="300">
                     <StackPanel Margin="20">
-                        <!-- theme-->
                         <Button Style="{StaticResource NormalButton}"  x:Name="btnTheme" Command="{Binding ThemeCommand}" Margin="0 0 0 30" Height="65" Click="btnTheme_Click">
                             <StackPanel Orientation="Horizontal">
                                 <Grid>
@@ -43,7 +42,7 @@
                                 </Grid>
                             </StackPanel>
                         </Button>
-                        <!--option-->
+                        
                         <Button Style="{StaticResource NormalButton}"  x:Name="btnOption" Command="{Binding OptionCommand}" Margin="0 0 0 30" Height="65" Click="btnOption_Click">
                             <StackPanel Orientation="Horizontal">
                                 <Grid>
@@ -78,7 +77,7 @@
                                         <ColumnDefinition Width="190"/>
                                     </Grid.ColumnDefinitions>
                                     <Image x:Name="imgSetting"  Source="/Images/Button/settings.png" Width="50" Height="50"/>
-                                    <TextBlock Text="Thay đổi mật khẩu" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="Đổi mật khẩu" Grid.Column="1" Padding="10 0 0 0" FontSize="18" FontFamily="Comic Sans MS" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                 </Grid>
                             </StackPanel>
                         </Button>

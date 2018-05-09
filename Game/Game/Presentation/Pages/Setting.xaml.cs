@@ -42,6 +42,13 @@ namespace Game.Presentation.Pages
 
         private bool CanChange()
         {
+            if (String.IsNullOrEmpty(tbxNewPass.Password))
+            {
+                tbxStatus.Text = "Chưa nhập mật khẩu mới";
+                tbxStatus.Visibility = Visibility.Visible;
+                tbxStatus.Foreground = Brushes.Red;
+                return false;
+            }
             if (db.Users.Find(GetData.currentUser.Id).Password != tbxCurPass.Password)
             {
                 tbxStatus.Text = "Mật khẩu hiện tại không đúng";

@@ -69,6 +69,7 @@ namespace Game.Presentation.Pages
                 tbxError.Visibility = Visibility.Hidden;
                 (DataContext as LoginViewModel).MainCommand.Execute(null);
             }
+            tbxError.Visibility = Visibility.Hidden;
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
