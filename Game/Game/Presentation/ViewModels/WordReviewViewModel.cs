@@ -14,7 +14,6 @@ namespace Game.Presentation
         
         #region Public Properties
         public ICommand PreviousCommand { set; get; }
-
         #endregion
 
         #region Constructor

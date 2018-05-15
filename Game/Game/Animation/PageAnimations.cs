@@ -8,6 +8,7 @@ namespace Game.Animation
 {
     public static class PageAnimations
     {
+        #region Load Methods
         public static async Task SlideFromRight(this Page page, float seconds)
         {
             var sb = new Storyboard();
@@ -37,7 +38,9 @@ namespace Game.Animation
 
             await Task.Delay((int)(seconds * 1000));
         }
+        #endregion
 
+        #region Unload Methods
         public static async Task SlideToLeft(this Page page, float seconds)
         {
             var sb = new Storyboard();
@@ -67,6 +70,6 @@ namespace Game.Animation
 
             await Task.Delay((int)(seconds * 1000));
         }
-
+        #endregion
     }
 }

@@ -9,6 +9,7 @@ namespace Game.UserControls
 {
     public static class GetData
     {
+        #region Static Properties
         public static List<Vocabulary> wordListTotal = new List<Vocabulary>();
         public static int curTheme = -1;
         public static bool isTheme = false;
@@ -21,5 +22,6 @@ namespace Game.UserControls
         public static int medal = 0;
         public static int curSet;
         public static bool created = false;
+        #endregion
     }
 }

@@ -17,7 +17,6 @@ namespace Game.Presentation
         public ICommand OptionCommand { set; get; }
         public ICommand VocabularyListCommand { set; get; }
         public ICommand SettingCommand { set; get; }
-        public ICommand HistoryCommand { set; get; }
         public ICommand PreviousCommand { set; get; }
         #endregion
 
@@ -27,7 +26,6 @@ namespace Game.Presentation
             ThemeCommand = new RelayCommand(async() => await GoToTheme());
             OptionCommand = new RelayCommand(async() => await GoToOption());
             SettingCommand = new RelayCommand(async () => await GoToSetting());
-            HistoryCommand = new RelayCommand(async () => await GoToHistory());
             VocabularyListCommand = new RelayCommand(async () => await GoToVocabularyList());
             PreviousCommand = new RelayCommand(async () => await GoToPrevious());
         }
@@ -64,12 +62,6 @@ namespace Game.Presentation
             ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.SettingPage;
             await Task.Delay(1);
         }
-
-        public async Task GoToHistory()
-        {
-            ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = AppPage.AppPage.HistoryPage;
-            await Task.Delay(1);
-        } 
         #endregion
     }
 }

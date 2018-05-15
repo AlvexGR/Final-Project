@@ -25,6 +25,7 @@ namespace Game.UserControls
             DependencyProperty.Register(nameof(CurrentPage), typeof(BasePage), typeof(PageHost), new UIPropertyMetadata(CurrentPagePropertyChanged));
 
         #endregion
+
         #region Constructor
         public PageHost()
         {
@@ -33,7 +34,6 @@ namespace Game.UserControls
         #endregion
 
         #region Property Changed Events
-        
         private static void CurrentPagePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             // Get the frame

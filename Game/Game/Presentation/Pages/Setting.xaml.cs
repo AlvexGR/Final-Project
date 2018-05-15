@@ -56,6 +56,12 @@ namespace Game.Presentation.Pages
                 tbxStatus.Foreground = Brushes.Red;
                 return false;
             }
+            if (tbxNewPass.Password.Length <= 7)
+            {
+                tbxStatus.Text = "Mật khẩu phải ít nhất 8 kí tự";
+                tbxStatus.Visibility = Visibility.Visible;
+                return false;
+            }
             if (tbxNewPass.Password != tbxReNewPass.Password)
             {
                 tbxStatus.Text = "Mật khẩu mới không khớp";

@@ -138,9 +138,6 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\WordSet.cs" />
     <Compile Include="Presentation\Pages\BasePage.cs" />
-    <Compile Include="Presentation\Pages\History.xaml.cs">
-      <DependentUpon>History.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Presentation\Pages\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -199,7 +196,6 @@
     <Compile Include="Presentation\ViewModels\PlayOptionsViewModel.cs" />
     <Compile Include="Presentation\ViewModels\ThemeSelectionViewModel.cs" />
     <Compile Include="Presentation\ViewModels\VocabularyListViewModel.cs" />
-    <Compile Include="Presentation\ViewModels\HistoryViewModel.cs" />
     <Compile Include="Presentation\ViewModels\SettingViewModel.cs" />
     <Compile Include="Presentation\ViewModels\MainViewModel.cs" />
     <Compile Include="Presentation\ViewModels\RelayParameterizedCommand.cs" />
@@ -220,9 +216,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="AppPage\AppPage.cs" />
-    <Compile Include="Model\Background.cs" />
-    <Compile Include="Model\PlayHistory.cs" />
-    <Compile Include="Model\Setting.cs" />
     <Compile Include="Model\Theme.cs" />
     <Compile Include="Model\Vocabulary.cs" />
     <Compile Include="Presentation\ViewModels\BaseViewModel.cs" />
@@ -230,10 +223,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Presentation\Pages\History.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Presentation\Pages\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -623,6 +612,7 @@
     <Content Include="Audios\Vocabulary Pronunciations\write.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\yellow.mp3" />
     <Content Include="Audios\Vocabulary Pronunciations\zebra.mp3" />
+    <Resource Include="Images\Word\starfruit.jpg" />
     <Resource Include="Images\Background\dotdotdot3.png" />
     <Resource Include="Images\Background\dotdotdot5.png" />
     <Resource Include="Images\Button\confirmWords.png" />

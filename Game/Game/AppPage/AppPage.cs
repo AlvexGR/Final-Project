@@ -4,7 +4,7 @@
     {
         MainPage = 0,
         WordSetPage = 1,
-        HistoryPage = 2,
+        RegisterPage = 2,
         SettingPage = 3,
         ThemeSelectionPage = 4,
         VocabularyListPage = 5,
@@ -17,7 +17,5 @@
         SelectingPictureOnListeningPage = 12,
         TypingWordPage = 13,
         LoginPage = 14,
-        RegisterPage = 15,
-        
     }
 }

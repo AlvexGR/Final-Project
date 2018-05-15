@@ -12,8 +12,6 @@ namespace Game
             {
                 case AppPage.AppPage.MainPage:
                     return new Main();
-                case AppPage.AppPage.HistoryPage:
-                    return new History();
                 case AppPage.AppPage.SettingPage:
                     return new Setting();
                 case AppPage.AppPage.ThemeSelectionPage:
